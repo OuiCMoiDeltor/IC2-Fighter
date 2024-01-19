@@ -14,4 +14,4 @@ Date de création du projet : 19/01/2024
 
 Date de fin de projet : 
 
-Lien vers le diagramme de Gantt :
+Lien vers le diagramme de Gantt : https://docs.google.com/spreadsheets/d/1d9ZwU15C1wNe00g5flbpJSgmUwiRcuBdvZGvnuwIYhw/edit?pli=1#gid=1115838130
