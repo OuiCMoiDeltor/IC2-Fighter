@@ -2,10 +2,10 @@
 Projet sur la création d'un jeu de combat de 1 à 2 joueurs, édité par "La Team Projet" dans le cadre du Projet de fin d'études L2 Informatique - Le Mans Université 2023-2024
 
 # Auteur :
-@Damienvbgt 
-@im-MnX 
-@OuiCMoiDeltor 
-@Yass72k
+- [@Damienvbgt]  
+- [@im-MnX] 
+- [@OuiCMoiDeltor] 
+- [@Yass72k] 
 
 # Nom du projet :
 IC2 Fighter
