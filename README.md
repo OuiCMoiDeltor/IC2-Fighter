@@ -3,9 +3,9 @@ Projet sur la création d'un jeu de combat de 1 à 2 joueurs, édité par "La Te
 
 # Auteur :
 - [@Damienvbgt](https://github.com/Damienvbgt)
-- [@im-MnX] 
-- [@OuiCMoiDeltor] 
-- [@Yass72k] 
+- [@im-MnX](https://github.com/im-MnX)
+- [@OuiCMoiDeltor](https://github.com/OuiCMoiDeltor)
+- [@Yass72k](https://github.com/Yass72k)
 
 # Nom du projet :
 IC2 Fighter
