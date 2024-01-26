@@ -11,7 +11,7 @@ Projet sur la création d'un jeu de combat de 1 à 2 joueurs, édité par "La Te
 
 # Nom du projet
 
-IC2 Fighter
+<strong>IC2 Fighter</strong>
 
 # Description du projet
 
