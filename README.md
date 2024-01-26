@@ -2,7 +2,7 @@
 
 Projet sur la création d'un jeu de combat de 1 à 2 joueurs, édité par "La Team Projet" dans le cadre de l'année de L2 informatique
 
-COMTE Quentin, VEAU-BIGOT Damien, BOUGLE Dimitri, GHRIB YACINE
+COMTE Quentin, VEAU-BIGOT Damien, BOUGLE Dimitri, GHRIB Yacine
 
 Projet de fin d'études L2 Informatique - Le Mans Université 2023-2024
 
