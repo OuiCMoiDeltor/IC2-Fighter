@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
     SDL_Window *window = SDL_CreateWindow(NOM_JEU, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, LARGEUR_F, HAUTEUR_F, SDL_WINDOW_SHOWN);
     if (window == NULL) {
         printf("Erreur lors de la création de la fenêtre : %s\n", SDL_GetError());
+        SDL_Quit();
         return 1;
     }
     
@@ -33,16 +34,28 @@ int main(int argc, char* argv[]) {
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (renderer == NULL) {
         printf("Erreur lors de la création du renderer : %s\n", SDL_GetError());
+        SDL_DestroyWindow(window);
+        SDL_Quit();
         return 1;
     }
 
     // Création de l'image de fond
     SDL_Texture *imageTexture = creerImage(renderer, IMG_MAIN_SCREEN);
-    if(imageTexture == NULL) return 1;
+    if(imageTexture == NULL) {
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
     
     // Création de l'image du logo
     SDL_Texture *logoTexture = creerImage(renderer, IMG_LOGO);
-    if(logoTexture == NULL) return 1;
+    if(logoTexture == NULL) {
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
 
     // Création du rectangle pour le logo
     SDL_Rect logoRect = {LARGEUR_F/4, HAUTEUR_F/3/4, LARGEUR_F/2, HAUTEUR_F/3 - HAUTEUR_F/3/4};
