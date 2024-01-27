@@ -17,6 +17,7 @@ SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
   if (imageTexture == NULL)
   {
     printf("Erreur lors de la création de la texture : %s\n", SDL_GetError());
+    SDL_FreeSurface(imageSurface);
     return NULL;
   }
 
