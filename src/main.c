@@ -20,6 +20,7 @@
 // Texte
 #define TTF_CONTRAST "../ttf/city_contrasts/contrast.ttf"
 
+typedef enum {MENU_PRINCIPAL, OPTIONS}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de SDL
@@ -58,55 +59,25 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Création de l'image de fond
-    SDL_Texture *imageTexture = creerImage(renderer, IMG_MAIN_SCREEN);
-    if(imageTexture == NULL) exit(EXIT_FAILURE);
-    
-    // Création du logo
-    SDL_Texture *logoTexture = creerImage(renderer, IMG_LOGO);
-    if(logoTexture == NULL) exit(EXIT_FAILURE);
-    SDL_Rect logoRect = {LARGEUR_F/4, HAUTEUR_F/3/4, LARGEUR_F/2, HAUTEUR_F/3 - HAUTEUR_F/3/4};
-
-    // Boutons du menu principal
-        //Options
-        int largeurOptions = LARGEUR_F/(1400/280);
-        int hauteurOptions = HAUTEUR_F/2;
-        bouton *boutonOptions = creerBouton(renderer, LARGEUR_F/(1400/65), HAUTEUR_F/(1045/115), largeurOptions, hauteurOptions, IMG_BOUTON_OPT);
-        if(boutonOptions == NULL) exit(EXIT_FAILURE);
+    #include "../lib/menu_principal/init_menu_principal.h"
 
     // Boucle principale
     int quit = 0;
     SDL_Event e;
+    scenes scene = MENU_PRINCIPAL;
 
     while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
                 quit = 1;
             }
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonOptions->position->x && e.motion.x < boutonOptions->position->x + largeurOptions && e.motion.y > boutonOptions->position->y && e.motion.y < boutonOptions->position->y + hauteurOptions) {
-                boutonOptions->etat = BOUTON_APPUYE;
-            }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonOptions->position->x && e.motion.x < boutonOptions->position->x + largeurOptions && e.motion.y > boutonOptions->position->y && e.motion.y < boutonOptions->position->y + hauteurOptions) {
-                quit = 1;
-            }else if (e.type == SDL_MOUSEBUTTONUP && boutonOptions->etat == BOUTON_APPUYE  || boutonOptions->etat == BOUTON_OVER && !(e.motion.x > boutonOptions->position->x && e.motion.x < boutonOptions->position->x + largeurOptions && e.motion.y > boutonOptions->position->y && e.motion.y < boutonOptions->position->y + hauteurOptions)) {
-                boutonOptions->etat = BOUTON_RELACHE;
-            }else if (e.motion.x > boutonOptions->position->x && e.motion.x < boutonOptions->position->x + largeurOptions && e.motion.y > boutonOptions->position->y && e.motion.y < boutonOptions->position->y + hauteurOptions && boutonOptions->etat == BOUTON_RELACHE) {
-                boutonOptions->etat = BOUTON_OVER;
-            }
+            #include "../lib/menu_principal/event_menu_principal.h"
         }
 
         // Effacement de l'écran
         SDL_RenderClear(renderer);
 
-        // Dessiner l'image
-        SDL_RenderCopy(renderer, imageTexture, NULL, NULL);
-
-        // Dessiner le logo
-        SDL_RenderCopy(renderer, logoTexture, NULL, &logoRect);
-
-        // Dessiner le bouton des Options
-        if(boutonOptions->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptions->texture, boutonOptions->relache, boutonOptions->position);
-        else if (boutonOptions->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptions->texture, boutonOptions->appuye, boutonOptions->position);
-        else if (boutonOptions->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptions->texture, boutonOptions->over, boutonOptions->position);
+        #include "../lib/menu_principal/affichage_menu_principal.h"
 
         // Mise à jour de l'affichage
         SDL_RenderPresent(renderer);
