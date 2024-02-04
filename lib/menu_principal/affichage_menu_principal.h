@@ -1,6 +1,6 @@
 if(scene == MENU_PRINCIPAL) {
-// Dessiner l'image
-        SDL_RenderCopy(renderer, imageTexture, NULL, NULL);
+// Dessiner l'image de fond
+        SDL_RenderCopy(renderer, mainMenuBGTexture, NULL, NULL);
 
 // Dessiner le logo
         SDL_RenderCopy(renderer, logoTexture, NULL, &logoRect);
