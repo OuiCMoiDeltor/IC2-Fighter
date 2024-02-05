@@ -20,8 +20,8 @@ typedef enum {MENU_PRINCIPAL, OPTIONS}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
-    int largeurF = 1680;
-    int hauteurF = 1050;
+    int largeurF = 800;
+    int hauteurF = 600;
 
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -85,7 +85,9 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+    SDL_SetWindowFullscreen(window, 0);
+    int fullscreen = 0;
+
     //SDL_SetWindowDisplayMode(window, &displayMode);
     
     // Création du renderer
@@ -94,6 +96,8 @@ int main(int argc, char* argv[]) {
         printf("Erreur lors de la création du renderer : %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
     }
+
+    listeT_t *listeTexture = creerListeT(); // Stock les pointeurs sur texture
 
     #include "../lib/menu_principal/init_menu_principal.h" // Initialisation du menu principal
     #include "../lib/options/init_options.h" // Initialisation du menu options
@@ -124,8 +128,7 @@ int main(int argc, char* argv[]) {
 
     // Libération des ressources
     DestroyBouton(&boutonOptions);
-    SDL_DestroyTexture(mainMenuBGTexture); mainMenuBGTexture = NULL;
-    SDL_DestroyTexture(logoTexture); logoTexture = NULL;
+    detruireListeT(&listeTexture);
     SDL_DestroyRenderer(renderer); renderer = NULL;
     SDL_DestroyWindow(window); window = NULL;
     TTF_CloseFont(font); font = NULL;

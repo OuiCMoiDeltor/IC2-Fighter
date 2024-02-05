@@ -3,6 +3,53 @@
 #include "../lib/creation.h"
 
 extern
+listeT_t *creerListeT() {
+  listeT_t *liste = malloc(sizeof(listeT_t));
+  liste->pTexture = NULL;
+  liste->suivant = NULL;
+  return liste;
+}
+
+extern
+void ajoutListeT(listeT_t **liste, SDL_Texture *Texture) {
+  if((*liste)->suivant == NULL) {
+    (*liste)->pTexture = Texture;
+    (*liste)->suivant = (*liste);
+  }
+  else {
+    listeT_t *new = malloc(sizeof(listeT_t));
+    listeT_t *temp = (*liste)->suivant;
+    (*liste)->suivant = new;
+    (*liste)->suivant->suivant = temp;
+    temp = NULL;
+    new = NULL;
+    (*liste) = (*liste)->suivant;
+    (*liste)->pTexture = Texture;
+  }
+}
+
+extern
+void detruireListeT(listeT_t **liste) {
+  listeT_t *dernier = (*liste);
+  (*liste) = (*liste)->suivant;
+  listeT_t *temp = (*liste)->suivant;
+  while((*liste) != dernier) {
+    SDL_DestroyTexture((*liste)->pTexture);
+    (*liste)->pTexture = NULL;
+    (*liste)->suivant = NULL;
+    free((*liste));
+    (*liste) = temp;
+    temp = (*liste)->suivant;
+  }
+  temp = NULL;
+  (*liste)->suivant = NULL;
+  SDL_DestroyTexture((*liste)->pTexture);
+  (*liste)->pTexture = NULL;
+  free((*liste));
+  (*liste) = NULL;
+}
+
+extern
 SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
 {
   // Chargement de l'image

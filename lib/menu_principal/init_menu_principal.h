@@ -1,10 +1,12 @@
 // Création de l'image de fond
     SDL_Texture *mainMenuBGTexture = creerImage(renderer, IMG_MAIN_MENU_BG);
     if(mainMenuBGTexture == NULL) exit(EXIT_FAILURE);
+    ajoutListeT(&listeTexture, mainMenuBGTexture);
     
 // Création du logo
     SDL_Texture *logoTexture = creerImage(renderer, IMG_LOGO);
     if(logoTexture == NULL) exit(EXIT_FAILURE);
+    ajoutListeT(&listeTexture, logoTexture);
     SDL_Rect logoRect = {largeurF/4, hauteurF/3/4, largeurF/2, hauteurF/3 - hauteurF/3/4};
 
 // Boutons du menu principal
