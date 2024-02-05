@@ -20,13 +20,46 @@ typedef enum {MENU_PRINCIPAL, OPTIONS}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
-    int largeurF = 800;
-    int hauteurF = 600;
+    int largeurF = 1680;
+    int hauteurF = 1050;
 
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("Erreur lors de l'initialisation de SDL : %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
+    }
+    
+    SDL_DisplayMode displayMode;
+    if (SDL_GetDesktopDisplayMode(0, &displayMode) != 0) {
+        SDL_Log("Erreur lors de l'obtention du mode d'affichage : %s", SDL_GetError());
+        SDL_Quit();
+        return 1;
+    }
+
+    // Afficher la résolution de l'écran
+    printf("Résolution de l'écran : %dx%d pixels\n", displayMode.w, displayMode.h);
+    
+    // Obtenir le nombre de modes d'affichage disponibles sur l'écran principal
+    int displayIndex = 0; // Écran principal
+    int numModes = SDL_GetNumDisplayModes(displayIndex);
+
+    if (numModes < 1) {
+        SDL_Log("Aucun mode d'affichage disponible : %s", SDL_GetError());
+        SDL_Quit();
+        return 1;
+    }
+
+    printf("Résolutions prises en charge par l'écran principal :\n");
+
+    for (int i = 0; i < numModes; i++) {
+        SDL_DisplayMode mode;
+        if (SDL_GetDisplayMode(displayIndex, i, &mode) != 0) {
+            SDL_Log("Erreur lors de l'obtention du mode d'affichage : %s", SDL_GetError());
+            SDL_Quit();
+            return 1;
+        }
+
+        printf("Mode %d: %dx%d pixels, %dhz\n", i + 1, mode.w, mode.h, mode.refresh_rate);
     }
 
     // Initialisation de TTF
@@ -53,6 +86,7 @@ int main(int argc, char* argv[]) {
     }
 
     SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+    //SDL_SetWindowDisplayMode(window, &displayMode);
     
     // Création du renderer
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
