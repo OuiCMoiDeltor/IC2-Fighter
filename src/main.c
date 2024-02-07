@@ -128,6 +128,9 @@ int main(int argc, char* argv[]) {
 
     // Libération des ressources
     DestroyBouton(&boutonOptions);
+    DestroyBouton(&boutonOptionsFullscreenOn);
+    DestroyBouton(&boutonOptionsFullscreenOff);
+    DestroyBouton(&boutonOptionsBack);
     detruireListeT(&listeTexture);
     SDL_DestroyRenderer(renderer); renderer = NULL;
     SDL_DestroyWindow(window); window = NULL;
