@@ -5,6 +5,12 @@ else if(scene == OPTIONS) {
 // Dessiner l'image du titre des options
         SDL_RenderCopy(renderer, optionsTitleTexture, NULL, &optionsTitleRect);
 
+// Dessiner l'image Résolution des options
+        SDL_RenderCopy(renderer, optionsResolutionTexture, NULL, &optionsResolutionRect);
+
+// Dessiner l'image Plein écran des options
+        SDL_RenderCopy(renderer, optionsFullscreenTexture, NULL, &optionsFullscreenRect);
+
 // Dessiner le bouton du plein écran
         if(fullscreen) {
                 if(boutonOptionsFullscreenOff->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->relache, boutonOptionsFullscreenOff->position);

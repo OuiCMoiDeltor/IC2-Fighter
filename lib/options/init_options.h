@@ -7,19 +7,19 @@
     SDL_Texture *optionsTitleTexture = creerImage(renderer, IMG_OPTIONS_TITLE);
     if(optionsTitleTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, optionsTitleTexture);
-    SDL_Rect optionsTitleRect = {largeurF/4, hauteurF/12/16, largeurF/2, hauteurF/4};
+    SDL_Rect optionsTitleRect = {largeurF/4, hauteurF/3/4, largeurF/2, hauteurF/4};
 
-/*
-// Création image résolution des Options
+//Création image résolution des Options
     SDL_Texture *optionsResolutionTexture = creerImage(renderer, IMG_OPTIONS_RESOLUTION);
     if(optionsResolutionTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, optionsResolutionTexture);
+    SDL_Rect optionsResolutionRect = {largeurF/4, (hauteurF/3/4)*3, largeurF/2, hauteurF/4};
 
 // Création image plein écran des Options
     SDL_Texture *optionsFullscreenTexture = creerImage(renderer, IMG_OPTIONS_FULLSCREEN);
     if(optionsFullscreenTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, optionsFullscreenTexture);
-*/
+    SDL_Rect optionsFullscreenRect= {largeurF/4, (hauteurF/9)*5, largeurF/2, hauteurF/4};
 
 // Boutons
     // plein écran
