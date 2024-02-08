@@ -4,7 +4,7 @@ Projet sur la création d'un jeu de combat de 1 à 2 joueurs, édité par "La Te
 
 # Auteurs
 
-- [@Damienvbgt](https://github.com/Damienvbgt) (\t) Damien VEAU--BIGOT
+- [@Damienvbgt](https://github.com/Damienvbgt) &nbsp; Damien VEAU--BIGOT
 - [@im-MnX](https://github.com/im-MnX) \t Dimitri BOUGLE
 - [@OuiCMoiDeltor](https://github.com/OuiCMoiDeltor) \t Quentin COMTE
 - [@Yass72k](https://github.com/Yass72k) \t Yacine GHRIB
