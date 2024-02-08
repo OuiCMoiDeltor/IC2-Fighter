@@ -11,7 +11,7 @@
 #define NOM_JEU "IC2 Fighter"
 
 // Texte
-#define TTF_CONTRAST "../ttf/city_contrasts/contrast.ttf"
+#define TTF_CONTRAST "ttf/city_contrasts/contrast.ttf"
 
 #include "../lib/menu_principal/define_menu_principal.h"
 #include "../lib/options/define_options.h"
@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
         printf("Mode %d: %dx%d pixels, %dhz\n", i + 1, mode.w, mode.h, mode.refresh_rate);
     }
 
-    // Initialisation de TTF
+    // Initialisation de 
     if(TTF_Init()==-1) {
         printf("Erreur lors de l'initialisation de la librairie TTF_Init: %s\n", TTF_GetError());
         exit(EXIT_FAILURE);
