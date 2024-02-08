@@ -1,8 +1,8 @@
 // Images
 #define IMG_OPTIONS_BG "img/optionsBG.bmp"
 #define IMG_OPTIONS_TITLE "img/optionsTitle.bmp"
-#define IMG_OPTIONS_RESOLUTION "img/ResD.bmp"
-#define IMG_OPTIONS_FULLSCREEN "img/FullScreenD.bmp"
+#define IMG_OPTIONS_RESOLUTION "img/optionsResolution.bmp"
+#define IMG_OPTIONS_FULLSCREEN "img/optionsPleinEcran.bmp"
 #define IMG_OPTIONS_FULLSCREEN_TURN_ON "img/optionsFullscreenTurnOn.bmp"
 #define IMG_OPTIONS_FULLSCREEN_TURN_OFF "img/optionsFullscreenTurnOff.bmp"
 #define IMG_OPTIONS_BACK "img/optionsBack.bmp"
