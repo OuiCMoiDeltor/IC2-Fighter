@@ -7,7 +7,7 @@
     SDL_Texture *optionsTitleTexture = creerImage(renderer, IMG_OPTIONS_TITLE);
     if(optionsTitleTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, optionsTitleTexture);
-    SDL_Rect optionsTitleRect = {largeurF/4, 0, largeurF/2, hauteurF/8};
+    SDL_Rect optionsTitleRect = {largeurF/4, hauteurF/12/16, largeurF/2, hauteurF/4};
 
 /*
 // Création image résolution des Options
