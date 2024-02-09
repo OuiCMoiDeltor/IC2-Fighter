@@ -3,51 +3,51 @@ else if(scene == OPTIONS) {
         SDL_RenderCopy(renderer, optionsBGTexture, NULL, NULL);
 
 // Dessiner l'image du titre des options
-        SDL_RenderCopy(renderer, optionsTitleTexture, NULL, &optionsTitleRect);
+        SDL_RenderCopy(renderer, optionsTitleTexture, NULL, optionsTitleRect->rect);
 
 // Dessiner l'image Résolution des options
-        SDL_RenderCopy(renderer, optionsResolutionTexture, NULL, &optionsResolutionRect);
+        SDL_RenderCopy(renderer, optionsResolutionTexture, NULL, optionsResolutionRect->rect);
 
 // Dessiner l'image Plein écran des options
-        SDL_RenderCopy(renderer, optionsFullscreenTexture, NULL, &optionsFullscreenRect);
+        SDL_RenderCopy(renderer, optionsFullscreenTexture, NULL, optionsFullscreenRect->rect);
 
 // Dessiner le texte des résolutions des options
         switch(Res)
         {
                 case(0):
-                        SDL_RenderCopy(renderer, optionsRes1680x1050, NULL, &optionsResTextRect);
+                        SDL_RenderCopy(renderer, optionsRes1680x1050, NULL, optionsResTextRect->rect);
                         break;
                 case(1):
-                        SDL_RenderCopy(renderer, optionsRes1024x768, NULL, &optionsResTextRect);
+                        SDL_RenderCopy(renderer, optionsRes1024x768, NULL, optionsResTextRect->rect);
                         break;
         }
 
 // Dessiner le bouton gauche de la résolution
-        if(boutonOptionsSwapResLeft->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->relache, boutonOptionsSwapResLeft->position);
-        else if (boutonOptionsSwapResLeft->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->appuye, boutonOptionsSwapResLeft->position);
-        else if (boutonOptionsSwapResLeft->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->over, boutonOptionsSwapResLeft->position);
+        if(boutonOptionsSwapResLeft->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->relache, boutonOptionsSwapResLeft->position->rect);
+        else if (boutonOptionsSwapResLeft->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->appuye, boutonOptionsSwapResLeft->position->rect);
+        else if (boutonOptionsSwapResLeft->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->over, boutonOptionsSwapResLeft->position->rect);
 // Dessiner le bouton droit de la résolution
-        if(boutonOptionsSwapResRight->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->relache, boutonOptionsSwapResRight->position);
-        else if (boutonOptionsSwapResRight->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->appuye, boutonOptionsSwapResRight->position);
-        else if (boutonOptionsSwapResRight->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->over, boutonOptionsSwapResRight->position);
+        if(boutonOptionsSwapResRight->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->relache, boutonOptionsSwapResRight->position->rect);
+        else if (boutonOptionsSwapResRight->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->appuye, boutonOptionsSwapResRight->position->rect);
+        else if (boutonOptionsSwapResRight->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->over, boutonOptionsSwapResRight->position->rect);
 // Dessiner le bouton accepter de la résolution
-        if(boutonOptionsSwapAccept->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->relache, boutonOptionsSwapAccept->position);
-        else if (boutonOptionsSwapAccept->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->appuye, boutonOptionsSwapAccept->position);
-        else if (boutonOptionsSwapAccept->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->over, boutonOptionsSwapAccept->position);
+        if(boutonOptionsSwapAccept->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->relache, boutonOptionsSwapAccept->position->rect);
+        else if (boutonOptionsSwapAccept->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->appuye, boutonOptionsSwapAccept->position->rect);
+        else if (boutonOptionsSwapAccept->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->over, boutonOptionsSwapAccept->position->rect);
 
 // Dessiner le bouton du plein écran
         if(fullscreen) {
-                if(boutonOptionsFullscreenOff->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->relache, boutonOptionsFullscreenOff->position);
-                else if (boutonOptionsFullscreenOff->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->appuye, boutonOptionsFullscreenOff->position);
-                else if (boutonOptionsFullscreenOff->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->over, boutonOptionsFullscreenOff->position);
+                if(boutonOptionsFullscreenOff->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->relache, boutonOptionsFullscreenOff->position->rect);
+                else if (boutonOptionsFullscreenOff->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->appuye, boutonOptionsFullscreenOff->position->rect);
+                else if (boutonOptionsFullscreenOff->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsFullscreenOff->texture, boutonOptionsFullscreenOff->over, boutonOptionsFullscreenOff->position->rect);
         }else {
-                if(boutonOptionsFullscreenOn->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOn->texture, boutonOptionsFullscreenOn->relache, boutonOptionsFullscreenOn->position);
-                else if (boutonOptionsFullscreenOn->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOn->texture, boutonOptionsFullscreenOn->appuye, boutonOptionsFullscreenOn->position);
-                else if (boutonOptionsFullscreenOn->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsFullscreenOn->texture, boutonOptionsFullscreenOn->over, boutonOptionsFullscreenOn->position);
+                if(boutonOptionsFullscreenOn->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOn->texture, boutonOptionsFullscreenOn->relache, boutonOptionsFullscreenOn->position->rect);
+                else if (boutonOptionsFullscreenOn->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsFullscreenOn->texture, boutonOptionsFullscreenOn->appuye, boutonOptionsFullscreenOn->position->rect);
+                else if (boutonOptionsFullscreenOn->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsFullscreenOn->texture, boutonOptionsFullscreenOn->over, boutonOptionsFullscreenOn->position->rect);
         }
 
 // Dessiner le bouton retour
-        if(boutonOptionsBack->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->relache, boutonOptionsBack->position);
-        else if (boutonOptionsBack->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->appuye, boutonOptionsBack->position);
-        else if (boutonOptionsBack->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->over, boutonOptionsBack->position);
+        if(boutonOptionsBack->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->relache, boutonOptionsBack->position->rect);
+        else if (boutonOptionsBack->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->appuye, boutonOptionsBack->position->rect);
+        else if (boutonOptionsBack->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->over, boutonOptionsBack->position->rect);
 }

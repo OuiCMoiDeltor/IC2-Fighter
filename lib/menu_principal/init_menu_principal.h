@@ -7,9 +7,9 @@
     SDL_Texture *logoTexture = creerImage(renderer, IMG_LOGO);
     if(logoTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, logoTexture);
-    SDL_Rect logoRect = {largeurF/4, hauteurF/3/6, largeurF/2, hauteurF/3 - hauteurF/3/8};
+    rectangle *logoRect = creerRectangle(&listeRectangle, &largeurF, &hauteurF, 4.0, 3*6.0, 2.0, 3*8/7.0);
 
 // Boutons du menu principal
     //Options
-        bouton *boutonOptions = creerBouton(renderer, largeurF/(1400/65), hauteurF/(1045/115), largeurF/(1400/280), hauteurF/2, IMG_BOUTON_OPT);
+        bouton *boutonOptions = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/65.0, 1045/115.0, 1400/280.0, 2.0, IMG_BOUTON_OPT);
         if(boutonOptions == NULL) exit(EXIT_FAILURE);

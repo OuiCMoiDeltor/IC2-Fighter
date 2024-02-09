@@ -4,7 +4,6 @@
 #include <SDL2/SDL_mixer.h>
 
 // Fonctions
-#include "../lib/creation.h"
 #include "../lib/bouton.h"
 
 // Fenêtre
@@ -98,6 +97,7 @@ int main(int argc, char* argv[]) {
     }
 
     listeT_t *listeTexture = creerListeT(); // Stock les pointeurs sur texture
+    listeRect *listeRectangle = creerListeRect(); // Stock les pointeurs sur Rectangle
 
     #include "../lib/menu_principal/init_menu_principal.h" // Initialisation du menu principal
     #include "../lib/options/init_options.h" // Initialisation du menu options
@@ -134,6 +134,7 @@ int main(int argc, char* argv[]) {
     DestroyBouton(&boutonOptionsFullscreenOn);
     DestroyBouton(&boutonOptionsFullscreenOff);
     DestroyBouton(&boutonOptionsBack);
+    detruireListeRect(&listeRectangle);
     detruireListeT(&listeTexture);
     SDL_DestroyRenderer(renderer); renderer = NULL;
     SDL_DestroyWindow(window); window = NULL;

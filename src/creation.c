@@ -100,3 +100,84 @@ SDL_Texture *creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL
   
   return texteTexture;
 }
+
+extern
+listeRect *creerListeRect() {
+  listeRect *liste = malloc(sizeof(listeRect));
+  liste->pRect = NULL;
+  liste->suivant = NULL;
+  return liste;
+}
+
+extern
+void detruireListeRect(listeRect **liste)
+{
+  listeRect *dernier = (*liste);
+  (*liste) = (*liste)->suivant;
+  listeRect *temp = (*liste)->suivant;
+  while((*liste) != dernier) {
+    free((*liste)->pRect->rect);
+    (*liste)->pRect->rect = NULL;
+    free((*liste)->pRect);
+    (*liste)->pRect = NULL;
+    (*liste)->suivant = NULL;
+    free((*liste));
+    (*liste) = temp;
+    temp = (*liste)->suivant;
+  }
+  temp = NULL;
+  (*liste)->suivant = NULL;
+  free((*liste)->pRect->rect);
+  (*liste)->pRect->rect = NULL;
+  free((*liste)->pRect);
+  (*liste)->pRect = NULL;
+  free((*liste));
+  (*liste) = NULL;
+}
+
+extern
+void updateRectangles(listeRect *liste)
+{
+  listeRect *pListe = liste;
+  do{
+    pListe->pRect->rect->x = (*pListe->pRect->largeur)/pListe->pRect->ratioX;
+    pListe->pRect->rect->y = (*pListe->pRect->hauteur)/pListe->pRect->ratioY;
+    pListe->pRect->rect->w = (*pListe->pRect->largeur)/pListe->pRect->ratioW;
+    pListe->pRect->rect->h = (*pListe->pRect->hauteur)/pListe->pRect->ratioH;
+    pListe = pListe->suivant;
+  }while(pListe != liste);
+}
+
+extern
+rectangle *creerRectangle(listeRect **liste, int *largeur, int *hauteur, float rX, float rY, float rW, float rH)
+{
+  rectangle *pRect = malloc(sizeof(rectangle));
+  pRect->largeur = largeur;
+  pRect->hauteur = hauteur;
+  pRect->ratioX = rX;
+  pRect->ratioY = rY;
+  pRect->ratioW = rW;
+  pRect->ratioH = rH;
+  pRect->rect = malloc(sizeof(SDL_Rect));
+  pRect->rect->x = (*largeur)/rX;
+  pRect->rect->y = (*hauteur)/rY;
+  pRect->rect->w = (*largeur)/rW;
+  pRect->rect->h = (*hauteur)/rH;
+
+  if((*liste)->suivant == NULL) {
+    (*liste)->pRect = pRect;
+    (*liste)->suivant = (*liste);
+  }
+  else {
+    listeRect *new = malloc(sizeof(listeRect));
+    listeRect *temp = (*liste)->suivant;
+    (*liste)->suivant = new;
+    (*liste)->suivant->suivant = temp;
+    temp = NULL;
+    new = NULL;
+    (*liste) = (*liste)->suivant;
+    (*liste)->pRect = pRect;
+  }
+
+  return pRect;
+}

@@ -1,9 +1,8 @@
 #include <SDL2/SDL.h>
 #include "../lib/bouton.h"
-#include "../lib/creation.h"
 
 extern
-bouton *creerBouton(SDL_Renderer *renderer, int x, int y, int w, int h, char *img)
+bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img)
 {
     bouton *b = malloc(sizeof(bouton));
     b->texture = creerImage(renderer, img);
@@ -12,16 +11,10 @@ bouton *creerBouton(SDL_Renderer *renderer, int x, int y, int w, int h, char *im
         b = NULL;
         return (bouton *)NULL;
     }
-    b->position = malloc(sizeof(SDL_Rect));
+    b->position = creerRectangle(listeRectangle, largeur, hauteur, rX, rY, rW, rH); // affectation de la position (.x et .y) et des dimensions (.w et .h) du bouton
     b->relache = malloc(sizeof(SDL_Rect));
     b->appuye = malloc(sizeof(SDL_Rect));
     b->over = malloc(sizeof(SDL_Rect));
-
-    // affectation de la position (.x et .y) et des dimensions (.w et .h) du bouton
-    b->position->x = x;
-    b->position->y = y;
-    b->position->w = w;
-    b->position->h = h;
 
     b->etat = BOUTON_RELACHE;
 
@@ -50,7 +43,7 @@ extern
 void DestroyBouton(bouton **b)
 {
     SDL_DestroyTexture((*b)->texture); (*b)->texture = NULL;
-    free((*b)->position); (*b)->position = NULL;
+    (*b)->position = NULL;
     free((*b)->relache); (*b)->relache = NULL;
     free((*b)->appuye); (*b)->appuye = NULL;
     free((*b)->over); (*b)->over = NULL;
