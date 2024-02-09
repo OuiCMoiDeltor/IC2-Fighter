@@ -45,8 +45,6 @@
         // accepter
             bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 10/8.0, 3*3/4.0, 10.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_ON);
             if(boutonOptionsSwapAccept == NULL) exit(EXIT_FAILURE);
-            printf("%d , %d , %d , %d /", boutonOptionsSwapResLeft->position->rect->x, boutonOptionsSwapResLeft->position->rect->y, boutonOptionsSwapResLeft->position->rect->w, boutonOptionsSwapResLeft->position->rect->h);
-            printf("%d , %d , %d , %d /", optionsResTextRect->rect->x, optionsResTextRect->rect->y, optionsResTextRect->rect->w, optionsResTextRect->rect->h);
 
     // plein écran
         // "activer"
