@@ -15,10 +15,19 @@ else if(scene == OPTIONS) {
         switch(Res)
         {
                 case(0):
-                        SDL_RenderCopy(renderer, optionsRes1680x1050, NULL, optionsResTextRect->rect);
+                        SDL_RenderCopy(renderer, optionsRes1920x1080, NULL, optionsResTextRect->rect);
                         break;
                 case(1):
+                        SDL_RenderCopy(renderer, optionsRes1680x1050, NULL, optionsResTextRect->rect);
+                        break;
+                case(2):
+                        SDL_RenderCopy(renderer, optionsRes1280x720, NULL, optionsResTextRect->rect);
+                        break;
+                case(3):
                         SDL_RenderCopy(renderer, optionsRes1024x768, NULL, optionsResTextRect->rect);
+                        break;
+                case(4):
+                        SDL_RenderCopy(renderer, optionsRes720x480, NULL, optionsResTextRect->rect);
                         break;
         }
 
