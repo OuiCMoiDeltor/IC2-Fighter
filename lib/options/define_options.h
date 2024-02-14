@@ -1,6 +1,8 @@
 // Images
 #define IMG_OPTIONS_BG "img/optionsBG.bmp"
 #define IMG_OPTIONS_TITLE "img/optionsTitle.bmp"
+#define IMG_OPTIONS_SOUND_ON "img/optionsSoundOn.bmp"
+#define IMG_OPTIONS_SOUND_OFF "img/optionsSoundOff.bmp"
 #define IMG_OPTIONS_RESOLUTION "img/optionsResolution.bmp"
 #define IMG_OPTIONS_RESOLUTION_LEFT "img/optionsFGauche.bmp"
 #define IMG_OPTIONS_RESOLUTION_RIGHT "img/optionsFDroite.bmp"

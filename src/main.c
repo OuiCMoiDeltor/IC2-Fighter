@@ -86,6 +86,7 @@ int main(int argc, char* argv[]) {
 
     SDL_SetWindowFullscreen(window, 0);
     int fullscreen = 0;
+    int son = 1;
 
     //SDL_SetWindowDisplayMode(window, &displayMode);
     

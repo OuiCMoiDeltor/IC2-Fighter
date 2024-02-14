@@ -69,3 +69,11 @@
     // retour
             bouton *boutonOptionsBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_OPTIONS_BACK);
             if(boutonOptionsBack == NULL) exit(EXIT_FAILURE);
+
+    // son
+        // on
+            bouton *boutonOptionsSoundOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_SOUND_ON);
+            if(boutonOptionsSoundOn == NULL) exit(EXIT_FAILURE);
+        // off
+            bouton *boutonOptionsSoundOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_SOUND_OFF);
+            if(boutonOptionsSoundOff == NULL) exit(EXIT_FAILURE);

@@ -31,6 +31,17 @@ else if(scene == OPTIONS) {
                         break;
         }
 
+// Dessiner le bouton du son
+        if(son) {
+                if(boutonOptionsSoundOff->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSoundOff->texture, boutonOptionsSoundOff->relache, boutonOptionsSoundOff->position->rect);
+                else if (boutonOptionsSoundOff->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSoundOff->texture, boutonOptionsSoundOff->appuye, boutonOptionsSoundOff->position->rect);
+                else if (boutonOptionsSoundOff->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSoundOff->texture, boutonOptionsSoundOff->over, boutonOptionsSoundOff->position->rect);
+        }else {
+                if(boutonOptionsSoundOn->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSoundOn->texture, boutonOptionsSoundOn->relache, boutonOptionsSoundOn->position->rect);
+                else if (boutonOptionsSoundOn->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSoundOn->texture, boutonOptionsSoundOn->appuye, boutonOptionsSoundOn->position->rect);
+                else if (boutonOptionsSoundOn->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSoundOn->texture, boutonOptionsSoundOn->over, boutonOptionsSoundOn->position->rect);
+        }
+
 // Dessiner le bouton gauche de la résolution
         if(boutonOptionsSwapResLeft->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->relache, boutonOptionsSwapResLeft->position->rect);
         else if (boutonOptionsSwapResLeft->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapResLeft->texture, boutonOptionsSwapResLeft->appuye, boutonOptionsSwapResLeft->position->rect);
