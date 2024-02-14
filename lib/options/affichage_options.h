@@ -32,7 +32,7 @@ else if(scene == OPTIONS) {
         }
 
 // Dessiner le bouton du son
-        if(son) {
+        if(!son) {
                 if(boutonOptionsSoundOff->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSoundOff->texture, boutonOptionsSoundOff->relache, boutonOptionsSoundOff->position->rect);
                 else if (boutonOptionsSoundOff->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSoundOff->texture, boutonOptionsSoundOff->appuye, boutonOptionsSoundOff->position->rect);
                 else if (boutonOptionsSoundOff->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSoundOff->texture, boutonOptionsSoundOff->over, boutonOptionsSoundOff->position->rect);

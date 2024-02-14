@@ -72,8 +72,8 @@
 
     // son
         // on
-            bouton *boutonOptionsSoundOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_SOUND_ON);
+            bouton *boutonOptionsSoundOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_ON);
             if(boutonOptionsSoundOn == NULL) exit(EXIT_FAILURE);
         // off
-            bouton *boutonOptionsSoundOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_SOUND_OFF);
+            bouton *boutonOptionsSoundOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_OFF);
             if(boutonOptionsSoundOff == NULL) exit(EXIT_FAILURE);
