@@ -44,7 +44,7 @@
     SDL_Texture *optionsFullscreenTexture = creerImage(renderer, IMG_OPTIONS_FULLSCREEN);
     if(optionsFullscreenTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, optionsFullscreenTexture);
-    rectangle *optionsFullscreenRect = creerRectangle(&listeRectangle, &largeurF, &hauteurF, 10.0, 3*3/5.0, 10/8.0, 5.0);
+    rectangle *optionsFullscreenRect = creerRectangle(&listeRectangle, &largeurF, &hauteurF, 10.0, 3*3/6.0, 10/8.0, 5.0);
 
 // Boutons
     // changement de résolution
@@ -55,17 +55,17 @@
             bouton *boutonOptionsSwapResRight = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 40/25.0, 30/14.0, 30.0, 21.0, IMG_OPTIONS_RESOLUTION_RIGHT);
             if(boutonOptionsSwapResRight == NULL) exit(EXIT_FAILURE);
         // appliquer
-            bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 10/8.0, 3*3/4.0, 10.0, 11.0, IMG_OPTIONS_RESOLUTION_APPLIKER);
+            bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/5.0, 11/3.0, 11.0, IMG_OPTIONS_RESOLUTION_APPLIKER);
             if(boutonOptionsSwapAccept == NULL) exit(EXIT_FAILURE);
 
     // plein écran
         // "activer"
-            bouton *boutonOptionsFullscreenOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/7.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_ON);
+            bouton *boutonOptionsFullscreenOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_ON);
             if(boutonOptionsFullscreenOn == NULL) exit(EXIT_FAILURE);
         // "désactiver"
-            bouton *boutonOptionsFullscreenOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/7.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_OFF);
+            bouton *boutonOptionsFullscreenOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_OFF);
             if(boutonOptionsFullscreenOff == NULL) exit(EXIT_FAILURE);
 
     // retour
-            bouton *boutonOptionsBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/5.0, 11/10.0, 11.0, 11.0, IMG_OPTIONS_BACK);
+            bouton *boutonOptionsBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_OPTIONS_BACK);
             if(boutonOptionsBack == NULL) exit(EXIT_FAILURE);

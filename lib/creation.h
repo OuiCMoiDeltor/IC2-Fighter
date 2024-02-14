@@ -8,7 +8,7 @@ typedef struct listeT_s {
 
 typedef struct rectangle_s {
     int *largeur; // Largeur de la fenêtre
-    int * hauteur; // Hauteur de la fenêtre
+    int *hauteur; // Hauteur de la fenêtre
     float ratioX;
     float ratioY;
     float ratioW;
