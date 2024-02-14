@@ -1,24 +1,7 @@
 else if(scene == OPTIONS) {
             // Bouton plein écran
                 // On
-                if(!son){
-                    // Appuie sur le bouton
-                    if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h) {
-                        boutonOptionsSoundOff->etat = BOUTON_APPUYE;
-                    // Appuie et relache sur le bouton
-                    }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h) {
-                        son = 1;
-                        boutonOptionsSoundOff->etat = BOUTON_RELACHE;
-                    // Appuie sur le bouton et relache ailleurs
-                    }else if (e.type == SDL_MOUSEBUTTONUP && boutonOptionsSoundOff->etat == BOUTON_APPUYE  || boutonOptionsSoundOff->etat == BOUTON_OVER && !(e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h)) {
-                        boutonOptionsSoundOff->etat = BOUTON_RELACHE;
-                    // Passe sur le bouton
-                    }else if (e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h && boutonOptionsSoundOff->etat == BOUTON_RELACHE) {
-                        boutonOptionsSoundOff->etat = BOUTON_OVER;
-                    }
-                }
-                // Off
-                else {
+                if(son){
                     // Appuie sur le bouton
                     if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonOptionsSoundOn->position->rect->x && e.motion.x < boutonOptionsSoundOn->position->rect->x + boutonOptionsSoundOn->position->rect->w && e.motion.y > boutonOptionsSoundOn->position->rect->y && e.motion.y < boutonOptionsSoundOn->position->rect->y + boutonOptionsSoundOn->position->rect->h) {
                         boutonOptionsSoundOn->etat = BOUTON_APPUYE;
@@ -32,6 +15,23 @@ else if(scene == OPTIONS) {
                     // Passe sur le bouton
                     }else if (e.motion.x > boutonOptionsSoundOn->position->rect->x && e.motion.x < boutonOptionsSoundOn->position->rect->x + boutonOptionsSoundOn->position->rect->w && e.motion.y > boutonOptionsSoundOn->position->rect->y && e.motion.y < boutonOptionsSoundOn->position->rect->y + boutonOptionsSoundOn->position->rect->h && boutonOptionsSoundOn->etat == BOUTON_RELACHE) {
                         boutonOptionsSoundOn->etat = BOUTON_OVER;
+                    }
+                }
+                // Off
+                else {
+                    // Appuie sur le bouton
+                    if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h) {
+                        boutonOptionsSoundOff->etat = BOUTON_APPUYE;
+                    // Appuie et relache sur le bouton
+                    }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h) {
+                        son = 1;
+                        boutonOptionsSoundOff->etat = BOUTON_RELACHE;
+                    // Appuie sur le bouton et relache ailleurs
+                    }else if (e.type == SDL_MOUSEBUTTONUP && boutonOptionsSoundOff->etat == BOUTON_APPUYE  || boutonOptionsSoundOff->etat == BOUTON_OVER && !(e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h)) {
+                        boutonOptionsSoundOff->etat = BOUTON_RELACHE;
+                    // Passe sur le bouton
+                    }else if (e.motion.x > boutonOptionsSoundOff->position->rect->x && e.motion.x < boutonOptionsSoundOff->position->rect->x + boutonOptionsSoundOff->position->rect->w && e.motion.y > boutonOptionsSoundOff->position->rect->y && e.motion.y < boutonOptionsSoundOff->position->rect->y + boutonOptionsSoundOff->position->rect->h && boutonOptionsSoundOff->etat == BOUTON_RELACHE) {
+                        boutonOptionsSoundOff->etat = BOUTON_OVER;
                     }
                 }
 
