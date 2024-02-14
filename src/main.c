@@ -10,7 +10,7 @@
 #define NOM_JEU "IC2 Fighter"
 
 // Texte
-#define TTF_CONTRAST "ttf/city_contrasts/contrast.ttf"
+#define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
 #include "../lib/menu_principal/define_menu_principal.h"
 #include "../lib/options/define_options.h"
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Chargement de la police en taille 16
-    TTF_Font *font = TTF_OpenFont(TTF_CONTRAST, 64);
+    TTF_Font *font = TTF_OpenFont(TTF_FONT, 64);
     if(!font) {
         printf("Erreur lors du chargement de la police TTF_OpenFont: %s\n", TTF_GetError());
         exit(EXIT_FAILURE);

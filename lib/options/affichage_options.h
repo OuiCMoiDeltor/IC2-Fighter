@@ -39,7 +39,7 @@ else if(scene == OPTIONS) {
         if(boutonOptionsSwapResRight->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->relache, boutonOptionsSwapResRight->position->rect);
         else if (boutonOptionsSwapResRight->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->appuye, boutonOptionsSwapResRight->position->rect);
         else if (boutonOptionsSwapResRight->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapResRight->texture, boutonOptionsSwapResRight->over, boutonOptionsSwapResRight->position->rect);
-// Dessiner le bouton accepter de la résolution
+// Dessiner le bouton appliquer de la résolution
         if(boutonOptionsSwapAccept->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->relache, boutonOptionsSwapAccept->position->rect);
         else if (boutonOptionsSwapAccept->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->appuye, boutonOptionsSwapAccept->position->rect);
         else if (boutonOptionsSwapAccept->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSwapAccept->texture, boutonOptionsSwapAccept->over, boutonOptionsSwapAccept->position->rect);

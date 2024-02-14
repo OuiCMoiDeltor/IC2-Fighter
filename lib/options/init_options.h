@@ -54,8 +54,8 @@
         // droit
             bouton *boutonOptionsSwapResRight = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 40/25.0, 30/14.0, 30.0, 21.0, IMG_OPTIONS_RESOLUTION_RIGHT);
             if(boutonOptionsSwapResRight == NULL) exit(EXIT_FAILURE);
-        // accepter
-            bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 10/8.0, 3*3/4.0, 10.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_ON);
+        // appliquer
+            bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 10/8.0, 3*3/4.0, 10.0, 11.0, IMG_OPTIONS_RESOLUTION_APPLIKER);
             if(boutonOptionsSwapAccept == NULL) exit(EXIT_FAILURE);
 
     // plein écran

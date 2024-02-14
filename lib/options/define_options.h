@@ -4,6 +4,7 @@
 #define IMG_OPTIONS_RESOLUTION "img/optionsResolution.bmp"
 #define IMG_OPTIONS_RESOLUTION_LEFT "img/optionsFGauche.bmp"
 #define IMG_OPTIONS_RESOLUTION_RIGHT "img/optionsFDroite.bmp"
+#define IMG_OPTIONS_RESOLUTION_APPLIKER "img/optionsAppRes.bmp"
 #define IMG_OPTIONS_FULLSCREEN "img/optionsPleinEcran.bmp"
 #define IMG_OPTIONS_FULLSCREEN_TURN_ON "img/optionsFullscreenTurnOn.bmp"
 #define IMG_OPTIONS_FULLSCREEN_TURN_OFF "img/optionsFullscreenTurnOff.bmp"
