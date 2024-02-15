@@ -1,4 +1,5 @@
 if(scene == MENU_PRINCIPAL) {
+            // Options
                 // Appuie sur le bouton
                 if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonOptions->position->rect->x && e.motion.x < boutonOptions->position->rect->x + boutonOptions->position->rect->w && e.motion.y > boutonOptions->position->rect->y && e.motion.y < boutonOptions->position->rect->y + boutonOptions->position->rect->h) {
                     boutonOptions->etat = BOUTON_APPUYE;
@@ -12,5 +13,21 @@ if(scene == MENU_PRINCIPAL) {
                 // Passe sur le bouton
                 }else if (e.motion.x > boutonOptions->position->rect->x && e.motion.x < boutonOptions->position->rect->x + boutonOptions->position->rect->w && e.motion.y > boutonOptions->position->rect->y && e.motion.y < boutonOptions->position->rect->y + boutonOptions->position->rect->h && boutonOptions->etat == BOUTON_RELACHE) {
                     boutonOptions->etat = BOUTON_OVER;
+                }
+
+            // Quitter
+                // Appuie sur le bouton
+                if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonQuitter->position->rect->x && e.motion.x < boutonQuitter->position->rect->x + boutonQuitter->position->rect->w && e.motion.y > boutonQuitter->position->rect->y && e.motion.y < boutonQuitter->position->rect->y + boutonQuitter->position->rect->h) {
+                    boutonQuitter->etat = BOUTON_APPUYE;
+                // Appuie et relache sur le bouton
+                }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonQuitter->position->rect->x && e.motion.x < boutonQuitter->position->rect->x + boutonQuitter->position->rect->w && e.motion.y > boutonQuitter->position->rect->y && e.motion.y < boutonQuitter->position->rect->y + boutonQuitter->position->rect->h) {
+                    quit = 1;
+                    boutonQuitter->etat = BOUTON_RELACHE;
+                // Appuie sur le bouton et relache ailleurs
+                }else if (e.type == SDL_MOUSEBUTTONUP && boutonQuitter->etat == BOUTON_APPUYE  || boutonQuitter->etat == BOUTON_OVER && !(e.motion.x > boutonQuitter->position->rect->x && e.motion.x < boutonQuitter->position->rect->x + boutonQuitter->position->rect->w && e.motion.y > boutonQuitter->position->rect->y && e.motion.y < boutonQuitter->position->rect->y + boutonQuitter->position->rect->h)) {
+                    boutonQuitter->etat = BOUTON_RELACHE;
+                // Passe sur le bouton
+                }else if (e.motion.x > boutonQuitter->position->rect->x && e.motion.x < boutonQuitter->position->rect->x + boutonQuitter->position->rect->w && e.motion.y > boutonQuitter->position->rect->y && e.motion.y < boutonQuitter->position->rect->y + boutonQuitter->position->rect->h && boutonQuitter->etat == BOUTON_RELACHE) {
+                    boutonQuitter->etat = BOUTON_OVER;
                 }
             }

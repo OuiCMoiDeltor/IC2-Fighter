@@ -128,6 +128,9 @@ int main(int argc, char* argv[]) {
     }
 
     // Libération des ressources
+    DestroyBouton(&boutonOptionsSoundOn);
+    DestroyBouton(&boutonOptionsSoundOn);
+    DestroyBouton(&boutonQuitter);
     DestroyBouton(&boutonOptions);
     DestroyBouton(&boutonOptionsSwapResLeft);
     DestroyBouton(&boutonOptionsSwapResRight);
