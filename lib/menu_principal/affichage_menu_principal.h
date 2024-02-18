@@ -14,4 +14,7 @@ if(scene == MENU_PRINCIPAL) {
         if(boutonQuitter->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonQuitter->texture, boutonQuitter->relache, boutonQuitter->position->rect);
         else if (boutonQuitter->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonQuitter->texture, boutonQuitter->appuye, boutonQuitter->position->rect);
         else if (boutonQuitter->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonQuitter->texture, boutonQuitter->over, boutonQuitter->position->rect);
+
+// Dessiner le bouton Jouer
+        SDL_RenderCopy(renderer, boutonJouer->texture, boutonJouer->frames[boutonJouer->etat], boutonJouer->position->rect);
 }

@@ -15,7 +15,7 @@
 #include "../lib/menu_principal/define_menu_principal.h"
 #include "../lib/options/define_options.h"
 
-typedef enum {MENU_PRINCIPAL, OPTIONS}scenes;
+typedef enum {MENU_PRINCIPAL, OPTIONS, GAMEMODE}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
@@ -128,8 +128,10 @@ int main(int argc, char* argv[]) {
     }
 
     // Libération des ressources
+    detruireListeRect(&listeRectangle);
     DestroyBouton(&boutonOptionsSoundOn);
-    DestroyBouton(&boutonOptionsSoundOn);
+    DestroyBouton(&boutonOptionsSoundOff);
+    DestroyBouton(&boutonJouer);
     DestroyBouton(&boutonQuitter);
     DestroyBouton(&boutonOptions);
     DestroyBouton(&boutonOptionsSwapResLeft);
@@ -138,7 +140,6 @@ int main(int argc, char* argv[]) {
     DestroyBouton(&boutonOptionsFullscreenOn);
     DestroyBouton(&boutonOptionsFullscreenOff);
     DestroyBouton(&boutonOptionsBack);
-    detruireListeRect(&listeRectangle);
     detruireListeT(&listeTexture);
     SDL_DestroyRenderer(renderer); renderer = NULL;
     SDL_DestroyWindow(window); window = NULL;

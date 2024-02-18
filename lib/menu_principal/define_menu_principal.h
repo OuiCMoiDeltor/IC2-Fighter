@@ -3,3 +3,4 @@
 #define IMG_LOGO "img/Logo.bmp"
 #define IMG_BOUTON_OPT "img/Options.bmp"
 #define IMG_BOUTON_QUIT "img/Quit.bmp"
+#define IMG_BOUTON_PLAY "img/Play.bmp"

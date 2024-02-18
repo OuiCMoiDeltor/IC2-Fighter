@@ -11,7 +11,7 @@ listeT_t *creerListeT() {
 }
 
 extern
-void ajoutListeT(listeT_t **liste, SDL_Texture *Texture) {
+void ajoutListeT(listeT_t **liste, SDL_Texture **Texture) {
   if((*liste)->suivant == NULL) {
     (*liste)->pTexture = Texture;
     (*liste)->suivant = (*liste);
@@ -34,7 +34,8 @@ void detruireListeT(listeT_t **liste) {
   (*liste) = (*liste)->suivant;
   listeT_t *temp = (*liste)->suivant;
   while((*liste) != dernier) {
-    SDL_DestroyTexture((*liste)->pTexture);
+    SDL_DestroyTexture((*(*liste)->pTexture));
+    (*(*liste)->pTexture) = NULL;
     (*liste)->pTexture = NULL;
     (*liste)->suivant = NULL;
     free((*liste));
@@ -42,8 +43,10 @@ void detruireListeT(listeT_t **liste) {
     temp = (*liste)->suivant;
   }
   temp = NULL;
+  dernier = NULL;
   (*liste)->suivant = NULL;
-  SDL_DestroyTexture((*liste)->pTexture);
+  SDL_DestroyTexture((*(*liste)->pTexture));
+  (*(*liste)->pTexture) = NULL;
   (*liste)->pTexture = NULL;
   free((*liste));
   (*liste) = NULL;
@@ -110,26 +113,44 @@ listeRect *creerListeRect() {
 }
 
 extern
+void ajoutListeRect(listeRect **liste, rectangle **Rect)
+{
+  if((*liste)->suivant == NULL) {
+    (*liste)->pRect = Rect;
+    (*liste)->suivant = (*liste);
+  }
+  else {
+    listeRect *new = malloc(sizeof(listeRect));
+    listeRect *temp = (*liste)->suivant;
+    (*liste)->suivant = new;
+    (*liste)->suivant->suivant = temp;
+    temp = NULL;
+    new = NULL;
+    (*liste) = (*liste)->suivant;
+    (*liste)->pRect = Rect;
+  }
+}
+
+extern
 void detruireListeRect(listeRect **liste)
 {
   listeRect *dernier = (*liste);
   (*liste) = (*liste)->suivant;
   listeRect *temp = (*liste)->suivant;
   while((*liste) != dernier) {
-    free((*liste)->pRect->rect);
-    (*liste)->pRect->rect = NULL;
-    free((*liste)->pRect);
+    free((*(*liste)->pRect)->rect);
+    free((*(*liste)->pRect));
+    (*(*liste)->pRect) = NULL;
     (*liste)->pRect = NULL;
-    (*liste)->suivant = NULL;
     free((*liste));
     (*liste) = temp;
     temp = (*liste)->suivant;
   }
+  dernier = NULL;
   temp = NULL;
-  (*liste)->suivant = NULL;
-  free((*liste)->pRect->rect);
-  (*liste)->pRect->rect = NULL;
-  free((*liste)->pRect);
+  free((*(*liste)->pRect)->rect);
+  free((*(*liste)->pRect));
+  (*(*liste)->pRect) = NULL;
   (*liste)->pRect = NULL;
   free((*liste));
   (*liste) = NULL;
@@ -140,16 +161,16 @@ void updateRectangles(listeRect *liste)
 {
   listeRect *pListe = liste;
   do{
-    pListe->pRect->rect->x = (*pListe->pRect->largeur)/pListe->pRect->ratioX;
-    pListe->pRect->rect->y = (*pListe->pRect->hauteur)/pListe->pRect->ratioY;
-    pListe->pRect->rect->w = (*pListe->pRect->largeur)/pListe->pRect->ratioW;
-    pListe->pRect->rect->h = (*pListe->pRect->hauteur)/pListe->pRect->ratioH;
+    (*pListe->pRect)->rect->x = (*(*pListe->pRect)->largeur)/(*pListe->pRect)->ratioX;
+    (*pListe->pRect)->rect->y = (*(*pListe->pRect)->hauteur)/(*pListe->pRect)->ratioY;
+    (*pListe->pRect)->rect->w = (*(*pListe->pRect)->largeur)/(*pListe->pRect)->ratioW;
+    (*pListe->pRect)->rect->h = (*(*pListe->pRect)->hauteur)/(*pListe->pRect)->ratioH;
     pListe = pListe->suivant;
   }while(pListe != liste);
 }
 
 extern
-rectangle *creerRectangle(listeRect **liste, int *largeur, int *hauteur, float rX, float rY, float rW, float rH)
+rectangle *creerRectangle(int *largeur, int *hauteur, float rX, float rY, float rW, float rH)
 {
   rectangle *pRect = malloc(sizeof(rectangle));
   pRect->largeur = largeur;
@@ -163,21 +184,6 @@ rectangle *creerRectangle(listeRect **liste, int *largeur, int *hauteur, float r
   pRect->rect->y = (*hauteur)/rY;
   pRect->rect->w = (*largeur)/rW;
   pRect->rect->h = (*hauteur)/rH;
-
-  if((*liste)->suivant == NULL) {
-    (*liste)->pRect = pRect;
-    (*liste)->suivant = (*liste);
-  }
-  else {
-    listeRect *new = malloc(sizeof(listeRect));
-    listeRect *temp = (*liste)->suivant;
-    (*liste)->suivant = new;
-    (*liste)->suivant->suivant = temp;
-    temp = NULL;
-    new = NULL;
-    (*liste) = (*liste)->suivant;
-    (*liste)->pRect = pRect;
-  }
 
   return pRect;
 }

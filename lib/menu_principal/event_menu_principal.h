@@ -30,4 +30,16 @@ if(scene == MENU_PRINCIPAL) {
                 }else if (e.motion.x > boutonQuitter->position->rect->x && e.motion.x < boutonQuitter->position->rect->x + boutonQuitter->position->rect->w && e.motion.y > boutonQuitter->position->rect->y && e.motion.y < boutonQuitter->position->rect->y + boutonQuitter->position->rect->h && boutonQuitter->etat == BOUTON_RELACHE) {
                     boutonQuitter->etat = BOUTON_OVER;
                 }
+
+            // Jouer
+                // Appuie et relache sur le bouton
+                if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonJouer->position->rect->x && e.motion.x < boutonJouer->position->rect->x + boutonJouer->position->rect->w && e.motion.y > boutonJouer->position->rect->y && e.motion.y < boutonJouer->position->rect->y + boutonJouer->position->rect->h) {
+                    scene = GAMEMODE;
+                    boutonJouer->etat = boutonJouer->nbEtat-1;
+                // Passe sur le bouton
+                }else if (e.motion.x > boutonJouer->position->rect->x && e.motion.x < boutonJouer->position->rect->x + boutonJouer->position->rect->w && e.motion.y > boutonJouer->position->rect->y && e.motion.y < boutonJouer->position->rect->y + boutonJouer->position->rect->h && boutonJouer->etat != boutonJouer->nbEtat-1) {
+                    boutonJouer->etat += 1;
+                }else if (boutonJouer->etat != 0) {
+                    boutonJouer->etat -= 1;
+                }
             }
