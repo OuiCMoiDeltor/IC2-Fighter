@@ -37,9 +37,9 @@ if(scene == MENU_PRINCIPAL) {
                     scene = GAMEMODE;
                     boutonJouer->etat = boutonJouer->nbEtat-1;
                 // Passe sur le bouton
-                }else if (e.motion.x > boutonJouer->position->rect->x && e.motion.x < boutonJouer->position->rect->x + boutonJouer->position->rect->w && e.motion.y > boutonJouer->position->rect->y && e.motion.y < boutonJouer->position->rect->y + boutonJouer->position->rect->h && boutonJouer->etat != boutonJouer->nbEtat-1) {
-                    boutonJouer->etat += 1;
-                }else if (boutonJouer->etat != 0) {
-                    boutonJouer->etat -= 1;
+                }else if (e.motion.x > boutonJouer->position->rect->x && e.motion.x < boutonJouer->position->rect->x + boutonJouer->position->rect->w && e.motion.y > boutonJouer->position->rect->y && e.motion.y < boutonJouer->position->rect->y + boutonJouer->position->rect->h) {
+                    overBoutonJouer = 1;
+                }else {
+                    overBoutonJouer = 0;
                 }
             }

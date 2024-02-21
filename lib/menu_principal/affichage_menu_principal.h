@@ -17,4 +17,18 @@ if(scene == MENU_PRINCIPAL) {
 
 // Dessiner le bouton Jouer
         SDL_RenderCopy(renderer, boutonJouer->texture, boutonJouer->frames[boutonJouer->etat], boutonJouer->position->rect);
+        // Animation
+                if(overBoutonJouer && boutonJouer->etat < boutonJouer->nbEtat-1) {
+                        waitForFrame++;
+                        if(waitForFrame > 500) {
+                                boutonJouer->etat ++;
+                                waitForFrame = 0;
+                        }
+                }else if(!overBoutonJouer && boutonJouer->etat > 0) {
+                        waitForFrame--;
+                        if(waitForFrame < 0) {
+                                boutonJouer->etat --;
+                                waitForFrame = 500;
+                        }
+                }
 }
