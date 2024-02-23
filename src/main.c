@@ -14,8 +14,9 @@
 
 #include "../lib/menu_principal/define_menu_principal.h"
 #include "../lib/options/define_options.h"
+#include "../lib/gamemode_selection/define_gamemode_selection.h"
 
-typedef enum {MENU_PRINCIPAL, OPTIONS, GAMEMODE}scenes;
+typedef enum {MENU_PRINCIPAL, OPTIONS, GAMEMODE, CHAMP_SELECT}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
@@ -102,6 +103,7 @@ int main(int argc, char* argv[]) {
 
     #include "../lib/menu_principal/init_menu_principal.h" // Initialisation du menu principal
     #include "../lib/options/init_options.h" // Initialisation du menu options
+    #include "../lib/gamemode_selection/init_gamemode_selection.h" // Initialisation du menu de selection du mode de jeu
 
     // Boucle principale
     int quit = 0;
@@ -115,6 +117,7 @@ int main(int argc, char* argv[]) {
             }
             #include "../lib/menu_principal/event_menu_principal.h" // Evenements du menu principal
             #include "../lib/options/event_options.h" // Evenements du menu options
+            #include "../lib/gamemode_selection/event_gamemode_selection.h" // Evenements du menu de selection du mode de jeu
         }
 
         // Effacement de l'écran
@@ -122,6 +125,7 @@ int main(int argc, char* argv[]) {
 
         #include "../lib/menu_principal/affichage_menu_principal.h" // Affichage du menu principal
         #include "../lib/options/affichage_options.h" // Affichage du menu options
+        #include "../lib/gamemode_selection/affichage_gamemode_selection.h" // Affichage du menu de selection du mode de jeu
 
         // Mise à jour de l'affichage
         SDL_RenderPresent(renderer);
@@ -129,6 +133,8 @@ int main(int argc, char* argv[]) {
 
     // Libération des ressources
     detruireListeRect(&listeRectangle);
+    //DestroyBouton(&boutonLigne);
+    DestroyBouton(&boutonLocal);
     DestroyBouton(&boutonOptionsSoundOn);
     DestroyBouton(&boutonOptionsSoundOff);
     DestroyBouton(&boutonJouer);
