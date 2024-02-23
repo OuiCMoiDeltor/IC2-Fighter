@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
     SDL_Color noire = {0,0,0};
 
     // Initialisation de la musique de fond
-     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+     if (SDL_Init(SDL_INIT_AUDIO) < 0) {
         printf("Erreur lors de l'initialisation de la musique de fond : %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
     }
@@ -164,6 +164,7 @@ int main(int argc, char* argv[]) {
     SDL_DestroyWindow(window); window = NULL;
     TTF_CloseFont(font); font = NULL;
     TTF_Quit();
+    Mix_Quit();
     SDL_Quit();
 
     return 0;
