@@ -78,6 +78,15 @@ int main(int argc, char* argv[]) {
     // Couleurs
     SDL_Color noire = {0,0,0};
 
+    // Initialisation de la musique de fond
+     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("Erreur lors de l'initialisation de la musique de fond : %s\n", SDL_GetError());
+        exit(EXIT_FAILURE);
+    }
+
+    // Initialisation format de l'audio
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+
     // Création de la fenêtre
     SDL_Window *window = SDL_CreateWindow(NOM_JEU, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, largeurF, hauteurF, SDL_WINDOW_SHOWN);
     if (window == NULL) {
@@ -109,6 +118,7 @@ int main(int argc, char* argv[]) {
     int quit = 0;
     SDL_Event e;
     scenes scene = MENU_PRINCIPAL; // Première scene à afficher
+    Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
 
     while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
@@ -147,6 +157,9 @@ int main(int argc, char* argv[]) {
     DestroyBouton(&boutonOptionsFullscreenOff);
     DestroyBouton(&boutonOptionsBack);
     detruireListeT(&listeTexture);
+    Mix_HaltMusic();
+    Mix_FreeMusic(backgroundSound);
+    Mix_CloseAudio();
     SDL_DestroyRenderer(renderer); renderer = NULL;
     SDL_DestroyWindow(window); window = NULL;
     TTF_CloseFont(font); font = NULL;

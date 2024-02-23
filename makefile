@@ -7,8 +7,8 @@ SDL_DIR=${HOME}/SDL2
 SDLLIB_DIR=${SDL_DIR}/lib
 SDLINC_DIR=${SDL_DIR}/include
 SDL_DIR=${HOME}/SDL2
-LIBS=-L${SDLLIB_DIR} -lSDL2 -lSDL2_ttf -lSDL2_image -lm
-INCLUDES=-I${SDLINC_DIR} 
+LIBS=-L${SDLLIB_DIR} -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -lm
+INCLUDES=-I${SDLINC_DIR}
 
 INCLUDE=include/
 SRC=src/
@@ -22,13 +22,13 @@ FICHIERH=${LIB}bouton.h ${LIB}creation.h
 all: clean main
 
 main: ${FICHIERC} ${FICHIERH}
-	${CC} -o ${PROG} ${FICHIERC} ${FICHIERH} ${LIBS} ${INCLUDES} 
+	${CC} -o ${PROG} ${FICHIERC} ${FICHIERH} ${LIBS} ${INCLUDES}
 
 PATH:
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/SDL2/lib
 
 
-    clean: 
+    clean:
 	rm -f ${SRC}*.o
 	rm -f ${INCLUDE}*.o
 	rm -f *.o

@@ -1,6 +1,6 @@
 if(scene == GAMEMODE) {
 // Dessiner l'image de fond
-        SDL_RenderCopy(renderer, mainMenuBGTexture, NULL, NULL);
+        SDL_RenderCopy(renderer, gamemodeBGTexture, NULL, NULL);
 
 // Dessiner le bouton du mode Local
         if(boutonLocal->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonLocal->texture, boutonLocal->relache, boutonLocal->position->rect);

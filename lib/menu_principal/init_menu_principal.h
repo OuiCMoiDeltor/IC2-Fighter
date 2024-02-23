@@ -26,3 +26,7 @@
     // Jouer
         bouton *boutonJouer = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/995.0, 1045/435.0, 1400/105.0, 1045/110.0, IMG_BOUTON_PLAY, 1, 11);
         if(boutonJouer == NULL) exit(EXIT_FAILURE);
+
+// Son 
+    // Chargement musique de fond
+    Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND);
