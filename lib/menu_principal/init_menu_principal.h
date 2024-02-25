@@ -29,4 +29,4 @@
 
 // Son 
     // Chargement musique de fond
-    Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND);
+        Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND);
