@@ -35,7 +35,8 @@ if(scene == MENU_PRINCIPAL) {
                 // Appuie et relache sur le bouton
                 if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonJouer->position->rect->x && e.motion.x < boutonJouer->position->rect->x + boutonJouer->position->rect->w && e.motion.y > boutonJouer->position->rect->y && e.motion.y < boutonJouer->position->rect->y + boutonJouer->position->rect->h) {
                     scene = GAMEMODE;
-                    Mix_HaltMusic();
+                    if(son)
+                        Mix_HaltMusic();
                     boutonJouer->etat = boutonJouer->nbEtat-1;
                 // Passe sur le bouton
                 }else if (e.motion.x > boutonJouer->position->rect->x && e.motion.x < boutonJouer->position->rect->x + boutonJouer->position->rect->w && e.motion.y > boutonJouer->position->rect->y && e.motion.y < boutonJouer->position->rect->y + boutonJouer->position->rect->h) {
