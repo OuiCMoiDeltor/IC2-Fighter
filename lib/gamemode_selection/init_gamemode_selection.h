@@ -6,12 +6,14 @@
 // Création de l'image En ligne (Temporaire)
 
 // Boutons
-    // Options
-        bouton *boutonLocal = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/65.0, 1045/115.0, 1400/280.0, 2.0, IMG_BOUTON_LOCAL, 0, 0);
+    // Local
+        bouton *boutonLocal = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 5/2.0, 8/2.0, 5.0, 8.0, IMG_GAMEMODE_LOCAL, 0, 0);
         if(boutonLocal == NULL) exit(EXIT_FAILURE);
 
-/*
-    // Quitter
-        bouton *boutonLigne = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 4/3.0, 5/2.5, 1400/280.0, 2.0, IMG_BOUTON_LIGNE, 0, 0);
+    // En ligne
+        bouton *boutonLigne = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 5/2.0, 8/5.0, 5.0, 8.0, IMG_GAMEMODE_LIGNE, 0, 0);
         if(boutonLigne == NULL) exit(EXIT_FAILURE);
-*/
+
+    // Retour
+        bouton *boutonGmBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 5.0, 8.0, IMG_GAMEMODE_RETOUR, 0, 0);
+        if(boutonGmBack == NULL) exit(EXIT_FAILURE);

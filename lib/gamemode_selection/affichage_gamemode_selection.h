@@ -7,12 +7,13 @@ if(scene == GAMEMODE) {
         else if (boutonLocal->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonLocal->texture, boutonLocal->appuye, boutonLocal->position->rect);
         else if (boutonLocal->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonLocal->texture, boutonLocal->over, boutonLocal->position->rect);
 
-// Dessiner l'image du mode En ligne (Temporaire)
-
-/*
 // Dessiner le bouton du mode En ligne
-        if(boutonQuitter->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonQuitter->texture, boutonQuitter->relache, boutonQuitter->position->rect);
-        else if (boutonQuitter->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonQuitter->texture, boutonQuitter->appuye, boutonQuitter->position->rect);
-        else if (boutonQuitter->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonQuitter->texture, boutonQuitter->over, boutonQuitter->position->rect);
-*/
+        if(boutonLigne->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonLigne->texture, boutonLigne->relache, boutonLigne->position->rect);
+        else if (boutonLigne->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonLigne->texture, boutonLigne->appuye, boutonLigne->position->rect);
+        else if (boutonLigne->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonLigne->texture, boutonLigne->over, boutonLigne->position->rect);
+
+// Dessiner le bouton retour
+        if(boutonGmBack->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->relache, boutonGmBack->position->rect);
+        else if (boutonGmBack->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->appuye, boutonGmBack->position->rect);
+        else if (boutonGmBack->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->over, boutonGmBack->position->rect);
 }

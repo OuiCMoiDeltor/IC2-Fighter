@@ -15,7 +15,6 @@ if(scene == GAMEMODE) {
                     boutonLocal->etat = BOUTON_OVER;
                 }
 
-            /*
             // En Ligne
                 // Appuie sur le bouton
                 if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonLigne->position->rect->x && e.motion.x < boutonLigne->position->rect->x + boutonLigne->position->rect->w && e.motion.y > boutonLigne->position->rect->y && e.motion.y < boutonLigne->position->rect->y + boutonLigne->position->rect->h) {
@@ -31,5 +30,22 @@ if(scene == GAMEMODE) {
                 }else if (e.motion.x > boutonLigne->position->rect->x && e.motion.x < boutonLigne->position->rect->x + boutonLigne->position->rect->w && e.motion.y > boutonLigne->position->rect->y && e.motion.y < boutonLigne->position->rect->y + boutonLigne->position->rect->h && boutonLigne->etat == BOUTON_RELACHE) {
                     boutonLigne->etat = BOUTON_OVER;
                 }
-            */
+
+            // Retour
+                // Appuie sur le bouton
+                if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h) {
+                    boutonGmBack->etat = BOUTON_APPUYE;
+                // Appuie et relache sur le bouton
+                }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h) {
+                    scene = MENU_PRINCIPAL;
+                    if(son)
+                        Mix_PlayMusic(backgroundSound, -1);
+                    boutonGmBack->etat = BOUTON_RELACHE;
+                // Appuie sur le bouton et relache ailleurs
+                }else if (e.type == SDL_MOUSEBUTTONUP && boutonGmBack->etat == BOUTON_APPUYE  || boutonGmBack->etat == BOUTON_OVER && !(e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h)) {
+                    boutonGmBack->etat = BOUTON_RELACHE;
+                // Passe sur le bouton
+                }else if (e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h && boutonGmBack->etat == BOUTON_RELACHE) {
+                    boutonGmBack->etat = BOUTON_OVER;
+                }
             }
