@@ -3,8 +3,6 @@
     if(gamemodeBGTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &gamemodeBGTexture);
 
-// Création de l'image En ligne (Temporaire)
-
 // Boutons
     // Local
         bouton *boutonLocal = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 5/2.0, 8/2.0, 5.0, 8.0, IMG_GAMEMODE_LOCAL, 0, 0);
