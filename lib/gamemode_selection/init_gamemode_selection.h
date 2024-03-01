@@ -15,5 +15,5 @@
         if(boutonLigne == NULL) exit(EXIT_FAILURE);
 
     // Retour
-        bouton *boutonGmBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 5.0, 8.0, IMG_GAMEMODE_RETOUR, 0, 0);
+        bouton *boutonGmBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_GAMEMODE_RETOUR, 0, 0);
         if(boutonGmBack == NULL) exit(EXIT_FAILURE);

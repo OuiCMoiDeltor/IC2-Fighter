@@ -143,7 +143,8 @@ int main(int argc, char* argv[]) {
 
     // Libération des ressources
     detruireListeRect(&listeRectangle);
-    //DestroyBouton(&boutonLigne);
+    DestroyBouton(&boutonGmBack);
+    DestroyBouton(&boutonLigne);
     DestroyBouton(&boutonLocal);
     DestroyBouton(&boutonOptionsSoundOn);
     DestroyBouton(&boutonOptionsSoundOff);
