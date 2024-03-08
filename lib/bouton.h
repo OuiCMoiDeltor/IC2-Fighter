@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include "../lib/creation.h"
+#include "creation.h"
 
 #define BOUTON_RELACHE 0
 #define BOUTON_APPUYE 1

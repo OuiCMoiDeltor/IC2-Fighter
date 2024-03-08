@@ -5,6 +5,7 @@
 
 // Fonctions
 #include "../lib/bouton.h"
+#include "../lib/perso.h"
 
 // Fenêtre
 #define NOM_JEU "IC2 Fighter"
@@ -123,6 +124,7 @@ int main(int argc, char* argv[]) {
     SDL_Event e;
     scenes scene = MENU_PRINCIPAL; // Première scene à afficher
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
+    int waitForFrame = 0;
 
     while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
@@ -147,6 +149,8 @@ int main(int argc, char* argv[]) {
 
         // Mise à jour de l'affichage
         SDL_RenderPresent(renderer);
+
+        SDL_Delay(1000/60);
     }
 
     // Libération des ressources

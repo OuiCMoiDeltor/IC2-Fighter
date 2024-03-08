@@ -1,6 +1,5 @@
 // Variables
     int overBoutonJouer = 0;
-    int waitForFrame = 0;
 
 // Création de l'image de fond
     SDL_Texture *mainMenuBGTexture = creerImage(renderer, IMG_MAIN_MENU_BG);

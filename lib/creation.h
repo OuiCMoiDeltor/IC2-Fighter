@@ -1,3 +1,6 @@
+#ifndef _CREATION_H_
+#define _CREATION_H_
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
@@ -31,3 +34,5 @@ extern void ajoutListeRect(listeRect **,rectangle **);
 extern void detruireListeRect(listeRect **);
 extern void updateRectangles(listeRect *);
 extern rectangle *creerRectangle(int *,int *,float,float,float,float);
+
+#endif

@@ -15,9 +15,9 @@ SRC=src/
 PROG=prog
 LIB=lib/
 
-FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}main.c
+FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}perso.c ${SRC}main.c
 
-FICHIERH=${LIB}bouton.h ${LIB}creation.h
+FICHIERH=${LIB}bouton.h ${LIB}creation.h ${LIB}perso.h
 
 all: clean main
 

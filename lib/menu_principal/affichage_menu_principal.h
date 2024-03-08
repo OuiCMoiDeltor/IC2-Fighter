@@ -20,7 +20,7 @@ if(scene == MENU_PRINCIPAL) {
         // Animation
                 if(overBoutonJouer && boutonJouer->etat < boutonJouer->nbEtat-1) {
                         waitForFrame++;
-                        if(waitForFrame > 500) {
+                        if(waitForFrame > 20) {
                                 boutonJouer->etat ++;
                                 waitForFrame = 0;
                         }
@@ -28,7 +28,7 @@ if(scene == MENU_PRINCIPAL) {
                         waitForFrame--;
                         if(waitForFrame < 0) {
                                 boutonJouer->etat --;
-                                waitForFrame = 500;
+                                waitForFrame = 20;
                         }
                 }
 }
