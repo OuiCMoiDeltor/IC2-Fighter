@@ -10,18 +10,28 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     ajoutListeRect(listeRectangle, &perso->pos);
     perso->texture = creerImage(renderer, image);
     if(perso->texture == NULL) return NULL;
-    perso->etat = 0;
+    perso->etatIdle = perso->etatWalk = 0;
 
     int i;
 
-    perso->garde = malloc(sizeof(SDL_Rect*)*5);
+    perso->idle = malloc(sizeof(SDL_Rect*)*5);
     for( i = 0 ; i < 5 ; i++) {
-        perso->garde[i] = malloc(sizeof(SDL_Rect));
-        perso->garde[i]->x = 87*i;
-        perso->garde[i]->y = 0;
-        perso->garde[i]->w = 87;
-        perso->garde[i]->h = 104;
+        perso->idle[i] = malloc(sizeof(SDL_Rect));
+        perso->idle[i]->x = 87*i;
+        perso->idle[i]->y = 0;
+        perso->idle[i]->w = 87;
+        perso->idle[i]->h = 104;
     }
+
+    perso->walk = malloc(sizeof(SDL_Rect*)*6);
+    for( i = 0 ; i < 6 ; i++) {
+        perso->walk[i] = malloc(sizeof(SDL_Rect));
+        perso->walk[i]->x = 81*i;
+        perso->walk[i]->y = 117;
+        perso->walk[i]->w = 81;
+        perso->walk[i]->h = 104;
+    }
+
     perso->speed = 1;
 
     return perso;
@@ -30,15 +40,21 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso, const Uint8 *keyboardState, int largeur, int hauteur) {
     if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_DOWN])) {
-        SDL_RenderCopy(renderer, perso->texture, perso->garde[perso->etat], perso->pos->rect);
+        SDL_RenderCopy(renderer, perso->texture, perso->idle[perso->etatIdle], perso->pos->rect);
     }else {
-        perso->etat = 0;
-        if (keyboardState[SDL_SCANCODE_LEFT] && (perso->pos->rect->x - perso->speed) > 0) {
-            perso->pos->rect->x -= perso->speed;
+        perso->etatIdle = 0;
+        if (keyboardState[SDL_SCANCODE_LEFT]) {
+            if ((perso->pos->rect->x - perso->speed) > 0)
+                perso->pos->rect->x -= perso->speed;
+            SDL_RenderCopy(renderer, perso->texture, perso->walk[perso->etatWalk], perso->pos->rect);
         }
-        if (keyboardState[SDL_SCANCODE_RIGHT] && (perso->pos->rect->x + perso->speed + 50) <= largeur) {
-            perso->pos->rect->x += perso->speed;
+        if (keyboardState[SDL_SCANCODE_RIGHT]) {
+            if ((perso->pos->rect->x + perso->speed + 50) <= largeur)
+                perso->pos->rect->x += perso->speed;
+            SDL_RenderCopy(renderer, perso->texture, perso->walk[perso->etatWalk], perso->pos->rect);
         }
+        if (!(keyboardState[SDL_SCANCODE_LEFT]) && !keyboardState[SDL_SCANCODE_RIGHT]) perso->etatWalk = 0;
+        
         if (keyboardState[SDL_SCANCODE_UP] && (perso->pos->rect->y - perso->speed) > 0) {
             perso->pos->rect->y -= perso->speed;
         }

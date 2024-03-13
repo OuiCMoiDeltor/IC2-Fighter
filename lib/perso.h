@@ -4,8 +4,10 @@
 typedef struct {
     rectangle *pos;
     SDL_Texture *texture;
-    int etat;
-    SDL_Rect **garde;
+    int etatIdle;
+    SDL_Rect **idle;
+    int etatWalk;
+    SDL_Rect **walk;
     // Ult
     float speed ;
 } personnage;
