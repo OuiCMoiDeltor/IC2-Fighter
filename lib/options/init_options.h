@@ -23,22 +23,22 @@
     SDL_Texture *optionsRes1920x1080 = creerTexte(renderer,font,"1920x1080",noire);
     if(optionsRes1920x1080 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &optionsRes1920x1080);
-    // 1680x1050
-    SDL_Texture *optionsRes1680x1050 = creerTexte(renderer,font,"1680x1050",noire);
-    if(optionsRes1680x1050 == NULL) exit(EXIT_FAILURE);
-    ajoutListeT(&listeTexture, &optionsRes1680x1050);
     // 1280x720
     SDL_Texture *optionsRes1280x720 = creerTexte(renderer,font,"1280x720",noire);
     if(optionsRes1280x720 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &optionsRes1280x720);
-    // 1024x768
-    SDL_Texture *optionsRes1024x768 = creerTexte(renderer,font,"1024x768",noire);
-    if(optionsRes1024x768 == NULL) exit(EXIT_FAILURE);
-    ajoutListeT(&listeTexture, &optionsRes1024x768);
-    // 720x480
-    SDL_Texture *optionsRes720x480 = creerTexte(renderer,font,"720x480",noire);
-    if(optionsRes720x480 == NULL) exit(EXIT_FAILURE);
-    ajoutListeT(&listeTexture, &optionsRes720x480);
+    // 854x480
+    SDL_Texture *optionsRes854x480 = creerTexte(renderer,font,"854x480",noire);
+    if(optionsRes854x480 == NULL) exit(EXIT_FAILURE);
+    ajoutListeT(&listeTexture, &optionsRes854x480);
+    // 640x360
+    SDL_Texture *optionsRes640x360 = creerTexte(renderer,font,"640x360",noire);
+    if(optionsRes640x360 == NULL) exit(EXIT_FAILURE);
+    ajoutListeT(&listeTexture, &optionsRes640x360);
+    // 426x240
+    SDL_Texture *optionsRes426x240 = creerTexte(renderer,font,"426x240",noire);
+    if(optionsRes426x240 == NULL) exit(EXIT_FAILURE);
+    ajoutListeT(&listeTexture, &optionsRes426x240);
 
     rectangle *optionsResTextRect = creerRectangle(&largeurF, &hauteurF, 10/4.0, 3*3/4.0, 10/2.0, 11.0);
     ajoutListeRect(&listeRectangle, &optionsResTextRect);

@@ -84,24 +84,24 @@ else if(scene == OPTIONS) {
                                 hauteurF = 1080;
                                 break;
                             case(1):
-                                SDL_SetWindowSize(window, 1680, 1050);
-                                largeurF = 1680;
-                                hauteurF = 1050;
-                                break;
-                            case(2):
                                 SDL_SetWindowSize(window, 1280, 720);
                                 largeurF = 1280;
                                 hauteurF = 720;
                                 break;
+                            case(2):
+                                SDL_SetWindowSize(window, 854, 480);
+                                largeurF = 854;
+                                hauteurF = 480;
+                                break;
                             case(3):
-                                SDL_SetWindowSize(window, 1024, 768);
-                                largeurF = 1024;
-                                hauteurF = 768;
+                                SDL_SetWindowSize(window, 640, 360);
+                                largeurF = 640;
+                                hauteurF = 360;
                                 break;
                             case(4):
-                                SDL_SetWindowSize(window, 720, 480);
-                                largeurF = 720;
-                                hauteurF = 480;
+                                SDL_SetWindowSize(window, 426, 240);
+                                largeurF = 426;
+                                hauteurF = 240;
                                 break;
                         }
                         updateRectangles(listeRectangle);

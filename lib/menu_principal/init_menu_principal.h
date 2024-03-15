@@ -15,7 +15,7 @@
 
 // Boutons du menu principal
     // Options
-        bouton *boutonOptions = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/65.0, 1045/115.0, 1400/280.0, 2.0, IMG_BOUTON_OPT, 0, 0);
+        bouton *boutonOptions = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/64.0, 787/114.0, 1400/282.0, 787/527.0, IMG_BOUTON_OPT, 0, 0);
         if(boutonOptions == NULL) exit(EXIT_FAILURE);
 
     // Quitter

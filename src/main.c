@@ -24,8 +24,8 @@ typedef enum {MENU_PRINCIPAL, OPTIONS, GAMEMODE, CHAMP_SELECT, GAME}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
-    int largeurF = 800;
-    int hauteurF = 600;
+    int largeurF = 1280;
+    int hauteurF = 720;
 
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
