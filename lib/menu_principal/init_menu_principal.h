@@ -15,15 +15,15 @@
 
 // Boutons du menu principal
     // Options
-        bouton *boutonOptions = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/64.0, 787/114.0, 1400/282.0, 787/527.0, IMG_BOUTON_OPT, 0, 0);
+        bouton *boutonOptions = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/65.0, 787/115.0, 1400/280.0, 787/525.0, IMG_BOUTON_OPT, 0, 0);
         if(boutonOptions == NULL) exit(EXIT_FAILURE);
 
     // Quitter
-        bouton *boutonQuitter = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 4/3.0, 5/2.5, 1400/280.0, 2.0, IMG_BOUTON_QUIT, 0, 0);
+        bouton *boutonQuitter = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 10/8.0, 5/2.7, 1400/280.0, 2.0, IMG_BOUTON_QUIT, 0, 0);
         if(boutonQuitter == NULL) exit(EXIT_FAILURE);
 
     // Jouer
-        bouton *boutonJouer = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/995.0, 1045/435.0, 1400/105.0, 1045/110.0, IMG_BOUTON_PLAY, 1, 11);
+        bouton *boutonJouer = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 1400/995.0, 787/435.0, 1400/115.0, 787/110.0, IMG_BOUTON_PLAY, 1, 11);
         if(boutonJouer == NULL) exit(EXIT_FAILURE);
 
 // Son 
