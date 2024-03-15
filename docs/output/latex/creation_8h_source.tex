@@ -1,0 +1,44 @@
+\doxysection{creation.\+h}
+\hypertarget{creation_8h_source}{}\label{creation_8h_source}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/creation.h@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/creation.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_CREATION\_H\_}}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_CREATION\_H\_}}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00007}\mbox{\hyperlink{structlisteT__s}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlisteT__s}{listeT\_s}}\ \{}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00008}00008\ \ \ \ \ SDL\_Texture\ **pTexture;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlisteT__s}{listeT\_s}}\ *suivant;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00010}00010\ \}\mbox{\hyperlink{structlisteT__s}{listeT\_t}};}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00012}\mbox{\hyperlink{structrectangle__s}{00012}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrectangle__s}{rectangle\_s}}\ \{}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00013}00013\ \ \ \ \ \textcolor{keywordtype}{int}\ *largeur;\ \textcolor{comment}{//\ Largeur\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ *hauteur;\ \textcolor{comment}{//\ Hauteur\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{float}\ ratioX;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{float}\ ratioY;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{float}\ ratioW;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{float}\ ratioH;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00019}00019\ \ \ \ \ SDL\_Rect\ *rect;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00020}00020\ \}\mbox{\hyperlink{structrectangle__s}{rectangle}};}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00022}\mbox{\hyperlink{structlisteRect__s}{00022}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlisteRect__s}{listeRect\_s}}\ \{}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{structrectangle__s}{rectangle}}\ **pRect;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlisteRect__s}{listeRect\_s}}\ *suivant;}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00025}00025\ \}\mbox{\hyperlink{structlisteRect__s}{listeRect}};}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00027}00027\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structlisteT__s}{listeT\_t}}\ *creerListeT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00028}00028\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ ajoutListeT(\mbox{\hyperlink{structlisteT__s}{listeT\_t}}\ **,SDL\_Texture\ **);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00029}00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ detruireListeT(\mbox{\hyperlink{structlisteT__s}{listeT\_t}}\ **);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00030}00030\ \textcolor{keyword}{extern}\ SDL\_Texture\ *creerImage(SDL\_Renderer\ *,\textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00031}00031\ \textcolor{keyword}{extern}\ SDL\_Texture\ *creerTexte(SDL\_Renderer\ *,TTF\_Font\ *,\textcolor{keywordtype}{char}\ *,SDL\_Color);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00032}00032\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structlisteRect__s}{listeRect}}\ *creerListeRect(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00033}00033\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ ajoutListeRect(\mbox{\hyperlink{structlisteRect__s}{listeRect}}\ **,\mbox{\hyperlink{structrectangle__s}{rectangle}}\ **);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00034}00034\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ detruireListeRect(\mbox{\hyperlink{structlisteRect__s}{listeRect}}\ **);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00035}00035\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ updateRectangles(\mbox{\hyperlink{structlisteRect__s}{listeRect}}\ *);}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00036}00036\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structrectangle__s}{rectangle}}\ *creerRectangle(\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{float});}
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{creation_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

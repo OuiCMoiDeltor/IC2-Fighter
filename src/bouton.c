@@ -1,6 +1,37 @@
 #include <SDL2/SDL.h>
 #include "../lib/bouton.h"
 
+
+/**
+	* \file  bouton.c
+	* \brief Programme pour les différents boutons
+	* \author IC2-Fighter
+	* \version 1.0
+	*
+	*  Programme avec les fonctions pour l'initialisation des boutons
+	*
+*/
+
+
+
+/**
+	* \fn bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)
+	* \brief  Cette fonction va initialisé le bouton et créer le bouton
+	* \param *renderer Permet d'avoir le rendu de l'image
+	* \param **listeRectangle
+	* \param *largeur Largeur du bouton
+	* \param *hauteur Hauteur du bouton
+	* \param rX
+	* \param rY
+	* \param rW
+	* \param rH
+	* \param *img Adresse et nom de l'image utilisé
+	* \param anime Définit si le bouton est animé ou pas
+	* \param nbEtat Permet de changer le bouton quand on survole ou on clique dessus
+	* \return Retourne le bouton une fois créé
+
+*/
+
 extern
 bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)
 {
@@ -61,6 +92,14 @@ bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *lar
 
     return b;
 }
+
+/**
+	* \fn void DestroyBouton(bouton **b)
+	* \brief  Cette fonction va supprimer le bouton 
+	* \param **b Bouton que l'on veut supprimer
+	* \return Ne Retourne rien
+
+*/
 
 extern
 void DestroyBouton(bouton **b)
