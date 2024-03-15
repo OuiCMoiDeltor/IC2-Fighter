@@ -1,0 +1,98 @@
+\doxysection{Référence du fichier /info/etu/l2info/s204348/\+Documents/\+L2/\+PROJET/\+IC2-\/\+Fighter/src/bouton.c}
+\hypertarget{bouton_8c}{}\label{bouton_8c}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/src/bouton.c@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/src/bouton.c}}
+
+
+Programme pour les différents boutons.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include \"{}../lib/bouton.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+bouton \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creer\+Bouton}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste\+Rectangle, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH, char \texorpdfstring{$\ast$}{*}img, int anime, int nb\+Etat)
+\begin{DoxyCompactList}\small\item\em Cette fonction va initialisé le bouton et créer le bouton. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bouton_8c_a821c8aea0555ab11ceb6d004c31dfe96}{Destroy\+Bouton}} (bouton \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Cette fonction va supprimer le bouton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programme pour les différents boutons. 
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+Programme avec les fonctions pour l\textquotesingle{}initialisation des boutons 
+
+Définition dans le fichier \mbox{\hyperlink{bouton_8c_source}{bouton.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}\label{bouton_8c_a0222440ec126ff80fd69b32f806af3ef} 
+\index{bouton.c@{bouton.c}!creerBouton@{creerBouton}}
+\index{creerBouton@{creerBouton}!bouton.c@{bouton.c}}
+\doxysubsubsection{\texorpdfstring{creerBouton()}{creerBouton()}}
+{\footnotesize\ttfamily bouton \texorpdfstring{$\ast$}{*} creer\+Bouton (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste\+Rectangle,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{char \texorpdfstring{$\ast$}{*}}]{img,  }\item[{int}]{anime,  }\item[{int}]{nb\+Etat }\end{DoxyParamCaption})}
+
+
+
+Cette fonction va initialisé le bouton et créer le bouton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \texorpdfstring{$\ast$}{*}renderer} & Permet d\textquotesingle{}avoir le rendu de l\textquotesingle{}image \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste\+Rectangle} & \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}largeur} & Largeur du bouton \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}hauteur} & Hauteur du bouton \\
+\hline
+{\em rX} & \\
+\hline
+{\em rY} & \\
+\hline
+{\em rW} & \\
+\hline
+{\em rH} & \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}img} & Adresse et nom de l\textquotesingle{}image utilisé \\
+\hline
+{\em anime} & Définit si le bouton est animé ou pas \\
+\hline
+{\em nb\+Etat} & Permet de changer le bouton quand on survole ou on clique dessus \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne le bouton une fois créé 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{bouton_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{bouton_8c_source}{bouton.\+c}}.
+
+\Hypertarget{bouton_8c_a821c8aea0555ab11ceb6d004c31dfe96}\label{bouton_8c_a821c8aea0555ab11ceb6d004c31dfe96} 
+\index{bouton.c@{bouton.c}!DestroyBouton@{DestroyBouton}}
+\index{DestroyBouton@{DestroyBouton}!bouton.c@{bouton.c}}
+\doxysubsubsection{\texorpdfstring{DestroyBouton()}{DestroyBouton()}}
+{\footnotesize\ttfamily void Destroy\+Bouton (\begin{DoxyParamCaption}\item[{bouton \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Cette fonction va supprimer le bouton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b} & Bouton que l\textquotesingle{}on veut supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Ne Retourne rien 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{bouton_8c_source_l00105}{105}} du fichier \mbox{\hyperlink{bouton_8c_source}{bouton.\+c}}.
+
