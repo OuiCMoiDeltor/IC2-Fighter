@@ -139,6 +139,13 @@ int main(int argc, char* argv[]) {
             if (e.type == SDL_QUIT) {
                 quit = 1;
             }
+            else if (e.type == SDL_KEYDOWN) // Vérifier si un événement clavier est survenu
+            {
+                if (e.key.keysym.sym == SDLK_ESCAPE) // Vérifier si la touche pressée est Échap
+                {
+                    quit = 1 ; // Mettre fin à la boucle de jeu et fermer l'application
+                }
+            }
             #include "../lib/menu_principal/event_menu_principal.h" // Evenements du menu principal
             #include "../lib/options/event_options.h" // Evenements du menu options
             #include "../lib/gamemode_selection/event_gamemode_selection.h" // Evenements du menu de selection du mode de jeu
