@@ -18,13 +18,13 @@
 	* \fn bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)
 	* \brief  Cette fonction va initialisé le bouton et créer le bouton
 	* \param *renderer Permet d'avoir le rendu de l'image
-	* \param **listeRectangle
+	* \param **listeRectangle 
 	* \param *largeur Largeur du bouton
 	* \param *hauteur Hauteur du bouton
-	* \param rX
-	* \param rY
-	* \param rW
-	* \param rH
+	* \param rX Position du bouton sur l'axe X
+	* \param rY Position du bouton sur l'axe Y
+	* \param rW Ratio du bouton en fonction de la taille de l'ecran
+	* \param rH Ratio du bouton en fonction de la taille de l'ecran
 	* \param *img Adresse et nom de l'image utilisé
 	* \param anime Définit si le bouton est animé ou pas
 	* \param nbEtat Permet de changer le bouton quand on survole ou on clique dessus

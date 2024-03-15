@@ -9,6 +9,7 @@
 
 // Fenêtre
 #define NOM_JEU "IC2 Fighter"
+#define ICONE "img/icone.bmp"
 
 // Texte
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
@@ -100,8 +101,6 @@ int main(int argc, char* argv[]) {
     SDL_SetWindowFullscreen(window, 0);
     int fullscreen = 0;
     int son = 1;
-
-    //SDL_SetWindowDisplayMode(window, &displayMode);
     
     // Création du renderer
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -110,6 +109,15 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    SDL_Surface *icone = SDL_LoadBMP(ICONE);
+    if (icone == NULL)
+    {
+        printf("Erreur lors du chargement de l'image : %s\n", SDL_GetError());
+        exit(EXIT_FAILURE);
+    }
+    SDL_SetWindowIcon(window, icone);
+    SDL_FreeSurface(icone);
+    
     listeT_t *listeTexture = creerListeT(); // Stock les pointeurs sur texture
     listeRect *listeRectangle = creerListeRect(); // Stock les pointeurs sur Rectangle
 

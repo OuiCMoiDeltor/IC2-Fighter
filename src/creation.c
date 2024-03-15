@@ -2,6 +2,17 @@
 #include <SDL2/SDL_ttf.h>
 #include "../lib/creation.h"
 
+/**
+	* \file  creation.c
+	* \brief Programme pour la création d'objet
+	* \author IC2-Fighter
+	* \version 1.0
+	*
+	*  Ce programme contient les fonctions des différents objets créer pour le jeu
+	*
+*/
+
+
 extern
 listeT_t *creerListeT() {
   listeT_t *liste = malloc(sizeof(listeT_t));
@@ -52,6 +63,14 @@ void detruireListeT(listeT_t **liste) {
   (*liste) = NULL;
 }
 
+
+/**
+  * \fn SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
+  * \brief Fonction pour initialisé les images
+  * \param *renderer Rendu de l'image
+  * \param *image Source de l'image
+*/
+
 extern
 SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
 {
@@ -77,6 +96,16 @@ SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
   
   return imageTexture;
 }
+
+
+/**
+  * \fn SDL_Texture *creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)
+  * \brief Fonction créer le texte
+  * \param *renderer Rendu de l'image
+  * \param *font Police d'écriture
+  * \param *texte Texte à é crire
+  * \param couleur Couleur du texte
+*/
 
 extern
 SDL_Texture *creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)
