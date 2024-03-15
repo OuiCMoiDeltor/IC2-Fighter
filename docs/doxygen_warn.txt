@@ -1,5 +1,4 @@
 warning: source '$(../lib)' is not a readable file or directory... skipping.
-/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/bouton.c:98: warning: found documented return type for DestroyBouton that does not return anything
 /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/README.md:7: warning: Illegal command @Damienvbgt found as part of a <a>..</a> block
 /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/README.md:8: warning: Illegal command @im found as part of a <a>..</a> block
 /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/README.md:9: warning: Illegal command @OuiCMoiDeltor found as part of a <a>..</a> block
