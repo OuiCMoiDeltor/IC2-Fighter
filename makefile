@@ -19,7 +19,7 @@ FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}perso.c ${SRC}main.c
 
 FICHIERH=${LIB}bouton.h ${LIB}creation.h ${LIB}perso.h
 
-all: clean main
+all: main
 
 main: ${FICHIERC} ${FICHIERH}
 	${CC} -o ${PROG} ${FICHIERC} ${FICHIERH} ${LIBS} ${INCLUDES}
@@ -28,8 +28,11 @@ PATH:
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/SDL2/lib
 
 
-    clean:
+clean:
 	rm -f ${SRC}*.o
 	rm -f ${INCLUDE}*.o
 	rm -f *.o
-	rm -f ${prog}
+	rm -f ${PROG}
+
+exe: clean all
+	./${PROG}
