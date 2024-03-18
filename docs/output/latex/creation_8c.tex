@@ -1,0 +1,177 @@
+\doxysection{Référence du fichier /info/etu/l2info/s204348/\+Documents/\+L2/\+PROJET/\+IC2-\/\+Fighter/src/creation.c}
+\hypertarget{creation_8c}{}\label{creation_8c}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/src/creation.c@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/src/creation.c}}
+
+
+Programme pour la création d\textquotesingle{}objet.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \"{}../lib/creation.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+liste\+T\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_acecc083d422ee1307e338b2de5be97d7}{creer\+ListeT}} ()
+\item 
+void \mbox{\hyperlink{creation_8c_af68e8afe26983df68acf0a834af15985}{ajout\+ListeT}} (liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Texture)
+\item 
+void \mbox{\hyperlink{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}{detruire\+ListeT}} (liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste)
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creer\+Image}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, char \texorpdfstring{$\ast$}{*}image)
+\begin{DoxyCompactList}\small\item\em Fonction pour initialisé les images. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a9fd1d64059dd0fae3b07b675676740a7}{creer\+Texte}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, char \texorpdfstring{$\ast$}{*}texte, SDL\+\_\+\+Color couleur)
+\begin{DoxyCompactList}\small\item\em Fonction créer le texte. \end{DoxyCompactList}\item 
+liste\+Rect \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a43b6eb178b587bc445bbd4ca6158a232}{creer\+Liste\+Rect}} ()
+\item 
+void \mbox{\hyperlink{creation_8c_a526afa603b8080dec0f9a234833b5661}{ajout\+Liste\+Rect}} (liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste, rectangle \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Rect)
+\item 
+void \mbox{\hyperlink{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}{detruire\+Liste\+Rect}} (liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste)
+\item 
+void \mbox{\hyperlink{creation_8c_a90feb595f849f52d8483be2c7df23565}{update\+Rectangles}} (liste\+Rect \texorpdfstring{$\ast$}{*}liste)
+\item 
+rectangle \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_aed38314351d9a578604d794a50f17824}{creer\+Rectangle}} (int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programme pour la création d\textquotesingle{}objet. 
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+Ce programme contient les fonctions des différents objets créer pour le jeu 
+
+Définition dans le fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{creation_8c_a526afa603b8080dec0f9a234833b5661}\label{creation_8c_a526afa603b8080dec0f9a234833b5661} 
+\index{creation.c@{creation.c}!ajoutListeRect@{ajoutListeRect}}
+\index{ajoutListeRect@{ajoutListeRect}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{ajoutListeRect()}{ajoutListeRect()}}
+{\footnotesize\ttfamily void ajout\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste,  }\item[{rectangle \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Rect }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00145}{145}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_af68e8afe26983df68acf0a834af15985}\label{creation_8c_af68e8afe26983df68acf0a834af15985} 
+\index{creation.c@{creation.c}!ajoutListeT@{ajoutListeT}}
+\index{ajoutListeT@{ajoutListeT}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{ajoutListeT()}{ajoutListeT()}}
+{\footnotesize\ttfamily void ajout\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Texture }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_a78c0320c3dd3199a622db370ae460dbe}\label{creation_8c_a78c0320c3dd3199a622db370ae460dbe} 
+\index{creation.c@{creation.c}!creerImage@{creerImage}}
+\index{creerImage@{creerImage}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerImage()}{creerImage()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} creer\+Image (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{char \texorpdfstring{$\ast$}{*}}]{image }\end{DoxyParamCaption})}
+
+
+
+Fonction pour initialisé les images. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \texorpdfstring{$\ast$}{*}renderer} & Rendu de l\textquotesingle{}image \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}image} & Source de l\textquotesingle{}image \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00075}{75}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_a43b6eb178b587bc445bbd4ca6158a232}\label{creation_8c_a43b6eb178b587bc445bbd4ca6158a232} 
+\index{creation.c@{creation.c}!creerListeRect@{creerListeRect}}
+\index{creerListeRect@{creerListeRect}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerListeRect()}{creerListeRect()}}
+{\footnotesize\ttfamily liste\+Rect \texorpdfstring{$\ast$}{*} creer\+Liste\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00137}{137}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_acecc083d422ee1307e338b2de5be97d7}\label{creation_8c_acecc083d422ee1307e338b2de5be97d7} 
+\index{creation.c@{creation.c}!creerListeT@{creerListeT}}
+\index{creerListeT@{creerListeT}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerListeT()}{creerListeT()}}
+{\footnotesize\ttfamily liste\+T\+\_\+t \texorpdfstring{$\ast$}{*} creer\+ListeT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00017}{17}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_aed38314351d9a578604d794a50f17824}\label{creation_8c_aed38314351d9a578604d794a50f17824} 
+\index{creation.c@{creation.c}!creerRectangle@{creerRectangle}}
+\index{creerRectangle@{creerRectangle}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerRectangle()}{creerRectangle()}}
+{\footnotesize\ttfamily rectangle \texorpdfstring{$\ast$}{*} creer\+Rectangle (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00202}{202}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_a9fd1d64059dd0fae3b07b675676740a7}\label{creation_8c_a9fd1d64059dd0fae3b07b675676740a7} 
+\index{creation.c@{creation.c}!creerTexte@{creerTexte}}
+\index{creerTexte@{creerTexte}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerTexte()}{creerTexte()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} creer\+Texte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{char \texorpdfstring{$\ast$}{*}}]{texte,  }\item[{SDL\+\_\+\+Color}]{couleur }\end{DoxyParamCaption})}
+
+
+
+Fonction créer le texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \texorpdfstring{$\ast$}{*}renderer} & Rendu de l\textquotesingle{}image \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}font} & Police d\textquotesingle{}écriture \\
+\hline
+{\em \texorpdfstring{$\ast$}{*}texte} & Texte à é crire \\
+\hline
+{\em couleur} & Couleur du texte \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00111}{111}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}\label{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155} 
+\index{creation.c@{creation.c}!detruireListeRect@{detruireListeRect}}
+\index{detruireListeRect@{detruireListeRect}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{detruireListeRect()}{detruireListeRect()}}
+{\footnotesize\ttfamily void detruire\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00164}{164}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}\label{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c} 
+\index{creation.c@{creation.c}!detruireListeT@{detruireListeT}}
+\index{detruireListeT@{detruireListeT}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{detruireListeT()}{detruireListeT()}}
+{\footnotesize\ttfamily void detruire\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00043}{43}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+
+\Hypertarget{creation_8c_a90feb595f849f52d8483be2c7df23565}\label{creation_8c_a90feb595f849f52d8483be2c7df23565} 
+\index{creation.c@{creation.c}!updateRectangles@{updateRectangles}}
+\index{updateRectangles@{updateRectangles}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{updateRectangles()}{updateRectangles()}}
+{\footnotesize\ttfamily void update\+Rectangles (\begin{DoxyParamCaption}\item[{liste\+Rect \texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00189}{189}} du fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
+

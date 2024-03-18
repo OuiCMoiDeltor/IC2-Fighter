@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IC2-Fighter: Référence du fichier /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/bouton.c</title>
+<title>IC2-Fighter: Référence du fichier /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/perso.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,42 +75,43 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier bouton.c</div></div>
+  <div class="headertitle"><div class="title">Référence du fichier perso.c</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Programme pour les différents boutons.  
+<p>Programme personnages.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &quot;../lib/bouton.h&quot;</code><br />
+<code>#include &quot;../lib/creation.h&quot;</code><br />
+<code>#include &quot;../lib/perso.h&quot;</code><br />
 </div>
-<p><a href="bouton_8c_source.html">Aller au code source de ce fichier.</a></p>
+<p><a href="perso_8c_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a0222440ec126ff80fd69b32f806af3ef"><td class="memItemLeft" align="right" valign="top">bouton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a0222440ec126ff80fd69b32f806af3ef">creerBouton</a> (SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)</td></tr>
-<tr class="memdesc:a0222440ec126ff80fd69b32f806af3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction va initialisé le bouton et créer le bouton.  <br /></td></tr>
-<tr class="separator:a0222440ec126ff80fd69b32f806af3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a> (bouton **b)</td></tr>
-<tr class="memdesc:a821c8aea0555ab11ceb6d004c31dfe96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction va supprimer le bouton.  <br /></td></tr>
-<tr class="separator:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef3778ceae0cc592631464edd82a0346"><td class="memItemLeft" align="right" valign="top">personnage *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a> (SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)</td></tr>
+<tr class="memdesc:aef3778ceae0cc592631464edd82a0346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction va initialisé le personnage et le créer.  <br /></td></tr>
+<tr class="separator:aef3778ceae0cc592631464edd82a0346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05862ac733ee9d6846d31e0e5481ca0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a05862ac733ee9d6846d31e0e5481ca0e">mettreAJourPersonnage</a> (SDL_Renderer *renderer, personnage *perso, const Uint8 *keyboardState, int largeur, int hauteur)</td></tr>
+<tr class="memdesc:a05862ac733ee9d6846d31e0e5481ca0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction va initialisé le personnage et le créer.  <br /></td></tr>
+<tr class="separator:a05862ac733ee9d6846d31e0e5481ca0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Programme pour les différents boutons. </p>
+<div class="textblock"><p>Programme personnages. </p>
 <dl class="section author"><dt>Auteur</dt><dd>IC2-Fighter </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0</dd></dl>
-<p>Programme avec les fonctions pour l'initialisation des boutons </p>
+<p>Programme avec les fonctions pour les personnages </p>
 
-<p class="definition">Définition dans le fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+<p class="definition">Définition dans le fichier <a class="el" href="perso_8c_source.html">perso.c</a>.</p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a0222440ec126ff80fd69b32f806af3ef" name="a0222440ec126ff80fd69b32f806af3ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0222440ec126ff80fd69b32f806af3ef">&#9670;&#160;</a></span>creerBouton()</h2>
+<a id="aef3778ceae0cc592631464edd82a0346" name="aef3778ceae0cc592631464edd82a0346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef3778ceae0cc592631464edd82a0346">&#9670;&#160;</a></span>creerPerso()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bouton * creerBouton </td>
+          <td class="memname">personnage * creerPerso </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>renderer</em>, </td>
@@ -118,8 +119,8 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">listeRect **&#160;</td>
-          <td class="paramname"><em>listeRectangle</em>, </td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -160,20 +161,8 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>img</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>anime</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nbEtat</em>&#160;</td>
+          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramname"><em>listeRectangle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -183,55 +172,85 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cette fonction va initialisé le bouton et créer le bouton. </p>
+<p>Cette fonction va initialisé le personnage et le créer. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">*renderer</td><td>Permet d'avoir le rendu de l'image </td></tr>
     <tr><td class="paramname">**listeRectangle</td><td></td></tr>
-    <tr><td class="paramname">*largeur</td><td>Largeur du bouton </td></tr>
-    <tr><td class="paramname">*hauteur</td><td>Hauteur du bouton </td></tr>
+    <tr><td class="paramname">*largeur</td><td>Largeur du personnage </td></tr>
+    <tr><td class="paramname">*hauteur</td><td>Hauteur du personnage </td></tr>
     <tr><td class="paramname">rX</td><td>Position du bouton sur l'axe X </td></tr>
     <tr><td class="paramname">rY</td><td>Position du bouton sur l'axe Y </td></tr>
     <tr><td class="paramname">rW</td><td>Ratio du bouton en fonction de la taille de l'ecran </td></tr>
     <tr><td class="paramname">rH</td><td>Ratio du bouton en fonction de la taille de l'ecran </td></tr>
-    <tr><td class="paramname">*img</td><td>Adresse et nom de l'image utilisé </td></tr>
-    <tr><td class="paramname">anime</td><td>Définit si le bouton est animé ou pas </td></tr>
-    <tr><td class="paramname">nbEtat</td><td>Permet de changer le bouton quand on survole ou on clique dessus </td></tr>
+    <tr><td class="paramname">*image</td><td>Adresse et nom de l'image utilisé </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Retourne le bouton une fois créé </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourne le perso une fois créé </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00036">36</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="perso_8c_source.html#l00036">36</a> du fichier <a class="el" href="perso_8c_source.html">perso.c</a>.</p>
 
 </div>
 </div>
-<a id="a821c8aea0555ab11ceb6d004c31dfe96" name="a821c8aea0555ab11ceb6d004c31dfe96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a821c8aea0555ab11ceb6d004c31dfe96">&#9670;&#160;</a></span>DestroyBouton()</h2>
+<a id="a05862ac733ee9d6846d31e0e5481ca0e" name="a05862ac733ee9d6846d31e0e5481ca0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05862ac733ee9d6846d31e0e5481ca0e">&#9670;&#160;</a></span>mettreAJourPersonnage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DestroyBouton </td>
+          <td class="memname">void mettreAJourPersonnage </td>
           <td>(</td>
-          <td class="paramtype">bouton **&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramname"><em>perso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uint8 *&#160;</td>
+          <td class="paramname"><em>keyboardState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cette fonction va supprimer le bouton. </p>
+<p>Cette fonction va initialisé le personnage et le créer. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">**b</td><td>Bouton que l'on veut supprimer </td></tr>
+    <tr><td class="paramname">*renderer</td><td>Permet d'avoir le rendu de l'image </td></tr>
+    <tr><td class="paramname">*perso</td><td>utilise la structure du personnage </td></tr>
+    <tr><td class="paramname">largeur</td><td>Largeur du personnage </td></tr>
+    <tr><td class="paramname">hauteur</td><td>Hauteur du personnage </td></tr>
+    <tr><td class="paramname">*keyboardState</td><td>pour connaitre le statut du bouton appuyer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Ne Retourne rien </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Ne retourne rien </dd></dl>
 
-<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00105">105</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="perso_8c_source.html#l00083">83</a> du fichier <a class="el" href="perso_8c_source.html">perso.c</a>.</p>
 
 </div>
 </div>

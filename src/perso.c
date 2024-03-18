@@ -2,6 +2,36 @@
 #include "../lib/creation.h"
 #include "../lib/perso.h"
 
+/**
+	* \file  perso.c
+	* \brief Programme personnages
+	* \author IC2-Fighter
+	* \version 1.0
+	*
+	*  Programme avec les fonctions pour les personnages
+	*
+*/
+
+
+
+/**
+	* \fn personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)
+	* \brief  Cette fonction va initialisé le personnage et le créer
+	* \param *renderer Permet d'avoir le rendu de l'image
+	* \param **listeRectangle 
+	* \param *largeur Largeur du personnage
+	* \param *hauteur Hauteur du personnage
+	* \param rX Position du bouton sur l'axe X
+	* \param rY Position du bouton sur l'axe Y
+	* \param rW Ratio du bouton en fonction de la taille de l'ecran
+	* \param rH Ratio du bouton en fonction de la taille de l'ecran
+	* \param *image Adresse et nom de l'image utilisé
+	* \return Retourne le perso une fois créé
+
+*/
+
+
+
 extern
 personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)
 {
@@ -36,6 +66,18 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 
     return perso;
 }
+
+
+/**
+	* \fn void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso, const Uint8 *keyboardState, int largeur, int hauteur)
+	* \brief  Cette fonction va initialisé le personnage et le créer
+	* \param *renderer Permet d'avoir le rendu de l'image
+	* \param *perso utilise la structure du personnage
+	* \param largeur Largeur du personnage
+	* \param hauteur Hauteur du personnage
+	* \param *keyboardState pour connaitre le statut du bouton appuyer
+	* \return Ne retourne rien
+*/
 
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso, const Uint8 *keyboardState, int largeur, int hauteur) {

@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter: Référence du fichier /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IC2-Fighter<span id="projectnumber">&#160;1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier creation.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programme pour la création d'objet.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &quot;../lib/creation.h&quot;</code><br />
+</div>
+<p><a href="creation_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acecc083d422ee1307e338b2de5be97d7"><td class="memItemLeft" align="right" valign="top">listeT_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#acecc083d422ee1307e338b2de5be97d7">creerListeT</a> ()</td></tr>
+<tr class="separator:acecc083d422ee1307e338b2de5be97d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af68e8afe26983df68acf0a834af15985"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a> (listeT_t **liste, SDL_Texture **Texture)</td></tr>
+<tr class="separator:af68e8afe26983df68acf0a834af15985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ab40c88ba6e1759e9e2ea518ead96c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a> (listeT_t **liste)</td></tr>
+<tr class="separator:a38ab40c88ba6e1759e9e2ea518ead96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c0320c3dd3199a622db370ae460dbe"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a78c0320c3dd3199a622db370ae460dbe">creerImage</a> (SDL_Renderer *renderer, char *image)</td></tr>
+<tr class="memdesc:a78c0320c3dd3199a622db370ae460dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour initialisé les images.  <br /></td></tr>
+<tr class="separator:a78c0320c3dd3199a622db370ae460dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd1d64059dd0fae3b07b675676740a7"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a> (SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)</td></tr>
+<tr class="memdesc:a9fd1d64059dd0fae3b07b675676740a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction créer le texte.  <br /></td></tr>
+<tr class="separator:a9fd1d64059dd0fae3b07b675676740a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b6eb178b587bc445bbd4ca6158a232"><td class="memItemLeft" align="right" valign="top">listeRect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a43b6eb178b587bc445bbd4ca6158a232">creerListeRect</a> ()</td></tr>
+<tr class="separator:a43b6eb178b587bc445bbd4ca6158a232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a526afa603b8080dec0f9a234833b5661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a> (listeRect **liste, rectangle **Rect)</td></tr>
+<tr class="separator:a526afa603b8080dec0f9a234833b5661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabecbee2f1b59d03e91565d2b4cb3155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a> (listeRect **liste)</td></tr>
+<tr class="separator:aabecbee2f1b59d03e91565d2b4cb3155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90feb595f849f52d8483be2c7df23565"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a> (listeRect *liste)</td></tr>
+<tr class="separator:a90feb595f849f52d8483be2c7df23565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed38314351d9a578604d794a50f17824"><td class="memItemLeft" align="right" valign="top">rectangle *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#aed38314351d9a578604d794a50f17824">creerRectangle</a> (int *largeur, int *hauteur, float rX, float rY, float rW, float rH)</td></tr>
+<tr class="separator:aed38314351d9a578604d794a50f17824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Programme pour la création d'objet. </p>
+<dl class="section author"><dt>Auteur</dt><dd>IC2-Fighter </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0</dd></dl>
+<p>Ce programme contient les fonctions des différents objets créer pour le jeu </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a526afa603b8080dec0f9a234833b5661" name="a526afa603b8080dec0f9a234833b5661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a526afa603b8080dec0f9a234833b5661">&#9670;&#160;</a></span>ajoutListeRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajoutListeRect </td>
+          <td>(</td>
+          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramname"><em>liste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">rectangle **&#160;</td>
+          <td class="paramname"><em>Rect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00145">145</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="af68e8afe26983df68acf0a834af15985" name="af68e8afe26983df68acf0a834af15985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af68e8afe26983df68acf0a834af15985">&#9670;&#160;</a></span>ajoutListeT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajoutListeT </td>
+          <td>(</td>
+          <td class="paramtype">listeT_t **&#160;</td>
+          <td class="paramname"><em>liste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>Texture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00025">25</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="a78c0320c3dd3199a622db370ae460dbe" name="a78c0320c3dd3199a622db370ae460dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c0320c3dd3199a622db370ae460dbe">&#9670;&#160;</a></span>creerImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * creerImage </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>image</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour initialisé les images. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*renderer</td><td>Rendu de l'image </td></tr>
+    <tr><td class="paramname">*image</td><td>Source de l'image </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00075">75</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="a43b6eb178b587bc445bbd4ca6158a232" name="a43b6eb178b587bc445bbd4ca6158a232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43b6eb178b587bc445bbd4ca6158a232">&#9670;&#160;</a></span>creerListeRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">listeRect * creerListeRect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00137">137</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="acecc083d422ee1307e338b2de5be97d7" name="acecc083d422ee1307e338b2de5be97d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecc083d422ee1307e338b2de5be97d7">&#9670;&#160;</a></span>creerListeT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">listeT_t * creerListeT </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00017">17</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="aed38314351d9a578604d794a50f17824" name="aed38314351d9a578604d794a50f17824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed38314351d9a578604d794a50f17824">&#9670;&#160;</a></span>creerRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rectangle * creerRectangle </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>largeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>hauteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rW</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rH</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00202">202</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="a9fd1d64059dd0fae3b07b675676740a7" name="a9fd1d64059dd0fae3b07b675676740a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd1d64059dd0fae3b07b675676740a7">&#9670;&#160;</a></span>creerTexte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * creerTexte </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>texte</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>couleur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction créer le texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*renderer</td><td>Rendu de l'image </td></tr>
+    <tr><td class="paramname">*font</td><td>Police d'écriture </td></tr>
+    <tr><td class="paramname">*texte</td><td>Texte à é crire </td></tr>
+    <tr><td class="paramname">couleur</td><td>Couleur du texte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00111">111</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="aabecbee2f1b59d03e91565d2b4cb3155" name="aabecbee2f1b59d03e91565d2b4cb3155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabecbee2f1b59d03e91565d2b4cb3155">&#9670;&#160;</a></span>detruireListeRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireListeRect </td>
+          <td>(</td>
+          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramname"><em>liste</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00164">164</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="a38ab40c88ba6e1759e9e2ea518ead96c" name="a38ab40c88ba6e1759e9e2ea518ead96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ab40c88ba6e1759e9e2ea518ead96c">&#9670;&#160;</a></span>detruireListeT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireListeT </td>
+          <td>(</td>
+          <td class="paramtype">listeT_t **&#160;</td>
+          <td class="paramname"><em>liste</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00043">43</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+<a id="a90feb595f849f52d8483be2c7df23565" name="a90feb595f849f52d8483be2c7df23565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90feb595f849f52d8483be2c7df23565">&#9670;&#160;</a></span>updateRectangles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateRectangles </td>
+          <td>(</td>
+          <td class="paramtype">listeRect *&#160;</td>
+          <td class="paramname"><em>liste</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="creation_8c_source.html#l00189">189</a> du fichier <a class="el" href="creation_8c_source.html">creation.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

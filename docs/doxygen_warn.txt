@@ -1,4 +1,14 @@
 warning: source '$(../lib)' is not a readable file or directory... skipping.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/bouton.c:98: warning: found documented return type for DestroyBouton that does not return anything
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:17: warning: Member creerListeT() (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:25: warning: Member ajoutListeT(listeT_t **liste, SDL_Texture **Texture) (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:43: warning: Member detruireListeT(listeT_t **liste) (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:137: warning: Member creerListeRect() (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:145: warning: Member ajoutListeRect(listeRect **liste, rectangle **Rect) (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:164: warning: Member detruireListeRect(listeRect **liste) (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:189: warning: Member updateRectangles(listeRect *liste) (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/creation.c:202: warning: Member creerRectangle(int *largeur, int *hauteur, float rX, float rY, float rW, float rH) (function) of file creation.c is not documented.
+/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/perso.c:73: warning: found documented return type for mettreAJourPersonnage that does not return anything
 /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/README.md:7: warning: Illegal command @Damienvbgt found as part of a <a>..</a> block
 /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/README.md:8: warning: Illegal command @im found as part of a <a>..</a> block
 /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/README.md:9: warning: Illegal command @OuiCMoiDeltor found as part of a <a>..</a> block

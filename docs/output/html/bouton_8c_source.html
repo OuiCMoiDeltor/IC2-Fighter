@@ -84,7 +84,7 @@ $(function() {
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="bouton_8c.html#a0222440ec126ff80fd69b32f806af3ef">   36</a></span>bouton *<a class="code hl_function" href="bouton_8c.html#a0222440ec126ff80fd69b32f806af3ef">creerBouton</a>(SDL_Renderer *renderer, listeRect **listeRectangle, <span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur, <span class="keywordtype">float</span> rX, <span class="keywordtype">float</span> rY, <span class="keywordtype">float</span> rW, <span class="keywordtype">float</span> rH, <span class="keywordtype">char</span> *img, <span class="keywordtype">int</span> anime, <span class="keywordtype">int</span> nbEtat)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    bouton *b = malloc(<span class="keyword">sizeof</span>(bouton));</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    b-&gt;texture = creerImage(renderer, img);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    b-&gt;texture = <a class="code hl_function" href="creation_8c.html#a78c0320c3dd3199a622db370ae460dbe">creerImage</a>(renderer, img);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">if</span>(b-&gt;texture == NULL) {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        free(b);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        b = NULL;</div>
@@ -159,6 +159,7 @@ $(function() {
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
 <div class="ttc" id="abouton_8c_html_a0222440ec126ff80fd69b32f806af3ef"><div class="ttname"><a href="bouton_8c.html#a0222440ec126ff80fd69b32f806af3ef">creerBouton</a></div><div class="ttdeci">bouton * creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)</div><div class="ttdoc">Cette fonction va initialisé le bouton et créer le bouton.</div><div class="ttdef"><b>Definition</b> <a href="bouton_8c_source.html#l00036">bouton.c:36</a></div></div>
 <div class="ttc" id="abouton_8c_html_a821c8aea0555ab11ceb6d004c31dfe96"><div class="ttname"><a href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a></div><div class="ttdeci">void DestroyBouton(bouton **b)</div><div class="ttdoc">Cette fonction va supprimer le bouton.</div><div class="ttdef"><b>Definition</b> <a href="bouton_8c_source.html#l00105">bouton.c:105</a></div></div>
+<div class="ttc" id="acreation_8c_html_a78c0320c3dd3199a622db370ae460dbe"><div class="ttname"><a href="creation_8c.html#a78c0320c3dd3199a622db370ae460dbe">creerImage</a></div><div class="ttdeci">SDL_Texture * creerImage(SDL_Renderer *renderer, char *image)</div><div class="ttdoc">Fonction pour initialisé les images.</div><div class="ttdef"><b>Definition</b> <a href="creation_8c_source.html#l00075">creation.c:75</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

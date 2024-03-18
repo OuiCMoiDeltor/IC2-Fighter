@@ -10,7 +10,7 @@
 \DoxyCodeLine{\Hypertarget{bouton_8c_source_l00036}\mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{00036}}\ bouton\ *\mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creerBouton}}(SDL\_Renderer\ *renderer,\ listeRect\ **listeRectangle,\ \textcolor{keywordtype}{int}\ *largeur,\ \textcolor{keywordtype}{int}\ *hauteur,\ \textcolor{keywordtype}{float}\ rX,\ \textcolor{keywordtype}{float}\ rY,\ \textcolor{keywordtype}{float}\ rW,\ \textcolor{keywordtype}{float}\ rH,\ \textcolor{keywordtype}{char}\ *img,\ \textcolor{keywordtype}{int}\ anime,\ \textcolor{keywordtype}{int}\ nbEtat)}
 \DoxyCodeLine{\Hypertarget{bouton_8c_source_l00037}00037\ \{}
 \DoxyCodeLine{\Hypertarget{bouton_8c_source_l00038}00038\ \ \ \ \ bouton\ *b\ =\ malloc(\textcolor{keyword}{sizeof}(bouton));}
-\DoxyCodeLine{\Hypertarget{bouton_8c_source_l00039}00039\ \ \ \ \ b-\/>texture\ =\ creerImage(renderer,\ img);}
+\DoxyCodeLine{\Hypertarget{bouton_8c_source_l00039}00039\ \ \ \ \ b-\/>texture\ =\ \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creerImage}}(renderer,\ img);}
 \DoxyCodeLine{\Hypertarget{bouton_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}(b-\/>texture\ ==\ NULL)\ \{}
 \DoxyCodeLine{\Hypertarget{bouton_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ free(b);}
 \DoxyCodeLine{\Hypertarget{bouton_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ b\ =\ NULL;}
