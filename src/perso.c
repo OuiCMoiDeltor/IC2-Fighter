@@ -47,22 +47,22 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     perso->idle = malloc(sizeof(SDL_Rect*)*5);
     for( i = 0 ; i < 5 ; i++) {
         perso->idle[i] = malloc(sizeof(SDL_Rect));
-        perso->idle[i]->x = 87*i;
+        perso->idle[i]->x = 145*i+i;
         perso->idle[i]->y = 0;
-        perso->idle[i]->w = 87;
-        perso->idle[i]->h = 104;
+        perso->idle[i]->w = 145;
+        perso->idle[i]->h = 125;
     }
 
     perso->walk = malloc(sizeof(SDL_Rect*)*6);
     for( i = 0 ; i < 6 ; i++) {
         perso->walk[i] = malloc(sizeof(SDL_Rect));
-        perso->walk[i]->x = 81*i;
-        perso->walk[i]->y = 117;
-        perso->walk[i]->w = 81;
-        perso->walk[i]->h = 104;
+        perso->walk[i]->x = 145*i+i;
+        perso->walk[i]->y = 126;
+        perso->walk[i]->w = 145;
+        perso->walk[i]->h = 125;
     }
 
-    perso->speed = 1;
+    perso->speed = 2;
 
     return perso;
 }
