@@ -40,7 +40,7 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     ajoutListeRect(listeRectangle, &perso->pos);
     perso->texture = creerImage(renderer, image);
     if(perso->texture == NULL) return NULL;
-    perso->etatIdle = perso->etatWalk = 0;
+    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->canHit = 0;
 
     int i;
 
@@ -60,6 +60,15 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->walk[i]->y = 126;
         perso->walk[i]->w = 145;
         perso->walk[i]->h = 125;
+    }
+
+    perso->punch = malloc(sizeof(SDL_Rect*)*6);
+    for( i = 0 ; i < 5 ; i++) {
+        perso->punch[i] = malloc(sizeof(SDL_Rect));
+        perso->punch[i]->x = 145*i+i;
+        perso->punch[i]->y = 252;
+        perso->punch[i]->w = 145;
+        perso->punch[i]->h = 125;
     }
 
     perso->speed = 2;
@@ -82,54 +91,79 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
     // perso1
-    if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D] || keyboardState[SDL_SCANCODE_W] || keyboardState[SDL_SCANCODE_S])) {
-        perso1->etatWalk = 0;
-        SDL_RenderCopy(renderer, perso1->texture, perso1->idle[perso1->etatIdle], perso1->pos->rect);
+    if(!perso1->animation){
+        // Coup poing droit 
+        if (keyboardState[SDL_SCANCODE_C]) {
+            perso1->animation = POINGGAUCHE;
+        // Surplace
+        }else if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D] || keyboardState[SDL_SCANCODE_W] || keyboardState[SDL_SCANCODE_S])) {
+            perso1->etatWalk = 0;
+            SDL_RenderCopy(renderer, perso1->texture, perso1->idle[perso1->etatIdle], perso1->pos->rect);
+        }else {
+            perso1->etatIdle = 0;
+            // Gauche
+            if (keyboardState[SDL_SCANCODE_A]) {
+                if ((perso1->pos->rect->x - perso1->speed) > 0)
+                    perso1->pos->rect->x -= perso1->speed;
+                SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
+            }
+            // Droite
+            if (keyboardState[SDL_SCANCODE_D]) {
+                if ((perso1->pos->rect->x + perso1->speed + 50) <= largeur)
+                    perso1->pos->rect->x += perso1->speed;
+                SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
+            }
+            if (!keyboardState[SDL_SCANCODE_A] && !keyboardState[SDL_SCANCODE_D]) perso1->etatWalk = 0;
+            if (keyboardState[SDL_SCANCODE_W] && (perso1->pos->rect->y - perso1->speed) > 0) {
+                perso1->pos->rect->y -= perso1->speed;
+            }
+            if (keyboardState[SDL_SCANCODE_S] && (perso1->pos->rect->y + perso1->speed + 50) <= hauteur) {
+                perso1->pos->rect->y += perso1->speed;
+            }
+        }
     }else {
-        perso1->etatIdle = 0;
-        if (keyboardState[SDL_SCANCODE_A]) {
-            if ((perso1->pos->rect->x - perso1->speed) > 0)
-                perso1->pos->rect->x -= perso1->speed;
-            SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
-        }
-        if (keyboardState[SDL_SCANCODE_D]) {
-            if ((perso1->pos->rect->x + perso1->speed + 50) <= largeur)
-                perso1->pos->rect->x += perso1->speed;
-            SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
-        }
-        if (!keyboardState[SDL_SCANCODE_A] && !keyboardState[SDL_SCANCODE_D]) perso1->etatWalk = 0;
-        
-        if (keyboardState[SDL_SCANCODE_W] && (perso1->pos->rect->y - perso1->speed) > 0) {
-            perso1->pos->rect->y -= perso1->speed;
-        }
-        if (keyboardState[SDL_SCANCODE_S] && (perso1->pos->rect->y + perso1->speed + 50) <= hauteur) {
-            perso1->pos->rect->y += perso1->speed;
+        switch(perso1->animation) {
+            case POINGGAUCHE:
+                SDL_RenderCopy(renderer, perso1->texture, perso1->punch[perso1->etatAnimation], perso1->pos->rect);
         }
     }
 
     // perso2
-    if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_DOWN])) {
-        perso2->etatWalk = 0;
-        SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+    if(!perso2->animation){
+        // Coup poing droit 
+        if (keyboardState[SDL_SCANCODE_KP_5]) {
+            perso2->animation = POINGGAUCHE;
+        // Surplace
+        }else if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_DOWN])) {
+            perso2->etatWalk = 0;
+            SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+        }else {
+            perso2->etatIdle = 0;
+            // Gauche
+            if (keyboardState[SDL_SCANCODE_LEFT]) {
+                if ((perso2->pos->rect->x - perso2->speed) > 0)
+                    perso2->pos->rect->x -= perso2->speed;
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+            }
+            // Droite
+            if (keyboardState[SDL_SCANCODE_RIGHT]) {
+                if ((perso2->pos->rect->x + perso2->speed + 50) <= largeur)
+                    perso2->pos->rect->x += perso2->speed;
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+            }
+            if (!keyboardState[SDL_SCANCODE_LEFT] && !keyboardState[SDL_SCANCODE_RIGHT]) perso2->etatWalk = 0;
+            
+            if (keyboardState[SDL_SCANCODE_UP] && (perso2->pos->rect->y - perso2->speed) > 0) {
+                perso2->pos->rect->y -= perso2->speed;
+            }
+            if (keyboardState[SDL_SCANCODE_DOWN] && (perso2->pos->rect->y + perso2->speed + 50) <= hauteur) {
+                perso2->pos->rect->y += perso2->speed;
+            }
+        }
     }else {
-        perso2->etatIdle = 0;
-        if (keyboardState[SDL_SCANCODE_LEFT]) {
-            if ((perso2->pos->rect->x - perso2->speed) > 0)
-                perso2->pos->rect->x -= perso2->speed;
-            SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
-        }
-        if (keyboardState[SDL_SCANCODE_RIGHT]) {
-            if ((perso2->pos->rect->x + perso2->speed + 50) <= largeur)
-                perso2->pos->rect->x += perso2->speed;
-            SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
-        }
-        if (!keyboardState[SDL_SCANCODE_LEFT] && !keyboardState[SDL_SCANCODE_RIGHT]) perso2->etatWalk = 0;
-        
-        if (keyboardState[SDL_SCANCODE_UP] && (perso2->pos->rect->y - perso2->speed) > 0) {
-            perso2->pos->rect->y -= perso2->speed;
-        }
-        if (keyboardState[SDL_SCANCODE_DOWN] && (perso2->pos->rect->y + perso2->speed + 50) <= hauteur) {
-            perso2->pos->rect->y += perso2->speed;
+        switch(perso2->animation) {
+            case POINGGAUCHE:
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->punch[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
         }
     }
 }

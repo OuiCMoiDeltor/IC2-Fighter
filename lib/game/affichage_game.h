@@ -31,6 +31,20 @@ if(scene == GAME) {
                                 Joueur1->etatWalk = 1;
                         }
                 }
+                if(Joueur1->animation) {
+                        switch(Joueur1->animation) {
+                                case POINGGAUCHE:
+                                                if(Joueur1->etatAnimation == 3)
+                                                        Joueur1->canHit = 1;
+                                                if(Joueur1->etatAnimation < 4) {
+                                                        Joueur1->etatAnimation++;
+                                                }else {
+                                                        Joueur1->etatAnimation = 0;
+                                                        Joueur1->canHit = 0;
+                                                        Joueur1->animation = AUCUNE;
+                                                }
+                        }
+                }
 
                 // Joueur 2
                 if(!reverseIdle2) {
@@ -57,6 +71,20 @@ if(scene == GAME) {
                         if(Joueur2->etatWalk == -1) {
                                 reverseWalk2 = 0;
                                 Joueur2->etatWalk = 1;
+                        }
+                }
+                if(Joueur2->animation) {
+                        switch(Joueur2->animation) {
+                                case POINGGAUCHE:
+                                                if(Joueur2->etatAnimation == 3)
+                                                        Joueur2->canHit = 1;
+                                                if(Joueur2->etatAnimation < 4) {
+                                                        Joueur2->etatAnimation++;
+                                                }else {
+                                                        Joueur2->etatAnimation = 0;
+                                                        Joueur2->canHit = 0;
+                                                        Joueur2->animation = AUCUNE;
+                                                }
                         }
                 }
 

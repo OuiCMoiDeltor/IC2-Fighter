@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include "creation.h"
 
+typedef enum anime{AUCUNE,POINGGAUCHE}animation_e;
+
 typedef struct {
     rectangle *pos;
     SDL_Texture *texture;
@@ -8,7 +10,10 @@ typedef struct {
     SDL_Rect **idle;
     int etatWalk;
     SDL_Rect **walk;
-    // Ult
+    SDL_Rect **punch;
+    animation_e animation;
+    int etatAnimation;
+    int canHit;
     float speed ;
 } personnage;
 
