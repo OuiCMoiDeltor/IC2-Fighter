@@ -1,0 +1,23 @@
+\doxysection{init\+\_\+gamemode\+\_\+selection.\+h}
+\hypertarget{init__gamemode__selection_8h_source}{}\label{init__gamemode__selection_8h_source}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/gamemode\_selection/init\_gamemode\_selection.h@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/gamemode\_selection/init\_gamemode\_selection.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00001}00001\ \textcolor{comment}{//\ Création\ de\ l'image\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00002}00002\ \ \ \ \ SDL\_Texture\ *gamemodeBGTexture\ =\ \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creerImage}}(renderer,\ IMG\_GAMEMODE\_BG);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00003}00003\ \ \ \ \ \textcolor{keywordflow}{if}(gamemodeBGTexture\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00004}00004\ \ \ \ \ ajoutListeT(\&listeTexture,\ \&gamemodeBGTexture);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00006}00006\ \textcolor{comment}{//\ Boutons}}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00007}00007\ \ \ \ \ \textcolor{comment}{//\ Local}}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00008}00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structbouton__s}{bouton}}\ *boutonLocal\ =\ \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creerBouton}}(renderer,\ \&listeRectangle,\ \&largeurF,\ \&hauteurF,\ 5/2.0,\ 8/2.0,\ 5.0,\ 8.0,\ IMG\_GAMEMODE\_LOCAL,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonLocal\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00011}00011\ \ \ \ \ \textcolor{comment}{//\ En\ ligne}}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structbouton__s}{bouton}}\ *boutonLigne\ =\ \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creerBouton}}(renderer,\ \&listeRectangle,\ \&largeurF,\ \&hauteurF,\ 5/2.0,\ 8/5.0,\ 5.0,\ 8.0,\ IMG\_GAMEMODE\_LIGNE,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonLigne\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ Retour}}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structbouton__s}{bouton}}\ *boutonGmBack\ =\ \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creerBouton}}(renderer,\ \&listeRectangle,\ \&largeurF,\ \&hauteurF,\ 100.0,\ 100.0,\ 11.0,\ 11.0,\ IMG\_GAMEMODE\_RETOUR,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{init__gamemode__selection_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonGmBack\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+
+\end{DoxyCode}

@@ -6,7 +6,12 @@
 #define BOUTON_OVER 2
 #define NB_ETAT 3
  
-// Structure contenant les informations sur le bouton
+/**
+ * \struct bouton
+ * \brief Objet pour créer le bouton
+ *
+ * bouton est l'objet permettant de créer le bouton 
+ */
 typedef struct bouton_s
 {
     SDL_Texture *texture; // contient la texture des différents aspects du bouton
