@@ -1,0 +1,79 @@
+\doxysection{affichage\+\_\+options.\+h}
+\hypertarget{affichage__options_8h_source}{}\label{affichage__options_8h_source}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/options/affichage\_options.h@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/options/affichage\_options.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00001}00001\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(scene\ ==\ OPTIONS)\ \{}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00002}00002\ \textcolor{comment}{//\ Dessiner\ l'image\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00003}00003\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsBGTexture,\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00005}00005\ \textcolor{comment}{//\ Dessiner\ l'image\ du\ titre\ des\ options}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00006}00006\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsTitleTexture,\ NULL,\ optionsTitleRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00008}00008\ \textcolor{comment}{//\ Dessiner\ l'image\ Résolution\ des\ options}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00009}00009\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsResolutionTexture,\ NULL,\ optionsResolutionRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00011}00011\ \textcolor{comment}{//\ Dessiner\ l'image\ Plein\ écran\ des\ options}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsFullscreenTexture,\ NULL,\ optionsFullscreenRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00014}00014\ \textcolor{comment}{//\ Dessiner\ le\ texte\ des\ résolutions\ des\ options}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(Res)}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(0):}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsRes1920x1080,\ NULL,\ optionsResTextRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(1):}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsRes1280x720,\ NULL,\ optionsResTextRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(2):}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsRes854x480,\ NULL,\ optionsResTextRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(3):}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsRes640x360,\ NULL,\ optionsResTextRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}(4):}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ optionsRes426x240,\ NULL,\ optionsResTextRect-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00034}00034\ \textcolor{comment}{//\ Dessiner\ le\ bouton\ du\ son}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(son)\ \{}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsSoundOn-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSoundOn-\/>texture,\ boutonOptionsSoundOn-\/>relache,\ boutonOptionsSoundOn-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSoundOn-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSoundOn-\/>texture,\ boutonOptionsSoundOn-\/>appuye,\ boutonOptionsSoundOn-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSoundOn-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsSoundOn-\/>texture,\ boutonOptionsSoundOn-\/>over,\ boutonOptionsSoundOn-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsSoundOff-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSoundOff-\/>texture,\ boutonOptionsSoundOff-\/>relache,\ boutonOptionsSoundOff-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSoundOff-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSoundOff-\/>texture,\ boutonOptionsSoundOff-\/>appuye,\ boutonOptionsSoundOff-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSoundOff-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsSoundOff-\/>texture,\ boutonOptionsSoundOff-\/>over,\ boutonOptionsSoundOff-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00045}00045\ \textcolor{comment}{//\ Dessiner\ le\ bouton\ gauche\ de\ la\ résolution}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsSwapResLeft-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapResLeft-\/>texture,\ boutonOptionsSwapResLeft-\/>relache,\ boutonOptionsSwapResLeft-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSwapResLeft-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapResLeft-\/>texture,\ boutonOptionsSwapResLeft-\/>appuye,\ boutonOptionsSwapResLeft-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSwapResLeft-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapResLeft-\/>texture,\ boutonOptionsSwapResLeft-\/>over,\ boutonOptionsSwapResLeft-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00049}00049\ \textcolor{comment}{//\ Dessiner\ le\ bouton\ droit\ de\ la\ résolution}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsSwapResRight-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapResRight-\/>texture,\ boutonOptionsSwapResRight-\/>relache,\ boutonOptionsSwapResRight-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSwapResRight-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapResRight-\/>texture,\ boutonOptionsSwapResRight-\/>appuye,\ boutonOptionsSwapResRight-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSwapResRight-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapResRight-\/>texture,\ boutonOptionsSwapResRight-\/>over,\ boutonOptionsSwapResRight-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00053}00053\ \textcolor{comment}{//\ Dessiner\ le\ bouton\ appliquer\ de\ la\ résolution}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsSwapAccept-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapAccept-\/>texture,\ boutonOptionsSwapAccept-\/>relache,\ boutonOptionsSwapAccept-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSwapAccept-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapAccept-\/>texture,\ boutonOptionsSwapAccept-\/>appuye,\ boutonOptionsSwapAccept-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsSwapAccept-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsSwapAccept-\/>texture,\ boutonOptionsSwapAccept-\/>over,\ boutonOptionsSwapAccept-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00058}00058\ \textcolor{comment}{//\ Dessiner\ le\ bouton\ du\ plein\ écran}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(fullscreen)\ \{}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsFullscreenOff-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsFullscreenOff-\/>texture,\ boutonOptionsFullscreenOff-\/>relache,\ boutonOptionsFullscreenOff-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsFullscreenOff-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsFullscreenOff-\/>texture,\ boutonOptionsFullscreenOff-\/>appuye,\ boutonOptionsFullscreenOff-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsFullscreenOff-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsFullscreenOff-\/>texture,\ boutonOptionsFullscreenOff-\/>over,\ boutonOptionsFullscreenOff-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsFullscreenOn-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsFullscreenOn-\/>texture,\ boutonOptionsFullscreenOn-\/>relache,\ boutonOptionsFullscreenOn-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsFullscreenOn-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsFullscreenOn-\/>texture,\ boutonOptionsFullscreenOn-\/>appuye,\ boutonOptionsFullscreenOn-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsFullscreenOn-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsFullscreenOn-\/>texture,\ boutonOptionsFullscreenOn-\/>over,\ boutonOptionsFullscreenOn-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00069}00069\ \textcolor{comment}{//\ Dessiner\ le\ bouton\ retour}}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonOptionsBack-\/>etat\ ==\ BOUTON\_RELACHE)\ SDL\_RenderCopy(renderer,\ boutonOptionsBack-\/>texture,\ boutonOptionsBack-\/>relache,\ boutonOptionsBack-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsBack-\/>etat\ ==\ BOUTON\_APPUYE)\ SDL\_RenderCopy(renderer,\ boutonOptionsBack-\/>texture,\ boutonOptionsBack-\/>appuye,\ boutonOptionsBack-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (boutonOptionsBack-\/>etat\ ==\ BOUTON\_OVER)\ SDL\_RenderCopy(renderer,\ boutonOptionsBack-\/>texture,\ boutonOptionsBack-\/>over,\ boutonOptionsBack-\/>position-\/>rect);}
+\DoxyCodeLine{\Hypertarget{affichage__options_8h_source_l00073}00073\ \}}
+
+\end{DoxyCode}

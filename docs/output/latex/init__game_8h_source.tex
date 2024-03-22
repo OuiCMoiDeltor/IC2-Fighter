@@ -1,0 +1,14 @@
+\doxysection{init\+\_\+game.\+h}
+\hypertarget{init__game_8h_source}{}\label{init__game_8h_source}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/game/init\_game.h@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/game/init\_game.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00001}00001\ \textcolor{keyword}{const}\ Uint8\ *keyboardState\ =\ SDL\_GetKeyboardState(NULL);}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00002}00002\ \textcolor{keywordtype}{int}\ reverseIdle\ =\ 0;\ \textcolor{keywordtype}{int}\ reverseWalk\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00003}00003\ \textcolor{keywordtype}{int}\ reverseIdle2\ =\ 0;\ \textcolor{keywordtype}{int}\ reverseWalk2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00005}00005\ \textcolor{comment}{//\ Création\ de\ l'image\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00006}00006\ \ \ \ \ SDL\_Texture\ *gameBGTexture\ =\ \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creerImage}}(renderer,\ IMG\_GAME\_BG);}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00007}00007\ \ \ \ \ \textcolor{keywordflow}{if}(gameBGTexture\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{init__game_8h_source_l00008}00008\ \ \ \ \ ajoutListeT(\&listeTexture,\ \&gameBGTexture);}
+
+\end{DoxyCode}

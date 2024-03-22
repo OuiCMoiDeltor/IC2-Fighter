@@ -10,20 +10,19 @@
 \DoxyCodeLine{\Hypertarget{bouton_8h_source_l00006}00006\ \textcolor{preprocessor}{\#define\ BOUTON\_OVER\ 2}}
 \DoxyCodeLine{\Hypertarget{bouton_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ NB\_ETAT\ 3}}
 \DoxyCodeLine{\Hypertarget{bouton_8h_source_l00008}00008\ \ }
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00009}00009\ \textcolor{comment}{//\ Structure\ contenant\ les\ informations\ sur\ le\ bouton}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00010}\mbox{\hyperlink{structbouton__s}{00010}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structbouton__s}{bouton\_s}}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00011}00011\ \{}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00012}00012\ \ \ \ \ SDL\_Texture\ *texture;\ \textcolor{comment}{//\ contient\ la\ texture\ des\ différents\ aspects\ du\ bouton}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{structrectangle__s}{rectangle}}\ *position;\ \textcolor{comment}{//\ contient\ la\ position\ (.x\ et\ .y)\ et\ les\ dimensions\ (.w\ et\ .h)\ du\ bouton}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ etat;\ \textcolor{comment}{//\ contient\ l'état\ du\ bouton\ (BOUTON\_RELACHE\ /\ BOUTON\_APPUYE\ /\ BOUTON\_OVER)}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ nbEtat;}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00016}00016\ \ \ \ \ SDL\_Rect\ *relache;\ \textcolor{comment}{//\ image\ du\ bouton\ lorsqu'il\ est\ relaché}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00017}00017\ \ \ \ \ SDL\_Rect\ *appuye;\ \textcolor{comment}{//\ image\ du\ bouton\ lorsqu'il\ est\ appuyé}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00018}00018\ \ \ \ \ SDL\_Rect\ *over;\ \textcolor{comment}{//\ image\ du\ bouton\ lorsqu'il\ est\ survolé}}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00019}00019\ \ \ \ \ SDL\_Rect\ **frames;}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00020}00020\ \}\mbox{\hyperlink{structbouton__s}{bouton}};}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00022}00022\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structbouton__s}{bouton}}\ *creerBouton(SDL\_Renderer*,\mbox{\hyperlink{structlisteRect__s}{listeRect}}\ **,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{char}*,\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
-\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00023}00023\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ DestroyBouton(\mbox{\hyperlink{structbouton__s}{bouton}}**);}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00015}\mbox{\hyperlink{structbouton__s}{00015}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structbouton__s}{bouton\_s}}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00017}00017\ \ \ \ \ SDL\_Texture\ *texture;\ \textcolor{comment}{//\ contient\ la\ texture\ des\ différents\ aspects\ du\ bouton}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{structrectangle}{rectangle}}\ *position;\ \textcolor{comment}{//\ contient\ la\ position\ (.x\ et\ .y)\ et\ les\ dimensions\ (.w\ et\ .h)\ du\ bouton}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{int}\ etat;\ \textcolor{comment}{//\ contient\ l'état\ du\ bouton\ (BOUTON\_RELACHE\ /\ BOUTON\_APPUYE\ /\ BOUTON\_OVER)}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{int}\ nbEtat;}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00021}00021\ \ \ \ \ SDL\_Rect\ *relache;\ \textcolor{comment}{//\ image\ du\ bouton\ lorsqu'il\ est\ relaché}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00022}00022\ \ \ \ \ SDL\_Rect\ *appuye;\ \textcolor{comment}{//\ image\ du\ bouton\ lorsqu'il\ est\ appuyé}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00023}00023\ \ \ \ \ SDL\_Rect\ *over;\ \textcolor{comment}{//\ image\ du\ bouton\ lorsqu'il\ est\ survolé}}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00024}00024\ \ \ \ \ SDL\_Rect\ **frames;}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00025}00025\ \}\mbox{\hyperlink{structbouton}{bouton}};}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00027}00027\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structbouton}{bouton}}\ *\mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creerBouton}}(SDL\_Renderer*,\mbox{\hyperlink{structlisteRect}{listeRect}}\ **,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{float},\textcolor{keywordtype}{char}*,\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{bouton_8h_source_l00028}00028\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bouton_8c_a821c8aea0555ab11ceb6d004c31dfe96}{DestroyBouton}}(\mbox{\hyperlink{structbouton}{bouton}}**);}
 
 \end{DoxyCode}

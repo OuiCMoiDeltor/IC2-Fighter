@@ -10,9 +10,9 @@ Programme pour les différents boutons.
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-bouton \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creer\+Bouton}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste\+Rectangle, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH, char \texorpdfstring{$\ast$}{*}img, int anime, int nb\+Etat)
+\mbox{\hyperlink{structbouton}{bouton}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creer\+Bouton}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste\+Rectangle, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH, char \texorpdfstring{$\ast$}{*}img, int anime, int nb\+Etat)
 \begin{DoxyCompactList}\small\item\em Cette fonction va initialisé le bouton et créer le bouton. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{bouton_8c_a821c8aea0555ab11ceb6d004c31dfe96}{Destroy\+Bouton}} (bouton \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b)
+void \mbox{\hyperlink{bouton_8c_a821c8aea0555ab11ceb6d004c31dfe96}{Destroy\+Bouton}} (\mbox{\hyperlink{structbouton}{bouton}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b)
 \begin{DoxyCompactList}\small\item\em Cette fonction va supprimer le bouton. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -36,7 +36,7 @@ Définition dans le fichier \mbox{\hyperlink{bouton_8c_source}{bouton.\+c}}.
 \index{bouton.c@{bouton.c}!creerBouton@{creerBouton}}
 \index{creerBouton@{creerBouton}!bouton.c@{bouton.c}}
 \doxysubsubsection{\texorpdfstring{creerBouton()}{creerBouton()}}
-{\footnotesize\ttfamily bouton \texorpdfstring{$\ast$}{*} creer\+Bouton (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste\+Rectangle,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{char \texorpdfstring{$\ast$}{*}}]{img,  }\item[{int}]{anime,  }\item[{int}]{nb\+Etat }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbouton}{bouton}} \texorpdfstring{$\ast$}{*} creer\+Bouton (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste\+Rectangle,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{char \texorpdfstring{$\ast$}{*}}]{img,  }\item[{int}]{anime,  }\item[{int}]{nb\+Etat }\end{DoxyParamCaption})}
 
 
 
@@ -78,7 +78,7 @@ Définition à la ligne \mbox{\hyperlink{bouton_8c_source_l00036}{36}} du fichie
 \index{bouton.c@{bouton.c}!DestroyBouton@{DestroyBouton}}
 \index{DestroyBouton@{DestroyBouton}!bouton.c@{bouton.c}}
 \doxysubsubsection{\texorpdfstring{DestroyBouton()}{DestroyBouton()}}
-{\footnotesize\ttfamily void Destroy\+Bouton (\begin{DoxyParamCaption}\item[{bouton \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Destroy\+Bouton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbouton}{bouton}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
 
 
 

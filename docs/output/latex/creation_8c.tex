@@ -11,25 +11,25 @@ Programme pour la création d\textquotesingle{}objet.
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-liste\+T\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_acecc083d422ee1307e338b2de5be97d7}{creer\+ListeT}} ()
+\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_acecc083d422ee1307e338b2de5be97d7}{creer\+ListeT}} ()
 \item 
-void \mbox{\hyperlink{creation_8c_af68e8afe26983df68acf0a834af15985}{ajout\+ListeT}} (liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Texture)
+void \mbox{\hyperlink{creation_8c_af68e8afe26983df68acf0a834af15985}{ajout\+ListeT}} (\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Texture)
 \item 
-void \mbox{\hyperlink{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}{detruire\+ListeT}} (liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste)
+void \mbox{\hyperlink{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}{detruire\+ListeT}} (\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste)
 \item 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creer\+Image}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, char \texorpdfstring{$\ast$}{*}image)
 \begin{DoxyCompactList}\small\item\em Fonction pour initialisé les images. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a9fd1d64059dd0fae3b07b675676740a7}{creer\+Texte}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, char \texorpdfstring{$\ast$}{*}texte, SDL\+\_\+\+Color couleur)
 \begin{DoxyCompactList}\small\item\em Fonction créer le texte. \end{DoxyCompactList}\item 
-liste\+Rect \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a43b6eb178b587bc445bbd4ca6158a232}{creer\+Liste\+Rect}} ()
+\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_a43b6eb178b587bc445bbd4ca6158a232}{creer\+Liste\+Rect}} ()
 \item 
-void \mbox{\hyperlink{creation_8c_a526afa603b8080dec0f9a234833b5661}{ajout\+Liste\+Rect}} (liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste, rectangle \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Rect)
+void \mbox{\hyperlink{creation_8c_a526afa603b8080dec0f9a234833b5661}{ajout\+Liste\+Rect}} (\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste, \mbox{\hyperlink{structrectangle}{rectangle}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Rect)
 \item 
-void \mbox{\hyperlink{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}{detruire\+Liste\+Rect}} (liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste)
+void \mbox{\hyperlink{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}{detruire\+Liste\+Rect}} (\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste)
 \item 
-void \mbox{\hyperlink{creation_8c_a90feb595f849f52d8483be2c7df23565}{update\+Rectangles}} (liste\+Rect \texorpdfstring{$\ast$}{*}liste)
+void \mbox{\hyperlink{creation_8c_a90feb595f849f52d8483be2c7df23565}{update\+Rectangles}} (\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}liste)
 \item 
-rectangle \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_aed38314351d9a578604d794a50f17824}{creer\+Rectangle}} (int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH)
+\mbox{\hyperlink{structrectangle}{rectangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{creation_8c_aed38314351d9a578604d794a50f17824}{creer\+Rectangle}} (int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH)
 \end{DoxyCompactItemize}
 
 
@@ -53,7 +53,7 @@ Définition dans le fichier \mbox{\hyperlink{creation_8c_source}{creation.\+c}}.
 \index{creation.c@{creation.c}!ajoutListeRect@{ajoutListeRect}}
 \index{ajoutListeRect@{ajoutListeRect}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{ajoutListeRect()}{ajoutListeRect()}}
-{\footnotesize\ttfamily void ajout\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste,  }\item[{rectangle \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Rect }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajout\+Liste\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste,  }\item[{\mbox{\hyperlink{structrectangle}{rectangle}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Rect }\end{DoxyParamCaption})}
 
 
 
@@ -63,7 +63,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00145}{145}} du fic
 \index{creation.c@{creation.c}!ajoutListeT@{ajoutListeT}}
 \index{ajoutListeT@{ajoutListeT}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{ajoutListeT()}{ajoutListeT()}}
-{\footnotesize\ttfamily void ajout\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajout\+ListeT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Texture }\end{DoxyParamCaption})}
 
 
 
@@ -94,7 +94,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00075}{75}} du fich
 \index{creation.c@{creation.c}!creerListeRect@{creerListeRect}}
 \index{creerListeRect@{creerListeRect}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{creerListeRect()}{creerListeRect()}}
-{\footnotesize\ttfamily liste\+Rect \texorpdfstring{$\ast$}{*} creer\+Liste\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*} creer\+Liste\+Rect (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -104,7 +104,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00137}{137}} du fic
 \index{creation.c@{creation.c}!creerListeT@{creerListeT}}
 \index{creerListeT@{creerListeT}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{creerListeT()}{creerListeT()}}
-{\footnotesize\ttfamily liste\+T\+\_\+t \texorpdfstring{$\ast$}{*} creer\+ListeT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} \texorpdfstring{$\ast$}{*} creer\+ListeT (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -114,7 +114,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00017}{17}} du fich
 \index{creation.c@{creation.c}!creerRectangle@{creerRectangle}}
 \index{creerRectangle@{creerRectangle}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{creerRectangle()}{creerRectangle()}}
-{\footnotesize\ttfamily rectangle \texorpdfstring{$\ast$}{*} creer\+Rectangle (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrectangle}{rectangle}} \texorpdfstring{$\ast$}{*} creer\+Rectangle (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH }\end{DoxyParamCaption})}
 
 
 
@@ -149,7 +149,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00111}{111}} du fic
 \index{creation.c@{creation.c}!detruireListeRect@{detruireListeRect}}
 \index{detruireListeRect@{detruireListeRect}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{detruireListeRect()}{detruireListeRect()}}
-{\footnotesize\ttfamily void detruire\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+Liste\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
 
 
 
@@ -159,7 +159,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00164}{164}} du fic
 \index{creation.c@{creation.c}!detruireListeT@{detruireListeT}}
 \index{detruireListeT@{detruireListeT}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{detruireListeT()}{detruireListeT()}}
-{\footnotesize\ttfamily void detruire\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+ListeT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
 
 
 
@@ -169,7 +169,7 @@ Définition à la ligne \mbox{\hyperlink{creation_8c_source_l00043}{43}} du fich
 \index{creation.c@{creation.c}!updateRectangles@{updateRectangles}}
 \index{updateRectangles@{updateRectangles}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{updateRectangles()}{updateRectangles()}}
-{\footnotesize\ttfamily void update\+Rectangles (\begin{DoxyParamCaption}\item[{liste\+Rect \texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+Rectangles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}}]{liste }\end{DoxyParamCaption})}
 
 
 

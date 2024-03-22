@@ -1,0 +1,32 @@
+\doxysection{init\+\_\+champ\+\_\+select.\+h}
+\hypertarget{init__champ__select_8h_source}{}\label{init__champ__select_8h_source}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/champ\_select/init\_champ\_select.h@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/lib/champ\_select/init\_champ\_select.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00001}00001\ \textcolor{keywordtype}{int}\ J2Pick\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00002}00002\ \mbox{\hyperlink{structpersonnage}{personnage}}\ *Joueur1\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00003}00003\ \mbox{\hyperlink{structpersonnage}{personnage}}\ *Joueur2\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00005}00005\ \textcolor{comment}{//\ Création\ de\ l'image\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00006}00006\ \ \ \ \ \textcolor{comment}{/*SDL\_Texture\ *champSelectBGTexture\ =\ creerImage(renderer,\ IMG\_CHAMPSELECT\_BG);}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00007}00007\ \textcolor{comment}{\ \ \ \ if(champSelectBGTexture\ ==\ NULL)\ exit(EXIT\_FAILURE);}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ ajoutListeT(\&listeTexture,\ \&champSelectBGTexture);*/}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00010}00010\ \textcolor{comment}{//\ Création\ des\ images\ de\ séléction\ du\ joueur\ courant}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00011}00011\ \ \ \ \ SDL\_Texture\ *champSelectJ1\ =\ \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creerImage}}(renderer,\ IMG\_CHAMPSELECT\_J1);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{if}(champSelectJ1\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00013}00013\ \ \ \ \ ajoutListeT(\&listeTexture,\ \&champSelectJ1);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{structrectangle__s}{rectangle}}\ *champSelectJ1Rect\ =\ creerRectangle(\&largeurF,\ \&hauteurF,\ 25/5.0,\ 100/2.0,\ 25/15.0,\ 100/16.0);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00015}00015\ \ \ \ \ ajoutListeRect(\&listeRectangle,\ \&champSelectJ1Rect);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00017}00017\ \ \ \ \ SDL\_Texture\ *champSelectJ2\ =\ \mbox{\hyperlink{creation_8c_a78c0320c3dd3199a622db370ae460dbe}{creerImage}}(renderer,\ IMG\_CHAMPSELECT\_J2);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}(champSelectJ2\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00019}00019\ \ \ \ \ ajoutListeT(\&listeTexture,\ \&champSelectJ2);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{structrectangle__s}{rectangle}}\ *champSelectJ2Rect\ =\ creerRectangle(\&largeurF,\ \&hauteurF,\ 25/5.0,\ 100/2.0,\ 25/15.0,\ 100/16.0);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00021}00021\ \ \ \ \ ajoutListeRect(\&listeRectangle,\ \&champSelectJ2Rect);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00023}00023\ \textcolor{comment}{//\ Boutons}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Local}}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structbouton__s}{bouton}}\ *boutonRYU\ =\ \mbox{\hyperlink{bouton_8c_a0222440ec126ff80fd69b32f806af3ef}{creerBouton}}(renderer,\ \&listeRectangle,\ \&largeurF,\ \&hauteurF,\ 25/1.0,\ 100/20.0,\ 25/3.0,\ 100/30.0,\ IMG\_CHAMPSELECT\_RYU,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{init__champ__select_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(boutonRYU\ ==\ NULL)\ exit(EXIT\_FAILURE);}
+
+\end{DoxyCode}

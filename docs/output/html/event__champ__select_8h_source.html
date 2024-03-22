@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/lib/champ_select/event_champ_select.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">IC2-Fighter<span id="projectnumber">&#160;1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_d22bbfd5d06bf2bcd1ad626989a2dc93.html">champ_select</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">event_champ_select.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keywordflow">if</span>(scene == CHAMP_SELECT) {</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>            <span class="comment">// RYU</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>                <span class="comment">// Appuie sur le bouton</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>                <span class="keywordflow">if</span> (e.type == SDL_MOUSEBUTTONDOWN &amp;&amp; e.motion.x &gt; boutonRYU-&gt;position-&gt;rect-&gt;x &amp;&amp; e.motion.x &lt; boutonRYU-&gt;position-&gt;rect-&gt;x + boutonRYU-&gt;position-&gt;rect-&gt;w &amp;&amp; e.motion.y &gt; boutonRYU-&gt;position-&gt;rect-&gt;y &amp;&amp; e.motion.y &lt; boutonRYU-&gt;position-&gt;rect-&gt;y + boutonRYU-&gt;position-&gt;rect-&gt;h) {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>                    boutonRYU-&gt;etat = BOUTON_APPUYE;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>                <span class="comment">// Appuie et relache sur le bouton</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>                }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.type == SDL_MOUSEBUTTONUP &amp;&amp; e.motion.x &gt; boutonRYU-&gt;position-&gt;rect-&gt;x &amp;&amp; e.motion.x &lt; boutonRYU-&gt;position-&gt;rect-&gt;x + boutonRYU-&gt;position-&gt;rect-&gt;w &amp;&amp; e.motion.y &gt; boutonRYU-&gt;position-&gt;rect-&gt;y &amp;&amp; e.motion.y &lt; boutonRYU-&gt;position-&gt;rect-&gt;y + boutonRYU-&gt;position-&gt;rect-&gt;h) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>                    <span class="keywordflow">if</span>(J2Pick) {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                        Joueur2 = <a class="code hl_function" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a>(renderer, RYU, &amp;largeurF, &amp;hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &amp;listeRectangle);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                        <span class="keywordflow">if</span>(Joueur2 == NULL) exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                        scene = GAME;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                        boutonRYU-&gt;etat = BOUTON_RELACHE;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                        J2Pick = 0;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                    }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                        Joueur1 = <a class="code hl_function" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a>(renderer, RYU, &amp;largeurF, &amp;hauteurF, 10.0, 10.0, 2.5, 9/7.0, &amp;listeRectangle);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                        <span class="keywordflow">if</span>(Joueur1 == NULL) exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                        boutonRYU-&gt;etat = BOUTON_RELACHE;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                        J2Pick = 1;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                <span class="comment">// Appuie sur le bouton et relache ailleurs</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.type == SDL_MOUSEBUTTONUP &amp;&amp; boutonRYU-&gt;etat == BOUTON_APPUYE  || boutonRYU-&gt;etat == BOUTON_OVER &amp;&amp; !(e.motion.x &gt; boutonRYU-&gt;position-&gt;rect-&gt;x &amp;&amp; e.motion.x &lt; boutonRYU-&gt;position-&gt;rect-&gt;x + boutonRYU-&gt;position-&gt;rect-&gt;w &amp;&amp; e.motion.y &gt; boutonRYU-&gt;position-&gt;rect-&gt;y &amp;&amp; e.motion.y &lt; boutonRYU-&gt;position-&gt;rect-&gt;y + boutonRYU-&gt;position-&gt;rect-&gt;h)) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                    boutonRYU-&gt;etat = BOUTON_RELACHE;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                <span class="comment">// Passe sur le bouton</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.motion.x &gt; boutonRYU-&gt;position-&gt;rect-&gt;x &amp;&amp; e.motion.x &lt; boutonRYU-&gt;position-&gt;rect-&gt;x + boutonRYU-&gt;position-&gt;rect-&gt;w &amp;&amp; e.motion.y &gt; boutonRYU-&gt;position-&gt;rect-&gt;y &amp;&amp; e.motion.y &lt; boutonRYU-&gt;position-&gt;rect-&gt;y + boutonRYU-&gt;position-&gt;rect-&gt;h &amp;&amp; boutonRYU-&gt;etat == BOUTON_RELACHE) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                    boutonRYU-&gt;etat = BOUTON_OVER;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            }</div>
+<div class="ttc" id="aperso_8c_html_aef3778ceae0cc592631464edd82a0346"><div class="ttname"><a href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a></div><div class="ttdeci">personnage * creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)</div><div class="ttdoc">Cette fonction va initialisé le personnage et le créer.</div><div class="ttdef"><b>Definition</b> <a href="perso_8c_source.html#l00036">perso.c:36</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

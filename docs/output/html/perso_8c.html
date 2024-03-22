@@ -89,12 +89,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aef3778ceae0cc592631464edd82a0346"><td class="memItemLeft" align="right" valign="top">personnage *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a> (SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)</td></tr>
+<tr class="memitem:aef3778ceae0cc592631464edd82a0346"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a> (SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, <a class="el" href="structlisteRect.html">listeRect</a> **listeRectangle)</td></tr>
 <tr class="memdesc:aef3778ceae0cc592631464edd82a0346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction va initialisé le personnage et le créer.  <br /></td></tr>
 <tr class="separator:aef3778ceae0cc592631464edd82a0346"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05862ac733ee9d6846d31e0e5481ca0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a05862ac733ee9d6846d31e0e5481ca0e">mettreAJourPersonnage</a> (SDL_Renderer *renderer, personnage *perso, const Uint8 *keyboardState, int largeur, int hauteur)</td></tr>
-<tr class="memdesc:a05862ac733ee9d6846d31e0e5481ca0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction va initialisé le personnage et le créer.  <br /></td></tr>
-<tr class="separator:a05862ac733ee9d6846d31e0e5481ca0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab42da6054ea453b0a28912fa15d77453"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#ab42da6054ea453b0a28912fa15d77453">mettreAJourPersonnage</a> (SDL_Renderer *renderer, <a class="el" href="structpersonnage.html">personnage</a> *perso1, <a class="el" href="structpersonnage.html">personnage</a> *perso2, const Uint8 *keyboardState, int largeur, int hauteur)</td></tr>
+<tr class="separator:ab42da6054ea453b0a28912fa15d77453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Programme personnages. </p>
@@ -111,7 +110,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">personnage * creerPerso </td>
+          <td class="memname"><a class="el" href="structpersonnage.html">personnage</a> * creerPerso </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>renderer</em>, </td>
@@ -161,7 +160,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteRect.html">listeRect</a> **&#160;</td>
           <td class="paramname"><em>listeRectangle</em>&#160;</td>
         </tr>
         <tr>
@@ -193,8 +192,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a05862ac733ee9d6846d31e0e5481ca0e" name="a05862ac733ee9d6846d31e0e5481ca0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05862ac733ee9d6846d31e0e5481ca0e">&#9670;&#160;</a></span>mettreAJourPersonnage()</h2>
+<a id="ab42da6054ea453b0a28912fa15d77453" name="ab42da6054ea453b0a28912fa15d77453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab42da6054ea453b0a28912fa15d77453">&#9670;&#160;</a></span>mettreAJourPersonnage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,8 +207,14 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
-          <td class="paramname"><em>perso</em>, </td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>perso1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>perso2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -236,19 +241,6 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Cette fonction va initialisé le personnage et le créer. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*renderer</td><td>Permet d'avoir le rendu de l'image </td></tr>
-    <tr><td class="paramname">*perso</td><td>utilise la structure du personnage </td></tr>
-    <tr><td class="paramname">largeur</td><td>Largeur du personnage </td></tr>
-    <tr><td class="paramname">hauteur</td><td>Hauteur du personnage </td></tr>
-    <tr><td class="paramname">*keyboardState</td><td>pour connaitre le statut du bouton appuyer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Ne retourne rien </dd></dl>
 
 <p class="definition">Définition à la ligne <a class="el" href="perso_8c_source.html#l00083">83</a> du fichier <a class="el" href="perso_8c_source.html">perso.c</a>.</p>
 
