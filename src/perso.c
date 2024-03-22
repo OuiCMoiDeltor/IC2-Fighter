@@ -83,6 +83,7 @@ extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
     // perso1
     if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D] || keyboardState[SDL_SCANCODE_W] || keyboardState[SDL_SCANCODE_S])) {
+        perso1->etatWalk = 0;
         SDL_RenderCopy(renderer, perso1->texture, perso1->idle[perso1->etatIdle], perso1->pos->rect);
     }else {
         perso1->etatIdle = 0;
@@ -108,6 +109,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
 
     // perso2
     if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_DOWN])) {
+        perso2->etatWalk = 0;
         SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
     }else {
         perso2->etatIdle = 0;
