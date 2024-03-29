@@ -2,7 +2,7 @@ if(scene == CHAMP_SELECT) {
 // Dessiner l'image de fond
         //SDL_RenderCopy(renderer, champSelectBGTexture, NULL, NULL);
 
-// Dessiner l'image de séléction du joueur courant
+// Dessiner l'image de séléction du joueur courantt
         if(J2Pick)
                 SDL_RenderCopy(renderer, champSelectJ2, NULL, champSelectJ1Rect->rect);
         else
