@@ -22,5 +22,6 @@ personnage *Joueur2 = NULL;
 
 // Boutons
     // Local
-        bouton *boutonRYU = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/1.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 0, 0);
+        bouton *boutonRYU = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/1.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
         if(boutonRYU == NULL) exit(EXIT_FAILURE);
+
