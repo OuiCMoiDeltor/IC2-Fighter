@@ -62,7 +62,7 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->walk[i]->h = 125;
     }
 
-    perso->punch = malloc(sizeof(SDL_Rect*)*6);
+    perso->punch = malloc(sizeof(SDL_Rect*)*5);
     for( i = 0 ; i < 5 ; i++) {
         perso->punch[i] = malloc(sizeof(SDL_Rect));
         perso->punch[i]->x = 145*i+i;
@@ -71,7 +71,16 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->punch[i]->h = 125;
     }
 
-    perso->speed = 2;
+    perso->kick = malloc(sizeof(SDL_Rect*)*3);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->kick[i] = malloc(sizeof(SDL_Rect));
+        perso->kick[i]->x = 145*7+7+145*i+i;
+        perso->kick[i]->y = 252;
+        perso->kick[i]->w = 145;
+        perso->kick[i]->h = 125;
+    }
+
+    perso->speed = *largeur/250;
 
     return perso;
 }
@@ -95,6 +104,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         // Coup poing droit 
         if (keyboardState[SDL_SCANCODE_C]) {
             perso1->animation = POINGGAUCHE;
+        }else if (keyboardState[SDL_SCANCODE_V]) {
+            perso1->animation = KICK;
         // Surplace
         }else if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D] || keyboardState[SDL_SCANCODE_W] || keyboardState[SDL_SCANCODE_S])) {
             perso1->etatWalk = 0;
@@ -124,7 +135,9 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     }else {
         switch(perso1->animation) {
             case POINGGAUCHE:
-                SDL_RenderCopy(renderer, perso1->texture, perso1->punch[perso1->etatAnimation], perso1->pos->rect);
+                SDL_RenderCopy(renderer, perso1->texture, perso1->punch[perso1->etatAnimation], perso1->pos->rect); break;
+            case KICK:
+                SDL_RenderCopy(renderer, perso1->texture, perso1->kick[perso1->etatAnimation], perso1->pos->rect); break;
         }
     }
 
@@ -133,6 +146,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         // Coup poing droit 
         if (keyboardState[SDL_SCANCODE_KP_5]) {
             perso2->animation = POINGGAUCHE;
+        }else if (keyboardState[SDL_SCANCODE_KP_6]) {
+            perso2->animation = KICK;
         // Surplace
         }else if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_DOWN])) {
             perso2->etatWalk = 0;
@@ -163,7 +178,9 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     }else {
         switch(perso2->animation) {
             case POINGGAUCHE:
-                SDL_RenderCopyEx(renderer, perso2->texture, perso2->punch[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->punch[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
+            case KICK:
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->kick[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
         }
     }
 }

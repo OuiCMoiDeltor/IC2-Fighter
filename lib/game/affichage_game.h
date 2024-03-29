@@ -43,6 +43,18 @@ if(scene == GAME) {
                                                         Joueur1->canHit = 0;
                                                         Joueur1->animation = AUCUNE;
                                                 }
+                                                break;
+                                case KICK:
+                                                if(Joueur1->etatAnimation == 1)
+                                                        Joueur1->canHit = 1;
+                                                if(Joueur1->etatAnimation < 2) {
+                                                        Joueur1->etatAnimation++;
+                                                }else {
+                                                        Joueur1->etatAnimation = 0;
+                                                        Joueur1->canHit = 0;
+                                                        Joueur1->animation = AUCUNE;
+                                                }
+                                                break;
                         }
                 }
 
@@ -85,6 +97,18 @@ if(scene == GAME) {
                                                         Joueur2->canHit = 0;
                                                         Joueur2->animation = AUCUNE;
                                                 }
+                                                break;
+                                case KICK:
+                                                if(Joueur2->etatAnimation == 1)
+                                                        Joueur2->canHit = 1;
+                                                if(Joueur2->etatAnimation < 2) {
+                                                        Joueur2->etatAnimation++;
+                                                }else {
+                                                        Joueur2->etatAnimation = 0;
+                                                        Joueur2->canHit = 0;
+                                                        Joueur2->animation = AUCUNE;
+                                                }
+                                                break;
                         }
                 }
 
