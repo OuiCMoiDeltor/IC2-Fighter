@@ -1,6 +1,6 @@
 if(scene == CHAMP_SELECT) {
 // Dessiner l'image de fond
-        //SDL_RenderCopy(renderer, champSelectBGTexture, NULL, NULL);
+        SDL_RenderCopy(renderer, champSelectBGTexture, NULL, NULL);
 
 // Dessiner l'image de séléction du joueur courant
         if(J2Pick)

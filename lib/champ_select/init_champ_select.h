@@ -3,9 +3,9 @@ personnage *Joueur1 = NULL;
 personnage *Joueur2 = NULL;
 
 // Création de l'image de fond
-    /*SDL_Texture *champSelectBGTexture = creerImage(renderer, IMG_CHAMPSELECT_BG);
+    SDL_Texture *champSelectBGTexture = creerImage(renderer, IMG_CHAMPSELECT_BG);
     if(champSelectBGTexture == NULL) exit(EXIT_FAILURE);
-    ajoutListeT(&listeTexture, &champSelectBGTexture);*/
+    ajoutListeT(&listeTexture, &champSelectBGTexture);
 
 // Création des images de séléction du joueur courant
     SDL_Texture *champSelectJ1 = creerImage(renderer, IMG_CHAMPSELECT_J1);
