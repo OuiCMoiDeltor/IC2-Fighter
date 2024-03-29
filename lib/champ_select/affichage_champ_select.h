@@ -9,7 +9,11 @@ if(scene == CHAMP_SELECT) {
                 SDL_RenderCopy(renderer, champSelectJ1, NULL, champSelectJ2Rect->rect);
 
 // Dessiner le bouton de RYU
-        if(boutonRYU->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonRYU->texture, boutonRYU->relache, boutonRYU->position->rect);
-        else if (boutonRYU->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonRYU->texture, boutonRYU->appuye, boutonRYU->position->rect);
-        else if (boutonRYU->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonRYU->texture, boutonRYU->over, boutonRYU->position->rect);
+        SDL_RenderCopy(renderer, boutonRYU->texture, boutonRYU->frames[boutonRYU->etat], boutonRYU->position->rect);
+        // Animation
+        waitForFrame++;
+        if(waitForFrame > 10) {
+                boutonRYU->etat =  ++boutonRYU->etat%10;
+                waitForFrame = 0;
+        }
 }
