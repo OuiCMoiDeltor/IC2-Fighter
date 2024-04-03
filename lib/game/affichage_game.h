@@ -33,7 +33,7 @@ if(scene == GAME) {
                 }
                 if(Joueur1->animation) {
                         switch(Joueur1->animation) {
-                                case POINGGAUCHE:
+                                case POINGLATERAL:
                                                 if(Joueur1->etatAnimation == 3)
                                                         Joueur1->canHit = 1;
                                                 if(Joueur1->etatAnimation < 4) {
@@ -45,6 +45,7 @@ if(scene == GAME) {
                                                 }
                                                 break;
                                 case KICK:
+                                case POINGHAUT:
                                                 if(Joueur1->etatAnimation == 1)
                                                         Joueur1->canHit = 1;
                                                 if(Joueur1->etatAnimation < 2) {
@@ -55,6 +56,24 @@ if(scene == GAME) {
                                                         Joueur1->animation = AUCUNE;
                                                 }
                                                 break;
+                                case SAUT:
+                                                if(Joueur1->pos->rect->y < hauteurF/AIR && !Joueur1->air)
+                                                        Joueur1->pos->rect->y += VY;
+                                                else
+                                                        Joueur1->pos->rect->y -= VY;
+                                                if(Joueur1->pos->rect->y >= hauteurF/AIR && !Joueur1->air) {
+                                                        Joueur1->air = 1;
+                                                }
+                                                if(Joueur1->etatAnimation < 6) {
+                                                        Joueur1->etatAnimation++;
+                                                }else {
+                                                        Joueur1->etatAnimation = 0;
+                                                        Joueur1->animation = AUCUNE;
+                                                        Joueur1->air = 0;
+                                                        if(Joueur1->pos->rect->y < hauteurF/SOL)
+                                                                Joueur1->pos->rect->y = hauteurF/SOL;
+                                                break;
+                                                }
                         }
                 }
 
@@ -87,7 +106,7 @@ if(scene == GAME) {
                 }
                 if(Joueur2->animation) {
                         switch(Joueur2->animation) {
-                                case POINGGAUCHE:
+                                case POINGLATERAL:
                                                 if(Joueur2->etatAnimation == 3)
                                                         Joueur2->canHit = 1;
                                                 if(Joueur2->etatAnimation < 4) {
@@ -99,6 +118,7 @@ if(scene == GAME) {
                                                 }
                                                 break;
                                 case KICK:
+                                case POINGHAUT:
                                                 if(Joueur2->etatAnimation == 1)
                                                         Joueur2->canHit = 1;
                                                 if(Joueur2->etatAnimation < 2) {
@@ -109,10 +129,29 @@ if(scene == GAME) {
                                                         Joueur2->animation = AUCUNE;
                                                 }
                                                 break;
+                                case SAUT:
+                                                if(Joueur2->pos->rect->y < hauteurF/AIR && !Joueur2->air)
+                                                        Joueur2->pos->rect->y += VY;
+                                                else
+                                                        Joueur2->pos->rect->y -= VY;
+                                                if(Joueur2->pos->rect->y >= hauteurF/AIR && !Joueur2->air) {
+                                                        Joueur2->air = 1;
+                                                }
+                                                if(Joueur2->etatAnimation < 6) {
+                                                        Joueur2->etatAnimation++;
+                                                }else {
+                                                        Joueur2->etatAnimation = 0;
+                                                        Joueur2->animation = AUCUNE;
+                                                        Joueur2->air = 0;
+                                                        if(Joueur2->pos->rect->y < hauteurF/SOL)
+                                                                Joueur2->pos->rect->y = hauteurF/SOL;
+                                                break;
+                                                }
                         }
                 }
 
                 waitForFrame = 0;
         }
+
         mettreAJourPersonnage(renderer, Joueur1, Joueur2, keyboardState, largeurF, hauteurF);
 }
