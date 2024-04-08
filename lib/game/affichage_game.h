@@ -31,6 +31,12 @@ if(scene == GAME) {
                                 Joueur1->etatWalk = 1;
                         }
                 }
+                if(Joueur1->crouching) {
+                        if(Joueur1->etatCrouch < 2)
+                                Joueur1->etatCrouch++;
+                }else {
+                        Joueur1->etatCrouch = 0;
+                }
                 if(Joueur1->animation) {
                         switch(Joueur1->animation) {
                                 case POINGLATERAL:
@@ -74,6 +80,17 @@ if(scene == GAME) {
                                                                 Joueur1->pos->rect->y = hauteurF/SOL;
                                                 break;
                                                 }
+                                case POINGACCROUPI:
+                                                if(Joueur1->etatAnimation == 1)
+                                                        Joueur1->canHit = 1;
+                                                if(Joueur1->etatAnimation < 1) {
+                                                        Joueur1->etatAnimation++;
+                                                }else {
+                                                        Joueur1->etatAnimation = 0;
+                                                        Joueur1->canHit = 0;
+                                                        Joueur1->animation = AUCUNE;
+                                                }
+                                                break;
                         }
                 }
 
@@ -103,6 +120,12 @@ if(scene == GAME) {
                                 reverseWalk2 = 0;
                                 Joueur2->etatWalk = 1;
                         }
+                }
+                if(Joueur2->crouching) {
+                        if(Joueur2->etatCrouch < 2)
+                                Joueur2->etatCrouch++;
+                }else {
+                        Joueur2->etatCrouch = 0;
                 }
                 if(Joueur2->animation) {
                         switch(Joueur2->animation) {
@@ -147,6 +170,17 @@ if(scene == GAME) {
                                                                 Joueur2->pos->rect->y = hauteurF/SOL;
                                                 break;
                                                 }
+                                case POINGACCROUPI:
+                                                if(Joueur2->etatAnimation == 1)
+                                                        Joueur2->canHit = 1;
+                                                if(Joueur2->etatAnimation < 1) {
+                                                        Joueur2->etatAnimation++;
+                                                }else {
+                                                        Joueur2->etatAnimation = 0;
+                                                        Joueur2->canHit = 0;
+                                                        Joueur2->animation = AUCUNE;
+                                                }
+                                                break;
                         }
                 }
 

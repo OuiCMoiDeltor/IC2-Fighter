@@ -98,6 +98,24 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->jump[i]->h = 125;
     }
 
+    perso->crouch = malloc(sizeof(SDL_Rect*)*3);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->crouch[i] = malloc(sizeof(SDL_Rect));
+        perso->crouch[i]->x = 145*i+i;
+        perso->crouch[i]->y = 126*9;
+        perso->crouch[i]->w = 145;
+        perso->crouch[i]->h = 125;
+    }
+
+    perso->crouchPunch = malloc(sizeof(SDL_Rect*)*2);
+    for( i = 0 ; i < 2 ; i++) {
+        perso->crouchPunch[i] = malloc(sizeof(SDL_Rect));
+        perso->crouchPunch[i]->x = 145*i+i;
+        perso->crouchPunch[i]->y = 126*10;
+        perso->crouchPunch[i]->w = 145;
+        perso->crouchPunch[i]->h = 125;
+    }
+
     perso->speed = *largeur/250;
 
     return perso;
@@ -119,39 +137,47 @@ extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
     // perso1
     if(!perso1->animation){
-        // Coup poing droit 
-        if (keyboardState[SDL_SCANCODE_C] && !keyboardState[SDL_SCANCODE_W]) {
-            perso1->animation = POINGLATERAL;
-        // Coup de pied devant
-        }else if (keyboardState[SDL_SCANCODE_V]) {
-            perso1->animation = KICK;
-        // Coup poing haut 
-        }else if (keyboardState[SDL_SCANCODE_C] && keyboardState[SDL_SCANCODE_W]) {
-            perso1->animation = POINGHAUT;
-        // Saut
-        }else if (keyboardState[SDL_SCANCODE_W]) {
-            perso1->animation = SAUT;
-        // Surplace
-        }else if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D] || keyboardState[SDL_SCANCODE_W] || keyboardState[SDL_SCANCODE_S])) {
-            perso1->etatWalk = 0;
-            SDL_RenderCopy(renderer, perso1->texture, perso1->idle[perso1->etatIdle], perso1->pos->rect);
+        // Accroupi
+        if (keyboardState[SDL_SCANCODE_S]) {
+            perso1->crouching = 1;
+            SDL_RenderCopy(renderer, perso1->texture, perso1->crouch[perso1->etatCrouch], perso1->pos->rect);
+            // Coup poing
+            if (keyboardState[SDL_SCANCODE_C] && perso1->etatCrouch == 2) {
+                perso1->animation = POINGACCROUPI;
+            }
         }else {
-            perso1->etatIdle = 0;
-            // Gauche
-            if (keyboardState[SDL_SCANCODE_A]) {
-                if ((perso1->pos->rect->x - perso1->speed) > 0)
-                    perso1->pos->rect->x -= perso1->speed;
-                SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
-            }
-            // Droite
-            if (keyboardState[SDL_SCANCODE_D]) {
-                if ((perso1->pos->rect->x + perso1->speed + 50) <= largeur)
-                    perso1->pos->rect->x += perso1->speed;
-                SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
-            }
-            if (!keyboardState[SDL_SCANCODE_A] && !keyboardState[SDL_SCANCODE_D]) perso1->etatWalk = 0;
-            if (keyboardState[SDL_SCANCODE_S] && (perso1->pos->rect->y + perso1->speed + 50) <= hauteur) {
-                perso1->pos->rect->y += perso1->speed;
+            // Coup poing droit 
+            perso1->crouching = 0;
+            if (keyboardState[SDL_SCANCODE_C] && !keyboardState[SDL_SCANCODE_W]) {
+                perso1->animation = POINGLATERAL;
+            // Coup de pied devant
+            }else if (keyboardState[SDL_SCANCODE_V]) {
+                perso1->animation = KICK;
+            // Coup poing haut 
+            }else if (keyboardState[SDL_SCANCODE_C] && keyboardState[SDL_SCANCODE_W]) {
+                perso1->animation = POINGHAUT;
+            // Saut
+            }else if (keyboardState[SDL_SCANCODE_W]) {
+                perso1->animation = SAUT;
+            // Surplace
+            }else if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D] || keyboardState[SDL_SCANCODE_W])) {
+                perso1->etatWalk = 0;
+                SDL_RenderCopy(renderer, perso1->texture, perso1->idle[perso1->etatIdle], perso1->pos->rect);
+            }else {
+                perso1->etatIdle = 0;
+                // Gauche
+                if (keyboardState[SDL_SCANCODE_A]) {
+                    if ((perso1->pos->rect->x - perso1->speed) > 0)
+                        perso1->pos->rect->x -= perso1->speed;
+                    SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
+                }
+                // Droite
+                if (keyboardState[SDL_SCANCODE_D]) {
+                    if ((perso1->pos->rect->x + perso1->speed + 50) <= largeur)
+                        perso1->pos->rect->x += perso1->speed;
+                    SDL_RenderCopy(renderer, perso1->texture, perso1->walk[perso1->etatWalk], perso1->pos->rect);
+                }
+                if (!keyboardState[SDL_SCANCODE_A] && !keyboardState[SDL_SCANCODE_D]) perso1->etatWalk = 0;
             }
         }
     }else {
@@ -164,44 +190,57 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 SDL_RenderCopy(renderer, perso1->texture, perso1->punchUp[perso1->etatAnimation], perso1->pos->rect); break;
             case SAUT:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->jump[perso1->etatAnimation], perso1->pos->rect); break;
+            case POINGACCROUPI:
+                SDL_RenderCopy(renderer, perso1->texture, perso1->crouchPunch[perso1->etatAnimation], perso1->pos->rect); break;
         }
     }
 
     // perso2
     if(!perso2->animation){
-        // Coup poing droit 
-        if (keyboardState[SDL_SCANCODE_KP_5] && !keyboardState[SDL_SCANCODE_UP]) {
-            perso2->animation = POINGLATERAL;
-        // Coup de pied devant
-        }else if (keyboardState[SDL_SCANCODE_KP_6]) {
-            perso2->animation = KICK;
-        // Coup poing haut 
-        }else if (keyboardState[SDL_SCANCODE_KP_5] && keyboardState[SDL_SCANCODE_UP]) {
-            perso2->animation = POINGHAUT;
-        // Saut
-        }else if (keyboardState[SDL_SCANCODE_UP]) {
-            perso2->animation = SAUT;
-        // Surplace
-        }else if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_DOWN])) {
-            perso2->etatWalk = 0;
-            SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+        // Accroupi
+        if (keyboardState[SDL_SCANCODE_DOWN]) {
+            perso2->crouching = 1;
+            SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouch[perso2->etatCrouch], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+            // Coup poing
+            if (keyboardState[SDL_SCANCODE_KP_5] && perso2->etatCrouch == 2) {
+                perso2->animation = POINGACCROUPI;
+            }
         }else {
-            perso2->etatIdle = 0;
-            // Gauche
-            if (keyboardState[SDL_SCANCODE_LEFT]) {
-                if ((perso2->pos->rect->x - perso2->speed) > 0)
-                    perso2->pos->rect->x -= perso2->speed;
-                SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
-            }
-            // Droite
-            if (keyboardState[SDL_SCANCODE_RIGHT]) {
-                if ((perso2->pos->rect->x + perso2->speed + 50) <= largeur)
-                    perso2->pos->rect->x += perso2->speed;
-                SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
-            }
-            if (!keyboardState[SDL_SCANCODE_LEFT] && !keyboardState[SDL_SCANCODE_RIGHT]) perso2->etatWalk = 0;
-            if (keyboardState[SDL_SCANCODE_DOWN] && (perso2->pos->rect->y + perso2->speed + 50) <= hauteur) {
-                perso2->pos->rect->y += perso2->speed;
+            perso2->crouching = 0;
+            // Coup poing droit 
+            if (keyboardState[SDL_SCANCODE_KP_5] && !keyboardState[SDL_SCANCODE_UP]) {
+                perso2->animation = POINGLATERAL;
+            // Coup de pied devant
+            }else if (keyboardState[SDL_SCANCODE_KP_6]) {
+                perso2->animation = KICK;
+            // Coup poing haut 
+            }else if (keyboardState[SDL_SCANCODE_KP_5] && keyboardState[SDL_SCANCODE_UP]) {
+                perso2->animation = POINGHAUT;
+            // Saut
+            }else if (keyboardState[SDL_SCANCODE_UP]) {
+                perso2->animation = SAUT;
+            // Surplace
+            }else if(!(keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_UP])) {
+                perso2->etatWalk = 0;
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+            }else {
+                perso2->etatIdle = 0;
+                // Gauche
+                if (keyboardState[SDL_SCANCODE_LEFT]) {
+                    if ((perso2->pos->rect->x - perso2->speed) > 0)
+                        perso2->pos->rect->x -= perso2->speed;
+                    SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+                }
+                // Droite
+                if (keyboardState[SDL_SCANCODE_RIGHT]) {
+                    if ((perso2->pos->rect->x + perso2->speed + 50) <= largeur)
+                        perso2->pos->rect->x += perso2->speed;
+                    SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+                }
+                if (!keyboardState[SDL_SCANCODE_LEFT] && !keyboardState[SDL_SCANCODE_RIGHT]) perso2->etatWalk = 0;
+                if (keyboardState[SDL_SCANCODE_DOWN] && (perso2->pos->rect->y + perso2->speed + 50) <= hauteur) {
+                    perso2->pos->rect->y += perso2->speed;
+                }
             }
         }
     }else {
@@ -214,6 +253,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->punchUp[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case SAUT:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->jump[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
+            case POINGACCROUPI:
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouchPunch[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
         }
     }
 }

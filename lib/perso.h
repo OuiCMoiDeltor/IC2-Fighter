@@ -5,7 +5,7 @@
 #define AIR 8
 #define VY 20
 
-typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,SAUT}animation_e;
+typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,SAUT,POINGACCROUPI}animation_e;
 
 typedef struct {
     rectangle *pos;
@@ -18,6 +18,10 @@ typedef struct {
     SDL_Rect **kick;
     SDL_Rect **punchUp;
     SDL_Rect **jump;
+    SDL_Rect **crouch;
+    int crouching;
+    SDL_Rect **crouchPunch;
+    int etatCrouch;
     int air;
     animation_e animation;
     int etatAnimation;
