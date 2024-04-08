@@ -1,11 +1,7 @@
 #include <SDL2/SDL.h>
 #include "creation.h"
 
-#define SOL 10
-#define AIR 8
-#define VY 20
-
-typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,SAUT,POINGACCROUPI}animation_e;
+typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,SAUT,POINGACCROUPI,KICKACCROUPI,SAUTGAUCHE,SAUTDROIT}animation_e;
 
 typedef struct {
     rectangle *pos;
@@ -18,11 +14,12 @@ typedef struct {
     SDL_Rect **kick;
     SDL_Rect **punchUp;
     SDL_Rect **jump;
+    SDL_Rect **moveJump;
     SDL_Rect **crouch;
     int crouching;
-    SDL_Rect **crouchPunch;
     int etatCrouch;
-    int air;
+    SDL_Rect **crouchPunch;
+    SDL_Rect **crouchKick;
     animation_e animation;
     int etatAnimation;
     int canHit;
