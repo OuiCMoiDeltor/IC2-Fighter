@@ -64,6 +64,14 @@ if(scene == GAME) {
                                                         Joueur1->animation = AUCUNE;
                                                 }
                                                 break;
+                                case PARADE:
+                                                if(Joueur1->etatAnimation < 2) {
+                                                        Joueur1->etatAnimation++;
+                                                }else {
+                                                        Joueur1->etatAnimation = 0;
+                                                        Joueur1->animation = AUCUNE;
+                                                }
+                                                break;
                                 case SAUT:
                                                 if(Joueur1->etatAnimation < 6) {
                                                         Joueur1->etatAnimation++;
@@ -159,6 +167,14 @@ if(scene == GAME) {
                                                 }else {
                                                         Joueur2->etatAnimation = 0;
                                                         Joueur2->canHit = 0;
+                                                        Joueur2->animation = AUCUNE;
+                                                }
+                                                break;
+                                case PARADE:
+                                                if(Joueur2->etatAnimation < 2) {
+                                                        Joueur2->etatAnimation++;
+                                                }else {
+                                                        Joueur2->etatAnimation = 0;
                                                         Joueur2->animation = AUCUNE;
                                                 }
                                                 break;

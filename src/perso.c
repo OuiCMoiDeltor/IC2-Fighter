@@ -98,6 +98,15 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->kickDown[i]->h = 125;
     }
 
+    perso->block = malloc(sizeof(SDL_Rect*)*3);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->block[i] = malloc(sizeof(SDL_Rect));
+        perso->block[i]->x = 145*4+4+145*i+i;
+        perso->block[i]->y = 126*5;
+        perso->block[i]->w = 145;
+        perso->block[i]->h = 125;
+    }
+
     perso->jump = malloc(sizeof(SDL_Rect*)*7);
     for( i = 0 ; i < 7 ; i++) {
         perso->jump[i] = malloc(sizeof(SDL_Rect));
@@ -169,8 +178,16 @@ extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
     // perso1
     if(!perso1->animation){
+        // Parade
+        if(keyboardState[SDL_SCANCODE_F] && !perso1->crouching) {
+            perso1->blocking = 1;
+            SDL_RenderCopy(renderer, perso1->texture, perso1->block[0], perso1->pos->rect);
+            if (keyboardState[SDL_SCANCODE_P]) {
+                perso1->etatAnimation = 1;
+                perso1->animation = PARADE;
+            }
         // Coup de peid en bas
-        if (keyboardState[SDL_SCANCODE_S] && keyboardState[SDL_SCANCODE_V] && !perso1->crouching) {
+        }else if (keyboardState[SDL_SCANCODE_S] && keyboardState[SDL_SCANCODE_V] && !perso1->crouching) {
             perso1->animation = KICKBAS;
         // Accroupi
         }else if (keyboardState[SDL_SCANCODE_S]) {
@@ -233,6 +250,9 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 SDL_RenderCopy(renderer, perso1->texture, perso1->punchUp[perso1->etatAnimation], perso1->pos->rect); break;
             case KICKBAS:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->kickDown[perso1->etatAnimation], perso1->pos->rect); break;
+            case PARADE:
+                perso1->pos->rect->x -= perso1->speed;
+                SDL_RenderCopy(renderer, perso1->texture, perso1->block[perso1->etatAnimation], perso1->pos->rect); break;
             case SAUT:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->jump[perso1->etatAnimation], perso1->pos->rect); break;
             case POINGACCROUPI:
@@ -250,8 +270,16 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
 
     // perso2
     if(!perso2->animation){
+        // Parade
+        if(keyboardState[SDL_SCANCODE_KP_4] && !perso2->crouching) {
+            perso2->blocking = 1;
+            SDL_RenderCopyEx(renderer, perso2->texture, perso2->block[0], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
+            if (keyboardState[SDL_SCANCODE_P]) {
+                perso2->etatAnimation = 1;
+                perso2->animation = PARADE;
+            }
         // Coup de peid en bas
-        if (keyboardState[SDL_SCANCODE_DOWN] && keyboardState[SDL_SCANCODE_KP_6] && !perso2->crouching) {
+        }else if (keyboardState[SDL_SCANCODE_DOWN] && keyboardState[SDL_SCANCODE_KP_6] && !perso2->crouching) {
             perso2->animation = KICKBAS;
         // Accroupi
         }else if (keyboardState[SDL_SCANCODE_DOWN]) {
@@ -314,6 +342,9 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->punchUp[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case KICKBAS:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->kickDown[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
+            case PARADE:
+                perso2->pos->rect->x += perso2->speed;
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->block[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case SAUT:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->jump[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case POINGACCROUPI:
