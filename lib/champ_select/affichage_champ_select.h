@@ -16,4 +16,12 @@ if(scene == CHAMP_SELECT) {
                 boutonRYU->etat =  ++boutonRYU->etat%10;
                 waitForFrame = 0;
         }
+// Dessiner le bouton de DIM
+        SDL_RenderCopy(renderer, boutonRYU2->texture, boutonRYU2->frames[boutonRYU2->etat], boutonRYU2->position->rect);
+        // Animation
+        waitForFrame++;
+        if(waitForFrame > 10) {
+                boutonRYU2->etat =  ++boutonRYU2->etat%10;
+                waitForFrame = 0;
+        }
 }
