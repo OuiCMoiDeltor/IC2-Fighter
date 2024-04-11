@@ -6,3 +6,6 @@ int reverseIdle2 = 0; int reverseWalk2 = 0;
     SDL_Texture *gameBGTexture = creerImage(renderer, IMG_GAME_BG);
     if(gameBGTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &gameBGTexture);
+
+// Mise à jour de l'écran
+SDL_RenderPresent(renderer);

@@ -4,6 +4,11 @@
 typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,KICKBAS,PARADE,SAUT,POINGACCROUPI,KICKACCROUPI,SAUTGAUCHE,SAUTDROIT}animation_e;
 
 typedef struct {
+    int pv;
+    SDL_Rect * barrePv;
+} pv_t;
+
+typedef struct {
     rectangle *pos;
     SDL_Texture *texture;
     int etatIdle;
@@ -27,6 +32,7 @@ typedef struct {
     int etatAnimation;
     int canHit;
     float speed ;
+    pv_t * hp;
 } personnage;
 
 extern personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle);
