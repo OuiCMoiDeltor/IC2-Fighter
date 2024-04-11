@@ -1,2 +1,2 @@
 // Images
-#define IMG_GAME_BG "img/fond.bmp"
+#define IMG_GAME_BG "img/amphi_combat.bmp"
