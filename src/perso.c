@@ -89,6 +89,15 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->punchUp[i]->h = 125;
     }
 
+    perso->kickDown = malloc(sizeof(SDL_Rect*)*3);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->kickDown[i] = malloc(sizeof(SDL_Rect));
+        perso->kickDown[i]->x = 145*i+i;
+        perso->kickDown[i]->y = 126*5;
+        perso->kickDown[i]->w = 145;
+        perso->kickDown[i]->h = 125;
+    }
+
     perso->jump = malloc(sizeof(SDL_Rect*)*7);
     for( i = 0 ; i < 7 ; i++) {
         perso->jump[i] = malloc(sizeof(SDL_Rect));
@@ -160,8 +169,11 @@ extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
     // perso1
     if(!perso1->animation){
+        // Coup de peid en bas
+        if (keyboardState[SDL_SCANCODE_S] && keyboardState[SDL_SCANCODE_V] && !perso1->crouching) {
+            perso1->animation = KICKBAS;
         // Accroupi
-        if (keyboardState[SDL_SCANCODE_S]) {
+        }else if (keyboardState[SDL_SCANCODE_S]) {
             perso1->crouching = 1;
             SDL_RenderCopy(renderer, perso1->texture, perso1->crouch[perso1->etatCrouch], perso1->pos->rect);
             if (perso1->etatCrouch == 2) {
@@ -219,6 +231,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 SDL_RenderCopy(renderer, perso1->texture, perso1->kick[perso1->etatAnimation], perso1->pos->rect); break;
             case POINGHAUT:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->punchUp[perso1->etatAnimation], perso1->pos->rect); break;
+            case KICKBAS:
+                SDL_RenderCopy(renderer, perso1->texture, perso1->kickDown[perso1->etatAnimation], perso1->pos->rect); break;
             case SAUT:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->jump[perso1->etatAnimation], perso1->pos->rect); break;
             case POINGACCROUPI:
@@ -236,8 +250,11 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
 
     // perso2
     if(!perso2->animation){
+        // Coup de peid en bas
+        if (keyboardState[SDL_SCANCODE_DOWN] && keyboardState[SDL_SCANCODE_KP_6] && !perso2->crouching) {
+            perso2->animation = KICKBAS;
         // Accroupi
-        if (keyboardState[SDL_SCANCODE_DOWN]) {
+        }else if (keyboardState[SDL_SCANCODE_DOWN]) {
             perso2->crouching = 1;
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouch[perso2->etatCrouch], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
             if (perso2->etatCrouch == 2) {
@@ -295,6 +312,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->kick[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case POINGHAUT:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->punchUp[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
+            case KICKBAS:
+                SDL_RenderCopyEx(renderer, perso2->texture, perso2->kickDown[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case SAUT:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->jump[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case POINGACCROUPI:
