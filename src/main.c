@@ -9,7 +9,7 @@
 
 // Fenêtre
 #define NOM_JEU "IC2 Fighter"
-#define ICONE "img/logo.bmp"
+#define ICONE "img/menu_principal/logo.bmp"
 
 // Texte
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
