@@ -52,6 +52,7 @@ if(scene == GAME) {
                                                 break;
                                 case KICK:
                                 case POINGHAUT:
+                                case KICKBAS:
                                 case KICKACCROUPI:
                                                 if(Joueur1->etatAnimation == 1)
                                                         Joueur1->canHit = 1;
@@ -149,6 +150,7 @@ if(scene == GAME) {
                                                 break;
                                 case KICK:
                                 case POINGHAUT:
+                                case KICKBAS:
                                 case KICKACCROUPI:
                                                 if(Joueur2->etatAnimation == 1)
                                                         Joueur2->canHit = 1;
