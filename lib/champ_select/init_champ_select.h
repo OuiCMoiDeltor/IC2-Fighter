@@ -27,5 +27,9 @@ personnage *Joueur2 = NULL;
 
         bouton *boutonRYU2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/6.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_DIM, 1, 10);
         if(boutonRYU2 == NULL) exit(EXIT_FAILURE);
+// Son 
+    // Chargement musique de fond
+        Mix_Music *backgroundSoundSelect = Mix_LoadMUS(SOUND_BACKGROUND_SELECT);
+
 
 

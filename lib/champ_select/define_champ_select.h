@@ -5,4 +5,6 @@
 #define IMG_CHAMPSELECT_J1 "img/champ_select/selectJ1.bmp"
 #define IMG_CHAMPSELECT_J2 "img/champ_select/selectJ2.bmp"
 #define RYU "img/champ_select/ryuic2.bmp"
+#define SOUND_BACKGROUND_SELECT "mixer/giga_chad.mp3"
+
 
