@@ -28,6 +28,9 @@ typedef struct {
     int etatCrouch;
     SDL_Rect **crouchPunch;
     SDL_Rect **crouchKick;
+    SDL_Rect **standHurt;
+    SDL_Rect **jumpHurt;
+    SDL_Rect **crouchHurt;
     animation_e animation;
     int etatAnimation;
     int canHit;

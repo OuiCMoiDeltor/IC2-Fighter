@@ -159,7 +159,35 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->crouchKick[i]->h = 125;
     }
 
+    perso->standHurt = malloc(sizeof(SDL_Rect*)*2);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->standHurt[i] = malloc(sizeof(SDL_Rect));
+        perso->standHurt[i]->x = 145*i+i;
+        perso->standHurt[i]->y = 126*16;
+        perso->standHurt[i]->w = 145;
+        perso->standHurt[i]->h = 125;
+    }
+
+    perso->jumpHurt = malloc(sizeof(SDL_Rect*)*2);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->jumpHurt[i] = malloc(sizeof(SDL_Rect));
+        perso->jumpHurt[i]->x = 145*6+6+145*i+i;
+        perso->jumpHurt[i]->y = 126*16;
+        perso->jumpHurt[i]->w = 145;
+        perso->jumpHurt[i]->h = 125;
+    }
+
+    perso->crouchHurt = malloc(sizeof(SDL_Rect*)*2);
+    for( i = 0 ; i < 3 ; i++) {
+        perso->crouchHurt[i] = malloc(sizeof(SDL_Rect));
+        perso->crouchHurt[i]->x = 145*3+3+145*i+i;
+        perso->crouchHurt[i]->y = 126*18;
+        perso->crouchHurt[i]->w = 145;
+        perso->crouchHurt[i]->h = 125;
+    }
+
     perso->speed = *largeur/250;
+
     //Création barre de vie
     perso->hp = malloc(sizeof(pv_t));
     perso->hp->pv = VIE_MAX;
