@@ -213,15 +213,39 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 */
 
 extern
-void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
+void mettreAJourHp(SDL_Renderer *renderer, personnage * perso1, int degat) {
     //test perte pv
-    if (keyboardState[SDL_SCANCODE_COMMA]) { //condition perte DMG -> à changer lors collisions faîtes
-        SDL_Log("%d", perso1->hp->pv);
-        perso1->hp->pv = perso1->hp->pv - DMG < 0 ? 0 : perso1->hp->pv - DMG;  // Assure une réduction correcte de la vie
-        SDL_Delay(100) ;
-        // Mise à jour de la largeur de la barre de vie selon la vie actuelle
-        perso1->hp->barrePv->w = 400 * perso1->hp->pv / VIE_MAX;
+    
+    SDL_Log("%d", perso1->hp->pv);
+    perso1->hp->pv = perso1->hp->pv - degat < 0 ? 0 : perso1->hp->pv - degat;  // Assure une réduction correcte de la vie
+    SDL_Delay(100) ;
+    // Mise à jour de la largeur de la barre de vie selon la vie actuelle
+    perso1->hp->barrePv->w = 400 * perso1->hp->pv / VIE_MAX;
+
+}
+
+extern
+void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
+    // Gestion dégats J1
+    if (keyboardState[SDL_SCANCODE_P]) {
+        perso1->etatAnimation = 0;
+        perso1->canHit = 0;
+        if(perso1->blocking) {
+            perso1->etatAnimation = 1;
+            perso1->animation = PARADE;
+            mettreAJourHp(renderer, perso1, DMG / 2) ;
+        }else if(perso1->animation == SAUT) {
+            perso1->animation = DEGATSAUT;
+            mettreAJourHp(renderer, perso1, DMG) ;
+        }else if(perso1->crouching) {
+            perso1->animation = DEGATACCROUPI;
+            mettreAJourHp(renderer, perso1, DMG) ; 
+        }else {
+            perso1->animation = DEGAT;
+            mettreAJourHp(renderer, perso1, DMG) ;
+        }
     }
+
     //Barre de vie à états, changement de sa couleur en fonction des points de vies restants
     if (perso1->hp->pv > 160) {
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);  // Vert
@@ -240,23 +264,6 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     fprintf(stderr, "Plus de vie. \n");
     }
 
-
-    // Gestion dégats J1
-    if (keyboardState[SDL_SCANCODE_P]) {
-        perso1->etatAnimation = 0;
-        perso1->canHit = 0;
-        if(perso1->blocking) {
-            perso1->etatAnimation = 1;
-            perso1->animation = PARADE;
-        }else if(perso1->animation == SAUT) {
-            perso1->animation = DEGATSAUT;
-        }else if(perso1->crouching) {
-            perso1->animation = DEGATACCROUPI;
-        }else {
-            perso1->animation = DEGAT;
-        }
-    }
-
     // Gestion dégats J2
     if (keyboardState[SDL_SCANCODE_O]) {
         perso2->etatAnimation = 0;
@@ -264,12 +271,16 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso2->blocking) {
             perso2->etatAnimation = 1;
             perso2->animation = PARADE;
+            mettreAJourHp(renderer, perso2, DMG / 2) ;
         }else if(perso2->animation == SAUT) {
             perso2->animation = DEGATSAUT;
+            mettreAJourHp(renderer, perso2, DMG) ;
         }else if(perso2->crouching) {
             perso2->animation = DEGATACCROUPI;
+            mettreAJourHp(renderer, perso2, DMG) ;
         }else {
             perso2->animation = DEGAT;
+            mettreAJourHp(renderer, perso2, DMG) ;
         }
     }
 
@@ -469,4 +480,5 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         }
     }
 }
+
 
