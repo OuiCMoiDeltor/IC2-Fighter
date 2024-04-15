@@ -218,8 +218,10 @@ extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
     //Charger son lors dégâts
     Mix_Chunk *soundDMG = Mix_LoadWAV("mixer/ouh.wav");  // Charger un fichier WAV
+    Mix_VolumeChunk(soundDMG, MIX_MAX_VOLUME / 10);
     //Charger son lors d'un coup
     Mix_Chunk *soundHit = Mix_LoadWAV("mixer/hit.wav");  // Charger un fichier WAV
+    Mix_VolumeChunk(soundHit, MIX_MAX_VOLUME / 10);
 
     //test perte pv
     if (keyboardState[SDL_SCANCODE_COMMA]) { //condition perte DMG -> à changer lors collisions faîtes
@@ -262,7 +264,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         // Coup de peid en bas
         }else if (keyboardState[SDL_SCANCODE_S] && keyboardState[SDL_SCANCODE_V] && !perso1->crouching) {
             perso1->animation = KICKBAS;
-            //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+            Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
         // Accroupi
         }else if (keyboardState[SDL_SCANCODE_S]) {
             perso1->crouching = 1;
@@ -271,12 +273,12 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 // Coup de poing
                 if (keyboardState[SDL_SCANCODE_C]) {
                     perso1->animation = POINGACCROUPI;
-                    //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                    Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
                 }
                 // Coup de pied
                 else if (keyboardState[SDL_SCANCODE_V]) {
                     perso1->animation = KICKACCROUPI;
-                    //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                    Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
                 }
                 
             }
@@ -285,15 +287,15 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             perso1->crouching = 0;
             if (keyboardState[SDL_SCANCODE_C] && !keyboardState[SDL_SCANCODE_W]) {
                 perso1->animation = POINGLATERAL;
-                //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
             // Coup de pied devant
             }else if (keyboardState[SDL_SCANCODE_V]) {
                 perso1->animation = KICK;
-                //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
             // Coup de poing haut 
             }else if (keyboardState[SDL_SCANCODE_C] && keyboardState[SDL_SCANCODE_W]) {
                 perso1->animation = POINGHAUT;
-                //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
             // Saut
             }else if (keyboardState[SDL_SCANCODE_W]) {
                 if(keyboardState[SDL_SCANCODE_A]) {
@@ -363,29 +365,37 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         // Coup de peid en bas
         }else if (keyboardState[SDL_SCANCODE_DOWN] && keyboardState[SDL_SCANCODE_KP_6] && !perso2->crouching) {
             perso2->animation = KICKBAS;
+            Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
         // Accroupi
         }else if (keyboardState[SDL_SCANCODE_DOWN]) {
             perso2->crouching = 1;
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouch[perso2->etatCrouch], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
             if (perso2->etatCrouch == 2) {
                 // Coup de poing
-                if (keyboardState[SDL_SCANCODE_KP_5])
+                if (keyboardState[SDL_SCANCODE_KP_5]) {
                     perso2->animation = POINGACCROUPI;
+                    Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
+                }
                 // Coup de pied
-                else if (keyboardState[SDL_SCANCODE_KP_6])
+                else if (keyboardState[SDL_SCANCODE_KP_6]) {
                     perso2->animation = KICKACCROUPI;
+                    Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
+                }
             }
         }else {
             perso2->crouching = 0;
             // Coup de poing droit 
             if (keyboardState[SDL_SCANCODE_KP_5] && !keyboardState[SDL_SCANCODE_UP]) {
                 perso2->animation = POINGLATERAL;
+                Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
             // Coup de pied devant
             }else if (keyboardState[SDL_SCANCODE_KP_6]) {
                 perso2->animation = KICK;
+                Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
             // Coup de poing haut 
             }else if (keyboardState[SDL_SCANCODE_KP_5] && keyboardState[SDL_SCANCODE_UP]) {
                 perso2->animation = POINGHAUT;
+                Mix_PlayChannel(-1, soundHit, 0); //à changer lors collisions faîtes
             // Saut
             }else if (keyboardState[SDL_SCANCODE_UP]) {
                 if(keyboardState[SDL_SCANCODE_LEFT])
