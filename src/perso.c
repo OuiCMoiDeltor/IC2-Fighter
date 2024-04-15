@@ -262,6 +262,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         // Coup de peid en bas
         }else if (keyboardState[SDL_SCANCODE_S] && keyboardState[SDL_SCANCODE_V] && !perso1->crouching) {
             perso1->animation = KICKBAS;
+            //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
         // Accroupi
         }else if (keyboardState[SDL_SCANCODE_S]) {
             perso1->crouching = 1;
@@ -284,20 +285,24 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             perso1->crouching = 0;
             if (keyboardState[SDL_SCANCODE_C] && !keyboardState[SDL_SCANCODE_W]) {
                 perso1->animation = POINGLATERAL;
+                //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
             // Coup de pied devant
             }else if (keyboardState[SDL_SCANCODE_V]) {
                 perso1->animation = KICK;
+                //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
             // Coup de poing haut 
             }else if (keyboardState[SDL_SCANCODE_C] && keyboardState[SDL_SCANCODE_W]) {
                 perso1->animation = POINGHAUT;
+                //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
             // Saut
             }else if (keyboardState[SDL_SCANCODE_W]) {
                 if(keyboardState[SDL_SCANCODE_A]) {
                     perso1->animation = SAUTGAUCHE;
                     perso1->etatAnimation = 7;
-                }else if(keyboardState[SDL_SCANCODE_D])
+                }else if(keyboardState[SDL_SCANCODE_D]) {
                     perso1->animation = SAUTDROIT;
-                else perso1->animation = SAUT;
+                else { 
+                	perso1->animation = SAUT;
             // Surplace
             }else if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D]) || (keyboardState[SDL_SCANCODE_A] && keyboardState[SDL_SCANCODE_D])) {
                 perso1->etatWalk = 0;
