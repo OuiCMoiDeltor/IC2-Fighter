@@ -2,8 +2,8 @@
 #include "../lib/creation.h"
 #include "../lib/perso.h"
 
-#define VIE_MAX 100 
-#define DMG 5
+#define VIE_MAX 200 
+#define DMG 10
 /**
 	* \file  perso.c
 	* \brief Programme personnages
@@ -192,8 +192,8 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     perso->hp = malloc(sizeof(pv_t));
     perso->hp->pv = VIE_MAX;
     perso->hp->barrePv = malloc(sizeof(SDL_Rect));
-    perso->hp->barrePv->x = 100;
-    perso->hp->barrePv->y = 100;
+    perso->hp->barrePv->x = 100/8;
+    perso->hp->barrePv->y = 100/8;
     perso->hp->barrePv->w = 400;
     perso->hp->barrePv->h = 60;
     
@@ -218,18 +218,18 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     if (keyboardState[SDL_SCANCODE_COMMA]) { //condition perte DMG -> à changer lors collisions faîtes
         SDL_Log("%d", perso1->hp->pv);
         perso1->hp->pv = perso1->hp->pv - DMG < 0 ? 0 : perso1->hp->pv - DMG;  // Assure une réduction correcte de la vie
-
+        SDL_Delay(100) ;
         // Mise à jour de la largeur de la barre de vie selon la vie actuelle
-        perso1->hp->barrePv->w = 200 * perso1->hp->pv / VIE_MAX;
+        perso1->hp->barrePv->w = 400 * perso1->hp->pv / VIE_MAX;
     }
     //Barre de vie à états, changement de sa couleur en fonction des points de vies restants
-    if (perso1->hp->pv > 80) {
+    if (perso1->hp->pv > 160) {
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);  // Vert
-    } else if (perso1->hp->pv > 60) {
+    } else if (perso1->hp->pv > 120) {
         SDL_SetRenderDrawColor(renderer, 144, 238, 144, 255);  // Vert clair
-    } else if (perso1->hp->pv > 40) {
+    } else if (perso1->hp->pv > 80) {
         SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);  // Jaune
-    } else if (perso1->hp->pv > 20) {
+    } else if (perso1->hp->pv > 40) {
         SDL_SetRenderDrawColor(renderer, 255, 165, 0, 255);  // Orange
     } else {
         SDL_SetRenderDrawColor(renderer, 220, 20, 60, 255);  // Rouge
