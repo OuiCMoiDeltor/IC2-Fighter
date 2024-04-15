@@ -26,4 +26,4 @@ https://docs.google.com/document/d/13eXrba75RyvGE3lhnJh4O7yFeaft9hzDJVS7V4voUTc/
 24/04/2024
 
 # Lien vers le diagramme de Gantt
-https://docs.google.com/spreadsheets/d/1WLoKoxEyyoLxct2_f9DmZItvqpbe9kP7qZolUMjj1Iw/edit?pli=1#gid=121008958
+https://docs.google.com/spreadsheets/d/1qz4dYe7TAFIVLvtQTb-0hKGw3CVnRch2NBe7M6f-33c/edit#gid=2099071742
