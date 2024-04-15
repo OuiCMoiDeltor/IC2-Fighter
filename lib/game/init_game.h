@@ -9,3 +9,7 @@ int reverseIdle2 = 0; int reverseWalk2 = 0;
 
 // Mise à jour de l'écran
 SDL_RenderPresent(renderer);
+
+// Son 
+    // Chargement musique de fond
+        Mix_Music *backgroundCombatSound = Mix_LoadMUS(SOUND_BACKGROUND_COMBAT);

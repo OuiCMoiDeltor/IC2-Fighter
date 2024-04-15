@@ -299,10 +299,9 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 if(keyboardState[SDL_SCANCODE_A]) {
                     perso1->animation = SAUTGAUCHE;
                     perso1->etatAnimation = 7;
-                }else if(keyboardState[SDL_SCANCODE_D]) {
+                }else if(keyboardState[SDL_SCANCODE_D])
                     perso1->animation = SAUTDROIT;
-                else { 
-                	perso1->animation = SAUT;
+                else perso1->animation = SAUT;
             // Surplace
             }else if(!(keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_D]) || (keyboardState[SDL_SCANCODE_A] && keyboardState[SDL_SCANCODE_D])) {
                 perso1->etatWalk = 0;
