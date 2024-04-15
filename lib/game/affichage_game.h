@@ -99,6 +99,9 @@ if(scene == GAME) {
                                 case POINGACCROUPI:
                                                 if(Joueur1->etatAnimation == 1)
                                                         Joueur1->canHit = 1;
+                                case DEGAT:
+                                case DEGATACCROUPI:
+                                case DEGATSAUT:
                                                 if(Joueur1->etatAnimation < 1) {
                                                         Joueur1->etatAnimation++;
                                                 }else {
@@ -205,6 +208,9 @@ if(scene == GAME) {
                                 case POINGACCROUPI:
                                                 if(Joueur2->etatAnimation == 1)
                                                         Joueur2->canHit = 1;
+                                case DEGAT:
+                                case DEGATACCROUPI:
+                                case DEGATSAUT:
                                                 if(Joueur2->etatAnimation < 1) {
                                                         Joueur2->etatAnimation++;
                                                 }else {
