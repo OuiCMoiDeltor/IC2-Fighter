@@ -214,8 +214,6 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 
 extern
 void mettreAJourHp(SDL_Renderer *renderer, personnage * perso1, int degat) {
-    //test perte pv
-    
     SDL_Log("%d", perso1->hp->pv);
     perso1->hp->pv = perso1->hp->pv - degat < 0 ? 0 : perso1->hp->pv - degat;  // Assure une réduction correcte de la vie
     SDL_Delay(100) ;
