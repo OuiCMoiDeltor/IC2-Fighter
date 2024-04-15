@@ -1,6 +1,7 @@
 static int isMusicPlaying = 0; // Pour garder la trace si la musique de fond est déjà en train de jouer
 
 if(scene == CHAMP_SELECT) {
+    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
     if(son == 1 && isMusicPlaying == 0) {
         Mix_HaltMusic(); // Arrête toute musique actuellement jouée
         Mix_PlayMusic(backgroundSoundSelect, -1); // Joue la musique de fond pour l'écran de sélection

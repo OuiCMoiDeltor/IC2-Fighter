@@ -131,6 +131,7 @@ int main(int argc, char* argv[]) {
     int quit = 0;
     SDL_Event e;
     scenes scene = MENU_PRINCIPAL; // Première scene à afficher
+    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.3); //Réglage niveau de son
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
     int waitForFrame = 0;
 
