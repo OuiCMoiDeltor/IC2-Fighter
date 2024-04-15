@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include "../lib/creation.h"
 #include "../lib/perso.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 
 #define VIE_MAX 200 
 #define DMG 10
@@ -214,8 +216,14 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
+    //Charger son lors dégâts
+    Mix_Chunk *soundDMG = Mix_LoadWAV("mixer/ouh.wav");  // Charger un fichier WAV
+    //Charger son lors d'un coup
+    Mix_Chunk *soundHit = Mix_LoadWAV("mixer/hit.wav");  // Charger un fichier WAV
+
     //test perte pv
     if (keyboardState[SDL_SCANCODE_COMMA]) { //condition perte DMG -> à changer lors collisions faîtes
+        Mix_PlayChannel(-1, soundDMG, 0);
         SDL_Log("%d", perso1->hp->pv);
         perso1->hp->pv = perso1->hp->pv - DMG < 0 ? 0 : perso1->hp->pv - DMG;  // Assure une réduction correcte de la vie
         SDL_Delay(100) ;
@@ -260,11 +268,16 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             SDL_RenderCopy(renderer, perso1->texture, perso1->crouch[perso1->etatCrouch], perso1->pos->rect);
             if (perso1->etatCrouch == 2) {
                 // Coup de poing
-                if (keyboardState[SDL_SCANCODE_C])
+                if (keyboardState[SDL_SCANCODE_C]) {
                     perso1->animation = POINGACCROUPI;
+                    //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                }
                 // Coup de pied
-                else if (keyboardState[SDL_SCANCODE_V])
+                else if (keyboardState[SDL_SCANCODE_V]) {
                     perso1->animation = KICKACCROUPI;
+                    //Mix_PlayChannel(-1, soundHit, 0); à changer lors collisions faîtes
+                }
+                
             }
         }else {
             // Coup de poing droit 
@@ -425,4 +438,5 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         }
     }
 }
+
 
