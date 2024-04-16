@@ -4,8 +4,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
 
-
-#define VIE_MAX 100
+#define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 #define DMG 5
 
 /**
@@ -192,13 +191,17 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 
     //Création barre de vie
     perso->hp = malloc(sizeof(pv_t));
-    perso->hp->pv = VIE_MAX;
     perso->hp->barrePv = malloc(sizeof(SDL_Rect));
-    perso->hp->barrePv->x = 100/8;
-    perso->hp->barrePv->y = 100/2;
-    perso->hp->barrePv->w = 550;
-    perso->hp->barrePv->h = 35;
+    perso->hp->barrePv->x = 0;
+    perso->hp->barrePv->y = 0;
+    perso->hp->barrePv->w = 0;
+    perso->hp->barrePv->h = 0;
     
+    perso->pseudo = malloc(sizeof(pseudo_t));
+    perso->pseudo->txt = NULL;
+    perso->pseudo->rect = NULL;
+    ajoutListeRect(listeRectangle, &perso->pseudo->rect);
+
     return perso;
 }
 
@@ -215,9 +218,7 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 */
 
 extern
-void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int persoID) {
-    Mix_Chunk *soundDMG = Mix_LoadWAV("mixer/ouh.wav");
-    Mix_VolumeChunk(soundDMG, MIX_MAX_VOLUME / 3);
+void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int persoID, Mix_Chunk * soundDMG) {
     SDL_Log("%d", perso->hp->pv);  // Affiche les points de vie restants pour le test
     perso->hp->pv = perso->hp->pv - degat < 0 ? 0 : perso->hp->pv - degat;  // Réduit la vie sans descendre en dessous de 0
 
@@ -244,29 +245,9 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 
 
 extern
-void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate) {
+void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * soundHIT, Mix_Chunk * soundDMG) {
     /*Test avant que Quentin commence à crier, fonctionne mais comme ttf charge en boucle lors d'appel -> jeu tres ralenti*/
 
-    TTF_Font *font = TTF_OpenFont("ttf/Act_Of_Rejection.ttf", 32);
-    SDL_Color textColor = {255, 255, 255, 255}; 
-    SDL_Surface *surfaceJ1 = TTF_RenderText_Solid(font, "CACAPAGNAN", textColor);
-    SDL_Texture *textureJ1 = SDL_CreateTextureFromSurface(renderer, surfaceJ1);
-    SDL_Rect textRectJ1 = {100/8, 100/16, surfaceJ1->w, surfaceJ1->h};
-
-    SDL_RenderCopy(renderer, textureJ1, NULL, &textRectJ1);
-    SDL_DestroyTexture(textureJ1);
-    SDL_FreeSurface(surfaceJ1);
-
-    SDL_Surface *surface = TTF_RenderText_Solid(font, "easy", textColor);
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_Rect textRect = {720, 100/16, surface->w, surface->h};
-
-    SDL_RenderCopy(renderer, texture, NULL, &textRect);
-    SDL_DestroyTexture(texture);
-    SDL_FreeSurface(surface);
-
-    Mix_Chunk *soundHIT = Mix_LoadWAV("mixer/hit.wav") ;
-    Mix_VolumeChunk(soundHIT, MIX_MAX_VOLUME / 8);
     // Gestion dégats J1
     if (keyboardState[SDL_SCANCODE_P]) {
         perso1->etatAnimation = 0;
@@ -274,16 +255,16 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso1->blocking) {
             perso1->etatAnimation = 1;
             perso1->animation = PARADE;
-            mettreAJourHp(renderer, perso1, DMG / 2, 1) ;
+            mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
         }else if(perso1->animation == SAUT) {
             perso1->animation = DEGATSAUT;
-            mettreAJourHp(renderer, perso1, DMG, 1) ;
+            mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
         }else if(perso1->crouching) {
             perso1->animation = DEGATACCROUPI;
-            mettreAJourHp(renderer, perso1, DMG, 1) ; 
+            mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
         }else {
             perso1->animation = DEGAT;
-            mettreAJourHp(renderer, perso1, DMG, 1) ;
+            mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
         }
     }
 
@@ -305,10 +286,6 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     fprintf(stderr, "Plus de vie. \n");
     }
 
-    // Positionnement barre de vie perso2
-    perso2->hp->barrePv->x = 720;
-    perso2->hp->barrePv->y = 100 / 2;
-
     // Gestion dégats J2
     if (keyboardState[SDL_SCANCODE_O]) {
         perso2->etatAnimation = 0;
@@ -316,16 +293,16 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso2->blocking) {
             perso2->etatAnimation = 1;
             perso2->animation = PARADE;
-            mettreAJourHp(renderer, perso2, DMG / 2, 2) ;
+            mettreAJourHp(renderer, perso2, DMG / 2, 2, soundDMG) ;
         }else if(perso2->animation == SAUT) {
             perso2->animation = DEGATSAUT;
-            mettreAJourHp(renderer, perso2, DMG, 2) ;
+            mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
         }else if(perso2->crouching) {
             perso2->animation = DEGATACCROUPI;
-            mettreAJourHp(renderer, perso2, DMG, 2) ;
+            mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
         }else {
             perso2->animation = DEGAT;
-            mettreAJourHp(renderer, perso2, DMG, 2) ;
+            mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
         }
     }
 

@@ -15,9 +15,9 @@ SRC=src/
 PROG=IC2Fighter
 LIB=lib/
 
-FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}perso.c ${SRC}main.c
+FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}perso.c ${SRC}combat.c ${SRC}main.c
 
-FICHIERH=${LIB}bouton.h ${LIB}creation.h ${LIB}perso.h
+FICHIERH=${LIB}bouton.h ${LIB}creation.h ${LIB}perso.h ${LIB}combat.h
 
 all: main
 

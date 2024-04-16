@@ -1,3 +1,6 @@
+#ifndef _BOUTON_H_
+#define _BOUTON_H_
+
 #include <SDL2/SDL.h>
 #include "creation.h"
 
@@ -26,3 +29,5 @@ typedef struct bouton_s
 
 extern bouton *creerBouton(SDL_Renderer*,listeRect **,int *,int *,float,float,float,float,char*,int,int);
 extern void DestroyBouton(bouton**);
+
+#endif

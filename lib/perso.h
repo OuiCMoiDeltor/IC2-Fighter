@@ -1,7 +1,19 @@
+#ifndef _PERSO_H_
+#define _PERSO_H_
+
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include "creation.h"
 
+#define VIE_MAX 100
+
 typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,KICKBAS,PARADE,SAUT,POINGACCROUPI,KICKACCROUPI,SAUTGAUCHE,SAUTDROIT,DEGAT,DEGATSAUT,DEGATACCROUPI}animation_e;
+
+typedef struct {
+    SDL_Texture * txt;
+    rectangle * rect;
+}pseudo_t;
 
 typedef struct {
     int pv;
@@ -38,7 +50,11 @@ typedef struct {
     int canHit;
     float speed ;
     pv_t * hp;
+    pseudo_t * pseudo;
 } personnage;
 
 extern personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle);
-extern void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate);
+extern void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int persoID, Mix_Chunk * soundDMG);
+extern void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * hit, Mix_Chunk * dmg);
+
+#endif

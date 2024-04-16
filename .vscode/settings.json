@@ -1,6 +1,12 @@
 {
     "files.associations": {
         "sdl.h": "c",
-        "creation.h": "c"
+        "creation.h": "c",
+        "define_menu_principal.h": "c",
+        "perso.h": "c",
+        "sdl_ttf.h": "c",
+        "affichage_menu_principal.h": "c",
+        "combat.h": "c",
+        "sdl_mixer.h": "c"
     }
 }

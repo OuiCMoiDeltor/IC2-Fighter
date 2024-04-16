@@ -6,6 +6,7 @@
 // Fonctions
 #include "../lib/bouton.h"
 #include "../lib/perso.h"
+#include "../lib/combat.h"
 
 // Fenêtre
 #define NOM_JEU "IC2 Fighter"
@@ -18,7 +19,6 @@
 #include "../lib/options/define_options.h"
 #include "../lib/gamemode_selection/define_gamemode_selection.h"
 #include "../lib/champ_select/define_champ_select.h"
-#include "../lib/game/define_game.h"
 
 typedef enum {MENU_PRINCIPAL, OPTIONS, GAMEMODE, CHAMP_SELECT, GAME}scenes;
 
@@ -125,7 +125,6 @@ int main(int argc, char* argv[]) {
     #include "../lib/options/init_options.h" // Initialisation du menu options
     #include "../lib/gamemode_selection/init_gamemode_selection.h" // Initialisation du menu de selection du mode de jeu
     #include "../lib/champ_select/init_champ_select.h" // Initialisation du menu de selection des personnages
-    #include "../lib/game/init_game.h" // Initialisation du menu de selection des personnages
 
     // Boucle principale
     int quit = 0;
@@ -134,6 +133,7 @@ int main(int argc, char* argv[]) {
     Mix_VolumeMusic(MIX_MAX_VOLUME * 0.3); //Réglage niveau de son
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
     int waitForFrame = 0;
+    Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(NULL);
 
     while (!quit) {
         while (SDL_PollEvent(&e) != 0) {
@@ -151,7 +151,6 @@ int main(int argc, char* argv[]) {
             #include "../lib/options/event_options.h" // Evenements du menu options
             #include "../lib/gamemode_selection/event_gamemode_selection.h" // Evenements du menu de selection du mode de jeu
             #include "../lib/champ_select/event_champ_select.h" // Evenements du menu de selection des personnages
-            #include "../lib/game/event_game.h" // Evenements du menu de selection des personnages
         }
 
         // Effacement de l'écran
@@ -161,7 +160,6 @@ int main(int argc, char* argv[]) {
         #include "../lib/options/affichage_options.h" // Affichage du menu options
         #include "../lib/gamemode_selection/affichage_gamemode_selection.h" // Affichage du menu de selection du mode de jeu
         #include "../lib/champ_select/affichage_champ_select.h" // Affichage du menu de selection des personnages
-        #include "../lib/game/affichage_game.h" // Affichage du menu de selection des personnages
 
         // Mise à jour de l'affichage
         SDL_RenderPresent(renderer);

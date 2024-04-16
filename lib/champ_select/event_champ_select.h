@@ -10,6 +10,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -26,6 +27,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -42,6 +44,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -58,6 +61,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -74,6 +78,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -90,6 +95,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -106,6 +112,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
@@ -122,6 +129,7 @@ if(scene == CHAMP_SELECT) {
                         scene = GAME;
                         boutonRYU->etat = 0;
                         J2Pick = 0;
+                        combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF);
                     }
                     else {
                         Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
