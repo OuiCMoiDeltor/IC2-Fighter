@@ -16,7 +16,7 @@ void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
     // Position
     J1->pos->rect->x = *J1->pos->largeur/10.0;
     J1->pos->rect->y = *J1->pos->hauteur/10.0;
-    
+
     J2->pos->rect->x = *J2->pos->largeur/10*5.0;
     J2->pos->rect->y = *J2->pos->hauteur/10.0;
 
@@ -92,7 +92,7 @@ int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueu
 }
 
 extern
-void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF) {
+void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int son) {
     // Son
     // Chargement musique de fond
     Mix_Music *backgroundCombatSound = Mix_LoadMUS(SOUND_BACKGROUND_COMBAT);
@@ -100,6 +100,12 @@ void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Jou
     Mix_VolumeChunk(soundHIT, MIX_MAX_VOLUME / 8);
     Mix_Chunk *soundDMG = Mix_LoadWAV("mixer/ouh.wav");
     Mix_VolumeChunk(soundDMG, MIX_MAX_VOLUME / 3);
+
+    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
+    if(son) {
+        Mix_HaltMusic(); // Arrête toute musique actuellement jouée
+        Mix_PlayMusic(backgroundCombatSound, -1); // Joue la musique de fond pour l'écran de sélection
+    }
 
     initPerso(renderer, Joueur1, Joueur2);
     roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG);
