@@ -70,4 +70,9 @@ else if(scene == OPTIONS) {
         if(boutonOptionsBack->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->relache, boutonOptionsBack->position->rect);
         else if (boutonOptionsBack->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->appuye, boutonOptionsBack->position->rect);
         else if (boutonOptionsBack->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsBack->texture, boutonOptionsBack->over, boutonOptionsBack->position->rect);
+
+// Dessiner le bouton du menu des controles
+        if(boutonOptionsControle->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsControle->texture, boutonOptionsControle->relache, boutonOptionsControle->position->rect);
+        else if (boutonOptionsControle->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsControle->texture, boutonOptionsControle->appuye, boutonOptionsControle->position->rect);
+        else if (boutonOptionsControle->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsControle->texture, boutonOptionsControle->over, boutonOptionsControle->position->rect);
 }

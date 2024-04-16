@@ -11,3 +11,4 @@
 #define IMG_OPTIONS_FULLSCREEN_TURN_ON "img/options/optionsFullscreenTurnOn.bmp"
 #define IMG_OPTIONS_FULLSCREEN_TURN_OFF "img/options/optionsFullscreenTurnOff.bmp"
 #define IMG_OPTIONS_BACK "img/options/optionsBack.bmp"
+#define IMG_OPTIONS_CONTROLE "img/options/optionsBack.bmp"

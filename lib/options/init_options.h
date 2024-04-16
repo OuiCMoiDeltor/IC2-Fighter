@@ -81,3 +81,6 @@
         // off
             bouton *boutonOptionsSoundOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_OFF, 0, 0);
             if(boutonOptionsSoundOff == NULL) exit(EXIT_FAILURE);
+        // controle
+            bouton *boutonOptionsControle = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 6/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_CONTROLE, 0, 0);
+            if(boutonOptionsControle == NULL) exit(EXIT_FAILURE);

@@ -168,4 +168,20 @@ else if(scene == OPTIONS) {
                 }else if (e.motion.x > boutonOptionsBack->position->rect->x && e.motion.x < boutonOptionsBack->position->rect->x + boutonOptionsBack->position->rect->w && e.motion.y > boutonOptionsBack->position->rect->y && e.motion.y < boutonOptionsBack->position->rect->y + boutonOptionsBack->position->rect->h && boutonOptionsBack->etat == BOUTON_RELACHE) {
                     boutonOptionsBack->etat = BOUTON_OVER;
                 }
+
+            // Bouton controle
+
+                if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonOptionsControle->position->rect->x && e.motion.x < boutonOptionsControle->position->rect->x + boutonOptionsControle->position->rect->w && e.motion.y > boutonOptionsControle->position->rect->y && e.motion.y < boutonOptionsControle->position->rect->y + boutonOptionsControle->position->rect->h) {
+                    boutonOptionsControle->etat = BOUTON_APPUYE;
+                // Appuie et relache sur le bouton
+                }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonOptionsControle->position->rect->x && e.motion.x < boutonOptionsControle->position->rect->x + boutonOptionsControle->position->rect->w && e.motion.y > boutonOptionsControle->position->rect->y && e.motion.y < boutonOptionsControle->position->rect->y + boutonOptionsControle->position->rect->h) {
+                    scene = CONTROLE;
+                    boutonOptionsControle->etat = BOUTON_RELACHE;
+                // Appuie sur le bouton et relache ailleurs
+                }else if (e.type == SDL_MOUSEBUTTONUP && boutonOptionsControle->etat == BOUTON_APPUYE  || boutonOptionsControle->etat == BOUTON_OVER && !(e.motion.x > boutonOptionsControle->position->rect->x && e.motion.x < boutonOptionsControle->position->rect->x + boutonOptionsControle->position->rect->w && e.motion.y > boutonOptionsControle->position->rect->y && e.motion.y < boutonOptionsControle->position->rect->y + boutonOptionsControle->position->rect->h)) {
+                    boutonOptionsControle->etat = BOUTON_RELACHE;
+                // Passe sur le bouton
+                }else if (e.motion.x > boutonOptionsControle->position->rect->x && e.motion.x < boutonOptionsControle->position->rect->x + boutonOptionsControle->position->rect->w && e.motion.y > boutonOptionsControle->position->rect->y && e.motion.y < boutonOptionsControle->position->rect->y + boutonOptionsControle->position->rect->h && boutonOptionsControle->etat == BOUTON_RELACHE) {
+                    boutonOptionsControle->etat = BOUTON_OVER;
+                }
             }

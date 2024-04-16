@@ -7,6 +7,7 @@
 #include "../lib/bouton.h"
 #include "../lib/perso.h"
 #include "../lib/combat.h"
+#include "../lib/touches.h"
 
 // Fenêtre
 #define NOM_JEU "IC2 Fighter"
@@ -19,8 +20,9 @@
 #include "../lib/options/define_options.h"
 #include "../lib/gamemode_selection/define_gamemode_selection.h"
 #include "../lib/champ_select/define_champ_select.h"
+#include "../lib/controle/define_controle.h"
 
-typedef enum {MENU_PRINCIPAL, OPTIONS, GAMEMODE, CHAMP_SELECT, GAME}scenes;
+typedef enum {MENU_PRINCIPAL, OPTIONS, CONTROLE, GAMEMODE, CHAMP_SELECT, GAME}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
@@ -125,12 +127,14 @@ int main(int argc, char* argv[]) {
     #include "../lib/options/init_options.h" // Initialisation du menu options
     #include "../lib/gamemode_selection/init_gamemode_selection.h" // Initialisation du menu de selection du mode de jeu
     #include "../lib/champ_select/init_champ_select.h" // Initialisation du menu de selection des personnages
+    #include "../lib/controle/init_controle.h" // Initialisation du menu de controle des touches
+
 
     // Boucle principale
     int quit = 0;
     SDL_Event e;
     scenes scene = MENU_PRINCIPAL; // Première scene à afficher
-    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.3); //Réglage niveau de son
+    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
     int waitForFrame = 0;
     Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(NULL);
@@ -151,6 +155,8 @@ int main(int argc, char* argv[]) {
             #include "../lib/options/event_options.h" // Evenements du menu options
             #include "../lib/gamemode_selection/event_gamemode_selection.h" // Evenements du menu de selection du mode de jeu
             #include "../lib/champ_select/event_champ_select.h" // Evenements du menu de selection des personnages
+            #include "../lib/controle/event_controle.h" // Evenements du menu de controle des touches
+
         }
 
         // Effacement de l'écran
@@ -160,6 +166,9 @@ int main(int argc, char* argv[]) {
         #include "../lib/options/affichage_options.h" // Affichage du menu options
         #include "../lib/gamemode_selection/affichage_gamemode_selection.h" // Affichage du menu de selection du mode de jeu
         #include "../lib/champ_select/affichage_champ_select.h" // Affichage du menu de selection des personnages
+        #include "../lib/controle/affichage_controle.h" // affichage du menu de controle des touches
+
+
 
         // Mise à jour de l'affichage
         SDL_RenderPresent(renderer);
@@ -184,6 +193,20 @@ int main(int argc, char* argv[]) {
     DestroyBouton(&boutonOptionsFullscreenOn);
     DestroyBouton(&boutonOptionsFullscreenOff);
     DestroyBouton(&boutonOptionsBack);
+    DestroyBouton(&boutonSautJ1);
+    DestroyBouton(&boutonSautJ2);
+    DestroyBouton(&boutonAccroupirJ1);
+    DestroyBouton(&boutonAccroupirJ2);
+    DestroyBouton(&boutonGaucheJ1);
+    DestroyBouton(&boutonGaucheJ2);
+    DestroyBouton(&boutonDroiteJ1);
+    DestroyBouton(&boutonDroiteJ2);
+    DestroyBouton(&boutonPoingJ1);
+    DestroyBouton(&boutonPoingJ2);
+    DestroyBouton(&boutonKickJ1);
+    DestroyBouton(&boutonKickJ2);
+    DestroyBouton(&boutonGardeJ1);
+    DestroyBouton(&boutonGardeJ2);
     detruireListeT(&listeTexture);
     Mix_HaltMusic();
     Mix_FreeMusic(backgroundSound);
