@@ -662,11 +662,11 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             perso2->blocking = 1;
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->block[0], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
         // Coup de peid en bas
-        }else if (keyboardState[liste_touches[DroitJ1]] && keyboardState[liste_touches[PoingJ2]] && !perso2->crouching) {
+        }else if (keyboardState[liste_touches[AccroupirJ2]] && keyboardState[liste_touches[PoingJ2]] && !perso2->crouching) {
             perso2->animation = KICKBAS;
             Mix_PlayChannel(-1, soundHIT, 0);
         // Accroupi
-        }else if (keyboardState[liste_touches[DroitJ1]]) {
+        }else if (keyboardState[liste_touches[AccroupirJ2]]) {
             perso2->crouching = 1;
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouch[perso2->etatCrouch], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
             if (perso2->etatCrouch == 2) {
@@ -704,7 +704,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                     perso2->etatAnimation = 7;
                 }else perso2->animation = SAUT;
             // Surplace
-            }else if(!(keyboardState[liste_touches[GaucheJ2]] || keyboardState[liste_touches[ParadeJ2]]) || (keyboardState[liste_touches[GaucheJ2]] && keyboardState[liste_touches[ParadeJ2]])) {
+            }else if(!(keyboardState[liste_touches[GaucheJ2]] || keyboardState[liste_touches[DroitJ2]]) || (keyboardState[liste_touches[GaucheJ2]] && keyboardState[liste_touches[ParadeJ2]])) {
                 perso2->etatWalk = 0;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
             }else {
@@ -715,11 +715,11 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                         perso2->pos->rect->x -= perso2->speed;
                 }
                 // Droite
-                if (keyboardState[liste_touches[ParadeJ2]]) {
+                if (keyboardState[liste_touches[DroitJ2]]) {
                     if ((perso2->pos->rect->x + perso2->speed + 50) <= largeur)
                         perso2->pos->rect->x += perso2->speed;
                 }
-                if (!keyboardState[liste_touches[GaucheJ2]] && !keyboardState[liste_touches[ParadeJ2]]) perso2->etatWalk = 0;
+                if (!keyboardState[liste_touches[GaucheJ2]] && !keyboardState[liste_touches[DroitJ2]]) perso2->etatWalk = 0;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->walk[perso2->etatWalk], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
             }
         }
