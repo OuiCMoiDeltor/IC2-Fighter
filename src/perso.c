@@ -246,7 +246,7 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate) {
     /*Test avant que Quentin commence à crier, fonctionne mais comme ttf charge en boucle lors d'appel -> jeu tres ralenti*/
-    /*
+
     TTF_Font *font = TTF_OpenFont("ttf/Act_Of_Rejection.ttf", 32);
     SDL_Color textColor = {255, 255, 255, 255}; 
     SDL_Surface *surfaceJ1 = TTF_RenderText_Solid(font, "CACAPAGNAN", textColor);
@@ -264,7 +264,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     SDL_RenderCopy(renderer, texture, NULL, &textRect);
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(surface);
-    */
+
     Mix_Chunk *soundHIT = Mix_LoadWAV("mixer/hit.wav") ;
     Mix_VolumeChunk(soundHIT, MIX_MAX_VOLUME / 8);
     // Gestion dégats J1
