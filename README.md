@@ -1,24 +1,27 @@
-# IC2-Fighter
+# IC2-Fighter 🥊
 
-## Projet de fin d'études L2 Informatique - Université Le Mans (2023-2024)
+## Projet de Fin d'Études L2 Informatique - Université Le Mans 2023-2024
 
-### 🎮 Description
-IC2-Fighter est un jeu de combat conçu pour 1 à 2 joueurs, développé par La Team Projet dans le cadre de leur projet de fin d'études. Ce jeu met en scène des combats dynamiques et captivants, idéal pour les amateurs de jeux de lutte.
+### 🌟 Présentation du Projet
+Plongez dans l'univers d'**IC2-Fighter**, un jeu de combat innovant conçu pour des affrontements épiques entre 1 et 2 joueurs. Développé avec passion par La Team Projet, ce jeu promet des heures de divertissement et de compétition intense.
 
-### 👥 Équipe de développement
-- **Damien VEAU--BIGOT** - GitHub: [@Damienvbgt](https://github.com/Damienvbgt)
-- **Dimitri BOUGLE** - GitHub: [@im-MnX](https://github.com/im-MnX)
-- **Quentin COMTE** - GitHub: [@OuiCMoiDeltor](https://github.com/OuiCMoiDeltor)
-- **Yacine GHRIB** - GitHub: [@Yass72k](https://github.com/Yass72k)
+### 🚀 Équipe de Développement
+- **Damien VEAU--BIGOT** | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/Damienvbgt) 
+- **Dimitri BOUGLE** | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/im-MnX)
+- **Quentin COMTE** | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/OuiCMoiDeltor)
+- **Yacine GHRIB** | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/Yass72k)
 
-### 📅 Chronologie
-- **Début du projet :** 19/01/2024
-- **Fin du projet :** 24/04/2024
+### ⏳ Chronologie du Projet
+- **Début :** `19 Janvier 2024`
+- **Clôture :** `24 Avril 2024`
 
-### 🔗 Liens Utiles
-- [Description du projet](https://docs.google.com/document/d/13eXrba75RyvGE3lhnJh4O7yFeaft9hzDJVS7V4voUTc/edit)
-- [Diagramme de Gantt](https://docs.google.com/spreadsheets/d/1qz4dYe7TAFIVLvtQTb-0hKGw3CVnRch2NBe7M6f-33c/edit#gid=2099071742)
+### 🔗 Ressources Clés
+- **Document de Présentation :** [Voir le document](https://docs.google.com/document/d/13eXrba75RyvGE3lhnJh4O7yFeaft9hzDJVS7V4voUTc/edit)
+- **Planification :** [Diagramme de Gantt](https://docs.google.com/spreadsheets/d/1qz4dYe7TAFIVLvtQTb-0hKGw3CVnRch2NBe7M6f-33c/edit#gid=2099071742)
+
+### 💡 Pourquoi choisir IC2-Fighter?
+IC2-Fighter n'est pas seulement un jeu de combat. C'est une arène où stratégie, réflexes et bravoure se rencontrent dans un spectacle visuel captivant. Chaque personnage et arène a été méticuleusement dessiné pour offrir une expérience immersive qui vous tiendra en haleine. Préparez-vous à combattre !
 
 ---
 
-Ce README est conçu pour fournir toutes les informations nécessaires sur le projet de manière concise et accessible. N'hésitez pas à consulter nos documents liés pour plus de détails sur IC2-Fighter !
+Nous vous invitons à suivre notre progression et à nous soutenir sur cette aventure épique. Pour plus d'informations, consultez nos ressources et restez à l'écoute !
