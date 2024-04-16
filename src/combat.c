@@ -46,7 +46,7 @@ void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
 }
 
 extern
-int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg) {
+int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, int * liste_touches) {
 
     // Création de l'image de fond
     SDL_Texture *gameBGTexture = creerImage(renderer, IMG_GAME_BG);
@@ -81,7 +81,7 @@ int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueu
         SDL_RenderCopy(renderer, Joueur2->pseudo->txt, NULL, Joueur2->pseudo->rect->rect);
 
         waitForFrame++;
-        mettreAJourPersonnage(renderer, Joueur1, Joueur2, keyboardState, largeurF, hauteurF, &waitForFrame, hit, dmg);
+        mettreAJourPersonnage(renderer, Joueur1, Joueur2, keyboardState, largeurF, hauteurF, &waitForFrame, hit, dmg, liste_touches);
 
         SDL_RenderPresent(renderer);
 
@@ -92,7 +92,7 @@ int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueu
 }
 
 extern
-void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int son) {
+void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int son, int * liste_touches) {
     // Son
     // Chargement musique de fond
     Mix_Music *backgroundCombatSound = Mix_LoadMUS(SOUND_BACKGROUND_COMBAT);
@@ -108,13 +108,13 @@ void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Jou
     }
 
     initPerso(renderer, Joueur1, Joueur2);
-    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG);
+    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
 
     initPerso(renderer, Joueur1, Joueur2);
-    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG);
+    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
 
     initPerso(renderer, Joueur1, Joueur2);
-    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG);
+    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
 
     Mix_FreeMusic(backgroundCombatSound);
     Mix_FreeChunk(soundHIT);
