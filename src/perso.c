@@ -36,15 +36,6 @@
 
 */
 
-/* Variables globales son Chunk*/
-
-//Son lorsque des dégâts sont reçus
-
-//Son lorsqu'un coup est lancé
-//
-
-
-
 extern
 personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)
 {
@@ -53,7 +44,7 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     ajoutListeRect(listeRectangle, &perso->pos);
     perso->texture = creerImage(renderer, image);
     if(perso->texture == NULL) return NULL;
-    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->canHit = perso->crouching = perso->etatCrouch = 0;
+    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->canHit = perso->crouching = perso->etatCrouch = perso->reverseIdle = perso->reverseWalk = 0;
 
     int i;
 
@@ -253,7 +244,7 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 
 
 extern
-void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur) {
+void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate) {
     /*Test avant que Quentin commence à crier, fonctionne mais comme ttf charge en boucle lors d'appel -> jeu tres ralenti*/
     /*
     TTF_Font *font = TTF_OpenFont("ttf/Act_Of_Rejection.ttf", 32);
@@ -354,6 +345,229 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     //Condition à compléter lorsque écran rematch fait
     if (perso2->hp->pv <= 0) {
     fprintf(stderr, "Plus de vie. \n");
+    }
+
+    // Animations des actions
+    if(*framerate > 10) {
+        // Joueur 1
+        if(!perso1->reverseIdle) {
+                perso1->etatIdle = ++perso1->etatIdle;
+                if(perso1->etatIdle == 5) {
+                        perso1->reverseIdle = 1;
+                        perso1->etatIdle = 3;
+                }
+        }else {
+                perso1->etatIdle = --perso1->etatIdle;
+                if(perso1->etatIdle == -1) {
+                        perso1->reverseIdle = 0;
+                        perso1->etatIdle = 1;
+                }
+        }
+        if(!perso1->reverseWalk) {
+                perso1->etatWalk = ++perso1->etatWalk;
+                if(perso1->etatWalk == 6) {
+                        perso1->reverseWalk = 1;
+                        perso1->etatWalk = 4;
+                }
+        }else {
+                perso1->etatWalk = --perso1->etatWalk;
+                if(perso1->etatWalk == -1) {
+                        perso1->reverseWalk = 0;
+                        perso1->etatWalk = 1;
+                }
+        }
+        if(perso1->crouching) {
+                if(perso1->etatCrouch < 2)
+                        perso1->etatCrouch++;
+        }else {
+                perso1->etatCrouch = 0;
+        }
+        if(perso1->animation) {
+                switch(perso1->animation) {
+                        case POINGLATERAL:
+                                        if(perso1->etatAnimation == 3)
+                                                perso1->canHit = 1;
+                                        if(perso1->etatAnimation < 4) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->canHit = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case KICK:
+                        case POINGHAUT:
+                        case KICKBAS:
+                        case KICKACCROUPI:
+                                        if(perso1->etatAnimation == 1)
+                                                perso1->canHit = 1;
+                                        if(perso1->etatAnimation < 2) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->canHit = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case PARADE:
+                                        if(perso1->etatAnimation < 2) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case SAUT:
+                                        if(perso1->etatAnimation < 6) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case SAUTGAUCHE:
+                                        if(perso1->etatAnimation > 0) {
+                                                perso1->etatAnimation--;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case SAUTDROIT:
+                                        if(perso1->etatAnimation < 7) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case POINGACCROUPI:
+                                        if(perso1->etatAnimation == 1)
+                                                perso1->canHit = 1;
+                        case DEGAT:
+                        case DEGATACCROUPI:
+                        case DEGATSAUT:
+                                        if(perso1->etatAnimation < 1) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->canHit = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                }
+        }
+
+        // Joueur 2
+        if(!perso2->reverseIdle) {
+                perso2->etatIdle = ++perso2->etatIdle;
+                if(perso2->etatIdle == 5) {
+                        perso2->reverseIdle = 1;
+                        perso2->etatIdle = 3;
+                }
+        }else {
+                perso2->etatIdle = --perso2->etatIdle;
+                if(perso2->etatIdle == -1) {
+                        perso2->reverseIdle = 0;
+                        perso2->etatIdle = 1;
+                }
+        }
+        if(!perso2->reverseWalk) {
+                perso2->etatWalk = ++perso2->etatWalk;
+                if(perso2->etatWalk == 6) {
+                        perso2->reverseWalk = 1;
+                        perso2->etatWalk = 4;
+                }
+        }else {
+                perso2->etatWalk = --perso2->etatWalk;
+                if(perso2->etatWalk == -1) {
+                        perso2->reverseWalk = 0;
+                        perso2->etatWalk = 1;
+                }
+        }
+        if(perso2->crouching) {
+                if(perso2->etatCrouch < 2)
+                        perso2->etatCrouch++;
+        }else {
+                perso2->etatCrouch = 0;
+        }
+        if(perso2->animation) {
+                switch(perso2->animation) {
+                        case POINGLATERAL:
+                                        if(perso2->etatAnimation == 3)
+                                                perso2->canHit = 1;
+                                        if(perso2->etatAnimation < 4) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->canHit = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case KICK:
+                        case POINGHAUT:
+                        case KICKBAS:
+                        case KICKACCROUPI:
+                                        if(perso2->etatAnimation == 1)
+                                                perso2->canHit = 1;
+                                        if(perso2->etatAnimation < 2) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->canHit = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case PARADE:
+                                        if(perso2->etatAnimation < 2) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case SAUT:
+                                        if(perso2->etatAnimation < 6) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case SAUTDROIT:
+                                        if(perso2->etatAnimation > 0) {
+                                                perso2->etatAnimation--;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case SAUTGAUCHE:
+                                        if(perso2->etatAnimation < 7) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case POINGACCROUPI:
+                                        if(perso2->etatAnimation == 1)
+                                                perso2->canHit = 1;
+                        case DEGAT:
+                        case DEGATACCROUPI:
+                        case DEGATSAUT:
+                                        if(perso2->etatAnimation < 1) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->canHit = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                }
+        }
+
+        *framerate = 0;
     }
 
     // perso1
