@@ -1,16 +1,6 @@
 static int isMusicPlaying = 0; // Pour garder la trace si la musique de fond est déjà en train de jouer
 
 if(scene == CHAMP_SELECT) {
-    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
-    if(son == 1 && isMusicPlaying == 0) {
-        Mix_HaltMusic(); // Arrête toute musique actuellement jouée
-        Mix_PlayMusic(backgroundSoundSelect, -1); // Joue la musique de fond pour l'écran de sélection
-        isMusicPlaying = 1; // Marque la musique comme étant en cours de lecture
-    }
-    else if (son == 0) {
-        Mix_HaltMusic(); // Arrête la musique si 'son' est désactivé
-        isMusicPlaying = 0; // Marque la musique comme n'étant pas en cours
-    }
             // RYU
                 // Appuie et relache sur le bouton
                 if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU->position->rect->x && e.motion.x < boutonRYU->position->rect->x + boutonRYU->position->rect->w && e.motion.y > boutonRYU->position->rect->y && e.motion.y < boutonRYU->position->rect->y + boutonRYU->position->rect->h) {

@@ -6,6 +6,11 @@ if(scene == GAMEMODE) {
                 // Appuie et relache sur le bouton
                 }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocal->position->rect->x && e.motion.x < boutonLocal->position->rect->x + boutonLocal->position->rect->w && e.motion.y > boutonLocal->position->rect->y && e.motion.y < boutonLocal->position->rect->y + boutonLocal->position->rect->h) {
                     scene = CHAMP_SELECT;
+                    if(son) {
+                        Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
+                        Mix_HaltMusic();
+                        Mix_PlayMusic(backgroundSoundSelect, -1);
+                    }
                     boutonLocal->etat = BOUTON_RELACHE;
                 // Appuie sur le bouton et relache ailleurs
                 }else if (e.type == SDL_MOUSEBUTTONUP && boutonLocal->etat == BOUTON_APPUYE  || boutonLocal->etat == BOUTON_OVER && !(e.motion.x > boutonLocal->position->rect->x && e.motion.x < boutonLocal->position->rect->x + boutonLocal->position->rect->w && e.motion.y > boutonLocal->position->rect->y && e.motion.y < boutonLocal->position->rect->y + boutonLocal->position->rect->h)) {
@@ -38,8 +43,6 @@ if(scene == GAMEMODE) {
                 // Appuie et relache sur le bouton
                 }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h) {
                     scene = MENU_PRINCIPAL;
-                    if(son)
-                        Mix_PlayMusic(backgroundSound, -1);
                     boutonGmBack->etat = BOUTON_RELACHE;
                 // Appuie sur le bouton et relache ailleurs
                 }else if (e.type == SDL_MOUSEBUTTONUP && boutonGmBack->etat == BOUTON_APPUYE  || boutonGmBack->etat == BOUTON_OVER && !(e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h)) {
