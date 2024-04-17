@@ -11,6 +11,89 @@
 #define SOUND_BACKGROUND_COMBAT "mixer/son_combat.mp3"
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
+extern 
+void afficherRound(SDL_Renderer* renderer, int round, int duree_round) {
+    char roundText[20];
+    sprintf(roundText, "Round %d", round);
+    SDL_Color textColor = {0, 0, 0, 255};
+
+    TTF_Font* font = TTF_OpenFont(TTF_FONT, 64);
+    if (font == NULL) {
+        fprintf(stderr, "Erreur chargement de la police : %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+
+    SDL_Texture* bgTexture = IMG_LoadTexture(renderer, IMG_GAME_BG);
+    if (bgTexture == NULL) {
+        fprintf(stderr, "Erreur chargement de l'image de fond : %s\n", SDL_GetError());
+        TTF_CloseFont(font);
+        exit(EXIT_FAILURE);
+    }
+
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, roundText, textColor);
+    if (textSurface == NULL) {
+        fprintf(stderr, "Erreur création surface de texte : %s\n", SDL_GetError());
+        TTF_CloseFont(font);
+        SDL_DestroyTexture(bgTexture);
+        exit(EXIT_FAILURE);
+    }
+
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    if (textTexture == NULL) {
+        fprintf(stderr, "Erreur création texture de texte : %s\n", SDL_GetError());
+        SDL_FreeSurface(textSurface);
+        TTF_CloseFont(font);
+        SDL_DestroyTexture(bgTexture);
+        exit(EXIT_FAILURE);
+    }
+
+    SDL_Rect textRect = {500 - textSurface->w / 2, 300 - textSurface->h / 2, textSurface->w, textSurface->h};
+    SDL_FreeSurface(textSurface);
+
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, bgTexture, NULL, NULL);
+    SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+    SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(textTexture);
+    SDL_Delay(2000);
+
+    for (int i = 3; i > 0; i--) {
+        char countdownText[20];
+        sprintf(countdownText, "Combat dans %d", i);
+        textSurface = TTF_RenderText_Solid(font, countdownText, textColor);
+        if (textSurface == NULL) {
+            fprintf(stderr, "Erreur création surface de décompte : %s\n", SDL_GetError());
+            TTF_CloseFont(font);
+            SDL_DestroyTexture(bgTexture);
+            exit(EXIT_FAILURE);
+        }
+        textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+        if (textTexture == NULL) {
+            fprintf(stderr, "Erreur création texture de décompte : %s\n", SDL_GetError());
+            SDL_FreeSurface(textSurface);
+            TTF_CloseFont(font);
+            SDL_DestroyTexture(bgTexture);
+            exit(EXIT_FAILURE);
+        }
+        SDL_Rect countdownRect = {320 - textSurface->w / 2, 300 - textSurface->h / 2, textSurface->w, textSurface->h};
+        SDL_FreeSurface(textSurface);
+
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, bgTexture, NULL, NULL);
+        SDL_RenderCopy(renderer, textTexture, NULL, &countdownRect);
+        SDL_RenderPresent(renderer);
+        SDL_DestroyTexture(textTexture);
+        SDL_Delay(1000);
+    }
+
+    SDL_DestroyTexture(bgTexture);
+    TTF_CloseFont(font);
+}
+
+
+
+
+
 extern
 void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
     // Position
@@ -91,36 +174,34 @@ int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueu
     return 0;
 }
 
-extern
-void combatStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int son, int * liste_touches) {
-    // Son
-    // Chargement musique de fond
+extern 
+void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int son, int * liste_touches) {
+    // Chargement de la musique de fond et des effets sonores
     Mix_Music *backgroundCombatSound = Mix_LoadMUS(SOUND_BACKGROUND_COMBAT);
-    Mix_Chunk *soundHIT = Mix_LoadWAV("mixer/hit.wav") ;
+    Mix_Chunk *soundHIT = Mix_LoadWAV("mixer/hit.wav");
     Mix_VolumeChunk(soundHIT, MIX_MAX_VOLUME / 8);
     Mix_Chunk *soundDMG = Mix_LoadWAV("mixer/ouh.wav");
     Mix_VolumeChunk(soundDMG, MIX_MAX_VOLUME / 3);
 
-    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
+    // Configuration initiale du volume
+    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1);
     if(son) {
-        Mix_HaltMusic(); // Arrête toute musique actuellement jouée
-        Mix_PlayMusic(backgroundCombatSound, -1); // Joue la musique de fond pour l'écran de sélection
+        Mix_HaltMusic();
+        Mix_PlayMusic(backgroundCombatSound, -1);
     }
 
-    initPerso(renderer, Joueur1, Joueur2);
-    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
+    // Déroulement des rounds
+    for (int round = 1; round <= 3; round++) {
+        // Affiche "Round x" et fait un compte à rebours
+        afficherRound(renderer, round, SDL_GetTicks());
 
-    initPerso(renderer, Joueur1, Joueur2);
-    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
+        // Initialisation des personnages et démarrage du round
+        initPerso(renderer, Joueur1, Joueur2);
+        roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
+    }
 
-    initPerso(renderer, Joueur1, Joueur2);
-    roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches);
-
+    // Nettoyage des ressources audio
     Mix_FreeMusic(backgroundCombatSound);
     Mix_FreeChunk(soundHIT);
     Mix_FreeChunk(soundDMG);
-
-    // Free des persos
-    // Retour Champ select
-
 }
