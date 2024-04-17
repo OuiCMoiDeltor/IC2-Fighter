@@ -9,12 +9,22 @@
 #define BOUTON_OVER 2
 #define NB_ETAT 3
  
+typedef struct listeB_s {
+    bouton **pBouton;
+    struct listeBouton *suivant;
+}listeBouton;
+
+extern listeBouton *creerListeBouton();
+extern void ajoutListeBouton(listeBouton **liste, bouton **Bouton);
+extern void detruireListeBouton(listeBouton **liste);
+
 /**
  * \struct bouton
  * \brief Objet pour créer le bouton
  *
  * bouton est l'objet permettant de créer le bouton 
  */
+
 typedef struct bouton_s
 {
     SDL_Texture *texture; // contient la texture des différents aspects du bouton

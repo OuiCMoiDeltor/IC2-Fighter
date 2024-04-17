@@ -117,3 +117,49 @@ void DestroyBouton(bouton **b)
     }
     free(*b); *b = NULL;
 }
+
+extern
+listeBouton *creerListeBouton() {
+    listeBouton *liste = malloc(sizeof(listeBouton));
+    liste->pBouton = NULL;
+    liste->suivant = NULL;
+    return liste;
+}
+
+extern
+void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
+{
+  if((*liste)->suivant == NULL) {
+    (*liste)->pBouton = Bouton;
+    (*liste)->suivant = (*liste);
+  }
+  else {
+    listeBouton *new = malloc(sizeof(listeBouton));
+    listeBouton *temp = (*liste)->suivant;
+    (*liste)->suivant = new;
+    (*liste)->suivant->suivant = temp;
+    temp = NULL;
+    new = NULL;
+    (*liste) = (*liste)->suivant;
+    (*liste)->pBouton = Bouton;
+  }
+}
+
+extern
+void detruireListeBouton(listeBouton **liste)
+{
+    listeBouton *dernier = (*liste);
+    (*liste) = (*liste)->suivant;
+    listeBouton *temp = (*liste)->suivant;
+    while((*liste) != dernier) {
+        DestroyBouton((*liste)->pBouton);
+        free((*liste));
+        (*liste) = temp;
+        temp = (*liste)->suivant;
+    }
+    dernier = NULL;
+    temp = NULL;
+    DestroyBouton((*liste)->pBouton);
+    free((*liste));
+    (*liste) = NULL;
+}
