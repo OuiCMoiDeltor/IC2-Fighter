@@ -11,8 +11,11 @@
 #define SOUND_BACKGROUND_COMBAT "mixer/son_combat.mp3"
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
+#define DUREE_ROUND 60
+#define ROUND_GAGNANT 2
+
 extern 
-void afficherRound(SDL_Renderer* renderer, int round, int duree_round) {
+void afficherRound(SDL_Renderer* renderer, int largeurF, int hauteurF, int round, personnage * Joueur1, personnage * Joueur2, SDL_Texture * BG) {
     char roundText[20];
     sprintf(roundText, "Round %d", round);
     SDL_Color textColor = {0, 0, 0, 255};
@@ -23,73 +26,48 @@ void afficherRound(SDL_Renderer* renderer, int round, int duree_round) {
         exit(EXIT_FAILURE);
     }
 
-    // Chargement de l'image de fond
-    SDL_Texture* bgTexture = IMG_LoadTexture(renderer, IMG_GAME_BG);
-    if (bgTexture == NULL) {
-        fprintf(stderr, "Erreur chargement de l'image de fond : %s\n", SDL_GetError());
-        TTF_CloseFont(font);
-        exit(EXIT_FAILURE);
-    }
-
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, roundText, textColor);
-    if (textSurface == NULL) {
-        fprintf(stderr, "Erreur création surface de texte : %s\n", SDL_GetError());
-        TTF_CloseFont(font);
-        SDL_DestroyTexture(bgTexture);
-        exit(EXIT_FAILURE);
-    }
-
-    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    SDL_Texture* textTexture = creerTexte(renderer, font, roundText, textColor);
     if (textTexture == NULL) {
         fprintf(stderr, "Erreur création texture de texte : %s\n", SDL_GetError());
-        SDL_FreeSurface(textSurface);
-        TTF_CloseFont(font);
-        SDL_DestroyTexture(bgTexture);
         exit(EXIT_FAILURE);
     }
 
-    SDL_Rect textRect = {500, 100, textSurface->w, textSurface->h};
-    SDL_FreeSurface(textSurface);
+    rectangle * textRect = creerRectangle(&largeurF, &hauteurF, 4.0, 100.0, 4/2.0, 8.0);
 
     // Affichage du "Round x"
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, bgTexture, NULL, NULL);
-    SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+    SDL_RenderCopy(renderer, BG, NULL, NULL);
+    SDL_RenderCopy(renderer, textTexture, NULL, textRect->rect);
+    SDL_RenderCopy(renderer, Joueur1->texture, Joueur1->idle[0], Joueur1->pos->rect);
+    SDL_RenderCopyEx(renderer, Joueur2->texture, Joueur2->idle[0], Joueur2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(textTexture);
+    free(textRect->rect);
+    free(textRect);
     SDL_Delay(2000);
 
+    char countdownText[20];
     // Décompte "Combat dans x"
     for (int i = 3; i > 0; i--) {
-        char countdownText[20];
         sprintf(countdownText, "Combat dans %d", i);
-        textSurface = TTF_RenderText_Solid(font, countdownText, textColor);
-        if (textSurface == NULL) {
-            fprintf(stderr, "Erreur création surface de décompte : %s\n", SDL_GetError());
-            TTF_CloseFont(font);
-            SDL_DestroyTexture(bgTexture);
-            exit(EXIT_FAILURE);
-        }
-        textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+        textTexture = creerTexte(renderer, font, countdownText, textColor);
         if (textTexture == NULL) {
             fprintf(stderr, "Erreur création texture de décompte : %s\n", SDL_GetError());
-            SDL_FreeSurface(textSurface);
-            TTF_CloseFont(font);
-            SDL_DestroyTexture(bgTexture);
             exit(EXIT_FAILURE);
         }
-        SDL_Rect countdownRect = {425, 100, textSurface->w, textSurface->h};
-        SDL_FreeSurface(textSurface);
+        rectangle * countdownRect = creerRectangle(&largeurF, &hauteurF, 4.0, 100.0, 4/2.0, 8.0);
 
         SDL_RenderClear(renderer);
-        SDL_RenderCopy(renderer, bgTexture, NULL, NULL);
-        SDL_RenderCopy(renderer, textTexture, NULL, &countdownRect);
+        SDL_RenderCopy(renderer, BG, NULL, NULL);
+        SDL_RenderCopy(renderer, textTexture, NULL, countdownRect->rect);
+        SDL_RenderCopy(renderer, Joueur1->texture, Joueur1->idle[0], Joueur1->pos->rect);
+        SDL_RenderCopyEx(renderer, Joueur2->texture, Joueur2->idle[0], Joueur2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
         SDL_RenderPresent(renderer);
         SDL_DestroyTexture(textTexture);
+        free(countdownRect->rect);
+        free(countdownRect);
         SDL_Delay(1000);
     }
 
-    SDL_DestroyTexture(bgTexture);
     TTF_CloseFont(font);
 }
 
@@ -99,6 +77,13 @@ void afficherRound(SDL_Renderer* renderer, int round, int duree_round) {
 
 extern
 void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
+    // Reset animation
+    J1->animation = AUCUNE;
+    J1->etatAnimation = 0;
+
+    J2->animation = AUCUNE;
+    J2->etatAnimation = 0;
+
     // Position
     J1->pos->rect->x = *J1->pos->largeur/10.0;
     J1->pos->rect->y = *J1->pos->hauteur/10.0;
@@ -131,10 +116,10 @@ void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
     TTF_CloseFont(font);
 }
 
-extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, int * liste_touches, int roundDuration) {
+extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, int * liste_touches, int round) {
     Uint32 roundStart = SDL_GetTicks();  // Temps de démarrage du round
     Uint32 currentTime;
-    int timer = roundDuration;  // Démarre le timer à partir de roundDuration
+    int timer = DUREE_ROUND;  // Démarre le timer à partir de roundDuration
     
     SDL_Texture *gameBGTexture = creerImage(renderer, IMG_GAME_BG);
     if(gameBGTexture == NULL) exit(EXIT_FAILURE);
@@ -146,15 +131,14 @@ extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage 
     }
     
     SDL_Color textColor = {0, 0, 0, 255};  // Couleur du texte pour le timer
-    SDL_Surface *textSurface;
-    SDL_Texture *textTexture;
-    SDL_Rect textRect;
+
+    afficherRound(renderer, largeurF, hauteurF, round, Joueur1, Joueur2, gameBGTexture);
 
     SDL_Event e;
     int quit = 0;
     while (!quit && Joueur1->hp->pv > 0 && Joueur2->hp->pv > 0 && timer > 0) {
         currentTime = SDL_GetTicks();
-        timer = roundDuration - (currentTime - roundStart) / 1000;  // Décrémenter le timer
+        timer = DUREE_ROUND - (currentTime - roundStart) / 1000;  // Décrémenter le timer
         
         if (timer < 0) timer = 0;  // Garantir que le timer ne passe pas en dessous de zéro
 
@@ -170,11 +154,11 @@ extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage 
         // Affichage du timer
         char timerText[10];
         sprintf(timerText, "%d", timer);
-        textSurface = TTF_RenderText_Solid(font, timerText, textColor);
-        textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-        textRect = (SDL_Rect){625, 100/2, textSurface->w, textSurface->h};
-        SDL_FreeSurface(textSurface);
-        SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+        SDL_Texture * textTexture = creerTexte(renderer, font, timerText, textColor);
+        rectangle * textRect = creerRectangle(&largeurF, &hauteurF, 100/48.0, 100/5.0, 100/4.0, 12.0);
+        SDL_RenderCopy(renderer, textTexture, NULL, textRect->rect);
+        free(textRect->rect);
+        free(textRect);
         SDL_DestroyTexture(textTexture);
         
         // Affichage des autres éléments du jeu
@@ -187,9 +171,11 @@ extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage 
         SDL_RenderPresent(renderer);
         SDL_Delay(1000/60);
     }
+
     SDL_DestroyTexture(gameBGTexture);
     TTF_CloseFont(font);
-    return quit;
+    if(quit) exit(EXIT_FAILURE) ;
+    return Joueur1->hp->pv > 0 ? 1 : 0;
 }
 
 
@@ -210,11 +196,13 @@ void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joue
         Mix_PlayMusic(backgroundCombatSound, -1);
     }
 
+    int v1 = 0, v2 = 0;
+
     // Déroulement des rounds
-    for (int round = 1; round <= 3; round++) {
-        afficherRound(renderer, round, SDL_GetTicks());
+    while(v1 != ROUND_GAGNANT && v2 != ROUND_GAGNANT) {
         initPerso(renderer, Joueur1, Joueur2);
-        roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches, 60);
+        if(roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches, v1+v2+1)) v1++;
+        else v2++;
     }
 
     // Après les trois rounds, afficher un fond spécifique

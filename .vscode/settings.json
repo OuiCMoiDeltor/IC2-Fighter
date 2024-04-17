@@ -7,6 +7,7 @@
         "sdl_ttf.h": "c",
         "affichage_menu_principal.h": "c",
         "combat.h": "c",
-        "sdl_mixer.h": "c"
+        "sdl_mixer.h": "c",
+        "sdl_image.h": "c"
     }
 }
