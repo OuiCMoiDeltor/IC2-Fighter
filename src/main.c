@@ -119,7 +119,7 @@ int main(int argc, char* argv[]) {
     Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND); // Chargement musique de fond
     Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
-    int liste_touches[14] = {SDL_SCANCODE_W, SDL_SCANCODE_UP, SDL_SCANCODE_S, SDL_SCANCODE_DOWN, SDL_SCANCODE_A, SDL_SCANCODE_LEFT, SDL_SCANCODE_D, SDL_SCANCODE_RIGHT, SDL_SCANCODE_C, SDL_SCANCODE_KP_5, SDL_SCANCODE_V, SDL_SCANCODE_KP_6, SDL_SCANCODE_F, SDL_SCANCODE_KP_4};
+    int liste_touches[14] = {SDL_SCANCODE_W, SDL_SCANCODE_UP, SDL_SCANCODE_S, SDL_SCANCODE_DOWN, SDL_SCANCODE_A, SDL_SCANCODE_LEFT, SDL_SCANCODE_D, SDL_SCANCODE_RIGHT, SDL_SCANCODE_V, SDL_SCANCODE_KP_6, SDL_SCANCODE_C, SDL_SCANCODE_KP_5, SDL_SCANCODE_F, SDL_SCANCODE_KP_4};
     Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(NULL);
 
     while (!quit) {
