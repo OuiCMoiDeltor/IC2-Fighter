@@ -30,7 +30,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     SDL_Texture *J2 = creerImage(renderer, IMG_J2);
     if(J2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &J2);
-    rectangle *J2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/16.65, 11.0/2, 13.0, 13.0);
+    rectangle *J2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/16.5, 11.0/2, 13.0, 13.0);
     ajoutListeRect(&listeRectangle, &J2Rect);
 
     // Txt
@@ -208,59 +208,59 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeBouton(&listeBoutons, &boutonControleBack);
 
     // saut J1
-    bouton *boutonSautJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/3.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonSautJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/3.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonSautJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonSautJ1);
     // saut J2
-    bouton *boutonSautJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/3.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonSautJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/3.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonSautJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonSautJ2);
     // accroupi J1
-    bouton *boutonAccroupirJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/4.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonAccroupirJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/4.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonAccroupirJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonAccroupirJ1);
     // accroupi J2
-    bouton *boutonAccroupirJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/4.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonAccroupirJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/4.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonAccroupirJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonAccroupirJ2);
     // gauche J1
-    bouton *boutonGaucheJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/5.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonGaucheJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/5.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonGaucheJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonGaucheJ1);
     // gauche J2
-    bouton *boutonGaucheJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/5.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonGaucheJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/5.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonGaucheJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonGaucheJ2);
     // droite J1
-    bouton *boutonDroiteJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/6.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonDroiteJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/6.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonDroiteJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonDroiteJ1);
     // droite J2
-    bouton *boutonDroiteJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/6.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonDroiteJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/6.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonDroiteJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonDroiteJ2);
     // poing J1
-    bouton *boutonPoingJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/7.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonPoingJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/7.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonPoingJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonPoingJ1);
     // poing J2
-    bouton *boutonPoingJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/7.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonPoingJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/7.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonPoingJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonPoingJ2);
     // kick J1
-    bouton *boutonKickJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/8.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonKickJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/8.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonKickJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonKickJ1);
     // kick J2
-    bouton *boutonKickJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/8.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonKickJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/8.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonKickJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonKickJ2);
     // garde J1
-    bouton *boutonGardeJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/12, 11.0/9.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonGardeJ1 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 412/204.0, 11.0/9.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonGardeJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonGardeJ1);
     // garde J2
-    bouton *boutonGardeJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 24.0/17, 11.0/9.25, 32.0, 32.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
+    bouton *boutonGardeJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/9.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonGardeJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonGardeJ2);
 
