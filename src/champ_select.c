@@ -62,6 +62,11 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
         bouton *boutonRYU8 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/6.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
         if(boutonRYU8 == NULL) exit(EXIT_FAILURE);
         ajoutListeBouton(&listeBoutons, &boutonRYU8);
+    // Bouton 
+    // Retour
+    bouton *boutonGmBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_GAMEMODE_RETOUR, 0, 0);
+    if(boutonGmBack == NULL) exit(EXIT_FAILURE);
+    ajoutListeBouton(&listeBoutons, &boutonGmBack);
 
     // Son 
     // Chargement musique de fond
@@ -247,6 +252,22 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                     J2Pick = 1;
                 }
             }
+            // Retour
+            // Appuie sur le bouton
+            if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h) {
+                boutonGmBack->etat = BOUTON_APPUYE;
+            // Appuie et relache sur le bouton
+            }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h) {
+                (*scene)--;
+                boutonGmBack->etat = BOUTON_RELACHE;
+                quit = 2;
+            // Appuie sur le bouton et relache ailleurs
+            }else if (e.type == SDL_MOUSEBUTTONUP && boutonGmBack->etat == BOUTON_APPUYE  || boutonGmBack->etat == BOUTON_OVER && !(e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h)) {
+                boutonGmBack->etat = BOUTON_RELACHE;
+            // Passe sur le bouton
+            }else if (e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h && boutonGmBack->etat == BOUTON_RELACHE) {
+                boutonGmBack->etat = BOUTON_OVER;
+            }
         }
 
         // Effacement de l'écran
@@ -277,7 +298,12 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
         SDL_RenderCopy(renderer, boutonRYU7->texture, boutonRYU7->frames[boutonRYU7->etat], boutonRYU7->position->rect);
         // Dessiner le bouton de 
         SDL_RenderCopy(renderer, boutonRYU8->texture, boutonRYU8->frames[boutonRYU8->etat], boutonRYU8->position->rect);
-        // Animation
+
+        // Dessiner le bouton retour
+        if(boutonGmBack->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->relache, boutonGmBack->position->rect);
+        else if (boutonGmBack->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->appuye, boutonGmBack->position->rect);
+        else if (boutonGmBack->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->over, boutonGmBack->position->rect);
+
         // Animation
         waitForFrame++;
         if(waitForFrame > 10) {

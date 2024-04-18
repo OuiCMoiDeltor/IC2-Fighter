@@ -10,7 +10,7 @@
 #define IMG_GAMEMODE_BG "img/menu-multi.bmp"
 #define IMG_GAMEMODE_LOCAL "img/local.bmp"
 #define IMG_GAMEMODE_LIGNE "img/ligne.bmp"
-#define IMG_GAMEMODE_RETOUR "img/retourGm.bmp"
+#define IMG_GAMEMODE_RETOUR "img/options/optionsBack.bmp"
 
 
 extern int gamemode_selection(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int son, Mix_Music * backgroundSoundSelect);
