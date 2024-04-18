@@ -238,7 +238,6 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 
     Mix_PlayChannel(-1, soundDMG, 0);
 
-    SDL_Delay(100);
 }
 
 
@@ -248,26 +247,6 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * soundHIT, Mix_Chunk * soundDMG, int * liste_touches) {
     /*Test avant que Quentin commence à crier, fonctionne mais comme ttf charge en boucle lors d'appel -> jeu tres ralenti*/
-
-    // Gestion dégats J1
-    if (keyboardState[SDL_SCANCODE_P]) {
-        perso1->etatAnimation = 0;
-        perso1->canHit = 0;
-        if(perso1->blocking) {
-            perso1->etatAnimation = 1;
-            perso1->animation = PARADE;
-            mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
-        }else if(perso1->animation == SAUT) {
-            perso1->animation = DEGATSAUT;
-            mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
-        }else if(perso1->crouching) {
-            perso1->animation = DEGATACCROUPI;
-            mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
-        }else {
-            perso1->animation = DEGAT;
-            mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
-        }
-    }
 
     //Barre de vie à états, changement de sa couleur en fonction des points de vie restants
     if (perso1->hp->pv > 80) {
@@ -285,26 +264,6 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     //Condition à compléter lorsque écran rematch fait
     if (perso1->hp->pv <= 0) {
     fprintf(stderr, "Plus de vie. \n");
-    }
-
-    // Gestion dégats J2
-    if (keyboardState[SDL_SCANCODE_O]) {
-        perso2->etatAnimation = 0;
-        perso2->canHit = 0;
-        if(perso2->blocking) {
-            perso2->etatAnimation = 1;
-            perso2->animation = PARADE;
-            mettreAJourHp(renderer, perso2, DMG / 2, 2, soundDMG) ;
-        }else if(perso2->animation == SAUT) {
-            perso2->animation = DEGATSAUT;
-            mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
-        }else if(perso2->crouching) {
-            perso2->animation = DEGATACCROUPI;
-            mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
-        }else {
-            perso2->animation = DEGAT;
-            mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
-        }
     }
 
     //Barre de vie à états, changement de sa couleur en fonction des points de vie restants
@@ -436,6 +395,26 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 }
         }
 
+        // Gestion dégats J1
+        if (keyboardState[SDL_SCANCODE_P]) {
+            perso1->etatAnimation = 0;
+            perso1->canHit = 0;
+            if(perso1->blocking) {
+                perso1->etatAnimation = 1;
+                perso1->animation = PARADE;
+                mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
+            }else if(perso1->animation == SAUT) {
+                perso1->animation = DEGATSAUT;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
+            }else if(perso1->crouching) {
+                perso1->animation = DEGATACCROUPI;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
+            }else {
+                perso1->animation = DEGAT;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
+            }
+        }
+
         // Joueur 2
         if(!perso2->reverseIdle) {
                 perso2->etatIdle = ++perso2->etatIdle;
@@ -543,6 +522,26 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                 }
+        }
+
+        // Gestion dégats J2
+        if (keyboardState[SDL_SCANCODE_O]) {
+            perso2->etatAnimation = 0;
+            perso2->canHit = 0;
+            if(perso2->blocking) {
+                perso2->etatAnimation = 1;
+                perso2->animation = PARADE;
+                mettreAJourHp(renderer, perso2, DMG / 2, 2, soundDMG) ;
+            }else if(perso2->animation == SAUT) {
+                perso2->animation = DEGATSAUT;
+                mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
+            }else if(perso2->crouching) {
+                perso2->animation = DEGATACCROUPI;
+                mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
+            }else {
+                perso2->animation = DEGAT;
+                mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
+            }
         }
 
         *framerate = 0;
@@ -760,5 +759,6 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         }
     }
 }
+
 
 
