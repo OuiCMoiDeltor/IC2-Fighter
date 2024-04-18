@@ -9,15 +9,6 @@
 #define BOUTON_OVER 2
 #define NB_ETAT 3
  
-typedef struct listeB_s {
-    bouton **pBouton;
-    struct listeBouton *suivant;
-}listeBouton;
-
-extern listeBouton *creerListeBouton();
-extern void ajoutListeBouton(listeBouton **liste, bouton **Bouton);
-extern void detruireListeBouton(listeBouton **liste);
-
 /**
  * \struct bouton
  * \brief Objet pour créer le bouton
@@ -39,5 +30,15 @@ typedef struct bouton_s
 
 extern bouton *creerBouton(SDL_Renderer*,listeRect **,int *,int *,float,float,float,float,char*,int,int);
 extern void DestroyBouton(bouton**);
+
+typedef struct listeB_s {
+    bouton **pBouton;
+    struct listeB_s *suivant;
+}listeBouton;
+
+extern listeBouton *creerListeBouton();
+extern void ajoutListeBouton(listeBouton **liste, bouton **Bouton);
+extern void detruireListeBouton(listeBouton **liste);
+
 
 #endif

@@ -15,9 +15,9 @@ SRC=src/
 PROG=IC2Fighter
 LIB=lib/
 
-FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}perso.c ${SRC}combat.c ${SRC}touches.c ${SRC}main.c
+FICHIERC=${SRC}bouton.c ${SRC}creation.c ${SRC}perso.c ${SRC}combat.c ${SRC}touches.c ${SRC}controle.c ${SRC}options.c ${SRC}menu_principal.c ${SRC}gamemode_selection.c ${SRC}champ_select.c ${SRC}main.c
 
-FICHIERH=${LIB}bouton.h ${LIB}creation.h ${LIB}perso.h ${LIB}combat.h ${LIB}touches.h
+FICHIERH=${LIB}bouton.h ${LIB}creation.h ${LIB}perso.h ${LIB}combat.h ${LIB}touches.h ${LIB}controle.h ${LIB}options.h ${LIB}menu_principal.h ${LIB}gamemode_selection.h ${LIB}champ_select.h
 
 all: main
 

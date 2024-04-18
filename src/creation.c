@@ -41,26 +41,28 @@ void ajoutListeT(listeT_t **liste, SDL_Texture **Texture) {
 
 extern
 void detruireListeT(listeT_t **liste) {
-  listeT_t *dernier = (*liste);
-  (*liste) = (*liste)->suivant;
-  listeT_t *temp = (*liste)->suivant;
-  while((*liste) != dernier) {
+  if(*liste!=NULL) {
+    listeT_t *dernier = (*liste);
+    (*liste) = (*liste)->suivant;
+    listeT_t *temp = (*liste)->suivant;
+    while((*liste) != dernier) {
+      SDL_DestroyTexture((*(*liste)->pTexture));
+      (*(*liste)->pTexture) = NULL;
+      (*liste)->pTexture = NULL;
+      (*liste)->suivant = NULL;
+      free((*liste));
+      (*liste) = temp;
+      temp = (*liste)->suivant;
+    }
+    temp = NULL;
+    dernier = NULL;
+    (*liste)->suivant = NULL;
     SDL_DestroyTexture((*(*liste)->pTexture));
     (*(*liste)->pTexture) = NULL;
     (*liste)->pTexture = NULL;
-    (*liste)->suivant = NULL;
     free((*liste));
-    (*liste) = temp;
-    temp = (*liste)->suivant;
+    (*liste) = NULL;
   }
-  temp = NULL;
-  dernier = NULL;
-  (*liste)->suivant = NULL;
-  SDL_DestroyTexture((*(*liste)->pTexture));
-  (*(*liste)->pTexture) = NULL;
-  (*liste)->pTexture = NULL;
-  free((*liste));
-  (*liste) = NULL;
 }
 
 
@@ -163,26 +165,28 @@ void ajoutListeRect(listeRect **liste, rectangle **Rect)
 extern
 void detruireListeRect(listeRect **liste)
 {
-  listeRect *dernier = (*liste);
-  (*liste) = (*liste)->suivant;
-  listeRect *temp = (*liste)->suivant;
-  while((*liste) != dernier) {
+  if(*liste!=NULL) {
+    listeRect *dernier = (*liste);
+    (*liste) = (*liste)->suivant;
+    listeRect *temp = (*liste)->suivant;
+    while((*liste) != dernier) {
+      free((*(*liste)->pRect)->rect);
+      free((*(*liste)->pRect));
+      (*(*liste)->pRect) = NULL;
+      (*liste)->pRect = NULL;
+      free((*liste));
+      (*liste) = temp;
+      temp = (*liste)->suivant;
+    }
+    dernier = NULL;
+    temp = NULL;
     free((*(*liste)->pRect)->rect);
     free((*(*liste)->pRect));
     (*(*liste)->pRect) = NULL;
     (*liste)->pRect = NULL;
     free((*liste));
-    (*liste) = temp;
-    temp = (*liste)->suivant;
+    (*liste) = NULL;
   }
-  dernier = NULL;
-  temp = NULL;
-  free((*(*liste)->pRect)->rect);
-  free((*(*liste)->pRect));
-  (*(*liste)->pRect) = NULL;
-  (*liste)->pRect = NULL;
-  free((*liste));
-  (*liste) = NULL;
 }
 
 extern

@@ -1,3 +1,15 @@
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+
+// Fonctions
+#include "bouton.h"
+#include "touches.h"
+
+// Texte
+#define TTF_FONT "ttf/Act_Of_Rejection.ttf"
+
 #define IMG_CONTROLE_BG "img/FondControles.bmp"
 #define IMG_BACK "img/options/optionsBack.bmp"
 
@@ -14,3 +26,5 @@
 #define IMG_POING "img/Poingpx.bmp"
 #define IMG_KICK "img/Kickpx.bmp" 
 #define IMG_GARDE "img/Paradepx.bmp"
+
+extern int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int * liste_touches);

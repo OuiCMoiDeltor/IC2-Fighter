@@ -8,6 +8,11 @@
 #include "../lib/perso.h"
 #include "../lib/combat.h"
 #include "../lib/touches.h"
+#include "../lib/champ_select.h"
+#include "../lib/controle.h"
+#include "../lib/gamemode_selection.h"
+#include "../lib/menu_principal.h"
+#include "../lib/options.h"
 
 // Fenêtre
 #define NOM_JEU "IC2 Fighter"
@@ -16,13 +21,10 @@
 // Texte
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
-#include "../lib/menu_principal/define_menu_principal.h"
-#include "../lib/options/define_options.h"
-#include "../lib/gamemode_selection/define_gamemode_selection.h"
-#include "../lib/champ_select/define_champ_select.h"
-#include "../lib/controle/define_controle.h"
+// Music
+#define SOUND_BACKGROUND "mixer/Leateq - Tokyo.mp3"
 
-typedef enum {MENU_PRINCIPAL, OPTIONS, CONTROLE, GAMEMODE, CHAMP_SELECT, GAME}scenes;
+typedef enum {CONTROLE, OPTIONS, MENU_PRINCIPAL, GAMEMODE, CHAMP_SELECT}scenes;
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre
@@ -74,16 +76,6 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Chargement de la police en taille 16
-    TTF_Font *font = TTF_OpenFont(TTF_FONT, 64);
-    if(!font) {
-        printf("Erreur lors du chargement de la police TTF_OpenFont: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    // Couleurs
-    SDL_Color noire = {0,0,0};
-
     // Initialisation de la musique de fond
      if (SDL_Init(SDL_INIT_AUDIO) < 0) {
         printf("Erreur lors de l'initialisation de la musique de fond : %s\n", SDL_GetError());
@@ -119,101 +111,52 @@ int main(int argc, char* argv[]) {
     }
     SDL_SetWindowIcon(window, icone);
     SDL_FreeSurface(icone);
-    
-    listeT_t *listeTexture = creerListeT(); // Stock les pointeurs sur texture
-    listeRect *listeRectangle = creerListeRect(); // Stock les pointeurs sur Rectangle
-
-    #include "../lib/menu_principal/init_menu_principal.h" // Initialisation du menu principal
-    #include "../lib/options/init_options.h" // Initialisation du menu options
-    #include "../lib/gamemode_selection/init_gamemode_selection.h" // Initialisation du menu de selection du mode de jeu
-    #include "../lib/champ_select/init_champ_select.h" // Initialisation du menu de selection des personnages
-    #include "../lib/controle/init_controle.h" // Initialisation du menu de controle des touches
-
 
     // Boucle principale
     int quit = 0;
     SDL_Event e;
     scenes scene = MENU_PRINCIPAL; // Première scene à afficher
+    Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND); // Chargement musique de fond
     Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
-    int waitForFrame = 0;
+    int liste_touches[14] = {SDL_SCANCODE_W, SDL_SCANCODE_UP, SDL_SCANCODE_S, SDL_SCANCODE_DOWN, SDL_SCANCODE_A, SDL_SCANCODE_LEFT, SDL_SCANCODE_D, SDL_SCANCODE_RIGHT, SDL_SCANCODE_C, SDL_SCANCODE_KP_5, SDL_SCANCODE_V, SDL_SCANCODE_KP_6, SDL_SCANCODE_F, SDL_SCANCODE_KP_4};
     Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(NULL);
 
     while (!quit) {
-        while (SDL_PollEvent(&e) != 0) {
-            if (e.type == SDL_QUIT) {
-                quit = 1;
-            }
-            else if (e.type == SDL_KEYDOWN) // Vérifier si un événement clavier est survenu
-            {
-                if (e.key.keysym.sym == SDLK_ESCAPE) // Vérifier si la touche pressée est Échap
-                {
-                    quit = 1 ; // Mettre fin à la boucle de jeu et fermer l'application
-                }
-            }
-            #include "../lib/menu_principal/event_menu_principal.h" // Evenements du menu principal
-            #include "../lib/options/event_options.h" // Evenements du menu options
-            #include "../lib/gamemode_selection/event_gamemode_selection.h" // Evenements du menu de selection du mode de jeu
-            #include "../lib/champ_select/event_champ_select.h" // Evenements du menu de selection des personnages
-            #include "../lib/controle/event_controle.h" // Evenements du menu de controle des touches
+        switch (scene)
+        {
+        case CONTROLE:
+            quit = controle(e, renderer, largeurF, hauteurF, (int*)&scene, liste_touches);
+            break;
 
+        case OPTIONS:
+            quit = options(e, renderer, window, largeurF, hauteurF, (int*)&scene, &son, &fullscreen, backgroundSound);
+            break;
+
+        case MENU_PRINCIPAL:
+            quit = menu_principal(e, renderer, largeurF, hauteurF, (int*)&scene);
+            break;
+
+        case GAMEMODE:
+            quit = gamemode_selection(e, renderer, largeurF, hauteurF, (int*)&scene, son, backgroundSound);
+            break;
+
+        case CHAMP_SELECT:
+            quit = champ_select(e, renderer, largeurF, hauteurF, (int*)&scene, son, liste_touches, keyboardState);
+            break;
+        
+        default:
+            break;
         }
-
-        // Effacement de l'écran
-        SDL_RenderClear(renderer);
-
-        #include "../lib/menu_principal/affichage_menu_principal.h" // Affichage du menu principal
-        #include "../lib/options/affichage_options.h" // Affichage du menu options
-        #include "../lib/gamemode_selection/affichage_gamemode_selection.h" // Affichage du menu de selection du mode de jeu
-        #include "../lib/champ_select/affichage_champ_select.h" // Affichage du menu de selection des personnages
-        #include "../lib/controle/affichage_controle.h" // affichage du menu de controle des touches
-
-
-
-        // Mise à jour de l'affichage
-        SDL_RenderPresent(renderer);
-
-        SDL_Delay(1000/60);
+        SDL_Log("%d", scene);
     }
 
     // Libération des ressources
-    detruireListeRect(&listeRectangle);
-    DestroyBouton(&boutonRYU);
-    DestroyBouton(&boutonGmBack);
-    DestroyBouton(&boutonLigne);
-    DestroyBouton(&boutonLocal);
-    DestroyBouton(&boutonOptionsSoundOn);
-    DestroyBouton(&boutonOptionsSoundOff);
-    DestroyBouton(&boutonJouer);
-    DestroyBouton(&boutonQuitter);
-    DestroyBouton(&boutonOptions);
-    DestroyBouton(&boutonOptionsSwapResLeft);
-    DestroyBouton(&boutonOptionsSwapResRight);
-    DestroyBouton(&boutonOptionsSwapAccept);
-    DestroyBouton(&boutonOptionsFullscreenOn);
-    DestroyBouton(&boutonOptionsFullscreenOff);
-    DestroyBouton(&boutonOptionsBack);
-    DestroyBouton(&boutonSautJ1);
-    DestroyBouton(&boutonSautJ2);
-    DestroyBouton(&boutonAccroupirJ1);
-    DestroyBouton(&boutonAccroupirJ2);
-    DestroyBouton(&boutonGaucheJ1);
-    DestroyBouton(&boutonGaucheJ2);
-    DestroyBouton(&boutonDroiteJ1);
-    DestroyBouton(&boutonDroiteJ2);
-    DestroyBouton(&boutonPoingJ1);
-    DestroyBouton(&boutonPoingJ2);
-    DestroyBouton(&boutonKickJ1);
-    DestroyBouton(&boutonKickJ2);
-    DestroyBouton(&boutonGardeJ1);
-    DestroyBouton(&boutonGardeJ2);
-    detruireListeT(&listeTexture);
     Mix_HaltMusic();
     Mix_FreeMusic(backgroundSound);
-    Mix_CloseAudio();
     SDL_DestroyRenderer(renderer); renderer = NULL;
     SDL_DestroyWindow(window); window = NULL;
-    TTF_CloseFont(font); font = NULL;
+    Mix_CloseAudio();
     TTF_Quit();
     Mix_Quit();
     SDL_Quit();

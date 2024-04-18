@@ -8,6 +8,11 @@
         "affichage_menu_principal.h": "c",
         "combat.h": "c",
         "sdl_mixer.h": "c",
-        "sdl_image.h": "c"
+        "sdl_image.h": "c",
+        "init_menu_principal.h": "c",
+        "menu_principal.h": "c",
+        "bouton.h": "c",
+        "gamemode_selection.h": "c",
+        "champ_select.h": "c"
     }
 }

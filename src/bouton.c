@@ -148,18 +148,20 @@ void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
 extern
 void detruireListeBouton(listeBouton **liste)
 {
-    listeBouton *dernier = (*liste);
-    (*liste) = (*liste)->suivant;
-    listeBouton *temp = (*liste)->suivant;
-    while((*liste) != dernier) {
+    if(*liste!=NULL) {
+        listeBouton *dernier = (*liste);
+        (*liste) = (*liste)->suivant;
+        listeBouton *temp = (*liste)->suivant;
+        while((*liste) != dernier) {
+            DestroyBouton((*liste)->pBouton);
+            free((*liste));
+            (*liste) = temp;
+            temp = (*liste)->suivant;
+        }
+        dernier = NULL;
+        temp = NULL;
         DestroyBouton((*liste)->pBouton);
         free((*liste));
-        (*liste) = temp;
-        temp = (*liste)->suivant;
+        (*liste) = NULL;
     }
-    dernier = NULL;
-    temp = NULL;
-    DestroyBouton((*liste)->pBouton);
-    free((*liste));
-    (*liste) = NULL;
 }
