@@ -130,7 +130,7 @@ int main(int argc, char* argv[]) {
             break;
 
         case OPTIONS:
-            quit = options(e, renderer, window, largeurF, hauteurF, (int*)&scene, &son, &fullscreen, backgroundSound);
+            quit = options(e, renderer, window, &largeurF, &hauteurF, (int*)&scene, &son, &fullscreen, backgroundSound);
             break;
 
         case MENU_PRINCIPAL:

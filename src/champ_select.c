@@ -67,6 +67,11 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
     // Chargement musique de fond
         Mix_Music *backgroundSoundSelect = Mix_LoadMUS(SOUND_BACKGROUND_SELECT);
 
+    if(son) {
+        Mix_HaltMusic();
+        Mix_PlayMusic(backgroundSoundSelect, -1);
+    }
+
     int waitForFrame = 0;
     int quit = 0;
     while (!quit) {

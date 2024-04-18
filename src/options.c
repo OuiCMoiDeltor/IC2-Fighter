@@ -1,7 +1,7 @@
 #include "../lib/options.h"
 
 extern
-int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int largeurF, int hauteurF, int * scene, int * son, int * fullscreen, Mix_Music * backgroundSound) {
+int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int * largeurF, int * hauteurF, int * scene, int * son, int * fullscreen, Mix_Music * backgroundSound) {
     
     listeT_t *listeTexture = creerListeT(); // Stock les pointeurs sur texture
     listeRect *listeRectangle = creerListeRect(); // Stock les pointeurs sur Rectangle
@@ -16,14 +16,14 @@ int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int large
     SDL_Texture *optionsTitleTexture = creerImage(renderer, IMG_OPTIONS_TITLE);
     if(optionsTitleTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &optionsTitleTexture);
-    rectangle *optionsTitleRect = creerRectangle(&largeurF, &hauteurF, 4.0, 4*8.0, 2.0, 4.0);
+    rectangle *optionsTitleRect = creerRectangle(largeurF, hauteurF, 4.0, 4*8.0, 2.0, 4.0);
     ajoutListeRect(&listeRectangle, &optionsTitleRect);
 
     // Création image résolution des Options
     SDL_Texture *optionsResolutionTexture = creerImage(renderer, IMG_OPTIONS_RESOLUTION);
     if(optionsResolutionTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &optionsResolutionTexture);
-    rectangle *optionsResolutionRect = creerRectangle(&largeurF, &hauteurF, 10.0, 3*4/3.0, 10/8.0, 5.0);
+    rectangle *optionsResolutionRect = creerRectangle(largeurF, hauteurF, 10.0, 3*4/3.0, 10/8.0, 5.0);
     ajoutListeRect(&listeRectangle, &optionsResolutionRect);
 
     // Chargement de la police en taille 64
@@ -59,57 +59,57 @@ int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int large
     if(optionsRes426x240 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &optionsRes426x240);
 
-    rectangle *optionsResTextRect = creerRectangle(&largeurF, &hauteurF, 10/4.0, 3*3/4.0, 10/2.0, 11.0);
+    rectangle *optionsResTextRect = creerRectangle(largeurF, hauteurF, 10/4.0, 3*3/4.0, 10/2.0, 11.0);
     ajoutListeRect(&listeRectangle, &optionsResTextRect);
 
     // Création image plein écran des Options
     SDL_Texture *optionsFullscreenTexture = creerImage(renderer, IMG_OPTIONS_FULLSCREEN);
     if(optionsFullscreenTexture == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &optionsFullscreenTexture);
-    rectangle *optionsFullscreenRect = creerRectangle(&largeurF, &hauteurF, 10.0, 3*3/6.0, 10/8.0, 5.0);
+    rectangle *optionsFullscreenRect = creerRectangle(largeurF, hauteurF, 10.0, 3*3/6.0, 10/8.0, 5.0);
     ajoutListeRect(&listeRectangle, &optionsFullscreenRect);
 
     // Boutons
     // changement de résolution
     // gauche
-    bouton *boutonOptionsSwapResLeft = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 20/7.0, 30/14.0, 30.0, 21.0, IMG_OPTIONS_RESOLUTION_LEFT, 0, 0);
+    bouton *boutonOptionsSwapResLeft = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 20/7.0, 30/14.0, 30.0, 21.0, IMG_OPTIONS_RESOLUTION_LEFT, 0, 0);
     if(boutonOptionsSwapResLeft == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsSwapResLeft);
     // droit
-    bouton *boutonOptionsSwapResRight = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 40/25.0, 30/14.0, 30.0, 21.0, IMG_OPTIONS_RESOLUTION_RIGHT, 0, 0);
+    bouton *boutonOptionsSwapResRight = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 40/25.0, 30/14.0, 30.0, 21.0, IMG_OPTIONS_RESOLUTION_RIGHT, 0, 0);
     if(boutonOptionsSwapResRight == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsSwapResRight);
     // appliquer
-    bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/5.0, 11/3.0, 11.0, IMG_OPTIONS_RESOLUTION_APPLIKER, 0, 0);
+    bouton *boutonOptionsSwapAccept = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 11/4.0, 3*3/5.0, 11/3.0, 11.0, IMG_OPTIONS_RESOLUTION_APPLIKER, 0, 0);
     if(boutonOptionsSwapAccept == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsSwapAccept);
 
     // plein écran
     // "activer"
-    bouton *boutonOptionsFullscreenOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_ON, 0, 0);
+    bouton *boutonOptionsFullscreenOn = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_ON, 0, 0);
     if(boutonOptionsFullscreenOn == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsFullscreenOn);
     // "désactiver"
-    bouton *boutonOptionsFullscreenOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_OFF, 0, 0);
+    bouton *boutonOptionsFullscreenOff = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 11/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_FULLSCREEN_TURN_OFF, 0, 0);
     if(boutonOptionsFullscreenOff == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsFullscreenOff);
 
     // retour
-    bouton *boutonOptionsBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_OPTIONS_BACK, 0, 0);
+    bouton *boutonOptionsBack = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_OPTIONS_BACK, 0, 0);
     if(boutonOptionsBack == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsBack);
 
     // son
     // on
-    bouton *boutonOptionsSoundOn = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_ON, 0, 0);
+    bouton *boutonOptionsSoundOn = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_ON, 0, 0);
     if(boutonOptionsSoundOn == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsSoundOn);
     // off
-    bouton *boutonOptionsSoundOff = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_OFF, 0, 0);
+    bouton *boutonOptionsSoundOff = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 11/10.0, 100.0, 11/1.0, 11.0, IMG_OPTIONS_SOUND_OFF, 0, 0);
     if(boutonOptionsSoundOff == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsSoundOff);
     // controle
-    bouton *boutonOptionsControle = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 6/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_CONTROLE, 0, 0);
+    bouton *boutonOptionsControle = creerBouton(renderer, &listeRectangle, largeurF, hauteurF, 6/4.0, 3*3/8.0, 11/3.0, 11.0, IMG_OPTIONS_CONTROLE, 0, 0);
     if(boutonOptionsControle == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonOptionsControle);
 
@@ -207,28 +207,28 @@ int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int large
                 {
                     case(0):
                         SDL_SetWindowSize(window, 1920, 1080);
-                        largeurF = 1920;
-                        hauteurF = 1080;
+                        *largeurF = 1920;
+                        *hauteurF = 1080;
                         break;
                     case(1):
                         SDL_SetWindowSize(window, 1280, 720);
-                        largeurF = 1280;
-                        hauteurF = 720;
+                        *largeurF = 1280;
+                        *hauteurF = 720;
                         break;
                     case(2):
                         SDL_SetWindowSize(window, 854, 480);
-                        largeurF = 854;
-                        hauteurF = 480;
+                        *largeurF = 854;
+                        *hauteurF = 480;
                         break;
                     case(3):
                         SDL_SetWindowSize(window, 640, 360);
-                        largeurF = 640;
-                        hauteurF = 360;
+                        *largeurF = 640;
+                        *hauteurF = 360;
                         break;
                     case(4):
                         SDL_SetWindowSize(window, 426, 240);
-                        largeurF = 426;
-                        hauteurF = 240;
+                        *largeurF = 426;
+                        *hauteurF = 240;
                         break;
                 }
                 updateRectangles(listeRectangle);

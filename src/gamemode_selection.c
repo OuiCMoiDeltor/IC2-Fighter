@@ -48,11 +48,6 @@ int gamemode_selection(SDL_Event e, SDL_Renderer * renderer, int largeurF, int h
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocal->position->rect->x && e.motion.x < boutonLocal->position->rect->x + boutonLocal->position->rect->w && e.motion.y > boutonLocal->position->rect->y && e.motion.y < boutonLocal->position->rect->y + boutonLocal->position->rect->h) {
                 (*scene)++;
-                if(son) {
-                    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
-                    Mix_HaltMusic();
-                    Mix_PlayMusic(backgroundSoundSelect, -1);
-                }
                 boutonLocal->etat = BOUTON_RELACHE;
                 quit = 2;
             // Appuie sur le bouton et relache ailleurs
