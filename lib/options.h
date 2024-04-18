@@ -22,6 +22,6 @@
 #define IMG_OPTIONS_FULLSCREEN_TURN_ON "img/options/optionsFullscreenTurnOn.bmp"
 #define IMG_OPTIONS_FULLSCREEN_TURN_OFF "img/options/optionsFullscreenTurnOff.bmp"
 #define IMG_OPTIONS_BACK "img/options/optionsBack.bmp"
-#define IMG_OPTIONS_CONTROLE "img/options/optionsBack.bmp"
+#define IMG_OPTIONS_CONTROLE "img/options/clavier.bmp"
 
 extern int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int * largeurF, int * hauteurF, int * scene, int * son, int * fullscreen, Mix_Music * backgroundSound);
