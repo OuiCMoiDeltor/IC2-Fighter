@@ -118,6 +118,15 @@ void DestroyBouton(bouton **b)
     free(*b); *b = NULL;
 }
 
+/**
+	* \fn listeBouton *creerListeBouton()
+	* \brief  fonction qui créér la liste de boutons
+	* 
+	* \return Retourne la liste de boutons
+
+*/
+
+
 extern
 listeBouton *creerListeBouton() {
     listeBouton *liste = malloc(sizeof(listeBouton));
@@ -125,6 +134,15 @@ listeBouton *creerListeBouton() {
     liste->suivant = NULL;
     return liste;
 }
+
+/**
+	* \fn void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
+	* \brief  fonction pour ajouter un bouton dans la liste
+	* \param **liste la liste dans laquelle on va mettre le bouton
+	* \param **Bouton le bouton qui va être mit dans la liste
+	* \return Ne retourne rien
+
+*/
 
 extern
 void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
@@ -144,6 +162,14 @@ void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
     (*liste)->pBouton = Bouton;
   }
 }
+
+/**
+	* \fn detruireListeBouton(listeBouton **liste)
+	* \brief  fonction pour detruirela liste de bouton
+	* \param **liste La liste que l'on veut détruire
+	* \return Ne retourne rien
+
+*/
 
 extern
 void detruireListeBouton(listeBouton **liste)

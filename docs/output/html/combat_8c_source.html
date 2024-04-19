@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /home/mnx/UNIVERSITE/TESTPROJET/IC2-Fighter/src/combat.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">combat.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../lib/combat.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../lib/perso.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// Images</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define IMG_GAME_BG &quot;img/amphi_combat.bmp&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SOUND_BACKGROUND_COMBAT &quot;mixer/son_combat.mp3&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define TTF_FONT &quot;ttf/Act_Of_Rejection.ttf&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define DUREE_ROUND 120</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define ROUND_GAGNANT 2</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">extern</span> </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> afficherRound(SDL_Renderer* renderer, <span class="keywordtype">int</span> largeurF, <span class="keywordtype">int</span> hauteurF, <span class="keywordtype">int</span> round, <a class="code" href="structpersonnage.html">personnage</a> * Joueur1, <a class="code" href="structpersonnage.html">personnage</a> * Joueur2, SDL_Texture * BG) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">char</span> roundText[20];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    sprintf(roundText, <span class="stringliteral">&quot;Round %d&quot;</span>, round);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    SDL_Color textColor = {0, 0, 0, 255};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    TTF_Font* font = TTF_OpenFont(TTF_FONT, 64);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> (font == NULL) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Erreur chargement de la police : %s\n&quot;</span>, TTF_GetError());</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    SDL_Texture* textTexture = <a class="code" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a>(renderer, font, roundText, textColor);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (textTexture == NULL) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Erreur création texture de texte : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> * textRect = creerRectangle(&amp;largeurF, &amp;hauteurF, 4.0, 100.0, 4/2.0, 8.0);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Affichage du &quot;Round x&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    SDL_RenderCopy(renderer, BG, NULL, NULL);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    SDL_RenderCopy(renderer, textTexture, NULL, textRect-&gt;rect);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    SDL_RenderCopy(renderer, Joueur1-&gt;texture, Joueur1-&gt;idle[0], Joueur1-&gt;pos-&gt;rect);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    SDL_RenderCopyEx(renderer, Joueur2-&gt;texture, Joueur2-&gt;idle[0], Joueur2-&gt;pos-&gt;rect, 180, NULL, SDL_FLIP_VERTICAL);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    SDL_RenderPresent(renderer);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    SDL_DestroyTexture(textTexture);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    free(textRect-&gt;rect);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    free(textRect);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    SDL_Delay(2000);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">char</span> countdownText[20];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Décompte &quot;Combat dans x&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 3; i &gt; 0; i--) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        sprintf(countdownText, <span class="stringliteral">&quot;Combat dans %d&quot;</span>, i);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        textTexture = <a class="code" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a>(renderer, font, countdownText, textColor);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (textTexture == NULL) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            fprintf(stderr, <span class="stringliteral">&quot;Erreur création texture de décompte : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="structrectangle.html">rectangle</a> * countdownRect = creerRectangle(&amp;largeurF, &amp;hauteurF, 4.0, 100.0, 4/2.0, 8.0);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        SDL_RenderClear(renderer);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        SDL_RenderCopy(renderer, BG, NULL, NULL);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        SDL_RenderCopy(renderer, textTexture, NULL, countdownRect-&gt;rect);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        SDL_RenderCopy(renderer, Joueur1-&gt;texture, Joueur1-&gt;idle[0], Joueur1-&gt;pos-&gt;rect);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        SDL_RenderCopyEx(renderer, Joueur2-&gt;texture, Joueur2-&gt;idle[0], Joueur2-&gt;pos-&gt;rect, 180, NULL, SDL_FLIP_VERTICAL);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        SDL_RenderPresent(renderer);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        SDL_DestroyTexture(textTexture);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        free(countdownRect-&gt;rect);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        free(countdownRect);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        SDL_Delay(1000);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    TTF_CloseFont(font);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> initPerso(SDL_Renderer * renderer, <a class="code" href="structpersonnage.html">personnage</a> * J1, <a class="code" href="structpersonnage.html">personnage</a> * J2) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Reset animation</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    J1-&gt;animation = AUCUNE;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    J1-&gt;etatAnimation = 0;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    J2-&gt;animation = AUCUNE;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    J2-&gt;etatAnimation = 0;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Position</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    J1-&gt;pos-&gt;rect-&gt;x = *J1-&gt;pos-&gt;largeur/10.0;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    J1-&gt;pos-&gt;rect-&gt;y = *J1-&gt;pos-&gt;hauteur/10.0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    J2-&gt;pos-&gt;rect-&gt;x = *J2-&gt;pos-&gt;largeur/10*5.0;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    J2-&gt;pos-&gt;rect-&gt;y = *J2-&gt;pos-&gt;hauteur/10.0;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// HP</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    J1-&gt;hp-&gt;pv = VIE_MAX;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    J1-&gt;hp-&gt;barrePv-&gt;x = 100/8;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    J1-&gt;hp-&gt;barrePv-&gt;y = 100/2;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    J1-&gt;hp-&gt;barrePv-&gt;w = 550;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    J1-&gt;hp-&gt;barrePv-&gt;h = 35;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    J2-&gt;hp-&gt;pv = VIE_MAX;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    J2-&gt;hp-&gt;barrePv-&gt;x = 720;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    J2-&gt;hp-&gt;barrePv-&gt;y = 100/2;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    J2-&gt;hp-&gt;barrePv-&gt;w = 550;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    J2-&gt;hp-&gt;barrePv-&gt;h = 35;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// Pseudo</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    TTF_Font * font = TTF_OpenFont(TTF_FONT, 32);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    SDL_Color textColor = {255, 255, 255, 255};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">if</span>(J1-&gt;pseudo-&gt;txt == NULL) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        J1-&gt;pseudo-&gt;txt = <a class="code" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a>(renderer, font, <span class="stringliteral">&quot;Joueur1&quot;</span>, textColor);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        J1-&gt;pseudo-&gt;rect-&gt;rect-&gt;x = *J1-&gt;pos-&gt;largeur/100.0;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        J1-&gt;pseudo-&gt;rect-&gt;rect-&gt;y = *J1-&gt;pos-&gt;hauteur/100.0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        J1-&gt;pseudo-&gt;rect-&gt;rect-&gt;w = (*J1-&gt;pos-&gt;largeur/100)*20.0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        J1-&gt;pseudo-&gt;rect-&gt;rect-&gt;h = *J1-&gt;pos-&gt;hauteur/15.0;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span>(J2-&gt;pseudo-&gt;txt == NULL) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        J2-&gt;pseudo-&gt;txt = <a class="code" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a>(renderer, font, <span class="stringliteral">&quot;Joueur2&quot;</span>, textColor);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        J2-&gt;pseudo-&gt;rect-&gt;rect-&gt;x = (*J2-&gt;pos-&gt;largeur/100)*85.0;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        J2-&gt;pseudo-&gt;rect-&gt;rect-&gt;y = *J2-&gt;pos-&gt;hauteur/100.0;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        J2-&gt;pseudo-&gt;rect-&gt;rect-&gt;w = (*J2-&gt;pos-&gt;largeur/100)*20.0;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        J2-&gt;pseudo-&gt;rect-&gt;rect-&gt;h = *J2-&gt;pos-&gt;hauteur/15.0;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    TTF_CloseFont(font);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, <a class="code" href="structpersonnage.html">personnage</a> * Joueur1, <a class="code" href="structpersonnage.html">personnage</a> * Joueur2, <span class="keywordtype">int</span> largeurF, <span class="keywordtype">int</span> hauteurF, <span class="keywordtype">int</span> waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, <span class="keywordtype">int</span> * liste_touches, <span class="keywordtype">int</span> round) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    Uint32 roundStart = SDL_GetTicks();  <span class="comment">// Temps de démarrage du round</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    Uint32 currentTime;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">int</span> timer = DUREE_ROUND;  <span class="comment">// Démarre le timer à partir de roundDuration</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    SDL_Texture *gameBGTexture = <a class="code" href="creation_8c.html#a78c0320c3dd3199a622db370ae460dbe">creerImage</a>(renderer, IMG_GAME_BG);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span>(gameBGTexture == NULL) exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    TTF_Font *font = TTF_OpenFont(TTF_FONT, 32); <span class="comment">// Pour afficher le timer</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">if</span> (font == NULL) {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Erreur chargement de la police pour le timer : %s\n&quot;</span>, TTF_GetError());</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    SDL_Color textColor = {0, 0, 0, 255};  <span class="comment">// Couleur du texte pour le timer</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    afficherRound(renderer, largeurF, hauteurF, round, Joueur1, Joueur2, gameBGTexture);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    SDL_Event e;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">int</span> quit = 0;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">while</span> (!quit &amp;&amp; Joueur1-&gt;hp-&gt;pv &gt; 0 &amp;&amp; Joueur2-&gt;hp-&gt;pv &gt; 0 &amp;&amp; timer &gt; 0) {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        currentTime = SDL_GetTicks();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        timer = DUREE_ROUND - (currentTime - roundStart) / 1000;  <span class="comment">// Décrémenter le timer</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">if</span> (timer &lt; 0) timer = 0;  <span class="comment">// Garantir que le timer ne passe pas en dessous de zéro</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">while</span> (SDL_PollEvent(&amp;e) != 0) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">if</span> (e.type == SDL_QUIT || (e.type == SDL_KEYDOWN &amp;&amp; e.key.keysym.sym == SDLK_ESCAPE)) {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                quit = 1;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        SDL_RenderClear(renderer);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        SDL_RenderCopy(renderer, gameBGTexture, NULL, NULL);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="comment">// Affichage du timer</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordtype">char</span> timerText[10];</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        sprintf(timerText, <span class="stringliteral">&quot;%d&quot;</span>, timer);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        SDL_Texture * textTexture = <a class="code" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a>(renderer, font, timerText, textColor);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <a class="code" href="structrectangle.html">rectangle</a> * textRect = creerRectangle(&amp;largeurF, &amp;hauteurF, 100/48.0, 100/5.0, 100/4.0, 12.0);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        SDL_RenderCopy(renderer, textTexture, NULL, textRect-&gt;rect);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        free(textRect-&gt;rect);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        free(textRect);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        SDL_DestroyTexture(textTexture);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="comment">// Affichage des autres éléments du jeu</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        SDL_RenderCopy(renderer, Joueur1-&gt;pseudo-&gt;txt, NULL, Joueur1-&gt;pseudo-&gt;rect-&gt;rect);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        SDL_RenderCopy(renderer, Joueur2-&gt;pseudo-&gt;txt, NULL, Joueur2-&gt;pseudo-&gt;rect-&gt;rect);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        waitForFrame++;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        mettreAJourPersonnage(renderer, Joueur1, Joueur2, keyboardState, largeurF, hauteurF, &amp;waitForFrame, hit, dmg, liste_touches);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        SDL_RenderPresent(renderer);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        SDL_Delay(1000/60);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    SDL_DestroyTexture(gameBGTexture);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    TTF_CloseFont(font);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span>(quit) exit(EXIT_FAILURE) ;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">return</span> Joueur1-&gt;hp-&gt;pv &gt; 0 ? 1 : 0;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">extern</span> </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keywordtype">void</span> combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, <a class="code" href="structpersonnage.html">personnage</a> * Joueur1, <a class="code" href="structpersonnage.html">personnage</a> * Joueur2, <span class="keywordtype">int</span> largeurF, <span class="keywordtype">int</span> hauteurF, <span class="keywordtype">int</span> son, <span class="keywordtype">int</span> * liste_touches) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">// Chargement de la musique de fond et des effets sonores</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    Mix_Music *backgroundCombatSound = Mix_LoadMUS(SOUND_BACKGROUND_COMBAT);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    Mix_Chunk *soundHIT = Mix_LoadWAV(<span class="stringliteral">&quot;mixer/hit.wav&quot;</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    Mix_VolumeChunk(soundHIT, MIX_MAX_VOLUME / 8);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    Mix_Chunk *soundDMG = Mix_LoadWAV(<span class="stringliteral">&quot;mixer/ouh.wav&quot;</span>);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    Mix_VolumeChunk(soundDMG, MIX_MAX_VOLUME / 3);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">// Configuration initiale du volume</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">if</span>(son) {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        Mix_HaltMusic();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        Mix_PlayMusic(backgroundCombatSound, -1);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordtype">int</span> v1 = 0, v2 = 0;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">// Déroulement des rounds</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">while</span>(v1 != ROUND_GAGNANT &amp;&amp; v2 != ROUND_GAGNANT) {</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        initPerso(renderer, Joueur1, Joueur2);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">if</span>(roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches, v1+v2+1)) v1++;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">else</span> v2++;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// Après les trois rounds, afficher un fond spécifique</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    SDL_Texture *finalBGTexture = IMG_LoadTexture(renderer, <span class="stringliteral">&quot;img/apagnan.bmp&quot;</span>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span> (finalBGTexture == NULL) {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Erreur chargement de l&#39;image de fond finale : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        SDL_RenderClear(renderer);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        SDL_RenderCopy(renderer, finalBGTexture, NULL, NULL);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        SDL_RenderPresent(renderer);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        SDL_Delay(5000);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        SDL_DestroyTexture(finalBGTexture);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    SDL_DestroyTexture(Joueur1-&gt;pseudo-&gt;txt);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    SDL_DestroyTexture(Joueur2-&gt;pseudo-&gt;txt);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">// Nettoyage des ressources audio</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    Mix_FreeMusic(backgroundCombatSound);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    Mix_FreeChunk(soundHIT);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    Mix_FreeChunk(soundDMG);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
+<div class="ttc" id="acreation_8c_html_a78c0320c3dd3199a622db370ae460dbe"><div class="ttname"><a href="creation_8c.html#a78c0320c3dd3199a622db370ae460dbe">creerImage</a></div><div class="ttdeci">SDL_Texture * creerImage(SDL_Renderer *renderer, char *image)</div><div class="ttdoc">Fonction pour initialisé les images.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00077">creation.c:77</a></div></div>
+<div class="ttc" id="acreation_8c_html_a9fd1d64059dd0fae3b07b675676740a7"><div class="ttname"><a href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a></div><div class="ttdeci">SDL_Texture * creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)</div><div class="ttdoc">Fonction créer le texte.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00113">creation.c:113</a></div></div>
+<div class="ttc" id="astructpersonnage_html"><div class="ttname"><a href="structpersonnage.html">personnage</a></div><div class="ttdoc">structure concernant le personnage, celle ci permet de mettre toute les animations textures</div><div class="ttdef"><b>Definition:</b> <a href="perso_8h_source.html#l00055">perso.h:55</a></div></div>
+<div class="ttc" id="astructrectangle_html"><div class="ttname"><a href="structrectangle.html">rectangle</a></div><div class="ttdoc">Objet création fenetre.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

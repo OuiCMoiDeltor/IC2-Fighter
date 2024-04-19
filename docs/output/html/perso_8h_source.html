@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IC2-Fighter:  Fichier source de /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/lib/perso.h</title>
+<title>IC2-Fighter:  Fichier source de /home/mnx/UNIVERSITE/TESTPROJET/IC2-Fighter/lib/perso.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -19,9 +19,10 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr id="projectrow">
-  <td id="projectalign">
-   <div id="projectname">IC2-Fighter<span id="projectnumber">&#160;1.1</span>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -29,22 +30,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.8 -->
+<!-- Généré par Doxygen 1.9.1 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -55,16 +55,9 @@ $(function() {
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">Chargement...</div>
-<div class="SRStatus" id="Searching">Recherche...</div>
-<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
-</div>
-</div>
-</div>
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
 </div>
 
 <div id="nav-path" class="navpath">
@@ -73,33 +66,85 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">perso.h</div></div>
+  <div class="headertitle">
+<div class="title">perso.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;creation.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="structpersonnage.html">    4</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <a class="code hl_struct" href="structrectangle.html">rectangle</a> *pos;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    SDL_Texture *texture;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordtype">int</span> etatIdle;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    SDL_Rect **idle;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">int</span> etatWalk;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    SDL_Rect **walk;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// Ult</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">float</span> speed ;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>} <a class="code hl_struct" href="structpersonnage.html">personnage</a>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> <a class="code hl_struct" href="structpersonnage.html">personnage</a> *<a class="code hl_function" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a>(SDL_Renderer *renderer, <span class="keywordtype">char</span> *image, <span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur, <span class="keywordtype">float</span> rX, <span class="keywordtype">float</span> rY, <span class="keywordtype">float</span> rW, <span class="keywordtype">float</span> rH, <a class="code hl_struct" href="structlisteRect.html">listeRect</a> **listeRectangle);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <span class="keywordtype">void</span> mettreAJourPersonnage(SDL_Renderer *renderer, <a class="code hl_struct" href="structpersonnage.html">personnage</a> *perso1, <a class="code hl_struct" href="structpersonnage.html">personnage</a> *perso2, <span class="keyword">const</span> Uint8 *keyboardState, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur);</div>
-<div class="ttc" id="aperso_8c_html_aef3778ceae0cc592631464edd82a0346"><div class="ttname"><a href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a></div><div class="ttdeci">personnage * creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)</div><div class="ttdoc">Cette fonction va initialisé le personnage et le créer.</div><div class="ttdef"><b>Definition</b> <a href="perso_8c_source.html#l00036">perso.c:36</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _PERSO_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _PERSO_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;creation.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define VIE_MAX 100</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,KICKBAS,PARADE,SAUT,POINGACCROUPI,KICKACCROUPI,SAUTGAUCHE,SAUTDROIT,DEGAT,DEGATSAUT,DEGATACCROUPI}<a class="code" href="structanimation__e.html">animation_e</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structpseudo__t.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SDL_Texture * txt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> * rect;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}<a class="code" href="structpseudo__t.html">pseudo_t</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structpv__t.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> pv;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    SDL_Rect * barrePv;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <a class="code" href="structpv__t.html">pv_t</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structpersonnage.html">   55</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> *pos;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    SDL_Texture *texture;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> etatIdle;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> reverseIdle;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    SDL_Rect **idle;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> etatWalk;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> reverseWalk;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    SDL_Rect **walk;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    SDL_Rect **punchLat;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    SDL_Rect **kick;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    SDL_Rect **punchUp;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    SDL_Rect **kickDown;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    SDL_Rect **block;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> blocking;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    SDL_Rect **jump;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    SDL_Rect **moveJump;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    SDL_Rect **crouch;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> crouching;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> etatCrouch;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    SDL_Rect **crouchPunch;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    SDL_Rect **crouchKick;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    SDL_Rect **standHurt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    SDL_Rect **jumpHurt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SDL_Rect **crouchHurt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="structanimation__e.html">animation_e</a> animation;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span> etatAnimation;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">float</span> speed ;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="structpv__t.html">pv_t</a> * hp;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="structpseudo__t.html">pseudo_t</a> * pseudo;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> *hitBox;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> *hurtBox;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <a class="code" href="structpersonnage.html">personnage</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">extern</span> <a class="code" href="structpersonnage.html">personnage</a> *<a class="code" href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a>(SDL_Renderer *renderer, <span class="keywordtype">char</span> *image, <span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur, <span class="keywordtype">float</span> rX, <span class="keywordtype">float</span> rY, <span class="keywordtype">float</span> rW, <span class="keywordtype">float</span> rH, <a class="code" href="structlisteRect.html">listeRect</a> **listeRectangle);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> mettreAJourHp(SDL_Renderer *renderer, <a class="code" href="structpersonnage.html">personnage</a> * perso, <span class="keywordtype">int</span> degat, <span class="keywordtype">int</span> persoID, Mix_Chunk * soundDMG);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> mettreAJourPersonnage(SDL_Renderer *renderer, <a class="code" href="structpersonnage.html">personnage</a> *perso1, <a class="code" href="structpersonnage.html">personnage</a> *perso2, <span class="keyword">const</span> Uint8 *keyboardState, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur, <span class="keywordtype">int</span> * framerate, Mix_Chunk * hit, Mix_Chunk * dmg, <span class="keywordtype">int</span> * liste_touches);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aperso_8c_html_aef3778ceae0cc592631464edd82a0346"><div class="ttname"><a href="perso_8c.html#aef3778ceae0cc592631464edd82a0346">creerPerso</a></div><div class="ttdeci">personnage * creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)</div><div class="ttdoc">Cette fonction va initialisé le personnage et le créer.</div><div class="ttdef"><b>Definition:</b> <a href="perso_8c_source.html#l00040">perso.c:40</a></div></div>
+<div class="ttc" id="astructanimation__e_html"><div class="ttname"><a href="structanimation__e.html">animation_e</a></div><div class="ttdoc">structure de type enum pour les animations de combats</div></div>
 <div class="ttc" id="astructlisteRect_html"><div class="ttname"><a href="structlisteRect.html">listeRect</a></div><div class="ttdoc">Objet liste rectangle.</div></div>
-<div class="ttc" id="astructpersonnage_html"><div class="ttname"><a href="structpersonnage.html">personnage</a></div><div class="ttdef"><b>Definition</b> <a href="perso_8h_source.html#l00004">perso.h:4</a></div></div>
+<div class="ttc" id="astructpersonnage_html"><div class="ttname"><a href="structpersonnage.html">personnage</a></div><div class="ttdoc">structure concernant le personnage, celle ci permet de mettre toute les animations textures</div><div class="ttdef"><b>Definition:</b> <a href="perso_8h_source.html#l00055">perso.h:55</a></div></div>
+<div class="ttc" id="astructpseudo__t_html"><div class="ttname"><a href="structpseudo__t.html">pseudo_t</a></div><div class="ttdoc">structure pour mettre en place les prenoms</div><div class="ttdef"><b>Definition:</b> <a href="perso_8h_source.html#l00029">perso.h:29</a></div></div>
+<div class="ttc" id="astructpv__t_html"><div class="ttname"><a href="structpv__t.html">pv_t</a></div><div class="ttdoc">structure pour la barre de vie</div><div class="ttdef"><b>Definition:</b> <a href="perso_8h_source.html#l00042">perso.h:42</a></div></div>
 <div class="ttc" id="astructrectangle_html"><div class="ttname"><a href="structrectangle.html">rectangle</a></div><div class="ttdoc">Objet création fenetre.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

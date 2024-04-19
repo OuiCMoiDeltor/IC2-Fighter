@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['perso_2ec_0',['perso.c',['../perso_8c.html',1,'']]],
-  ['personnage_1',['personnage',['../structpersonnage.html',1,'']]]
+  ['frames_15',['frames',['../structbouton__s.html#a509d75f262f1f6c463fc4dc819c45010',1,'bouton_s']]]
 ];

@@ -8,17 +8,49 @@
 
 #define VIE_MAX 100
 
+/**
+ * \struct animation_e
+ * \brief structure de type enum pour les animations de combats
+ *
+ * 
+ */
+
+
 typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,KICKBAS,PARADE,SAUT,POINGACCROUPI,KICKACCROUPI,SAUTGAUCHE,SAUTDROIT,DEGAT,DEGATSAUT,DEGATACCROUPI}animation_e;
+
+
+/**
+ * \struct pseudo_t
+ * \brief structure pour mettre en place les prenoms
+ *
+ * 
+ */
 
 typedef struct {
     SDL_Texture * txt;
     rectangle * rect;
 }pseudo_t;
 
+
+/**
+ * \struct pv_t
+ * \brief structure pour la barre de vie
+ *
+ * 
+ */
+
 typedef struct {
     int pv;
     SDL_Rect * barrePv;
 } pv_t;
+
+
+/**
+ * \struct personnage
+ * \brief structure concernant le personnage, celle ci permet de mettre toute les animations textures
+ *
+ * 
+ */
 
 typedef struct {
     rectangle *pos;

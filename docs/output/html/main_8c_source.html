@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IC2-Fighter:  Fichier source de /info/etu/l2info/s204348/Documents/L2/PROJET/IC2-Fighter/src/main.c</title>
+<title>IC2-Fighter:  Fichier source de /home/mnx/UNIVERSITE/TESTPROJET/IC2-Fighter/src/main.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -19,9 +19,10 @@
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr id="projectrow">
-  <td id="projectalign">
-   <div id="projectname">IC2-Fighter<span id="projectnumber">&#160;1.1</span>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -29,22 +30,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.8 -->
+<!-- Généré par Doxygen 1.9.1 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -55,16 +55,9 @@ $(function() {
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">Chargement...</div>
-<div class="SRStatus" id="Searching">Recherche...</div>
-<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
-</div>
-</div>
-</div>
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
 </div>
 
 <div id="nav-path" class="navpath">
@@ -73,216 +66,179 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">main.c</div></div>
+  <div class="headertitle">
+<div class="title">main.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// Fonctions</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../lib/bouton.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../lib/perso.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Fenêtre</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define NOM_JEU &quot;IC2 Fighter&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define ICONE &quot;img/logo.bmp&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// Texte</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define TTF_FONT &quot;ttf/Act_Of_Rejection.ttf&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;../lib/menu_principal/define_menu_principal.h&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;../lib/options/define_options.h&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;../lib/gamemode_selection/define_gamemode_selection.h&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;../lib/champ_select/define_champ_select.h&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;../lib/game/define_game.h&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {MENU_PRINCIPAL, OPTIONS, GAMEMODE, CHAMP_SELECT, GAME}scenes;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Initialisation de la taille de la fenêtre</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> largeurF = 1280;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> hauteurF = 720;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Initialisation de SDL</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        printf(<span class="stringliteral">&quot;Erreur lors de l&#39;initialisation de SDL : %s\n&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    SDL_DisplayMode displayMode;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">if</span> (SDL_GetDesktopDisplayMode(0, &amp;displayMode) != 0) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        SDL_Log(<span class="stringliteral">&quot;Erreur lors de l&#39;obtention du mode d&#39;affichage : %s&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        SDL_Quit();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// Afficher la résolution de l&#39;écran</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    printf(<span class="stringliteral">&quot;Résolution de l&#39;écran : %dx%d pixels\n&quot;</span>, displayMode.w, displayMode.h);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// Obtenir le nombre de modes d&#39;affichage disponibles sur l&#39;écran principal</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span> displayIndex = 0; <span class="comment">// Écran principal</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">int</span> numModes = SDL_GetNumDisplayModes(displayIndex);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">if</span> (numModes &lt; 1) {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        SDL_Log(<span class="stringliteral">&quot;Aucun mode d&#39;affichage disponible : %s&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        SDL_Quit();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    printf(<span class="stringliteral">&quot;Résolutions prises en charge par l&#39;écran principal :\n&quot;</span>);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numModes; i++) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        SDL_DisplayMode mode;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span> (SDL_GetDisplayMode(displayIndex, i, &amp;mode) != 0) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            SDL_Log(<span class="stringliteral">&quot;Erreur lors de l&#39;obtention du mode d&#39;affichage : %s&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            SDL_Quit();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        printf(<span class="stringliteral">&quot;Mode %d: %dx%d pixels, %dhz\n&quot;</span>, i + 1, mode.w, mode.h, mode.refresh_rate);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Initialisation de </span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">if</span>(TTF_Init()==-1) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        printf(<span class="stringliteral">&quot;Erreur lors de l&#39;initialisation de la librairie TTF_Init: %s\n&quot;</span>, TTF_GetError());</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// Chargement de la police en taille 16</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    TTF_Font *font = TTF_OpenFont(TTF_FONT, 64);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">if</span>(!font) {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        printf(<span class="stringliteral">&quot;Erreur lors du chargement de la police TTF_OpenFont: %s\n&quot;</span>, TTF_GetError());</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// Couleurs</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    SDL_Color noire = {0,0,0};</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// Initialisation de la musique de fond</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>     <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_AUDIO) &lt; 0) {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        printf(<span class="stringliteral">&quot;Erreur lors de l&#39;initialisation de la musique de fond : %s\n&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// Initialisation format de l&#39;audio</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// Création de la fenêtre</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    SDL_Window *window = SDL_CreateWindow(NOM_JEU, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, largeurF, hauteurF, SDL_WINDOW_SHOWN);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span> (window == NULL) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        printf(<span class="stringliteral">&quot;Erreur lors de la création de la fenêtre : %s\n&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    SDL_SetWindowFullscreen(window, 0);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">int</span> fullscreen = 0;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">int</span> son = 1;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// Création du renderer</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">if</span> (renderer == NULL) {</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        printf(<span class="stringliteral">&quot;Erreur lors de la création du renderer : %s\n&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    SDL_Surface *icone = SDL_LoadBMP(ICONE);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">if</span> (icone == NULL)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        printf(<span class="stringliteral">&quot;Erreur lors du chargement de l&#39;image : %s\n&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    SDL_SetWindowIcon(window, icone);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    SDL_FreeSurface(icone);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_struct" href="structlisteT__t.html">listeT_t</a> *listeTexture = creerListeT(); <span class="comment">// Stock les pointeurs sur texture</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_struct" href="structlisteRect.html">listeRect</a> *listeRectangle = creerListeRect(); <span class="comment">// Stock les pointeurs sur Rectangle</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">    #include &quot;../lib/menu_principal/init_menu_principal.h&quot;</span> <span class="comment">// Initialisation du menu principal</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">    #include &quot;../lib/options/init_options.h&quot;</span> <span class="comment">// Initialisation du menu options</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">    #include &quot;../lib/gamemode_selection/init_gamemode_selection.h&quot;</span> <span class="comment">// Initialisation du menu de selection du mode de jeu</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">    #include &quot;../lib/champ_select/init_champ_select.h&quot;</span> <span class="comment">// Initialisation du menu de selection des personnages</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">    #include &quot;../lib/game/init_game.h&quot;</span> <span class="comment">// Initialisation du menu de selection des personnages</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">// Boucle principale</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">int</span> quit = 0;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    SDL_Event e;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    scenes scene = MENU_PRINCIPAL; <span class="comment">// Première scene à afficher</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    Mix_PlayMusic(backgroundSound, -1); <span class="comment">// Son background joué indéfiniment</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">int</span> waitForFrame = 0;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">while</span> (!quit) {</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">while</span> (SDL_PollEvent(&amp;e) != 0) {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keywordflow">if</span> (e.type == SDL_QUIT) {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                quit = 1;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.type == SDL_KEYDOWN) <span class="comment">// Vérifier si un événement clavier est survenu</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            {</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                <span class="keywordflow">if</span> (e.key.keysym.sym == SDLK_ESCAPE) <span class="comment">// Vérifier si la touche pressée est Échap</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                {</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    quit = 1 ; <span class="comment">// Mettre fin à la boucle de jeu et fermer l&#39;application</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                }</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            }</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">            #include &quot;../lib/menu_principal/event_menu_principal.h&quot;</span> <span class="comment">// Evenements du menu principal</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">            #include &quot;../lib/options/event_options.h&quot;</span> <span class="comment">// Evenements du menu options</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">            #include &quot;../lib/gamemode_selection/event_gamemode_selection.h&quot;</span> <span class="comment">// Evenements du menu de selection du mode de jeu</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">            #include &quot;../lib/champ_select/event_champ_select.h&quot;</span> <span class="comment">// Evenements du menu de selection des personnages</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">            #include &quot;../lib/game/event_game.h&quot;</span> <span class="comment">// Evenements du menu de selection des personnages</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        }</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="comment">// Effacement de l&#39;écran</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        SDL_RenderClear(renderer);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">        #include &quot;../lib/menu_principal/affichage_menu_principal.h&quot;</span> <span class="comment">// Affichage du menu principal</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">        #include &quot;../lib/options/affichage_options.h&quot;</span> <span class="comment">// Affichage du menu options</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">        #include &quot;../lib/gamemode_selection/affichage_gamemode_selection.h&quot;</span> <span class="comment">// Affichage du menu de selection du mode de jeu</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">        #include &quot;../lib/champ_select/affichage_champ_select.h&quot;</span> <span class="comment">// Affichage du menu de selection des personnages</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">        #include &quot;../lib/game/affichage_game.h&quot;</span> <span class="comment">// Affichage du menu de selection des personnages</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="comment">// Mise à jour de l&#39;affichage</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        SDL_RenderPresent(renderer);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        SDL_Delay(1000/60);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    }</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="comment">// Libération des ressources</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    detruireListeRect(&amp;listeRectangle);</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonRYU);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonGmBack);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonLigne);</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonLocal);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsSoundOn);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsSoundOff);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonJouer);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonQuitter);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptions);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsSwapResLeft);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsSwapResRight);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsSwapAccept);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsFullscreenOn);</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsFullscreenOff);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_function" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a>(&amp;boutonOptionsBack);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    detruireListeT(&amp;listeTexture);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    Mix_HaltMusic();</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    Mix_FreeMusic(backgroundSound);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    Mix_CloseAudio();</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    SDL_DestroyRenderer(renderer); renderer = NULL;</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    SDL_DestroyWindow(window); window = NULL;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    TTF_CloseFont(font); font = NULL;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    TTF_Quit();</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    Mix_Quit();</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    SDL_Quit();</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
-<div class="ttc" id="abouton_8c_html_a821c8aea0555ab11ceb6d004c31dfe96"><div class="ttname"><a href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a></div><div class="ttdeci">void DestroyBouton(bouton **b)</div><div class="ttdoc">Cette fonction va supprimer le bouton.</div><div class="ttdef"><b>Definition</b> <a href="bouton_8c_source.html#l00105">bouton.c:105</a></div></div>
-<div class="ttc" id="astructlisteRect_html"><div class="ttname"><a href="structlisteRect.html">listeRect</a></div><div class="ttdoc">Objet liste rectangle.</div></div>
-<div class="ttc" id="astructlisteT__t_html"><div class="ttname"><a href="structlisteT__t.html">listeT_t</a></div><div class="ttdoc">Objet liste création texture.</div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Fonctions</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../lib/bouton.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../lib/perso.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../lib/combat.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../lib/touches.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../lib/champ_select.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../lib/controle.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../lib/gamemode_selection.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../lib/menu_principal.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../lib/options.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Fenêtre</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define NOM_JEU &quot;IC2 Fighter&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define ICONE &quot;img/menu_principal/logo.bmp&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// Texte</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define TTF_FONT &quot;ttf/Act_Of_Rejection.ttf&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Music</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define SOUND_BACKGROUND &quot;mixer/Leateq - Tokyo.mp3&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {CONTROLE, OPTIONS, MENU_PRINCIPAL, GAMEMODE, CHAMP_SELECT}scenes;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Initialisation de la taille de la fenêtre</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> largeurF = 1280;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> hauteurF = 720;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Initialisation de SDL</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        printf(<span class="stringliteral">&quot;Erreur lors de l&#39;initialisation de SDL : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    SDL_DisplayMode displayMode;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (SDL_GetDesktopDisplayMode(0, &amp;displayMode) != 0) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        SDL_Log(<span class="stringliteral">&quot;Erreur lors de l&#39;obtention du mode d&#39;affichage : %s&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        SDL_Quit();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// Afficher la résolution de l&#39;écran</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    printf(<span class="stringliteral">&quot;Résolution de l&#39;écran : %dx%d pixels\n&quot;</span>, displayMode.w, displayMode.h);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Obtenir le nombre de modes d&#39;affichage disponibles sur l&#39;écran principal</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> displayIndex = 0; <span class="comment">// Écran principal</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> numModes = SDL_GetNumDisplayModes(displayIndex);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span> (numModes &lt; 1) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        SDL_Log(<span class="stringliteral">&quot;Aucun mode d&#39;affichage disponible : %s&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        SDL_Quit();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    printf(<span class="stringliteral">&quot;Résolutions prises en charge par l&#39;écran principal :\n&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numModes; i++) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        SDL_DisplayMode mode;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (SDL_GetDisplayMode(displayIndex, i, &amp;mode) != 0) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            SDL_Log(<span class="stringliteral">&quot;Erreur lors de l&#39;obtention du mode d&#39;affichage : %s&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            SDL_Quit();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        printf(<span class="stringliteral">&quot;Mode %d: %dx%d pixels, %dhz\n&quot;</span>, i + 1, mode.w, mode.h, mode.refresh_rate);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Initialisation de </span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span>(TTF_Init()==-1) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        printf(<span class="stringliteral">&quot;Erreur lors de l&#39;initialisation de la librairie TTF_Init: %s\n&quot;</span>, TTF_GetError());</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// Initialisation de la musique de fond</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;     <span class="keywordflow">if</span> (SDL_Init(SDL_INIT_AUDIO) &lt; 0) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        printf(<span class="stringliteral">&quot;Erreur lors de l&#39;initialisation de la musique de fond : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// Initialisation format de l&#39;audio</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// Création de la fenêtre</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    SDL_Window *window = SDL_CreateWindow(NOM_JEU, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, largeurF, hauteurF, SDL_WINDOW_SHOWN);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (window == NULL) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        printf(<span class="stringliteral">&quot;Erreur lors de la création de la fenêtre : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    SDL_SetWindowFullscreen(window, 0);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">int</span> fullscreen = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">int</span> son = 1;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// Création du renderer</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (renderer == NULL) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        printf(<span class="stringliteral">&quot;Erreur lors de la création du renderer : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    SDL_Surface *icone = SDL_LoadBMP(ICONE);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (icone == NULL)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        printf(<span class="stringliteral">&quot;Erreur lors du chargement de l&#39;image : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    SDL_SetWindowIcon(window, icone);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    SDL_FreeSurface(icone);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// Boucle principale</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">int</span> quit = 0;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    SDL_Event e;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    scenes scene = MENU_PRINCIPAL; <span class="comment">// Première scene à afficher</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND); <span class="comment">// Chargement musique de fond</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); <span class="comment">//Réglage niveau de son</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    Mix_PlayMusic(backgroundSound, -1); <span class="comment">// Son background joué indéfiniment</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">int</span> liste_touches[14] = {SDL_SCANCODE_W, SDL_SCANCODE_UP, SDL_SCANCODE_S, SDL_SCANCODE_DOWN, SDL_SCANCODE_A, SDL_SCANCODE_LEFT, SDL_SCANCODE_D, SDL_SCANCODE_RIGHT, SDL_SCANCODE_V, SDL_SCANCODE_KP_6, SDL_SCANCODE_C, SDL_SCANCODE_KP_5, SDL_SCANCODE_F, SDL_SCANCODE_KP_4};</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(NULL);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">while</span> (!quit) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">switch</span> (scene)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">case</span> CONTROLE:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            quit = controle(e, renderer, largeurF, hauteurF, (<span class="keywordtype">int</span>*)&amp;scene, liste_touches);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">case</span> OPTIONS:</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            quit = options(e, renderer, window, &amp;largeurF, &amp;hauteurF, (<span class="keywordtype">int</span>*)&amp;scene, &amp;son, &amp;fullscreen, backgroundSound);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">case</span> MENU_PRINCIPAL:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            quit = menu_principal(e, renderer, largeurF, hauteurF, (<span class="keywordtype">int</span>*)&amp;scene);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">case</span> GAMEMODE:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            quit = gamemode_selection(e, renderer, largeurF, hauteurF, (<span class="keywordtype">int</span>*)&amp;scene, son, backgroundSound);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">case</span> CHAMP_SELECT:</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            quit = champ_select(e, renderer, largeurF, hauteurF, (<span class="keywordtype">int</span>*)&amp;scene, son, liste_touches, keyboardState);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        SDL_Log(<span class="stringliteral">&quot;%d&quot;</span>, scene);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">// Libération des ressources</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    Mix_HaltMusic();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    Mix_FreeMusic(backgroundSound);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    SDL_DestroyRenderer(renderer); renderer = NULL;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    SDL_DestroyWindow(window); window = NULL;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    Mix_CloseAudio();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    TTF_Quit();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    Mix_Quit();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    SDL_Quit();</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

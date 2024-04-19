@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /home/mnx/UNIVERSITE/TESTPROJET/IC2-Fighter/src/touches.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">touches.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../lib/creation.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../lib/touches.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">void</span> saisirTouche(SDL_Renderer * renderer, TTF_Font * font, SDL_Event event, <span class="keywordtype">int</span> * liste_touches, <a class="code" href="structtouches__e.html">touches_e</a> touche, SDL_Texture ** txt){</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">while</span>(SDL_PollEvent(&amp;event) != 0);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    SDL_WaitEvent(&amp;event);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span>(event.type == SDL_KEYDOWN) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        liste_touches[touche] = (<span class="keyword">event</span>.key.keysym.scancode);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        SDL_DestroyTexture(*txt);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        SDL_Color noire = {0,0,0};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        SDL_Log(<span class="stringliteral">&quot;%s&quot;</span>, (<span class="keywordtype">char</span>*)SDL_GetScancodeName(liste_touches[touche]));</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        *txt = <a class="code" href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a>(renderer,font,(<span class="keywordtype">char</span>*)SDL_GetScancodeName(liste_touches[touche]),noire);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span>(*txt == NULL) exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="ttc" id="acreation_8c_html_a9fd1d64059dd0fae3b07b675676740a7"><div class="ttname"><a href="creation_8c.html#a9fd1d64059dd0fae3b07b675676740a7">creerTexte</a></div><div class="ttdeci">SDL_Texture * creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)</div><div class="ttdoc">Fonction créer le texte.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00113">creation.c:113</a></div></div>
+<div class="ttc" id="astructtouches__e_html"><div class="ttname"><a href="structtouches__e.html">touches_e</a></div><div class="ttdoc">structure des touches afin de pouvoir les changer</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,19 +1,35 @@
-\doxysection{Référence du fichier /info/etu/l2info/s204348/\+Documents/\+L2/\+PROJET/\+IC2-\/\+Fighter/src/perso.c}
-\hypertarget{perso_8c}{}\label{perso_8c}\index{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/src/perso.c@{/info/etu/l2info/s204348/Documents/L2/PROJET/IC2-\/Fighter/src/perso.c}}
+\hypertarget{perso_8c}{}\doxysection{Référence du fichier /home/mnx/\+UNIVERSITE/\+TESTPROJET/\+IC2-\/\+Fighter/src/perso.c}
+\label{perso_8c}\index{/home/mnx/UNIVERSITE/TESTPROJET/IC2-\/Fighter/src/perso.c@{/home/mnx/UNIVERSITE/TESTPROJET/IC2-\/Fighter/src/perso.c}}
 
 
 Programme personnages.  
 
 
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
-{\ttfamily \#include \"{}../lib/creation.\+h\"{}}\newline
-{\ttfamily \#include \"{}../lib/perso.\+h\"{}}\newline
-\doxysubsubsection*{Fonctions}
+{\ttfamily \#include \char`\"{}../lib/creation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/perso.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/touches.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structpersonnage}{personnage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{perso_8c_aef3778ceae0cc592631464edd82a0346}{creer\+Perso}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, char \texorpdfstring{$\ast$}{*}image, int \texorpdfstring{$\ast$}{*}largeur, int \texorpdfstring{$\ast$}{*}hauteur, float rX, float rY, float rW, float rH, \mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste\+Rectangle)
+\mbox{\Hypertarget{perso_8c_a5fe586cf054ab7bea6c77544941fc01f}\label{perso_8c_a5fe586cf054ab7bea6c77544941fc01f}} 
+\#define {\bfseries TTF\+\_\+\+FONT}~\char`\"{}ttf/Act\+\_\+\+Of\+\_\+\+Rejection.\+ttf\char`\"{}
+\item 
+\mbox{\Hypertarget{perso_8c_a2506c602b442c8b55d6c7bd2c69decce}\label{perso_8c_a2506c602b442c8b55d6c7bd2c69decce}} 
+\#define {\bfseries DMG}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$ \mbox{\hyperlink{perso_8c_aef3778ceae0cc592631464edd82a0346}{creer\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$image, int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH, \mbox{\hyperlink{structlisteRect}{liste\+Rect}} $\ast$$\ast$liste\+Rectangle)
 \begin{DoxyCompactList}\small\item\em Cette fonction va initialisé le personnage et le créer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{perso_8c_ab42da6054ea453b0a28912fa15d77453}{mettre\+AJour\+Personnage}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{structpersonnage}{personnage}} \texorpdfstring{$\ast$}{*}perso1, \mbox{\hyperlink{structpersonnage}{personnage}} \texorpdfstring{$\ast$}{*}perso2, const Uint8 \texorpdfstring{$\ast$}{*}keyboard\+State, int largeur, int hauteur)
+\mbox{\Hypertarget{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}\label{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}} 
+void {\bfseries mettre\+AJour\+Hp} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$perso, int degat, int perso\+ID, Mix\+\_\+\+Chunk $\ast$sound\+DMG)
+\item 
+\mbox{\Hypertarget{perso_8c_aff95496b69e8641c2281a6a6ef02dc60}\label{perso_8c_aff95496b69e8641c2281a6a6ef02dc60}} 
+void {\bfseries mettre\+AJour\+Personnage} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$perso1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$perso2, const Uint8 $\ast$keyboard\+State, int largeur, int hauteur, int $\ast$framerate, Mix\+\_\+\+Chunk $\ast$sound\+HIT, Mix\+\_\+\+Chunk $\ast$sound\+DMG, int $\ast$liste\+\_\+touches)
 \end{DoxyCompactItemize}
 
 
@@ -28,16 +44,12 @@ IC2-\/\+Fighter
 \end{DoxyVersion}
 Programme avec les fonctions pour les personnages 
 
-Définition dans le fichier \mbox{\hyperlink{perso_8c_source}{perso.\+c}}.
-
-
-
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{perso_8c_aef3778ceae0cc592631464edd82a0346}\label{perso_8c_aef3778ceae0cc592631464edd82a0346} 
+\mbox{\Hypertarget{perso_8c_aef3778ceae0cc592631464edd82a0346}\label{perso_8c_aef3778ceae0cc592631464edd82a0346}} 
 \index{perso.c@{perso.c}!creerPerso@{creerPerso}}
 \index{creerPerso@{creerPerso}!perso.c@{perso.c}}
 \doxysubsubsection{\texorpdfstring{creerPerso()}{creerPerso()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpersonnage}{personnage}} \texorpdfstring{$\ast$}{*} creer\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{char \texorpdfstring{$\ast$}{*}}]{image,  }\item[{int \texorpdfstring{$\ast$}{*}}]{largeur,  }\item[{int \texorpdfstring{$\ast$}{*}}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{\mbox{\hyperlink{structlisteRect}{liste\+Rect}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{liste\+Rectangle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$ creer\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{image,  }\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{\mbox{\hyperlink{structlisteRect}{liste\+Rect}} $\ast$$\ast$}]{liste\+Rectangle }\end{DoxyParamCaption})}
 
 
 
@@ -45,13 +57,13 @@ Cette fonction va initialisé le personnage et le créer.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em \texorpdfstring{$\ast$}{*}renderer} & Permet d\textquotesingle{}avoir le rendu de l\textquotesingle{}image \\
+{\em $\ast$renderer} & Permet d\textquotesingle{}avoir le rendu de l\textquotesingle{}image \\
 \hline
-{\em \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}liste\+Rectangle} & \\
+{\em $\ast$$\ast$liste\+Rectangle} & \\
 \hline
-{\em \texorpdfstring{$\ast$}{*}largeur} & Largeur du personnage \\
+{\em $\ast$largeur} & Largeur du personnage \\
 \hline
-{\em \texorpdfstring{$\ast$}{*}hauteur} & Hauteur du personnage \\
+{\em $\ast$hauteur} & Hauteur du personnage \\
 \hline
 {\em rX} & Position du bouton sur l\textquotesingle{}axe X \\
 \hline
@@ -61,7 +73,7 @@ Cette fonction va initialisé le personnage et le créer.
 \hline
 {\em rH} & Ratio du bouton en fonction de la taille de l\textquotesingle{}ecran \\
 \hline
-{\em \texorpdfstring{$\ast$}{*}image} & Adresse et nom de l\textquotesingle{}image utilisé \\
+{\em $\ast$image} & Adresse et nom de l\textquotesingle{}image utilisé \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -69,15 +81,5 @@ Retourne le perso une fois créé
 \end{DoxyReturn}
 
 
-Définition à la ligne \mbox{\hyperlink{perso_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{perso_8c_source}{perso.\+c}}.
-
-\Hypertarget{perso_8c_ab42da6054ea453b0a28912fa15d77453}\label{perso_8c_ab42da6054ea453b0a28912fa15d77453} 
-\index{perso.c@{perso.c}!mettreAJourPersonnage@{mettreAJourPersonnage}}
-\index{mettreAJourPersonnage@{mettreAJourPersonnage}!perso.c@{perso.c}}
-\doxysubsubsection{\texorpdfstring{mettreAJourPersonnage()}{mettreAJourPersonnage()}}
-{\footnotesize\ttfamily void mettre\+AJour\+Personnage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} \texorpdfstring{$\ast$}{*}}]{perso1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} \texorpdfstring{$\ast$}{*}}]{perso2,  }\item[{const Uint8 \texorpdfstring{$\ast$}{*}}]{keyboard\+State,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
-
-
-
-Définition à la ligne \mbox{\hyperlink{perso_8c_source_l00083}{83}} du fichier \mbox{\hyperlink{perso_8c_source}{perso.\+c}}.
+Définition à la ligne 40 du fichier perso.\+c.
 
