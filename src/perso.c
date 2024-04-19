@@ -44,7 +44,7 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     ajoutListeRect(listeRectangle, &perso->pos);
     perso->texture = creerImage(renderer, image);
     if(perso->texture == NULL) return NULL;
-    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->canHit = perso->crouching = perso->etatCrouch = perso->reverseIdle = perso->reverseWalk = 0;
+    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->crouching = perso->etatCrouch = perso->reverseIdle = perso->reverseWalk = 0;
 
     int i;
 
@@ -66,8 +66,8 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
         perso->walk[i]->h = 125;
     }
 
-    perso->punchLat = malloc(sizeof(SDL_Rect*)*5);
-    for( i = 0 ; i < 5 ; i++) {
+    perso->punchLat = malloc(sizeof(SDL_Rect*)*3);
+    for( i = 0 ; i < 3 ; i++) {
         perso->punchLat[i] = malloc(sizeof(SDL_Rect));
         perso->punchLat[i]->x = 145*i+i;
         perso->punchLat[i]->y = 126*2;
@@ -200,8 +200,16 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     
     perso->pseudo = malloc(sizeof(pseudo_t));
     perso->pseudo->txt = NULL;
-    perso->pseudo->rect = NULL;
+    perso->pseudo->rect = creerRectangle(largeur, hauteur, 100.0, 100.0, 100/20.0, 15.0);
     ajoutListeRect(listeRectangle, &perso->pseudo->rect);
+
+    perso->hitBox = creerRectangle(largeur, hauteur, rX, rY, rW, rH);
+    perso->hitBox->rect->w = (perso->pos->rect->w / 145) * 62.0;
+    perso->hitBox->rect->h = (perso->pos->rect->h / 126) * 128.0;
+    ajoutListeRect(listeRectangle, &perso->hitBox);
+
+    perso->hurtBox = creerRectangle(largeur, hauteur, rX, rY, 20.0, 20.0);
+    ajoutListeRect(listeRectangle, &perso->hurtBox);
 
     return perso;
 }
@@ -247,6 +255,7 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * soundHIT, Mix_Chunk * soundDMG, int * liste_touches) {
     /*Test avant que Quentin commence à crier, fonctionne mais comme ttf charge en boucle lors d'appel -> jeu tres ralenti*/
+    int hitJ1 = 0, hitJ2 = 0;
 
     //Barre de vie à états, changement de sa couleur en fonction des points de vie restants
     if (perso1->hp->pv > 80) {
@@ -322,27 +331,40 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso1->animation) {
                 switch(perso1->animation) {
                         case POINGLATERAL:
-                                        if(perso1->etatAnimation == 3)
-                                                perso1->canHit = 1;
-                                        if(perso1->etatAnimation < 4) {
+                                        if(perso1->etatAnimation == 1) {
+                                            perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
+                                            perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 71.0;
+                                        }
+                                        if(perso1->etatAnimation < 2) {
                                                 perso1->etatAnimation++;
                                         }else {
                                                 perso1->etatAnimation = 0;
-                                                perso1->canHit = 0;
                                                 perso1->animation = AUCUNE;
                                         }
                                         break;
                         case KICK:
                         case POINGHAUT:
-                        case KICKBAS:
-                        case KICKACCROUPI:
-                                        if(perso1->etatAnimation == 1)
-                                                perso1->canHit = 1;
+                                        if(perso1->etatAnimation == 2) {
+                                            perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
+                                            perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 71.0;
+                                        }
                                         if(perso1->etatAnimation < 2) {
                                                 perso1->etatAnimation++;
                                         }else {
                                                 perso1->etatAnimation = 0;
-                                                perso1->canHit = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
+                        case KICKBAS:
+                        case KICKACCROUPI:
+                                        if(perso1->etatAnimation == 2) {
+                                            perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
+                                            perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 120.0;
+                                        }
+                                        if(perso1->etatAnimation < 2) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
                                                 perso1->animation = AUCUNE;
                                         }
                                         break;
@@ -379,8 +401,10 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                         case POINGACCROUPI:
-                                        if(perso1->etatAnimation == 1)
-                                                perso1->canHit = 1;
+                                        if(perso1->etatAnimation == 1) {
+                                            perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
+                                            perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 120.0;
+                                        }
                         case DEGAT:
                         case DEGATACCROUPI:
                         case DEGATSAUT:
@@ -388,32 +412,12 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                                 perso1->etatAnimation++;
                                         }else {
                                                 perso1->etatAnimation = 0;
-                                                perso1->canHit = 0;
                                                 perso1->animation = AUCUNE;
                                         }
                                         break;
                 }
         }
 
-        // Gestion dégats J1
-        if (keyboardState[SDL_SCANCODE_P]) {
-            perso1->etatAnimation = 0;
-            perso1->canHit = 0;
-            if(perso1->blocking) {
-                perso1->etatAnimation = 1;
-                perso1->animation = PARADE;
-                mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
-            }else if(perso1->animation == SAUT) {
-                perso1->animation = DEGATSAUT;
-                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
-            }else if(perso1->crouching) {
-                perso1->animation = DEGATACCROUPI;
-                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
-            }else {
-                perso1->animation = DEGAT;
-                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
-            }
-        }
 
         // Joueur 2
         if(!perso2->reverseIdle) {
@@ -451,27 +455,40 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso2->animation) {
                 switch(perso2->animation) {
                         case POINGLATERAL:
-                                        if(perso2->etatAnimation == 3)
-                                                perso2->canHit = 1;
-                                        if(perso2->etatAnimation < 4) {
+                                        if(perso2->etatAnimation == 1) {
+                                                perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
+                                                perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 71.0;
+                                        }
+                                        if(perso2->etatAnimation < 2) {
                                                 perso2->etatAnimation++;
                                         }else {
                                                 perso2->etatAnimation = 0;
-                                                perso2->canHit = 0;
                                                 perso2->animation = AUCUNE;
                                         }
                                         break;
                         case KICK:
                         case POINGHAUT:
-                        case KICKBAS:
-                        case KICKACCROUPI:
-                                        if(perso2->etatAnimation == 1)
-                                                perso2->canHit = 1;
+                                        if(perso2->etatAnimation == 2) {
+                                                perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
+                                                perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 71.0;
+                                        }
                                         if(perso2->etatAnimation < 2) {
                                                 perso2->etatAnimation++;
                                         }else {
                                                 perso2->etatAnimation = 0;
-                                                perso2->canHit = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
+                        case KICKBAS:
+                        case KICKACCROUPI:
+                                        if(perso2->etatAnimation == 2) {
+                                                perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
+                                                perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 120.0;
+                                        }
+                                        if(perso2->etatAnimation < 2) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
                                                 perso2->animation = AUCUNE;
                                         }
                                         break;
@@ -508,8 +525,10 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                         case POINGACCROUPI:
-                                        if(perso2->etatAnimation == 1)
-                                                perso2->canHit = 1;
+                                        if(perso2->etatAnimation == 1) {
+                                                perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
+                                                perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 120.0;
+                                        }
                         case DEGAT:
                         case DEGATACCROUPI:
                         case DEGATSAUT:
@@ -517,17 +536,36 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                                 perso2->etatAnimation++;
                                         }else {
                                                 perso2->etatAnimation = 0;
-                                                perso2->canHit = 0;
                                                 perso2->animation = AUCUNE;
                                         }
                                         break;
                 }
         }
 
-        // Gestion dégats J2
-        if (keyboardState[SDL_SCANCODE_O]) {
+
+        // Gestion dégats
+        hitJ1 = SDL_HasIntersection(perso1->hurtBox->rect, perso2->hitBox->rect);
+        hitJ2 = SDL_HasIntersection(perso2->hurtBox->rect, perso1->hitBox->rect);
+        if(hitJ1 && hitJ2) {
+            // Gestion dégats J1
+            perso1->etatAnimation = 0;
+            if(perso1->blocking) {
+                perso1->etatAnimation = 1;
+                perso1->animation = PARADE;
+                mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
+            }else if(perso1->animation == SAUT) {
+                perso1->animation = DEGATSAUT;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
+            }else if(perso1->crouching) {
+                perso1->animation = DEGATACCROUPI;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
+            }else {
+                perso1->animation = DEGAT;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
+            }
+
+            // Gestion dégats J2
             perso2->etatAnimation = 0;
-            perso2->canHit = 0;
             if(perso2->blocking) {
                 perso2->etatAnimation = 1;
                 perso2->animation = PARADE;
@@ -542,7 +580,48 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 perso2->animation = DEGAT;
                 mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
             }
+        }else if(hitJ1) {
+            // Gestion dégats J2
+            perso2->etatAnimation = 0;
+            if(perso2->blocking) {
+                perso2->etatAnimation = 1;
+                perso2->animation = PARADE;
+                mettreAJourHp(renderer, perso2, DMG / 2, 2, soundDMG) ;
+            }else if(perso2->animation == SAUT) {
+                perso2->animation = DEGATSAUT;
+                mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
+            }else if(perso2->crouching) {
+                perso2->animation = DEGATACCROUPI;
+                mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
+            }else {
+                perso2->animation = DEGAT;
+                mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
+            }
+        }else if(hitJ2) {
+            // Gestion dégats J1
+            perso1->etatAnimation = 0;
+            if(perso1->blocking) {
+                perso1->etatAnimation = 1;
+                perso1->animation = PARADE;
+                mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
+            }else if(perso1->animation == SAUT) {
+                perso1->animation = DEGATSAUT;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
+            }else if(perso1->crouching) {
+                perso1->animation = DEGATACCROUPI;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
+            }else {
+                perso1->animation = DEGAT;
+                mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
+            }
         }
+
+
+        // Reset HurtBoxs
+        perso1->hurtBox->rect->x = 0;
+        perso1->hurtBox->rect->y = 0;
+        perso2->hurtBox->rect->x = largeur;
+        perso2->hurtBox->rect->y = hauteur;
 
         *framerate = 0;
     }
@@ -555,7 +634,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             perso1->blocking = 1;
             SDL_RenderCopy(renderer, perso1->texture, perso1->block[0], perso1->pos->rect);
         // Coup de peid en bas
-        }else if (keyboardState[liste_touches[AccroupirJ1]] && keyboardState[liste_touches[PoingJ1]] && !perso1->crouching) {
+        }else if (keyboardState[liste_touches[AccroupirJ1]] && keyboardState[liste_touches[KickJ1]] && !perso1->crouching) {
             perso1->animation = KICKBAS;
             Mix_PlayChannel(-1, soundHIT, 0);
         // Accroupi
@@ -564,12 +643,12 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             SDL_RenderCopy(renderer, perso1->texture, perso1->crouch[perso1->etatCrouch], perso1->pos->rect);
             if (perso1->etatCrouch == 2) {
                 // Coup de poing
-                if (keyboardState[liste_touches[KickJ1]]) {
+                if (keyboardState[liste_touches[PoingJ1]]) {
                     perso1->animation = POINGACCROUPI;
                     Mix_PlayChannel(-1, soundHIT, 0);
                 }
                 // Coup de pied
-                else if (keyboardState[liste_touches[PoingJ1]]) {
+                else if (keyboardState[liste_touches[KickJ1]]) {
                     perso1->animation = KICKACCROUPI;
                     Mix_PlayChannel(-1, soundHIT, 0);
                 }
@@ -577,15 +656,15 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         }else {
             // Coup de poing droit 
             perso1->crouching = 0;
-            if (keyboardState[liste_touches[KickJ1]] && !keyboardState[liste_touches[SauterJ1]]) {
+            if (keyboardState[liste_touches[PoingJ1]] && !keyboardState[liste_touches[SauterJ1]]) {
                 perso1->animation = POINGLATERAL;
                 Mix_PlayChannel(-1, soundHIT, 0);
             // Coup de pied devant
-            }else if (keyboardState[liste_touches[PoingJ1]]) {
+            }else if (keyboardState[liste_touches[KickJ1]]) {
                 perso1->animation = KICK;
                 Mix_PlayChannel(-1, soundHIT, 0);
             // Coup de poing haut 
-            }else if (keyboardState[liste_touches[KickJ1]] && keyboardState[liste_touches[SauterJ1]]) {
+            }else if (keyboardState[liste_touches[PoingJ1]] && keyboardState[liste_touches[SauterJ1]]) {
                 perso1->animation = POINGHAUT;
                 Mix_PlayChannel(-1, soundHIT, 0);;
             // Saut
@@ -604,12 +683,12 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 perso1->etatIdle = 0;
                 // Gauche
                 if (keyboardState[liste_touches[GaucheJ1]]) {
-                    if ((perso1->pos->rect->x - perso1->speed) > 0)
+                    if ((perso1->hitBox->rect->x - perso1->speed) > 0)
                         perso1->pos->rect->x -= perso1->speed;
                 }
                 // Droite
                 if (keyboardState[liste_touches[DroitJ1]]) {
-                    if ((perso1->pos->rect->x + perso1->speed + 50) <= largeur)
+                    if ((perso1->hitBox->rect->x + perso1->speed + perso1->hitBox->rect->w) < perso2->hitBox->rect->x)
                         perso1->pos->rect->x += perso1->speed;
                 }
                 if (!keyboardState[liste_touches[GaucheJ1]] && !keyboardState[liste_touches[DroitJ1]]) perso1->etatWalk = 0;
@@ -627,7 +706,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             case KICKBAS:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->kickDown[perso1->etatAnimation], perso1->pos->rect); break;
             case PARADE:
-                perso1->pos->rect->x -= perso1->speed;
+                if ((perso1->hitBox->rect->x - perso1->speed) > 0)
+                        perso1->pos->rect->x -= perso1->speed;
                 SDL_RenderCopy(renderer, perso1->texture, perso1->block[perso1->etatAnimation], perso1->pos->rect); break;
             case SAUT:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->jump[perso1->etatAnimation], perso1->pos->rect); break;
@@ -636,19 +716,24 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             case KICKACCROUPI:
                 SDL_RenderCopy(renderer, perso1->texture, perso1->crouchKick[perso1->etatAnimation], perso1->pos->rect); break;
             case SAUTGAUCHE:
-                perso1->pos->rect->x -= perso1->speed;
+                if ((perso1->hitBox->rect->x - perso1->speed) > 0)
+                        perso1->pos->rect->x -= perso1->speed;
                 SDL_RenderCopy(renderer, perso1->texture, perso1->moveJump[perso1->etatAnimation], perso1->pos->rect); break;
             case SAUTDROIT:
-                perso1->pos->rect->x += perso1->speed;
+                if ((perso1->hitBox->rect->x + perso1->speed + perso1->hitBox->rect->w) < perso2->hitBox->rect->x)
+                        perso1->pos->rect->x += perso1->speed;
                 SDL_RenderCopy(renderer, perso1->texture, perso1->moveJump[perso1->etatAnimation], perso1->pos->rect); break;
             case DEGAT:
-                perso1->pos->rect->x -= perso1->speed;
+                if ((perso1->hitBox->rect->x - perso1->speed) > 0)
+                        perso1->pos->rect->x -= perso1->speed;
                 SDL_RenderCopy(renderer, perso1->texture, perso1->standHurt[perso1->etatAnimation], perso1->pos->rect); break;
             case DEGATACCROUPI:
-                perso1->pos->rect->x -= perso1->speed;
+                if ((perso1->hitBox->rect->x - perso1->speed) > 0)
+                        perso1->pos->rect->x -= perso1->speed;
                 SDL_RenderCopy(renderer, perso1->texture, perso1->crouchHurt[perso1->etatAnimation], perso1->pos->rect); break;
             case DEGATSAUT:
-                perso1->pos->rect->x -= perso1->speed;
+                if ((perso1->hitBox->rect->x - perso1->speed) > 0)
+                        perso1->pos->rect->x -= perso1->speed;
                 SDL_RenderCopy(renderer, perso1->texture, perso1->jumpHurt[perso1->etatAnimation], perso1->pos->rect); break;
         }
     }
@@ -661,7 +746,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             perso2->blocking = 1;
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->block[0], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
         // Coup de peid en bas
-        }else if (keyboardState[liste_touches[AccroupirJ2]] && keyboardState[liste_touches[PoingJ2]] && !perso2->crouching) {
+        }else if (keyboardState[liste_touches[AccroupirJ2]] && keyboardState[liste_touches[KickJ2]] && !perso2->crouching) {
             perso2->animation = KICKBAS;
             Mix_PlayChannel(-1, soundHIT, 0);
         // Accroupi
@@ -670,12 +755,12 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouch[perso2->etatCrouch], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
             if (perso2->etatCrouch == 2) {
                 // Coup de poing
-                if (keyboardState[liste_touches[KickJ2]]) {
+                if (keyboardState[liste_touches[PoingJ2]]) {
                     perso2->animation = POINGACCROUPI;
                     Mix_PlayChannel(-1, soundHIT, 0);
                 }
                 // Coup de pied
-                else if (keyboardState[liste_touches[PoingJ2]]) {
+                else if (keyboardState[liste_touches[KickJ2]]) {
                     perso2->animation = KICKACCROUPI;
                     Mix_PlayChannel(-1, soundHIT, 0);
                 }
@@ -683,15 +768,15 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         }else {
             perso2->crouching = 0;
             // Coup de poing droit 
-            if (keyboardState[liste_touches[KickJ2]] && !keyboardState[liste_touches[SauterJ2]]) {
+            if (keyboardState[liste_touches[PoingJ2]] && !keyboardState[liste_touches[SauterJ2]]) {
                 perso2->animation = POINGLATERAL;
                 Mix_PlayChannel(-1, soundHIT, 0);
             // Coup de pied devant
-            }else if (keyboardState[liste_touches[PoingJ2]]) {
+            }else if (keyboardState[liste_touches[KickJ2]]) {
                 perso2->animation = KICK;
                 Mix_PlayChannel(-1, soundHIT, 0);
             // Coup de poing haut 
-            }else if (keyboardState[liste_touches[KickJ2]] && keyboardState[liste_touches[SauterJ2]]) {
+            }else if (keyboardState[liste_touches[PoingJ2]] && keyboardState[liste_touches[SauterJ2]]) {
                 perso2->animation = POINGHAUT;
                 Mix_PlayChannel(-1, soundHIT, 0);
             // Saut
@@ -710,12 +795,12 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                 perso2->etatIdle = 0;
                 // Gauche
                 if (keyboardState[liste_touches[GaucheJ2]]) {
-                    if ((perso2->pos->rect->x - perso2->speed) > 0)
+                    if ((perso2->hitBox->rect->x - perso2->speed) > perso1->hitBox->rect->x + perso1->hitBox->rect->w)
                         perso2->pos->rect->x -= perso2->speed;
                 }
                 // Droite
                 if (keyboardState[liste_touches[DroitJ2]]) {
-                    if ((perso2->pos->rect->x + perso2->speed + 50) <= largeur)
+                    if ((perso2->hitBox->rect->x + perso2->speed + perso2->hitBox->rect->w) <= largeur)
                         perso2->pos->rect->x += perso2->speed;
                 }
                 if (!keyboardState[liste_touches[GaucheJ2]] && !keyboardState[liste_touches[DroitJ2]]) perso2->etatWalk = 0;
@@ -733,7 +818,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             case KICKBAS:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->kickDown[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case PARADE:
-                perso2->pos->rect->x += perso2->speed;
+                if ((perso2->hitBox->rect->x + perso2->speed + perso2->hitBox->rect->w) <= largeur)
+                        perso2->pos->rect->x += perso2->speed;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->block[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case SAUT:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->jump[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
@@ -742,22 +828,44 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             case KICKACCROUPI:
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouchKick[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case SAUTGAUCHE:
-                perso2->pos->rect->x -= perso2->speed;
+                if ((perso2->hitBox->rect->x - perso2->speed) > perso1->hitBox->rect->x + perso1->hitBox->rect->w)
+                        perso2->pos->rect->x -= perso2->speed;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->moveJump[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case SAUTDROIT:
-                perso2->pos->rect->x += perso2->speed;
+                if ((perso2->hitBox->rect->x + perso2->speed + perso2->hitBox->rect->w) <= largeur)
+                        perso2->pos->rect->x += perso2->speed;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->moveJump[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case DEGAT:
-                perso2->pos->rect->x += perso2->speed;
+                if ((perso2->hitBox->rect->x + perso2->speed + perso2->hitBox->rect->w) <= largeur)
+                        perso2->pos->rect->x += perso2->speed;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->standHurt[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case DEGATACCROUPI:
-                perso2->pos->rect->x += perso2->speed;
+                if ((perso2->hitBox->rect->x + perso2->speed + perso2->hitBox->rect->w) <= largeur)
+                        perso2->pos->rect->x += perso2->speed;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->crouchHurt[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
             case DEGATSAUT:
-                perso2->pos->rect->x += perso2->speed;
+                if ((perso2->hitBox->rect->x + perso2->speed + perso2->hitBox->rect->w) <= largeur)
+                        perso2->pos->rect->x += perso2->speed;
                 SDL_RenderCopyEx(renderer, perso2->texture, perso2->jumpHurt[perso2->etatAnimation], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL); break;
         }
     }
+
+    // Hitboxs
+    if(perso1->crouching)
+        perso1->hitBox->rect->y = (perso1->pos->rect->h / 126) * 87.0;
+    else if(perso1->animation == SAUT || perso1->animation == SAUTDROIT || perso1->animation == SAUTGAUCHE)
+        perso1->hitBox->rect->y = (perso1->pos->rect->h / 126) * -10.0;
+    else
+        perso1->hitBox->rect->y = (perso1->pos->rect->h / 126) * 55.0;
+    perso1->hitBox->rect->x = perso1->pos->rect->x + (perso1->pos->rect->w / 145) * 48.0;
+
+    if(perso2->crouching)
+        perso2->hitBox->rect->y = (perso2->pos->rect->h / 126) * 87.0;
+    else if(perso2->animation == SAUT || perso2->animation == SAUTDROIT || perso2->animation == SAUTGAUCHE)
+        perso2->hitBox->rect->y = (perso2->pos->rect->h / 126) * -10.0;
+    else
+        perso2->hitBox->rect->y = (perso2->pos->rect->h / 126) * 55.0;
+    perso2->hitBox->rect->x = perso2->pos->rect->x + (perso2->pos->rect->w / 145) * 60.0;
 }
 
 

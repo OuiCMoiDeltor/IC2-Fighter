@@ -47,10 +47,11 @@ typedef struct {
     SDL_Rect **crouchHurt;
     animation_e animation;
     int etatAnimation;
-    int canHit;
     float speed ;
     pv_t * hp;
     pseudo_t * pseudo;
+    rectangle *hitBox;
+    rectangle *hurtBox;
 } personnage;
 
 extern personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle);

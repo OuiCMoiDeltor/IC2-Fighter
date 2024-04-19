@@ -11,7 +11,7 @@
 #define SOUND_BACKGROUND_COMBAT "mixer/son_combat.mp3"
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
-#define DUREE_ROUND 60
+#define DUREE_ROUND 120
 #define ROUND_GAGNANT 2
 
 extern 
@@ -107,11 +107,21 @@ void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
     // Pseudo
     TTF_Font * font = TTF_OpenFont(TTF_FONT, 32);
     SDL_Color textColor = {255, 255, 255, 255};
-    J1->pseudo->txt = creerTexte(renderer, font, "Joueur1", textColor);
-    J1->pseudo->rect = creerRectangle(J1->pos->largeur, J1->pos->hauteur, 100.0, 100.0, 100/20.0, 15.0);
+    if(J1->pseudo->txt == NULL) {
+        J1->pseudo->txt = creerTexte(renderer, font, "Joueur1", textColor);
+        J1->pseudo->rect->rect->x = *J1->pos->largeur/100.0;
+        J1->pseudo->rect->rect->y = *J1->pos->hauteur/100.0;
+        J1->pseudo->rect->rect->w = (*J1->pos->largeur/100)*20.0;
+        J1->pseudo->rect->rect->h = *J1->pos->hauteur/15.0;
+    }
 
-    J2->pseudo->txt = creerTexte(renderer, font, "Joueur2", textColor);
-    J2->pseudo->rect = creerRectangle(J2->pos->largeur, J2->pos->hauteur, 100/79.0, 100.0, 100/20.0, 15.0);
+    if(J2->pseudo->txt == NULL) {
+        J2->pseudo->txt = creerTexte(renderer, font, "Joueur2", textColor);
+        J2->pseudo->rect->rect->x = (*J2->pos->largeur/100)*85.0;
+        J2->pseudo->rect->rect->y = *J2->pos->hauteur/100.0;
+        J2->pseudo->rect->rect->w = (*J2->pos->largeur/100)*20.0;
+        J2->pseudo->rect->rect->h = *J2->pos->hauteur/15.0;
+    }
 
     TTF_CloseFont(font);
 }
@@ -216,6 +226,9 @@ void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joue
         SDL_Delay(5000);
         SDL_DestroyTexture(finalBGTexture);
     }
+
+    SDL_DestroyTexture(Joueur1->pseudo->txt);
+    SDL_DestroyTexture(Joueur2->pseudo->txt);
 
     // Nettoyage des ressources audio
     Mix_FreeMusic(backgroundCombatSound);
