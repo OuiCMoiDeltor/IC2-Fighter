@@ -6,7 +6,7 @@
 #include <SDL2/SDL_ttf.h>
 
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
-#define DMG 5
+#define DMG 10
 
 /**
 	* \file  perso.c
@@ -331,7 +331,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso1->animation) {
                 switch(perso1->animation) {
                         case POINGLATERAL:
-                                        if(perso1->etatAnimation == 1) {
+                                        if(perso1->etatAnimation == 0) {
                                             perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
                                             perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 71.0;
                                         }
@@ -344,7 +344,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         break;
                         case KICK:
                         case POINGHAUT:
-                                        if(perso1->etatAnimation == 2) {
+                                        if(perso1->etatAnimation == 1) {
                                             perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
                                             perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 71.0;
                                         }
@@ -357,7 +357,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         break;
                         case KICKBAS:
                         case KICKACCROUPI:
-                                        if(perso1->etatAnimation == 2) {
+                                        if(perso1->etatAnimation == 1) {
                                             perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
                                             perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 120.0;
                                         }
@@ -401,7 +401,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                         case POINGACCROUPI:
-                                        if(perso1->etatAnimation == 1) {
+                                        if(perso1->etatAnimation == 0) {
                                             perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
                                             perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 120.0;
                                         }
@@ -455,7 +455,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         if(perso2->animation) {
                 switch(perso2->animation) {
                         case POINGLATERAL:
-                                        if(perso2->etatAnimation == 1) {
+                                        if(perso2->etatAnimation == 0) {
                                                 perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
                                                 perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 71.0;
                                         }
@@ -468,7 +468,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         break;
                         case KICK:
                         case POINGHAUT:
-                                        if(perso2->etatAnimation == 2) {
+                                        if(perso2->etatAnimation == 1) {
                                                 perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
                                                 perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 71.0;
                                         }
@@ -481,7 +481,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         break;
                         case KICKBAS:
                         case KICKACCROUPI:
-                                        if(perso2->etatAnimation == 2) {
+                                        if(perso2->etatAnimation == 1) {
                                                 perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
                                                 perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 120.0;
                                         }
@@ -525,7 +525,7 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                         case POINGACCROUPI:
-                                        if(perso2->etatAnimation == 1) {
+                                        if(perso2->etatAnimation == 0) {
                                                 perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
                                                 perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 120.0;
                                         }
