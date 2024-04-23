@@ -227,8 +227,8 @@ void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joue
         SDL_DestroyTexture(finalBGTexture);
     }
 
-    SDL_DestroyTexture(Joueur1->pseudo->txt);
-    SDL_DestroyTexture(Joueur2->pseudo->txt);
+    detruirePerso(&Joueur1);
+    detruirePerso(&Joueur2);
 
     // Nettoyage des ressources audio
     Mix_FreeMusic(backgroundCombatSound);

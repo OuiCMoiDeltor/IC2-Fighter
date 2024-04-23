@@ -41,7 +41,6 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
 {
     personnage *perso = malloc(sizeof(personnage));
     perso->pos = creerRectangle(largeur, hauteur, rX, rY, rW, rH);
-    ajoutListeRect(listeRectangle, &perso->pos);
     perso->texture = creerImage(renderer, image);
     if(perso->texture == NULL) return NULL;
     perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->crouching = perso->etatCrouch = perso->reverseIdle = perso->reverseWalk = 0;
@@ -201,17 +200,112 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     perso->pseudo = malloc(sizeof(pseudo_t));
     perso->pseudo->txt = NULL;
     perso->pseudo->rect = creerRectangle(largeur, hauteur, 100.0, 100.0, 100/20.0, 15.0);
-    ajoutListeRect(listeRectangle, &perso->pseudo->rect);
 
     perso->hitBox = creerRectangle(largeur, hauteur, rX, rY, rW, rH);
     perso->hitBox->rect->w = (perso->pos->rect->w / 145) * 62.0;
     perso->hitBox->rect->h = (perso->pos->rect->h / 126) * 128.0;
-    ajoutListeRect(listeRectangle, &perso->hitBox);
 
     perso->hurtBox = creerRectangle(largeur, hauteur, rX, rY, 20.0, 20.0);
-    ajoutListeRect(listeRectangle, &perso->hurtBox);
 
     return perso;
+}
+
+extern
+void detruirePerso(personnage ** perso) {
+    // Destruction rectangles
+    free((*perso)->pseudo->rect->rect);
+    free((*perso)->pseudo->rect);
+    (*perso)->pseudo->rect = NULL;
+
+    free((*perso)->hitBox->rect);
+    free((*perso)->hitBox);
+    (*perso)->hitBox = NULL;
+
+    free((*perso)->hurtBox->rect);
+    free((*perso)->hurtBox);
+    (*perso)->hurtBox = NULL;
+
+    free((*perso)->pos->rect);
+    free((*perso)->pos);
+    (*perso)->pos = NULL;
+
+    // Destruction texture
+    SDL_DestroyTexture((*perso)->texture);
+
+    // Destruction SDL_Rect
+    int i;
+
+    for( i = 0 ; i < 5 ; i++)
+        free((*perso)->idle[i]);
+    free((*perso)->idle);
+
+    for( i = 0 ; i < 6 ; i++)
+        free((*perso)->walk[i]);
+    free((*perso)->walk);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->punchLat[i]);
+    free((*perso)->punchLat);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->kick[i]);
+    free((*perso)->kick);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->punchUp[i]);
+    free((*perso)->punchUp);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->kickDown[i]);
+    free((*perso)->kickDown);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->block[i]);
+    free((*perso)->block);
+
+    for( i = 0 ; i < 7 ; i++)
+        free((*perso)->jump[i]);
+    free((*perso)->jump);
+
+    for( i = 0 ; i < 8 ; i++)
+        free((*perso)->moveJump[i]);
+    free((*perso)->moveJump);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->crouch[i]);
+    free((*perso)->crouch);
+
+    for( i = 0 ; i < 2 ; i++)
+        free((*perso)->crouchPunch[i]);
+    free((*perso)->crouchPunch);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->crouchKick[i]);
+    free((*perso)->crouchKick);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->standHurt[i]);
+    free((*perso)->standHurt);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->jumpHurt[i]);
+    free((*perso)->jumpHurt);
+
+    for( i = 0 ; i < 3 ; i++)
+        free((*perso)->crouchHurt[i]);
+    free((*perso)->crouchHurt);
+
+    // Destruction pseudo
+    SDL_DestroyTexture((*perso)->pseudo->txt);
+    free((*perso)->pseudo);
+
+    // Destruction barre hp
+    free((*perso)->hp->barrePv);
+    free((*perso)->hp);
+
+    // Destruction perso
+    free(*perso);
+    *perso = NULL;
 }
 
 
