@@ -1,4 +1,34 @@
+/**
+ * \file   gamemode_selection.c
+ * \brief  Gestion de la sélection des modes de jeu
+ *
+ * Ce fichier contient les fonctions permettant de sélectionner les différents modes de jeu
+ * dans une application utilisant SDL. Il gère les interactions utilisateur et les transitions
+ * d'état en fonction des choix de mode de jeu.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+
 #include "../lib/gamemode_selection.h"
+
+/**
+ * \brief Gère la sélection du mode de jeu.
+ *
+ * Cette fonction affiche les options de mode de jeu et gère les entrées de l'utilisateur pour sélectionner
+ * le mode de jeu désiré. Elle utilise une boucle d'événements pour traiter les clics de souris et les entrées
+ * du clavier, mettant à jour l'état de la scène en fonction des interactions.
+ *
+ * \param e Événement SDL pour gérer les entrées.
+ * \param renderer Renderer SDL utilisé pour dessiner les éléments graphiques.
+ * \param largeurF Largeur de la fenêtre de rendu.
+ * \param hauteurF Hauteur de la fenêtre de rendu.
+ * \param scene Pointeur vers la variable contrôlant l'état de la scène courante.
+ * \param son Indicateur pour gérer le son.
+ * \param backgroundSoundSelect Musique de fond pour le menu de sélection.
+ * \return Code pour indiquer si l'application doit continuer (0) ou terminer (1).
+ */
 
 extern
 int gamemode_selection(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int son, Mix_Music * backgroundSoundSelect) {

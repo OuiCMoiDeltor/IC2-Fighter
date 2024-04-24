@@ -1,17 +1,27 @@
+/**
+ * \file   creation.c
+ * \brief  Fonctions pour créer et gérer des textures et des rectangles
+ *
+ * Ce fichier contient des fonctions pour la création et la gestion de textures et de rectangles
+ * utilisés dans un contexte graphique SDL. Il permet de gérer des listes de ces objets pour faciliter
+ * la manipulation et la destruction en masse lors du nettoyage de la mémoire.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "../lib/creation.h"
 
 /**
-	* \file  creation.c
-	* \brief Programme pour la création d'objet
-	* \author IC2-Fighter
-	* \version 1.0
-	*
-	*  Ce programme contient les fonctions des différents objets créer pour le jeu
-	*
-*/
-
+ * \brief Crée une nouvelle liste de textures.
+ *
+ * Cette fonction alloue de la mémoire pour une nouvelle liste de textures et initialise ses membres.
+ *
+ * \return Pointeur vers la nouvelle liste de textures créée.
+ */
 
 extern
 listeT_t *creerListeT() {
@@ -20,6 +30,16 @@ listeT_t *creerListeT() {
   liste->suivant = NULL;
   return liste;
 }
+
+/**
+ * \brief Ajoute une texture à la liste de textures.
+ *
+ * Cette fonction insère une nouvelle texture dans la liste de textures. Si la liste est vide, la texture
+ * est ajoutée en premier élément. Sinon, elle est ajoutée à la fin de la liste.
+ *
+ * \param liste Pointeur double vers la liste de textures.
+ * \param Texture Pointeur double vers la texture à ajouter.
+ */
 
 extern
 void ajoutListeT(listeT_t **liste, SDL_Texture **Texture) {
@@ -38,6 +58,15 @@ void ajoutListeT(listeT_t **liste, SDL_Texture **Texture) {
     (*liste)->pTexture = Texture;
   }
 }
+
+/**
+ * \brief Détruit une liste de textures et libère la mémoire associée.
+ *
+ * Cette fonction parcourt la liste de textures et détruit chaque texture SDL, libérant ainsi la mémoire
+ * associée à chaque texture et à la liste elle-même.
+ *
+ * \param liste Pointeur double vers la liste de textures à détruire.
+ */
 
 extern
 void detruireListeT(listeT_t **liste) {
@@ -65,13 +94,15 @@ void detruireListeT(listeT_t **liste) {
   }
 }
 
-
 /**
-  * \fn SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
-  * \brief Fonction pour initialisé les images
-  * \param *renderer Rendu de l'image
-  * \param *image Source de l'image
-*/
+ * \brief Crée une texture à partir d'un fichier image.
+ *
+ * Cette fonction charge une image à partir d'un fichier spécifié et crée une texture SDL à partir de cette image.
+ *
+ * \param renderer Le renderer SDL utilisé pour créer la texture.
+ * \param image Chemin vers le fichier image à charger.
+ * \return La texture SDL créée ou NULL en cas d'erreur.
+ */
 
 extern
 SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
@@ -99,15 +130,17 @@ SDL_Texture *creerImage(SDL_Renderer *renderer, char *image)
   return imageTexture;
 }
 
-
 /**
-  * \fn SDL_Texture *creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)
-  * \brief Fonction créer le texte
-  * \param *renderer Rendu de l'image
-  * \param *font Police d'écriture
-  * \param *texte Texte à é crire
-  * \param couleur Couleur du texte
-*/
+ * \brief Crée une texture de texte à partir d'une chaîne de caractères.
+ *
+ * Cette fonction crée une texture SDL à partir d'une chaîne de caractères en utilisant une police spécifiée.
+ *
+ * \param renderer Le renderer SDL utilisé pour créer la texture.
+ * \param font La police TTF utilisée pour rendre le texte.
+ * \param texte La chaîne de caractères à rendre en texture.
+ * \param couleur La couleur du texte.
+ * \return La texture SDL créée ou NULL en cas d'erreur.
+ */
 
 extern
 SDL_Texture *creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)
@@ -135,6 +168,14 @@ SDL_Texture *creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL
   return texteTexture;
 }
 
+/**
+ * \brief Crée une nouvelle liste de rectangles.
+ *
+ * Cette fonction alloue de la mémoire pour une nouvelle liste de rectangles et initialise ses membres.
+ *
+ * \return Pointeur vers la nouvelle liste de rectangles créée.
+ */
+
 extern
 listeRect *creerListeRect() {
   listeRect *liste = malloc(sizeof(listeRect));
@@ -142,6 +183,16 @@ listeRect *creerListeRect() {
   liste->suivant = NULL;
   return liste;
 }
+
+/**
+ * \brief Ajoute un rectangle à la liste de rectangles.
+ *
+ * Cette fonction insère un nouveau rectangle dans la liste de rectangles. Si la liste est vide, le rectangle
+ * est ajouté en premier élément. Sinon, il est ajouté à la fin de la liste.
+ *
+ * \param liste Pointeur double vers la liste de rectangles.
+ * \param Rect Pointeur double vers le rectangle à ajouter.
+ */
 
 extern
 void ajoutListeRect(listeRect **liste, rectangle **Rect)
@@ -161,6 +212,14 @@ void ajoutListeRect(listeRect **liste, rectangle **Rect)
     (*liste)->pRect = Rect;
   }
 }
+
+/**
+ * \brief Détruit une liste de rectangles et libère la mémoire associée.
+ *
+ * Cette fonction parcourt la liste de rectangles et libère la mémoire associée à chaque rectangle et à la liste elle-même.
+ *
+ * \param liste Pointeur double vers la liste de rectangles à détruire.
+ */
 
 extern
 void detruireListeRect(listeRect **liste)
@@ -189,6 +248,16 @@ void detruireListeRect(listeRect **liste)
   }
 }
 
+/**
+ * \brief Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés.
+ *
+ * Cette fonction ajuste les dimensions et les positions des rectangles dans la liste en utilisant les ratios
+ * stockés dans chaque structure de rectangle. Cela permet d'ajuster dynamiquement les dimensions des éléments
+ * graphiques en fonction des dimensions de la fenêtre.
+ *
+ * \param liste Pointeur vers la liste de rectangles à mettre à jour.
+ */
+
 extern
 void updateRectangles(listeRect *liste)
 {
@@ -201,6 +270,22 @@ void updateRectangles(listeRect *liste)
     pListe = pListe->suivant;
   }while(pListe != liste);
 }
+
+/**
+ * \brief Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios.
+ *
+ * Cette fonction crée un nouveau rectangle dont les dimensions et la position sont déterminées par des ratios
+ * appliqués aux dimensions fournies. Cela permet un positionnement et un dimensionnement flexibles en fonction
+ * des dimensions de la fenêtre ou d'autres références.
+ *
+ * \param largeur Pointeur vers la largeur de référence.
+ * \param hauteur Pointeur vers la hauteur de référence.
+ * \param rX Ratio pour calculer la position x du rectangle.
+ * \param rY Ratio pour calculer la position y du rectangle.
+ * \param rW Ratio pour calculer la largeur du rectangle.
+ * \param rH Ratio pour calculer la hauteur du rectangle.
+ * \return Pointeur vers le nouveau rectangle créé.
+ */
 
 extern
 rectangle *creerRectangle(int *largeur, int *hauteur, float rX, float rY, float rW, float rH)

@@ -1,3 +1,16 @@
+/**
+ * \file   main.c
+ * \brief  Programme principal pour IC2 Fighter
+ *
+ * Ce fichier est le point d'entrée du jeu IC2 Fighter. Il initialise les bibliothèques SDL nécessaires,
+ * crée la fenêtre de jeu, gère le cycle de vie de l'application et les transitions entre différentes scènes
+ * telles que le menu principal, la sélection des modes de jeu, les options, etc.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -29,6 +42,18 @@
 #define RESET_TOUCHES "default_touches.txt"
 
 typedef enum {CONTROLE, OPTIONS, MENU_PRINCIPAL, GAMEMODE, CHAMP_SELECT}scenes;
+
+/**
+ * \brief Fonction principale du jeu IC2 Fighter.
+ *
+ * Initialise SDL et ses sous-systèmes, crée une fenêtre et un renderer, et entre dans une boucle de jeu
+ * qui gère les événements et met à jour les scènes du jeu en fonction des interactions de l'utilisateur.
+ * La musique de fond est gérée ici ainsi que les transitions entre les scènes de jeu différentes.
+ *
+ * \param argc Nombre d'arguments de la ligne de commande.
+ * \param argv Tableau de chaînes des arguments de la ligne de commande.
+ * \return Code de sortie du programme.
+ */
 
 int main(int argc, char* argv[]) {
     // Initialisation de la taille de la fenêtre

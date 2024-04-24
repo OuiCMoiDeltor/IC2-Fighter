@@ -1,4 +1,31 @@
+/**
+ * \file   menu_principal.h
+ * \brief  Gestion du menu principal du jeu IC2 Fighter
+ *
+ * Ce fichier contient les fonctions nécessaires pour afficher le menu principal du jeu,
+ * gérer les interactions de l'utilisateur avec les boutons du menu et naviguer entre différentes scènes du jeu.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+
 #include "../lib/menu_principal.h"
+
+/**
+ * \brief Affiche et gère le menu principal du jeu.
+ *
+ * Cette fonction affiche le menu principal, gère les interactions de l'utilisateur avec les différents boutons
+ * (Options, Quitter, Jouer), et gère les transitions vers d'autres scènes en fonction des actions de l'utilisateur.
+ * La fonction gère également l'affichage d'animations de boutons pour une meilleure expérience utilisateur.
+ *
+ * \param e Événement SDL pour gérer les interactions utilisateur.
+ * \param renderer Le renderer SDL utilisé pour dessiner à l'écran.
+ * \param largeurF Largeur de la fenêtre de l'application.
+ * \param hauteurF Hauteur de la fenêtre de l'application.
+ * \param scene Pointeur vers l'entier qui gère l'indice de la scène actuelle à afficher.
+ * \return 0 si le menu doit continuer à s'exécuter, 1 pour quitter l'application.
+ */
 
 extern
 int menu_principal(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene) {

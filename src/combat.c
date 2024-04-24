@@ -1,3 +1,18 @@
+/**
+ * \file   combat.c
+ * \brief  Gestion des combats dans le jeu
+ *
+ * Ce fichier contient les fonctions nécessaires pour orchestrer les combats dans le jeu, gérant les interactions
+ * entre les personnages, le déroulement des rounds, et les affichages associés. Il comprend la gestion de l'interface
+ * du combat, le suivi du temps, l'affichage des informations des personnages (santé, état), ainsi que la gestion des
+ * effets sonores et de la musique de fond pour une expérience immersive. Les transitions entre les états de combat et
+ * les rounds sont également pris en charge.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -16,6 +31,22 @@
 
 #define DUREE_ROUND 120
 #define ROUND_GAGNANT 2
+
+/**
+ * \brief Affiche le début d'un round avec un décompte avant le début du combat.
+ *
+ * Cette fonction initialise l'affichage pour un nouveau round en affichant le fond, les personnages
+ * et un texte indiquant le numéro du round suivi d'un décompte. Elle prépare l'écran pour le combat,
+ * permettant aux joueurs de se préparer visuellement.
+ *
+ * \param renderer Pointeur vers le rendu SDL.
+ * \param largeurF Largeur de la fenêtre d'affichage.
+ * \param hauteurF Hauteur de la fenêtre d'affichage.
+ * \param round Numéro du round en cours.
+ * \param Joueur1 Pointeur vers la structure du premier joueur.
+ * \param Joueur2 Pointeur vers la structure du deuxième joueur.
+ * \param BG Texture de fond à utiliser pour l'affichage.
+ */
 
 extern 
 void afficherRound(SDL_Renderer* renderer, int largeurF, int hauteurF, int round, personnage * Joueur1, personnage * Joueur2, SDL_Texture * BG) {
@@ -74,9 +105,17 @@ void afficherRound(SDL_Renderer* renderer, int largeurF, int hauteurF, int round
     TTF_CloseFont(font);
 }
 
-
-
-
+/**
+ * \brief Initialise les personnages au début d'un round.
+ *
+ * Réinitialise les états et positions des personnages, définissant leur santé initiale, position sur l'écran,
+ * et prépare les pseudonymes pour l'affichage. Cette fonction est appelée à chaque début de round pour
+ * remettre à zéro les conditions des combattants.
+ *
+ * \param renderer Pointeur vers le rendu SDL.
+ * \param J1 Pointeur vers la structure du premier combattant.
+ * \param J2 Pointeur vers la structure du deuxième combattant.
+ */
 
 extern
 void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
@@ -128,6 +167,31 @@ void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
 
     TTF_CloseFont(font);
 }
+
+/**
+ * \brief Gère le déroulement d'un round de combat.
+ *
+ * Cette fonction contrôle le temps, gère les entrées des utilisateurs et met à jour l'affichage
+ * des personnages et de leurs interactions. Elle détermine également le résultat du round en
+ * fonction de la santé des personnages et du temps écoulé.
+ *
+ * \param renderer Pointeur vers le rendu SDL.
+ * \param keyboardState État actuel du clavier pour détecter les entrées.
+ * \param Joueur1 Pointeur vers le premier joueur.
+ * \param Joueur2 Pointeur vers le deuxième joueur.
+ * \param largeurF Largeur de la fenêtre d'affichage.
+ * \param hauteurF Hauteur de la fenêtre d'affichage.
+ * \param waitForFrame Délai pour synchroniser l'affichage.
+ * \param hit Effet sonore pour les coups réussis.
+ * \param dmg Effet sonore pour les dégâts reçus.
+ * \param stun Effet sonore pour les étourdissements.
+ * \param liste_touches Tableau pour le suivi des touches pressées.
+ * \param round Numéro du round actuel.
+ * \param stunTexture Texture utilisée pour l'affichage de l'étourdissement.
+ * \param stunRect Rectangle pour l'affichage de l'étourdissement.
+ * \param stunTextureRect Rectangles pour les animations d'étourdissement.
+ * \return État du round (-1 pour la défaite du Joueur1, 1 pour la défaite du Joueur2, 0 pour autre).
+ */
 
 extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, Mix_Chunk * stun, int * liste_touches, int round, SDL_Texture * stunTexture, rectangle * stunRect, SDL_Rect ** stunTextureRect) {
     Uint32 roundStart = SDL_GetTicks();  // Temps de démarrage du round
@@ -197,7 +261,21 @@ extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage 
     return 0;
 }
 
-
+/**
+ * \brief Lance et gère les séquences de combat jusqu'à la fin du match.
+ *
+ * Cette fonction orchestre les combats, gérant le chargement des ressources sonores, la préparation des personnages,
+ * et le déroulement des rounds jusqu'à la conclusion du match. Elle détermine le gagnant et affiche l'écran de victoire.
+ *
+ * \param renderer Pointeur vers le rendu SDL.
+ * \param keyboardState État du clavier pour détecter les entrées des utilisateurs.
+ * \param Joueur1 Pointeur vers le premier joueur.
+ * \param Joueur2 Pointeur vers le deuxième joueur.
+ * \param largeurF Largeur de la fenêtre d'affichage.
+ * \param hauteurF Hauteur de la fenêtre d'affichage.
+ * \param son Indicateur pour la gestion de la musique de fond (1 pour activer, 0 pour désactiver).
+ * \param liste_touches Tableau des touches actives pour la gestion des entrées.
+ */
 
 extern 
 void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int son, int * liste_touches) {

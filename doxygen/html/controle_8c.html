@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter: Référence du fichier /mnt/d/ghrib/Documents/IC2-Fighter/src/controle.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier controle.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestion des contrôles du joueur.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;../lib/controle.h&quot;</code><br />
+</div>
+<p><a href="controle_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a6413453dcaea0af9afaab3ddd4b71a80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="controle_8c.html#a6413453dcaea0af9afaab3ddd4b71a80">controle</a> (SDL_Event e, SDL_Renderer *renderer, int largeurF, int hauteurF, int *scene, int *liste_touches, char *f_touches, char *r_touches)</td></tr>
+<tr class="memdesc:a6413453dcaea0af9afaab3ddd4b71a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère l'interface de configuration des contrôles du joueur.  <a href="controle_8c.html#a6413453dcaea0af9afaab3ddd4b71a80">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6413453dcaea0af9afaab3ddd4b71a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion des contrôles du joueur. </p>
+<p>Ce fichier contient les fonctions nécessaires pour afficher et modifier les contrôles du joueur dans le jeu. Il permet aux utilisateurs de configurer les touches pour les actions de jeu telles que sauter, se déplacer à gauche ou à droite, et utiliser des compétences spéciales. Les configurations sont visibles via une interface utilisateur graphique où les touches peuvent être assignées et visualisées.</p>
+<dl class="section author"><dt>Auteur</dt><dd>IC2-Fighter </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="controle_8c_source.html">controle.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a6413453dcaea0af9afaab3ddd4b71a80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6413453dcaea0af9afaab3ddd4b71a80">&#9670;&nbsp;</a></span>controle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int controle </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>f_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>r_touches</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gère l'interface de configuration des contrôles du joueur. </p>
+<p>Cette fonction crée et affiche une interface permettant aux utilisateurs de configurer les touches de contrôle pour deux joueurs. Elle affiche les touches actuellement configurées et permet de les modifier en cliquant sur les boutons correspondants. La fonction gère également la navigation de retour et la sortie de l'interface.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Événement SDL capturé par la boucle principale. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le rendu SDL utilisé pour dessiner l'interface. </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">scene</td><td>Pointeur vers le gestionnaire de scène pour contrôler les transitions entre les différentes vues. </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches actuellement configurées pour les actions des joueurs. </td></tr>
+    <tr><td class="paramname">f_touches</td><td>Fichier de configuration des touches par défaut. </td></tr>
+    <tr><td class="paramname">r_touches</td><td>Fichier de configuration des touches remises à zéro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourne 0 si l'utilisateur quitte l'interface de configuration en sauvegardant les modifications, 1 sinon. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="controle_8c_source.html#l00036">36</a> du fichier <a class="el" href="controle_8c_source.html">controle.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

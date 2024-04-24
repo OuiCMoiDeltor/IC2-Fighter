@@ -1,4 +1,36 @@
+/**
+ * \file   controle.c
+ * \brief  Gestion des contrôles du joueur
+ *
+ * Ce fichier contient les fonctions nécessaires pour afficher et modifier les contrôles du joueur dans le jeu.
+ * Il permet aux utilisateurs de configurer les touches pour les actions de jeu telles que sauter, se déplacer
+ * à gauche ou à droite, et utiliser des compétences spéciales. Les configurations sont visibles via une interface
+ * utilisateur graphique où les touches peuvent être assignées et visualisées.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+ 
 #include "../lib/controle.h"
+
+/**
+ * \brief Gère l'interface de configuration des contrôles du joueur.
+ *
+ * Cette fonction crée et affiche une interface permettant aux utilisateurs de configurer les touches de contrôle
+ * pour deux joueurs. Elle affiche les touches actuellement configurées et permet de les modifier en cliquant
+ * sur les boutons correspondants. La fonction gère également la navigation de retour et la sortie de l'interface.
+ *
+ * \param e Événement SDL capturé par la boucle principale.
+ * \param renderer Pointeur vers le rendu SDL utilisé pour dessiner l'interface.
+ * \param largeurF Largeur de la fenêtre d'affichage.
+ * \param hauteurF Hauteur de la fenêtre d'affichage.
+ * \param scene Pointeur vers le gestionnaire de scène pour contrôler les transitions entre les différentes vues.
+ * \param liste_touches Tableau des touches actuellement configurées pour les actions des joueurs.
+ * \param f_touches Fichier de configuration des touches par défaut.
+ * \param r_touches Fichier de configuration des touches remises à zéro.
+ * \return Retourne 0 si l'utilisateur quitte l'interface de configuration en sauvegardant les modifications, 1 sinon.
+ */
 
 extern
 int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int * liste_touches, char * f_touches, char * r_touches) {

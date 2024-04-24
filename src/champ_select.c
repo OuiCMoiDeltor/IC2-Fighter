@@ -1,4 +1,41 @@
+/**
+ * \file   champ_select.c
+ * \brief  Gestion de la sélection des personnages dans le jeu
+ *
+ * Ce fichier implémente les fonctions nécessaires pour la sélection des personnages dans l'interface de sélection du jeu.
+ * Il gère la création et l'interaction avec les boutons de sélection de personnages et le bouton de retour,
+ * ainsi que l'affichage des images représentant les personnages disponibles. Le fichier traite également les
+ * entrées utilisateur via le clavier et la souris pour naviguer entre les options et effectuer la sélection.
+ * Les états visuels des boutons et les transitions entre les scènes de jeu sont manipulés en fonction des
+ * interactions de l'utilisateur. De plus, la gestion de la musique de fond pendant la sélection est incluse,
+ * offrant une expérience utilisateur immersive.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+ 
 #include "../lib/champ_select.h"
+
+/**
+ * \brief Gère la sélection des personnages et la navigation dans le menu de sélection.
+ *
+ * Cette fonction crée l'environnement de sélection des personnages, gère les interactions avec les boutons
+ * de sélection et le bouton de retour. Elle maintient une boucle d'événements pour traiter les entrées
+ * utilisateur jusqu'à ce qu'une sélection soit faite ou que l'utilisateur quitte le menu. Elle utilise
+ * également des textures et des boutons pour afficher les personnages disponibles et gérer les états de
+ * sélection. La musique de fond peut être jouée si spécifié.
+ *
+ * \param e SDL_Event utilisé pour gérer les événements.
+ * \param renderer Pointeur vers le rendu SDL utilisé pour dessiner les éléments graphiques.
+ * \param largeurF Largeur de la fenêtre de l'affichage.
+ * \param hauteurF Hauteur de la fenêtre de l'affichage.
+ * \param scene Pointeur vers l'entier qui contrôle la scène courante dans l'application.
+ * \param son Indicateur pour jouer de la musique (1 pour jouer, 0 pour ne pas jouer).
+ * \param liste_touches Tableau d'entiers représentant l'état des touches (utilisé pour la navigation).
+ * \param keyboardState État du clavier pour gérer les entrées directes.
+ * \return Entier indiquant si l'utilisateur quitte la sélection (1) ou retourne au menu précédent (0).
+ */
 
 extern
 int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int son, int * liste_touches, Uint8 * keyboardState) {

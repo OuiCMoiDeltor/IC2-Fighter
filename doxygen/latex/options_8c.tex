@@ -1,0 +1,61 @@
+\hypertarget{options_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/options.c}
+\label{options_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/options.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/options.c}}
+
+
+Gestion du menu des options pour l\textquotesingle{}application SDL.  
+
+
+{\ttfamily \#include \char`\"{}../lib/options.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{options_8c_a6169e92633544c50098e58d0bd053ca8}{options}} (SDL\+\_\+\+Event e, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, int $\ast$largeurF, int $\ast$hauteurF, int $\ast$scene, int $\ast$son, int $\ast$fullscreen, Mix\+\_\+\+Music $\ast$background\+Sound)
+\begin{DoxyCompactList}\small\item\em Gère les interactions dans le menu des options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion du menu des options pour l\textquotesingle{}application SDL. 
+
+Ce fichier implémente les fonctions nécessaires pour gérer le menu des options, permettant aux utilisateurs de modifier la résolution de l\textquotesingle{}écran, le son, le mode plein écran et naviguer vers d\textquotesingle{}autres parties de l\textquotesingle{}application. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{options_8c_a6169e92633544c50098e58d0bd053ca8}\label{options_8c_a6169e92633544c50098e58d0bd053ca8}} 
+\index{options.c@{options.c}!options@{options}}
+\index{options@{options}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{options()}{options()}}
+{\footnotesize\ttfamily int options (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{e,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{int $\ast$}]{largeurF,  }\item[{int $\ast$}]{hauteurF,  }\item[{int $\ast$}]{scene,  }\item[{int $\ast$}]{son,  }\item[{int $\ast$}]{fullscreen,  }\item[{Mix\+\_\+\+Music $\ast$}]{background\+Sound }\end{DoxyParamCaption})}
+
+
+
+Gère les interactions dans le menu des options. 
+
+Cette fonction traite les événements utilisateurs, dessine les éléments de l\textquotesingle{}interface du menu des options et applique les modifications de configuration telles que la résolution de l\textquotesingle{}écran, le contrôle du son, et le mode plein écran.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Événement SDL pour capter les actions de l\textquotesingle{}utilisateur. \\
+\hline
+{\em renderer} & Renderer SDL pour dessiner les éléments du menu. \\
+\hline
+{\em window} & Fenêtre SDL dans laquelle le menu est affiché. \\
+\hline
+{\em largeurF} & Pointeur vers la largeur actuelle de la fenêtre, peut être modifié pour changer la résolution. \\
+\hline
+{\em hauteurF} & Pointeur vers la hauteur actuelle de la fenêtre, peut être modifié pour changer la résolution. \\
+\hline
+{\em scene} & Pointeur vers la variable contrôlant l\textquotesingle{}affichage des différentes scènes de l\textquotesingle{}application. \\
+\hline
+{\em son} & Pointeur vers la variable contrôlant l\textquotesingle{}état du son (activé/désactivé). \\
+\hline
+{\em fullscreen} & Pointeur vers la variable contrôlant le mode plein écran (activé/désactivé). \\
+\hline
+{\em background\+Sound} & Pointeur vers la musique de fond pour gérer son arrêt ou sa lecture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un entier indiquant si l\textquotesingle{}utilisateur a quitté le menu des options (0 pour non, 1 pour oui). 
+\end{DoxyReturn}
+
+
+Définition à la ligne 32 du fichier options.\+c.
+

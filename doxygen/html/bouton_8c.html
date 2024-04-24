@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter: Référence du fichier /mnt/d/ghrib/Documents/IC2-Fighter/src/bouton.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier bouton.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestion des boutons dans l'interface utilisateur.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &quot;../lib/bouton.h&quot;</code><br />
+</div>
+<p><a href="bouton_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="memItemLeft" align="right" valign="top">bouton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a2c607c7d1e0a8461f1ee74036b92dbce">creerBouton</a> (SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)</td></tr>
+<tr class="memdesc:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un bouton avec des propriétés spécifiques.  <a href="bouton_8c.html#a2c607c7d1e0a8461f1ee74036b92dbce">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a> (bouton **b)</td></tr>
+<tr class="memdesc:a821c8aea0555ab11ceb6d004c31dfe96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un bouton et libère toutes les ressources associées.  <a href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="memItemLeft" align="right" valign="top">listeBouton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a3c8f3e8c40ba35beddca8356af5da5dc">creerListeBouton</a> ()</td></tr>
+<tr class="memdesc:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une liste pour gérer les boutons.  <a href="bouton_8c.html#a3c8f3e8c40ba35beddca8356af5da5dc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c83690adb669422845252d4767f105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a02c83690adb669422845252d4767f105">ajoutListeBouton</a> (listeBouton **liste, bouton **Bouton)</td></tr>
+<tr class="memdesc:a02c83690adb669422845252d4767f105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un bouton à une liste de boutons.  <a href="bouton_8c.html#a02c83690adb669422845252d4767f105">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a02c83690adb669422845252d4767f105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a15dcfa0a7ea076102547aa8ab0383ad8">detruireListeBouton</a> (listeBouton **liste)</td></tr>
+<tr class="memdesc:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une liste de boutons et libère toutes les ressources associées.  <a href="bouton_8c.html#a15dcfa0a7ea076102547aa8ab0383ad8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion des boutons dans l'interface utilisateur. </p>
+<p>Ce fichier contient toutes les fonctions nécessaires pour la création, la gestion et la destruction des boutons utilisés dans l'interface utilisateur du jeu. Il permet de définir les propriétés des boutons tels que leur texture, leur position, leurs états visuels (relâché, appuyé, survolé), ainsi que leur comportement interactif. Les fonctions supportent également la gestion dynamique de plusieurs états pour les boutons animés.</p>
+<dl class="section author"><dt>Auteur</dt><dd>IC2-Fighter </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a02c83690adb669422845252d4767f105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c83690adb669422845252d4767f105">&#9670;&nbsp;</a></span>ajoutListeBouton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajoutListeBouton </td>
+          <td>(</td>
+          <td class="paramtype">listeBouton **&#160;</td>
+          <td class="paramname"><em>liste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bouton **&#160;</td>
+          <td class="paramname"><em>Bouton</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un bouton à une liste de boutons. </p>
+<p>Cette fonction ajoute un bouton à la fin d'une liste circulaire de boutons. Elle ajuste les pointeurs pour maintenir la structure de la liste.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste</td><td>Double pointeur vers la liste de boutons où ajouter le nouveau bouton. </td></tr>
+    <tr><td class="paramname">Bouton</td><td>Double pointeur vers le bouton à ajouter à la liste. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00155">155</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+
+</div>
+</div>
+<a id="a2c607c7d1e0a8461f1ee74036b92dbce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c607c7d1e0a8461f1ee74036b92dbce">&#9670;&nbsp;</a></span>creerBouton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bouton* creerBouton </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramname"><em>listeRectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>largeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>hauteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rW</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rH</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>anime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbEtat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un bouton avec des propriétés spécifiques. </p>
+<p>Cette fonction alloue la mémoire pour un nouveau bouton, initialise sa texture à partir d'une image, et définit ses dimensions et états selon qu'il soit animé ou non. La position et la taille du bouton sont spécifiées par les paramètres de rectangle, et les états du bouton sont gérés en fonction du paramètre 'anime'.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le rendu SDL. </td></tr>
+    <tr><td class="paramname">listeRectangle</td><td>Pointeur vers la liste des rectangles à mettre à jour avec la position du bouton. </td></tr>
+    <tr><td class="paramname">largeur</td><td>Largeur du bouton (modifiable). </td></tr>
+    <tr><td class="paramname">hauteur</td><td>Hauteur du bouton (modifiable). </td></tr>
+    <tr><td class="paramname">rX</td><td>Position X du rectangle du bouton. </td></tr>
+    <tr><td class="paramname">rY</td><td>Position Y du rectangle du bouton. </td></tr>
+    <tr><td class="paramname">rW</td><td>Largeur du rectangle du bouton. </td></tr>
+    <tr><td class="paramname">rH</td><td>Hauteur du rectangle du bouton. </td></tr>
+    <tr><td class="paramname">img</td><td>Chemin vers l'image à utiliser pour la texture du bouton. </td></tr>
+    <tr><td class="paramname">anime</td><td>Indique si le bouton doit être animé. </td></tr>
+    <tr><td class="paramname">nbEtat</td><td>Nombre d'états graphiques du bouton (utilisé pour l'animation). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur vers le bouton nouvellement créé ou NULL en cas d'échec. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00042">42</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+
+</div>
+</div>
+<a id="a3c8f3e8c40ba35beddca8356af5da5dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c8f3e8c40ba35beddca8356af5da5dc">&#9670;&nbsp;</a></span>creerListeBouton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">listeBouton* creerListeBouton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée une liste pour gérer les boutons. </p>
+<p>Cette fonction alloue et initialise une nouvelle liste de boutons vide.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur vers la nouvelle liste de boutons. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00137">137</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+
+</div>
+</div>
+<a id="a821c8aea0555ab11ceb6d004c31dfe96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821c8aea0555ab11ceb6d004c31dfe96">&#9670;&nbsp;</a></span>DestroyBouton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DestroyBouton </td>
+          <td>(</td>
+          <td class="paramtype">bouton **&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un bouton et libère toutes les ressources associées. </p>
+<p>Cette fonction détruit la texture du bouton, libère les rectangles des états si nécessaire, et libère la structure du bouton elle-même.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Pointeur double vers le bouton à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00112">112</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+
+</div>
+</div>
+<a id="a15dcfa0a7ea076102547aa8ab0383ad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15dcfa0a7ea076102547aa8ab0383ad8">&#9670;&nbsp;</a></span>detruireListeBouton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireListeBouton </td>
+          <td>(</td>
+          <td class="paramtype">listeBouton **&#160;</td>
+          <td class="paramname"><em>liste</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit une liste de boutons et libère toutes les ressources associées. </p>
+<p>Cette fonction parcourt une liste de boutons, détruit chaque bouton et libère la mémoire de la liste.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste</td><td>Double pointeur vers la liste de boutons à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="bouton_8c_source.html#l00182">182</a> du fichier <a class="el" href="bouton_8c_source.html">bouton.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

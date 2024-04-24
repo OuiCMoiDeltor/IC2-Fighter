@@ -1,3 +1,11 @@
+/**
+ * @file perso.c
+ * @brief Fichier contenant les fonctions de gestion des personnages dans le jeu.
+ *
+ * Ce fichier implémente les fonctions nécessaires pour créer, mettre à jour et détruire les personnages
+ * dans le jeu, en gérant les textures, animations et interactions de ces derniers.
+ */
+
 #include <SDL2/SDL.h>
 #include "../lib/creation.h"
 #include "../lib/perso.h"
@@ -9,32 +17,22 @@
 #define DMG 10
 
 /**
-	* \file  perso.c
-	* \brief Programme personnages
-	* \author IC2-Fighter
-	* \version 1.0
-	*
-	*  Programme avec les fonctions pour les personnages
-	*
-*/
-
-
-
-/**
-	* \fn personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)
-	* \brief  Cette fonction va initialisé le personnage et le créer
-	* \param *renderer Permet d'avoir le rendu de l'image
-	* \param **listeRectangle 
-	* \param *largeur Largeur du personnage
-	* \param *hauteur Hauteur du personnage
-	* \param rX Position du bouton sur l'axe X
-	* \param rY Position du bouton sur l'axe Y
-	* \param rW Ratio du bouton en fonction de la taille de l'ecran
-	* \param rH Ratio du bouton en fonction de la taille de l'ecran
-	* \param *image Adresse et nom de l'image utilisé
-	* \return Retourne le perso une fois créé
-
-*/
+ * @brief Crée un nouveau personnage avec des animations définies.
+ *
+ * Cette fonction initialise un personnage, y compris sa position, sa texture,
+ * et ses animations. Elle prépare également les rectangles SDL pour chaque frame d'animation.
+ *
+ * @param renderer Pointeur vers le renderer SDL utilisé pour le dessin.
+ * @param image Chemin vers le fichier d'image à utiliser pour la texture du personnage.
+ * @param largeur Pointeur vers la largeur de la fenêtre du jeu.
+ * @param hauteur Pointeur vers la hauteur de la fenêtre du jeu.
+ * @param rX Coordonnée X de la position relative du personnage.
+ * @param rY Coordonnée Y de la position relative du personnage.
+ * @param rW Largeur relative du personnage.
+ * @param rH Hauteur relative du personnage.
+ * @param listeRectangle Liste des rectangles pour la gestion des collisions et interactions.
+ * @return Un pointeur vers la structure `personnage` nouvellement créée, ou NULL en cas d'erreur.
+ */
 
 extern
 personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)
@@ -210,6 +208,15 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     return perso;
 }
 
+/**
+ * @brief Détruit un personnage et libère toutes les ressources associées.
+ *
+ * Cette fonction libère toutes les ressources allouées pour un personnage, y compris les textures,
+ * les rectangles SDL, et les structures de données internes. Elle doit être appelée pour éviter les fuites de mémoire.
+ *
+ * @param perso Pointeur vers le pointeur du personnage à détruire. Le pointeur est mis à NULL après la destruction.
+ */
+
 extern
 void detruirePerso(personnage ** perso) {
     // Destruction rectangles
@@ -308,17 +315,18 @@ void detruirePerso(personnage ** perso) {
     *perso = NULL;
 }
 
-
 /**
-	* \fn void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso, const Uint8 *keyboardState, int largeur, int hauteur)
-	* \brief  Cette fonction va initialisé le personnage et le créer
-	* \param *renderer Permet d'avoir le rendu de l'image
-	* \param *perso utilise la structure du personnage
-	* \param largeur Largeur du personnage
-	* \param hauteur Hauteur du personnage
-	* \param *keyboardState pour connaitre le statut du bouton appuyer
-	* \return Ne retourne rien
-*/
+ * @brief Met à jour les points de vie d'un personnage en fonction des dégâts reçus.
+ *
+ * Cette fonction réduit les points de vie du personnage en fonction des dégâts reçus et ajuste la taille de la barre de vie.
+ * Elle joue également un son de dégât si nécessaire.
+ *
+ * @param renderer Pointeur vers le renderer SDL.
+ * @param perso Pointeur vers le personnage dont les points de vie doivent être mis à jour.
+ * @param degat Quantité de dégâts infligés au personnage.
+ * @param persoID Identifiant du personnage pour gérer les comportements spécifiques.
+ * @param soundDMG Pointeur vers le chunk de son à jouer lorsque des dégâts sont reçus.
+ */
 
 extern
 void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int persoID, Mix_Chunk * soundDMG) {
@@ -342,9 +350,28 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 
 }
 
-
-
-
+/**
+ * @brief Met à jour les animations et les états de deux personnages en fonction de l'input utilisateur et d'autres conditions de jeu.
+ *
+ * Cette fonction gère la logique d'animation, les déplacements, les attaques, et autres interactions entre deux personnages.
+ * Elle est appelée à chaque frame du jeu pour assurer que les états des personnages sont correctement mis à jour en fonction
+ * des actions du joueur et des règles du jeu.
+ *
+ * @param renderer Pointeur vers le renderer SDL utilisé pour le dessin.
+ * @param perso1 Pointeur vers le premier personnage.
+ * @param perso2 Pointeur vers le deuxième personnage.
+ * @param keyboardState État actuel du clavier pour lire les inputs du joueur.
+ * @param largeur Largeur de la fenêtre du jeu.
+ * @param hauteur Hauteur de la fenêtre du jeu.
+ * @param framerate Pointeur vers la variable de contrôle du framerate, utilisée pour la synchronisation des animations.
+ * @param soundHIT Pointeur vers le chunk de son joué lors d'une attaque réussie.
+ * @param soundDMG Pointeur vers le chunk de son joué lors de la réception de dégâts.
+ * @param soundStun Pointeur vers le chunk de son joué lorsqu'un personnage est étourdi.
+ * @param liste_touches Tableau des touches configurées pour le contrôle des personnages.
+ * @param stunTexture Texture utilisée pour l'effet visuel lorsqu'un personnage est étourdi.
+ * @param stunRect Rectangle SDL représentant la position et la taille de l'effet de stun.
+ * @param stunTextureRect Tableau de rectangles SDL pour l'animation de l'effet de stun.
+ */
 
 extern
 void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * soundHIT, Mix_Chunk * soundDMG, Mix_Chunk * soundStun, int * liste_touches, SDL_Texture * stunTexture, rectangle * stunRect, SDL_Rect ** stunTextureRect) {

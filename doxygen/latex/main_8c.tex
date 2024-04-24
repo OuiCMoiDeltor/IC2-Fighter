@@ -1,0 +1,104 @@
+\hypertarget{main_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/main.c}
+\label{main_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/main.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/main.c}}
+
+
+Programme principal pour IC2 Fighter.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../lib/bouton.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/perso.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/combat.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/touches.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/champ\+\_\+select.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/controle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/gamemode\+\_\+selection.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/menu\+\_\+principal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/options.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a73b3bbc51c65bf165939cc7b57e9eb4b}\label{main_8c_a73b3bbc51c65bf165939cc7b57e9eb4b}} 
+\#define {\bfseries NOM\+\_\+\+JEU}~\char`\"{}IC2 Fighter\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_aa98a27bdaed0d0fdd7ec1321a6886417}\label{main_8c_aa98a27bdaed0d0fdd7ec1321a6886417}} 
+\#define {\bfseries ICONE}~\char`\"{}img/menu\+\_\+principal/logo.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a5fe586cf054ab7bea6c77544941fc01f}\label{main_8c_a5fe586cf054ab7bea6c77544941fc01f}} 
+\#define {\bfseries TTF\+\_\+\+FONT}~\char`\"{}ttf/Act\+\_\+\+Of\+\_\+\+Rejection.\+ttf\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a69708f72238abe7c502d1ff2f2c9fcbb}\label{main_8c_a69708f72238abe7c502d1ff2f2c9fcbb}} 
+\#define {\bfseries SOUND\+\_\+\+BACKGROUND}~\char`\"{}mixer/Leateq -\/ Tokyo.\+mp3\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a9e4ed9912b6fca03a1c1bc58c4115685}\label{main_8c_a9e4ed9912b6fca03a1c1bc58c4115685}} 
+\#define {\bfseries FICHIER\+\_\+\+TOUCHES}~\char`\"{}touches.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_ad23df7a703bd738943bd0b5354299338}\label{main_8c_ad23df7a703bd738943bd0b5354299338}} 
+\#define {\bfseries RESET\+\_\+\+TOUCHES}~\char`\"{}default\+\_\+touches.\+txt\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ad8b81ce8353c352aa75967fb77c02a52}\label{main_8c_ad8b81ce8353c352aa75967fb77c02a52}} 
+enum {\bfseries scenes} \{ \newline
+{\bfseries CONTROLE}
+, {\bfseries OPTIONS}
+, {\bfseries MENU\+\_\+\+PRINCIPAL}
+, {\bfseries GAMEMODE}
+, \newline
+{\bfseries CHAMP\+\_\+\+SELECT}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction principale du jeu IC2 Fighter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programme principal pour IC2 Fighter. 
+
+Ce fichier est le point d\textquotesingle{}entrée du jeu IC2 Fighter. Il initialise les bibliothèques SDL nécessaires, crée la fenêtre de jeu, gère le cycle de vie de l\textquotesingle{}application et les transitions entre différentes scènes telles que le menu principal, la sélection des modes de jeu, les options, etc.
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction principale du jeu IC2 Fighter. 
+
+Initialise SDL et ses sous-\/systèmes, crée une fenêtre et un renderer, et entre dans une boucle de jeu qui gère les événements et met à jour les scènes du jeu en fonction des interactions de l\textquotesingle{}utilisateur. La musique de fond est gérée ici ainsi que les transitions entre les scènes de jeu différentes.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em argc} & Nombre d\textquotesingle{}arguments de la ligne de commande. \\
+\hline
+{\em argv} & Tableau de chaînes des arguments de la ligne de commande. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Code de sortie du programme. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 58 du fichier main.\+c.
+

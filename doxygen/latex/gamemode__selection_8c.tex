@@ -1,0 +1,68 @@
+\hypertarget{gamemode__selection_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/gamemode\+\_\+selection.c}
+\label{gamemode__selection_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/gamemode\_selection.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/gamemode\_selection.c}}
+
+
+Gestion de la sélection des modes de jeu.  
+
+
+{\ttfamily \#include \char`\"{}../lib/gamemode\+\_\+selection.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gamemode__selection_8c_a571393801e3c046cb4a082e74b1eac4f}{gamemode\+\_\+selection}} (SDL\+\_\+\+Event e, SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int $\ast$scene, int son, Mix\+\_\+\+Music $\ast$background\+Sound\+Select)
+\begin{DoxyCompactList}\small\item\em Gère la sélection du mode de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion de la sélection des modes de jeu. 
+
+Ce fichier contient les fonctions permettant de sélectionner les différents modes de jeu dans une application utilisant SDL. Il gère les interactions utilisateur et les transitions d\textquotesingle{}état en fonction des choix de mode de jeu.
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{gamemode__selection_8c_a571393801e3c046cb4a082e74b1eac4f}\label{gamemode__selection_8c_a571393801e3c046cb4a082e74b1eac4f}} 
+\index{gamemode\_selection.c@{gamemode\_selection.c}!gamemode\_selection@{gamemode\_selection}}
+\index{gamemode\_selection@{gamemode\_selection}!gamemode\_selection.c@{gamemode\_selection.c}}
+\doxysubsubsection{\texorpdfstring{gamemode\_selection()}{gamemode\_selection()}}
+{\footnotesize\ttfamily int gamemode\+\_\+selection (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{e,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int $\ast$}]{scene,  }\item[{int}]{son,  }\item[{Mix\+\_\+\+Music $\ast$}]{background\+Sound\+Select }\end{DoxyParamCaption})}
+
+
+
+Gère la sélection du mode de jeu. 
+
+Cette fonction affiche les options de mode de jeu et gère les entrées de l\textquotesingle{}utilisateur pour sélectionner le mode de jeu désiré. Elle utilise une boucle d\textquotesingle{}événements pour traiter les clics de souris et les entrées du clavier, mettant à jour l\textquotesingle{}état de la scène en fonction des interactions.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Événement SDL pour gérer les entrées. \\
+\hline
+{\em renderer} & Renderer SDL utilisé pour dessiner les éléments graphiques. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de rendu. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de rendu. \\
+\hline
+{\em scene} & Pointeur vers la variable contrôlant l\textquotesingle{}état de la scène courante. \\
+\hline
+{\em son} & Indicateur pour gérer le son. \\
+\hline
+{\em background\+Sound\+Select} & Musique de fond pour le menu de sélection. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Code pour indiquer si l\textquotesingle{}application doit continuer (0) ou terminer (1). 
+\end{DoxyReturn}
+
+
+Définition à la ligne 34 du fichier gamemode\+\_\+selection.\+c.
+

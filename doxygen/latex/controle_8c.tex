@@ -1,0 +1,70 @@
+\hypertarget{controle_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/controle.c}
+\label{controle_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/controle.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/controle.c}}
+
+
+Gestion des contrôles du joueur.  
+
+
+{\ttfamily \#include \char`\"{}../lib/controle.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{controle_8c_a6413453dcaea0af9afaab3ddd4b71a80}{controle}} (SDL\+\_\+\+Event e, SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int $\ast$scene, int $\ast$liste\+\_\+touches, char $\ast$f\+\_\+touches, char $\ast$r\+\_\+touches)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}interface de configuration des contrôles du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion des contrôles du joueur. 
+
+Ce fichier contient les fonctions nécessaires pour afficher et modifier les contrôles du joueur dans le jeu. Il permet aux utilisateurs de configurer les touches pour les actions de jeu telles que sauter, se déplacer à gauche ou à droite, et utiliser des compétences spéciales. Les configurations sont visibles via une interface utilisateur graphique où les touches peuvent être assignées et visualisées.
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{controle_8c_a6413453dcaea0af9afaab3ddd4b71a80}\label{controle_8c_a6413453dcaea0af9afaab3ddd4b71a80}} 
+\index{controle.c@{controle.c}!controle@{controle}}
+\index{controle@{controle}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{controle()}{controle()}}
+{\footnotesize\ttfamily int controle (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{e,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int $\ast$}]{scene,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{char $\ast$}]{f\+\_\+touches,  }\item[{char $\ast$}]{r\+\_\+touches }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}interface de configuration des contrôles du joueur. 
+
+Cette fonction crée et affiche une interface permettant aux utilisateurs de configurer les touches de contrôle pour deux joueurs. Elle affiche les touches actuellement configurées et permet de les modifier en cliquant sur les boutons correspondants. La fonction gère également la navigation de retour et la sortie de l\textquotesingle{}interface.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Événement SDL capturé par la boucle principale. \\
+\hline
+{\em renderer} & Pointeur vers le rendu SDL utilisé pour dessiner l\textquotesingle{}interface. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em scene} & Pointeur vers le gestionnaire de scène pour contrôler les transitions entre les différentes vues. \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches actuellement configurées pour les actions des joueurs. \\
+\hline
+{\em f\+\_\+touches} & Fichier de configuration des touches par défaut. \\
+\hline
+{\em r\+\_\+touches} & Fichier de configuration des touches remises à zéro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne 0 si l\textquotesingle{}utilisateur quitte l\textquotesingle{}interface de configuration en sauvegardant les modifications, 1 sinon. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 36 du fichier controle.\+c.
+

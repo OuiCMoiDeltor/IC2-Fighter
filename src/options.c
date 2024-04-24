@@ -1,5 +1,33 @@
+/**
+ * @file options.c
+ * @brief Gestion du menu des options pour l'application SDL.
+ *
+ * Ce fichier implémente les fonctions nécessaires pour gérer le menu des options,
+ * permettant aux utilisateurs de modifier la résolution de l'écran, le son,
+ * le mode plein écran et naviguer vers d'autres parties de l'application.
+ */
+
 #include "../lib/options.h"
 
+/**
+ * @brief Gère les interactions dans le menu des options.
+ *
+ * Cette fonction traite les événements utilisateurs, dessine les éléments de l'interface du menu des options
+ * et applique les modifications de configuration telles que la résolution de l'écran, le contrôle du son,
+ * et le mode plein écran.
+ *
+ * @param e Événement SDL pour capter les actions de l'utilisateur.
+ * @param renderer Renderer SDL pour dessiner les éléments du menu.
+ * @param window Fenêtre SDL dans laquelle le menu est affiché.
+ * @param largeurF Pointeur vers la largeur actuelle de la fenêtre, peut être modifié pour changer la résolution.
+ * @param hauteurF Pointeur vers la hauteur actuelle de la fenêtre, peut être modifié pour changer la résolution.
+ * @param scene Pointeur vers la variable contrôlant l'affichage des différentes scènes de l'application.
+ * @param son Pointeur vers la variable contrôlant l'état du son (activé/désactivé).
+ * @param fullscreen Pointeur vers la variable contrôlant le mode plein écran (activé/désactivé).
+ * @param backgroundSound Pointeur vers la musique de fond pour gérer son arrêt ou sa lecture.
+ * @return Un entier indiquant si l'utilisateur a quitté le menu des options (0 pour non, 1 pour oui).
+ */
+ 
 extern
 int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int * largeurF, int * hauteurF, int * scene, int * son, int * fullscreen, Mix_Music * backgroundSound) {
     

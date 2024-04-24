@@ -1,0 +1,23 @@
+warning: The selected output language "french" has not been updated
+since release 1.8.15.  As a result some sentences may appear in English.
+
+warning: source '$(../lib)' is not a readable file or directory... skipping.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/menu_principal.c:2: warning: the name 'menu_principal.h' supplied as the argument in the \file statement is not an input file
+/mnt/d/ghrib/Documents/IC2-Fighter/src/touches.c:2: warning: the name 'gestion_touches.c' supplied as the argument in the \file statement is not an input file
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:25: warning: Member IMG_GAME_BG (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:26: warning: Member IMG_STUN (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:27: warning: Member IMG_VICTOIRE1 (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:28: warning: Member IMG_VICTOIRE2 (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:29: warning: Member SOUND_BACKGROUND_COMBAT (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:30: warning: Member TTF_FONT (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:32: warning: Member DUREE_ROUND (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:33: warning: Member ROUND_GAGNANT (macro definition) of file combat.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:31: warning: Member NOM_JEU (macro definition) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:32: warning: Member ICONE (macro definition) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:35: warning: Member TTF_FONT (macro definition) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:38: warning: Member SOUND_BACKGROUND (macro definition) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:41: warning: Member FICHIER_TOUCHES (macro definition) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:42: warning: Member RESET_TOUCHES (macro definition) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:44: warning: Member scenes (enumeration) of file main.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/perso.c:16: warning: Member TTF_FONT (macro definition) of file perso.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/src/perso.c:17: warning: Member DMG (macro definition) of file perso.c is not documented.

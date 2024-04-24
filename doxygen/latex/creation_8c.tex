@@ -1,0 +1,289 @@
+\hypertarget{creation_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/creation.c}
+\label{creation_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/creation.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/creation.c}}
+
+
+Fonctions pour créer et gérer des textures et des rectangles.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../lib/creation.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+liste\+T\+\_\+t $\ast$ \mbox{\hyperlink{creation_8c_a60a5cbdefb1579937c934d4764436ee5}{creer\+ListeT}} ()
+\begin{DoxyCompactList}\small\item\em Crée une nouvelle liste de textures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{creation_8c_af68e8afe26983df68acf0a834af15985}{ajout\+ListeT}} (liste\+T\+\_\+t $\ast$$\ast$liste, SDL\+\_\+\+Texture $\ast$$\ast$Texture)
+\begin{DoxyCompactList}\small\item\em Ajoute une texture à la liste de textures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}{detruire\+ListeT}} (liste\+T\+\_\+t $\ast$$\ast$liste)
+\begin{DoxyCompactList}\small\item\em Détruit une liste de textures et libère la mémoire associée. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{creation_8c_a94387a957924bac438513aeea855bab3}{creer\+Image}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$image)
+\begin{DoxyCompactList}\small\item\em Crée une texture à partir d\textquotesingle{}un fichier image. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{creation_8c_a70bbe03fd3400dde85f1a0fac0426222}{creer\+Texte}} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$font, char $\ast$texte, SDL\+\_\+\+Color couleur)
+\begin{DoxyCompactList}\small\item\em Crée une texture de texte à partir d\textquotesingle{}une chaîne de caractères. \end{DoxyCompactList}\item 
+liste\+Rect $\ast$ \mbox{\hyperlink{creation_8c_a07c828a6b14af29a34d94fe46209ed1a}{creer\+Liste\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em Crée une nouvelle liste de rectangles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{creation_8c_a526afa603b8080dec0f9a234833b5661}{ajout\+Liste\+Rect}} (liste\+Rect $\ast$$\ast$liste, rectangle $\ast$$\ast$Rect)
+\begin{DoxyCompactList}\small\item\em Ajoute un rectangle à la liste de rectangles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}{detruire\+Liste\+Rect}} (liste\+Rect $\ast$$\ast$liste)
+\begin{DoxyCompactList}\small\item\em Détruit une liste de rectangles et libère la mémoire associée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{creation_8c_a90feb595f849f52d8483be2c7df23565}{update\+Rectangles}} (liste\+Rect $\ast$liste)
+\begin{DoxyCompactList}\small\item\em Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés. \end{DoxyCompactList}\item 
+rectangle $\ast$ \mbox{\hyperlink{creation_8c_aaf48331ff12117690ac67879e5f0a2bf}{creer\+Rectangle}} (int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH)
+\begin{DoxyCompactList}\small\item\em Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions pour créer et gérer des textures et des rectangles. 
+
+Ce fichier contient des fonctions pour la création et la gestion de textures et de rectangles utilisés dans un contexte graphique SDL. Il permet de gérer des listes de ces objets pour faciliter la manipulation et la destruction en masse lors du nettoyage de la mémoire.
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{creation_8c_a526afa603b8080dec0f9a234833b5661}\label{creation_8c_a526afa603b8080dec0f9a234833b5661}} 
+\index{creation.c@{creation.c}!ajoutListeRect@{ajoutListeRect}}
+\index{ajoutListeRect@{ajoutListeRect}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{ajoutListeRect()}{ajoutListeRect()}}
+{\footnotesize\ttfamily void ajout\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect $\ast$$\ast$}]{liste,  }\item[{rectangle $\ast$$\ast$}]{Rect }\end{DoxyParamCaption})}
+
+
+
+Ajoute un rectangle à la liste de rectangles. 
+
+Cette fonction insère un nouveau rectangle dans la liste de rectangles. Si la liste est vide, le rectangle est ajouté en premier élément. Sinon, il est ajouté à la fin de la liste.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Pointeur double vers la liste de rectangles. \\
+\hline
+{\em Rect} & Pointeur double vers le rectangle à ajouter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 198 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_af68e8afe26983df68acf0a834af15985}\label{creation_8c_af68e8afe26983df68acf0a834af15985}} 
+\index{creation.c@{creation.c}!ajoutListeT@{ajoutListeT}}
+\index{ajoutListeT@{ajoutListeT}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{ajoutListeT()}{ajoutListeT()}}
+{\footnotesize\ttfamily void ajout\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t $\ast$$\ast$}]{liste,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{Texture }\end{DoxyParamCaption})}
+
+
+
+Ajoute une texture à la liste de textures. 
+
+Cette fonction insère une nouvelle texture dans la liste de textures. Si la liste est vide, la texture est ajoutée en premier élément. Sinon, elle est ajoutée à la fin de la liste.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Pointeur double vers la liste de textures. \\
+\hline
+{\em Texture} & Pointeur double vers la texture à ajouter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 45 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_a94387a957924bac438513aeea855bab3}\label{creation_8c_a94387a957924bac438513aeea855bab3}} 
+\index{creation.c@{creation.c}!creerImage@{creerImage}}
+\index{creerImage@{creerImage}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerImage()}{creerImage()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture$\ast$ creer\+Image (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{image }\end{DoxyParamCaption})}
+
+
+
+Crée une texture à partir d\textquotesingle{}un fichier image. 
+
+Cette fonction charge une image à partir d\textquotesingle{}un fichier spécifié et crée une texture SDL à partir de cette image.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer SDL utilisé pour créer la texture. \\
+\hline
+{\em image} & Chemin vers le fichier image à charger. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La texture SDL créée ou NULL en cas d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 108 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_a07c828a6b14af29a34d94fe46209ed1a}\label{creation_8c_a07c828a6b14af29a34d94fe46209ed1a}} 
+\index{creation.c@{creation.c}!creerListeRect@{creerListeRect}}
+\index{creerListeRect@{creerListeRect}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerListeRect()}{creerListeRect()}}
+{\footnotesize\ttfamily liste\+Rect$\ast$ creer\+Liste\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crée une nouvelle liste de rectangles. 
+
+Cette fonction alloue de la mémoire pour une nouvelle liste de rectangles et initialise ses membres.
+
+\begin{DoxyReturn}{Renvoie}
+Pointeur vers la nouvelle liste de rectangles créée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 180 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_a60a5cbdefb1579937c934d4764436ee5}\label{creation_8c_a60a5cbdefb1579937c934d4764436ee5}} 
+\index{creation.c@{creation.c}!creerListeT@{creerListeT}}
+\index{creerListeT@{creerListeT}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerListeT()}{creerListeT()}}
+{\footnotesize\ttfamily liste\+T\+\_\+t$\ast$ creer\+ListeT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crée une nouvelle liste de textures. 
+
+Cette fonction alloue de la mémoire pour une nouvelle liste de textures et initialise ses membres.
+
+\begin{DoxyReturn}{Renvoie}
+Pointeur vers la nouvelle liste de textures créée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 27 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_aaf48331ff12117690ac67879e5f0a2bf}\label{creation_8c_aaf48331ff12117690ac67879e5f0a2bf}} 
+\index{creation.c@{creation.c}!creerRectangle@{creerRectangle}}
+\index{creerRectangle@{creerRectangle}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerRectangle()}{creerRectangle()}}
+{\footnotesize\ttfamily rectangle$\ast$ creer\+Rectangle (\begin{DoxyParamCaption}\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH }\end{DoxyParamCaption})}
+
+
+
+Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios. 
+
+Cette fonction crée un nouveau rectangle dont les dimensions et la position sont déterminées par des ratios appliqués aux dimensions fournies. Cela permet un positionnement et un dimensionnement flexibles en fonction des dimensions de la fenêtre ou d\textquotesingle{}autres références.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em largeur} & Pointeur vers la largeur de référence. \\
+\hline
+{\em hauteur} & Pointeur vers la hauteur de référence. \\
+\hline
+{\em rX} & Ratio pour calculer la position x du rectangle. \\
+\hline
+{\em rY} & Ratio pour calculer la position y du rectangle. \\
+\hline
+{\em rW} & Ratio pour calculer la largeur du rectangle. \\
+\hline
+{\em rH} & Ratio pour calculer la hauteur du rectangle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pointeur vers le nouveau rectangle créé. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 291 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_a70bbe03fd3400dde85f1a0fac0426222}\label{creation_8c_a70bbe03fd3400dde85f1a0fac0426222}} 
+\index{creation.c@{creation.c}!creerTexte@{creerTexte}}
+\index{creerTexte@{creerTexte}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{creerTexte()}{creerTexte()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture$\ast$ creer\+Texte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{char $\ast$}]{texte,  }\item[{SDL\+\_\+\+Color}]{couleur }\end{DoxyParamCaption})}
+
+
+
+Crée une texture de texte à partir d\textquotesingle{}une chaîne de caractères. 
+
+Cette fonction crée une texture SDL à partir d\textquotesingle{}une chaîne de caractères en utilisant une police spécifiée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer SDL utilisé pour créer la texture. \\
+\hline
+{\em font} & La police TTF utilisée pour rendre le texte. \\
+\hline
+{\em texte} & La chaîne de caractères à rendre en texture. \\
+\hline
+{\em couleur} & La couleur du texte. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La texture SDL créée ou NULL en cas d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 146 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}\label{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}} 
+\index{creation.c@{creation.c}!detruireListeRect@{detruireListeRect}}
+\index{detruireListeRect@{detruireListeRect}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{detruireListeRect()}{detruireListeRect()}}
+{\footnotesize\ttfamily void detruire\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
+
+
+
+Détruit une liste de rectangles et libère la mémoire associée. 
+
+Cette fonction parcourt la liste de rectangles et libère la mémoire associée à chaque rectangle et à la liste elle-\/même.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Pointeur double vers la liste de rectangles à détruire. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 225 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}\label{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}} 
+\index{creation.c@{creation.c}!detruireListeT@{detruireListeT}}
+\index{detruireListeT@{detruireListeT}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{detruireListeT()}{detruireListeT()}}
+{\footnotesize\ttfamily void detruire\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
+
+
+
+Détruit une liste de textures et libère la mémoire associée. 
+
+Cette fonction parcourt la liste de textures et détruit chaque texture SDL, libérant ainsi la mémoire associée à chaque texture et à la liste elle-\/même.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Pointeur double vers la liste de textures à détruire. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 72 du fichier creation.\+c.
+
+\mbox{\Hypertarget{creation_8c_a90feb595f849f52d8483be2c7df23565}\label{creation_8c_a90feb595f849f52d8483be2c7df23565}} 
+\index{creation.c@{creation.c}!updateRectangles@{updateRectangles}}
+\index{updateRectangles@{updateRectangles}!creation.c@{creation.c}}
+\doxysubsubsection{\texorpdfstring{updateRectangles()}{updateRectangles()}}
+{\footnotesize\ttfamily void update\+Rectangles (\begin{DoxyParamCaption}\item[{liste\+Rect $\ast$}]{liste }\end{DoxyParamCaption})}
+
+
+
+Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés. 
+
+Cette fonction ajuste les dimensions et les positions des rectangles dans la liste en utilisant les ratios stockés dans chaque structure de rectangle. Cela permet d\textquotesingle{}ajuster dynamiquement les dimensions des éléments graphiques en fonction des dimensions de la fenêtre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Pointeur vers la liste de rectangles à mettre à jour. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 262 du fichier creation.\+c.
+

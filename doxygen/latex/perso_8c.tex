@@ -1,0 +1,178 @@
+\hypertarget{perso_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/perso.c}
+\label{perso_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/perso.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/perso.c}}
+
+
+Fichier contenant les fonctions de gestion des personnages dans le jeu.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../lib/creation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/perso.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../lib/touches.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{perso_8c_a5fe586cf054ab7bea6c77544941fc01f}\label{perso_8c_a5fe586cf054ab7bea6c77544941fc01f}} 
+\#define {\bfseries TTF\+\_\+\+FONT}~\char`\"{}ttf/Act\+\_\+\+Of\+\_\+\+Rejection.\+ttf\char`\"{}
+\item 
+\mbox{\Hypertarget{perso_8c_a2506c602b442c8b55d6c7bd2c69decce}\label{perso_8c_a2506c602b442c8b55d6c7bd2c69decce}} 
+\#define {\bfseries DMG}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+personnage $\ast$ \mbox{\hyperlink{perso_8c_addafe404482f24287b3f02563fd3b4ce}{creer\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$image, int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH, liste\+Rect $\ast$$\ast$liste\+Rectangle)
+\begin{DoxyCompactList}\small\item\em Crée un nouveau personnage avec des animations définies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{perso_8c_a40c690887b8fa560285be01ac258940b}{detruire\+Perso}} (personnage $\ast$$\ast$perso)
+\begin{DoxyCompactList}\small\item\em Détruit un personnage et libère toutes les ressources associées. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}{mettre\+AJour\+Hp}} (SDL\+\_\+\+Renderer $\ast$renderer, personnage $\ast$perso, int degat, int perso\+ID, Mix\+\_\+\+Chunk $\ast$sound\+DMG)
+\begin{DoxyCompactList}\small\item\em Met à jour les points de vie d\textquotesingle{}un personnage en fonction des dégâts reçus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{perso_8c_a6a99ed8b81faef246572b472cc7b9acc}{mettre\+AJour\+Personnage}} (SDL\+\_\+\+Renderer $\ast$renderer, personnage $\ast$perso1, personnage $\ast$perso2, const Uint8 $\ast$keyboard\+State, int largeur, int hauteur, int $\ast$framerate, Mix\+\_\+\+Chunk $\ast$sound\+HIT, Mix\+\_\+\+Chunk $\ast$sound\+DMG, Mix\+\_\+\+Chunk $\ast$sound\+Stun, int $\ast$liste\+\_\+touches, SDL\+\_\+\+Texture $\ast$stun\+Texture, rectangle $\ast$stun\+Rect, SDL\+\_\+\+Rect $\ast$$\ast$stun\+Texture\+Rect)
+\begin{DoxyCompactList}\small\item\em Met à jour les animations et les états de deux personnages en fonction de l\textquotesingle{}input utilisateur et d\textquotesingle{}autres conditions de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions de gestion des personnages dans le jeu. 
+
+Ce fichier implémente les fonctions nécessaires pour créer, mettre à jour et détruire les personnages dans le jeu, en gérant les textures, animations et interactions de ces derniers. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{perso_8c_addafe404482f24287b3f02563fd3b4ce}\label{perso_8c_addafe404482f24287b3f02563fd3b4ce}} 
+\index{perso.c@{perso.c}!creerPerso@{creerPerso}}
+\index{creerPerso@{creerPerso}!perso.c@{perso.c}}
+\doxysubsubsection{\texorpdfstring{creerPerso()}{creerPerso()}}
+{\footnotesize\ttfamily personnage$\ast$ creer\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{image,  }\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{liste\+Rect $\ast$$\ast$}]{liste\+Rectangle }\end{DoxyParamCaption})}
+
+
+
+Crée un nouveau personnage avec des animations définies. 
+
+Cette fonction initialise un personnage, y compris sa position, sa texture, et ses animations. Elle prépare également les rectangles SDL pour chaque frame d\textquotesingle{}animation.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL utilisé pour le dessin. \\
+\hline
+{\em image} & Chemin vers le fichier d\textquotesingle{}image à utiliser pour la texture du personnage. \\
+\hline
+{\em largeur} & Pointeur vers la largeur de la fenêtre du jeu. \\
+\hline
+{\em hauteur} & Pointeur vers la hauteur de la fenêtre du jeu. \\
+\hline
+{\em rX} & Coordonnée X de la position relative du personnage. \\
+\hline
+{\em rY} & Coordonnée Y de la position relative du personnage. \\
+\hline
+{\em rW} & Largeur relative du personnage. \\
+\hline
+{\em rH} & Hauteur relative du personnage. \\
+\hline
+{\em liste\+Rectangle} & Liste des rectangles pour la gestion des collisions et interactions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers la structure {\ttfamily personnage} nouvellement créée, ou NULL en cas d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 38 du fichier perso.\+c.
+
+\mbox{\Hypertarget{perso_8c_a40c690887b8fa560285be01ac258940b}\label{perso_8c_a40c690887b8fa560285be01ac258940b}} 
+\index{perso.c@{perso.c}!detruirePerso@{detruirePerso}}
+\index{detruirePerso@{detruirePerso}!perso.c@{perso.c}}
+\doxysubsubsection{\texorpdfstring{detruirePerso()}{detruirePerso()}}
+{\footnotesize\ttfamily void detruire\+Perso (\begin{DoxyParamCaption}\item[{personnage $\ast$$\ast$}]{perso }\end{DoxyParamCaption})}
+
+
+
+Détruit un personnage et libère toutes les ressources associées. 
+
+Cette fonction libère toutes les ressources allouées pour un personnage, y compris les textures, les rectangles SDL, et les structures de données internes. Elle doit être appelée pour éviter les fuites de mémoire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em perso} & Pointeur vers le pointeur du personnage à détruire. Le pointeur est mis à NULL après la destruction. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 221 du fichier perso.\+c.
+
+\mbox{\Hypertarget{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}\label{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}} 
+\index{perso.c@{perso.c}!mettreAJourHp@{mettreAJourHp}}
+\index{mettreAJourHp@{mettreAJourHp}!perso.c@{perso.c}}
+\doxysubsubsection{\texorpdfstring{mettreAJourHp()}{mettreAJourHp()}}
+{\footnotesize\ttfamily void mettre\+AJour\+Hp (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{personnage $\ast$}]{perso,  }\item[{int}]{degat,  }\item[{int}]{perso\+ID,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+DMG }\end{DoxyParamCaption})}
+
+
+
+Met à jour les points de vie d\textquotesingle{}un personnage en fonction des dégâts reçus. 
+
+Cette fonction réduit les points de vie du personnage en fonction des dégâts reçus et ajuste la taille de la barre de vie. Elle joue également un son de dégât si nécessaire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em perso} & Pointeur vers le personnage dont les points de vie doivent être mis à jour. \\
+\hline
+{\em degat} & Quantité de dégâts infligés au personnage. \\
+\hline
+{\em perso\+ID} & Identifiant du personnage pour gérer les comportements spécifiques. \\
+\hline
+{\em sound\+DMG} & Pointeur vers le chunk de son à jouer lorsque des dégâts sont reçus. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 332 du fichier perso.\+c.
+
+\mbox{\Hypertarget{perso_8c_a6a99ed8b81faef246572b472cc7b9acc}\label{perso_8c_a6a99ed8b81faef246572b472cc7b9acc}} 
+\index{perso.c@{perso.c}!mettreAJourPersonnage@{mettreAJourPersonnage}}
+\index{mettreAJourPersonnage@{mettreAJourPersonnage}!perso.c@{perso.c}}
+\doxysubsubsection{\texorpdfstring{mettreAJourPersonnage()}{mettreAJourPersonnage()}}
+{\footnotesize\ttfamily void mettre\+AJour\+Personnage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{personnage $\ast$}]{perso1,  }\item[{personnage $\ast$}]{perso2,  }\item[{const Uint8 $\ast$}]{keyboard\+State,  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int $\ast$}]{framerate,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+HIT,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+DMG,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+Stun,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{SDL\+\_\+\+Texture $\ast$}]{stun\+Texture,  }\item[{rectangle $\ast$}]{stun\+Rect,  }\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{stun\+Texture\+Rect }\end{DoxyParamCaption})}
+
+
+
+Met à jour les animations et les états de deux personnages en fonction de l\textquotesingle{}input utilisateur et d\textquotesingle{}autres conditions de jeu. 
+
+Cette fonction gère la logique d\textquotesingle{}animation, les déplacements, les attaques, et autres interactions entre deux personnages. Elle est appelée à chaque frame du jeu pour assurer que les états des personnages sont correctement mis à jour en fonction des actions du joueur et des règles du jeu.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL utilisé pour le dessin. \\
+\hline
+{\em perso1} & Pointeur vers le premier personnage. \\
+\hline
+{\em perso2} & Pointeur vers le deuxième personnage. \\
+\hline
+{\em keyboard\+State} & État actuel du clavier pour lire les inputs du joueur. \\
+\hline
+{\em largeur} & Largeur de la fenêtre du jeu. \\
+\hline
+{\em hauteur} & Hauteur de la fenêtre du jeu. \\
+\hline
+{\em framerate} & Pointeur vers la variable de contrôle du framerate, utilisée pour la synchronisation des animations. \\
+\hline
+{\em sound\+HIT} & Pointeur vers le chunk de son joué lors d\textquotesingle{}une attaque réussie. \\
+\hline
+{\em sound\+DMG} & Pointeur vers le chunk de son joué lors de la réception de dégâts. \\
+\hline
+{\em sound\+Stun} & Pointeur vers le chunk de son joué lorsqu\textquotesingle{}un personnage est étourdi. \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches configurées pour le contrôle des personnages. \\
+\hline
+{\em stun\+Texture} & Texture utilisée pour l\textquotesingle{}effet visuel lorsqu\textquotesingle{}un personnage est étourdi. \\
+\hline
+{\em stun\+Rect} & Rectangle SDL représentant la position et la taille de l\textquotesingle{}effet de stun. \\
+\hline
+{\em stun\+Texture\+Rect} & Tableau de rectangles SDL pour l\textquotesingle{}animation de l\textquotesingle{}effet de stun. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 377 du fichier perso.\+c.
+

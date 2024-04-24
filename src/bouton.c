@@ -1,36 +1,42 @@
+/**
+ * \file   bouton.c
+ * \brief  Gestion des boutons dans l'interface utilisateur
+ *
+ * Ce fichier contient toutes les fonctions nécessaires pour la création, la gestion et la destruction
+ * des boutons utilisés dans l'interface utilisateur du jeu. Il permet de définir les propriétés des
+ * boutons tels que leur texture, leur position, leurs états visuels (relâché, appuyé, survolé), ainsi
+ * que leur comportement interactif. Les fonctions supportent également la gestion dynamique de plusieurs
+ * états pour les boutons animés.
+ *
+ * \author IC2-Fighter
+ * \version 1.0
+ * \date 2024
+ */
+
 #include <SDL2/SDL.h>
 #include "../lib/bouton.h"
 
-
 /**
-	* \file  bouton.c
-	* \brief Programme pour les différents boutons
-	* \author IC2-Fighter
-	* \version 1.0
-	*
-	*  Programme avec les fonctions pour l'initialisation des boutons
-	*
-*/
-
-
-
-/**
-	* \fn bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)
-	* \brief  Cette fonction va initialisé le bouton et créer le bouton
-	* \param *renderer Permet d'avoir le rendu de l'image
-	* \param **listeRectangle 
-	* \param *largeur Largeur du bouton
-	* \param *hauteur Hauteur du bouton
-	* \param rX Position du bouton sur l'axe X
-	* \param rY Position du bouton sur l'axe Y
-	* \param rW Ratio du bouton en fonction de la taille de l'ecran
-	* \param rH Ratio du bouton en fonction de la taille de l'ecran
-	* \param *img Adresse et nom de l'image utilisé
-	* \param anime Définit si le bouton est animé ou pas
-	* \param nbEtat Permet de changer le bouton quand on survole ou on clique dessus
-	* \return Retourne le bouton une fois créé
-
-*/
+ * \brief Crée un bouton avec des propriétés spécifiques.
+ *
+ * Cette fonction alloue la mémoire pour un nouveau bouton, initialise sa texture à partir d'une image, 
+ * et définit ses dimensions et états selon qu'il soit animé ou non. La position et la taille du bouton
+ * sont spécifiées par les paramètres de rectangle, et les états du bouton sont gérés en fonction du
+ * paramètre 'anime'.
+ *
+ * \param renderer Pointeur vers le rendu SDL.
+ * \param listeRectangle Pointeur vers la liste des rectangles à mettre à jour avec la position du bouton.
+ * \param largeur Largeur du bouton (modifiable).
+ * \param hauteur Hauteur du bouton (modifiable).
+ * \param rX Position X du rectangle du bouton.
+ * \param rY Position Y du rectangle du bouton.
+ * \param rW Largeur du rectangle du bouton.
+ * \param rH Hauteur du rectangle du bouton.
+ * \param img Chemin vers l'image à utiliser pour la texture du bouton.
+ * \param anime Indique si le bouton doit être animé.
+ * \param nbEtat Nombre d'états graphiques du bouton (utilisé pour l'animation).
+ * \return Pointeur vers le bouton nouvellement créé ou NULL en cas d'échec.
+ */
 
 extern
 bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)
@@ -94,12 +100,13 @@ bouton *creerBouton(SDL_Renderer *renderer, listeRect **listeRectangle, int *lar
 }
 
 /**
-	* \fn void DestroyBouton(bouton **b)
-	* \brief  Cette fonction va supprimer le bouton 
-	* \param **b Bouton que l'on veut supprimer
-	* \return Ne Retourne rien
-
-*/
+ * \brief Détruit un bouton et libère toutes les ressources associées.
+ *
+ * Cette fonction détruit la texture du bouton, libère les rectangles des états si nécessaire,
+ * et libère la structure du bouton elle-même.
+ *
+ * \param b Pointeur double vers le bouton à détruire.
+ */
 
 extern
 void DestroyBouton(bouton **b)
@@ -119,13 +126,12 @@ void DestroyBouton(bouton **b)
 }
 
 /**
-	* \fn listeBouton *creerListeBouton()
-	* \brief  fonction qui créér la liste de boutons
-	* 
-	* \return Retourne la liste de boutons
-
-*/
-
+ * \brief Crée une liste pour gérer les boutons.
+ *
+ * Cette fonction alloue et initialise une nouvelle liste de boutons vide.
+ *
+ * \return Pointeur vers la nouvelle liste de boutons.
+ */
 
 extern
 listeBouton *creerListeBouton() {
@@ -136,13 +142,14 @@ listeBouton *creerListeBouton() {
 }
 
 /**
-	* \fn void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
-	* \brief  fonction pour ajouter un bouton dans la liste
-	* \param **liste la liste dans laquelle on va mettre le bouton
-	* \param **Bouton le bouton qui va être mit dans la liste
-	* \return Ne retourne rien
-
-*/
+ * \brief Ajoute un bouton à une liste de boutons.
+ *
+ * Cette fonction ajoute un bouton à la fin d'une liste circulaire de boutons. 
+ * Elle ajuste les pointeurs pour maintenir la structure de la liste.
+ *
+ * \param liste Double pointeur vers la liste de boutons où ajouter le nouveau bouton.
+ * \param Bouton Double pointeur vers le bouton à ajouter à la liste.
+ */
 
 extern
 void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
@@ -164,11 +171,11 @@ void ajoutListeBouton(listeBouton **liste, bouton **Bouton)
 }
 
 /**
-	* \fn detruireListeBouton(listeBouton **liste)
-	* \brief  fonction pour detruirela liste de bouton
-	* \param **liste La liste que l'on veut détruire
-	* \return Ne retourne rien
-
+* \brief Détruit une liste de boutons et libère toutes les ressources associées.
+*
+* Cette fonction parcourt une liste de boutons, détruit chaque bouton et libère la mémoire de la liste.
+*
+* \param liste Double pointeur vers la liste de boutons à détruire.
 */
 
 extern

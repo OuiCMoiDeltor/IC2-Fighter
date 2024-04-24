@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /mnt/d/ghrib/Documents/IC2-Fighter/src/creation.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">creation.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="creation_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../lib/creation.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">   27</a></span>&#160;listeT_t *<a class="code" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">creerListeT</a>() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  listeT_t *liste = malloc(<span class="keyword">sizeof</span>(listeT_t));</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  liste-&gt;pTexture = NULL;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  liste-&gt;suivant = NULL;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">return</span> liste;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a>(listeT_t **liste, SDL_Texture **Texture) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">if</span>((*liste)-&gt;suivant == NULL) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    (*liste)-&gt;pTexture = Texture;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    (*liste)-&gt;suivant = (*liste);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    listeT_t *<span class="keyword">new</span> = malloc(<span class="keyword">sizeof</span>(listeT_t));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    listeT_t *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    (*liste)-&gt;suivant = <span class="keyword">new</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    (*liste)-&gt;suivant-&gt;suivant = temp;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    temp = NULL;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">new</span> = NULL;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    (*liste) = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    (*liste)-&gt;pTexture = Texture;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a>(listeT_t **liste) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">if</span>(*liste!=NULL) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    listeT_t *dernier = (*liste);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    (*liste) = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    listeT_t *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">while</span>((*liste) != dernier) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      SDL_DestroyTexture((*(*liste)-&gt;pTexture));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      (*(*liste)-&gt;pTexture) = NULL;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      (*liste)-&gt;pTexture = NULL;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      (*liste)-&gt;suivant = NULL;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      free((*liste));</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      (*liste) = temp;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    temp = NULL;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    dernier = NULL;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    (*liste)-&gt;suivant = NULL;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    SDL_DestroyTexture((*(*liste)-&gt;pTexture));</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    (*(*liste)-&gt;pTexture) = NULL;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    (*liste)-&gt;pTexture = NULL;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    free((*liste));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    (*liste) = NULL;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="creation_8c.html#a94387a957924bac438513aeea855bab3">  108</a></span>&#160;SDL_Texture *<a class="code" href="creation_8c.html#a94387a957924bac438513aeea855bab3">creerImage</a>(SDL_Renderer *renderer, <span class="keywordtype">char</span> *image)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">// Chargement de l&#39;image</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  SDL_Surface *imageSurface = SDL_LoadBMP(image);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span> (imageSurface == NULL)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    printf(<span class="stringliteral">&quot;Erreur lors du chargement de l&#39;image : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// Création de la texture de l&#39;image</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  SDL_Texture *imageTexture = SDL_CreateTextureFromSurface(renderer, imageSurface);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keywordflow">if</span> (imageTexture == NULL)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    printf(<span class="stringliteral">&quot;Erreur lors de la création de la texture : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    SDL_FreeSurface(imageSurface);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">// Libération de la surface d&#39;image car la texture a été créée</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  SDL_FreeSurface(imageSurface);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">return</span> imageTexture;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="creation_8c.html#a70bbe03fd3400dde85f1a0fac0426222">  146</a></span>&#160;SDL_Texture *<a class="code" href="creation_8c.html#a70bbe03fd3400dde85f1a0fac0426222">creerTexte</a>(SDL_Renderer *renderer, TTF_Font *font, <span class="keywordtype">char</span> *texte, SDL_Color couleur)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// Chargement du texte</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  SDL_Surface *texteSurface = TTF_RenderUTF8_Blended(font, texte, couleur);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keywordflow">if</span> (texteSurface == NULL)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    printf(<span class="stringliteral">&quot;Erreur lors du chargement du texte : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="comment">// Création de la texture du texte</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  SDL_Texture *texteTexture = SDL_CreateTextureFromSurface(renderer, texteSurface);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordflow">if</span> (texteTexture == NULL)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    printf(<span class="stringliteral">&quot;Erreur lors de la création de la texture : %s\n&quot;</span>, SDL_GetError());</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    SDL_FreeSurface(texteSurface);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="comment">// Libération de la surface d&#39;image car la texture a été créée</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  SDL_FreeSurface(texteSurface);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keywordflow">return</span> texteTexture;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">  180</a></span>&#160;listeRect *<a class="code" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">creerListeRect</a>() {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  listeRect *liste = malloc(<span class="keyword">sizeof</span>(listeRect));</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  liste-&gt;pRect = NULL;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  liste-&gt;suivant = NULL;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordflow">return</span> liste;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">  198</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a>(listeRect **liste, rectangle **Rect)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keywordflow">if</span>((*liste)-&gt;suivant == NULL) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    (*liste)-&gt;pRect = Rect;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    (*liste)-&gt;suivant = (*liste);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    listeRect *<span class="keyword">new</span> = malloc(<span class="keyword">sizeof</span>(listeRect));</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    listeRect *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    (*liste)-&gt;suivant = <span class="keyword">new</span>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    (*liste)-&gt;suivant-&gt;suivant = temp;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    temp = NULL;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">new</span> = NULL;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    (*liste) = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    (*liste)-&gt;pRect = Rect;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  }</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a>(listeRect **liste)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordflow">if</span>(*liste!=NULL) {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    listeRect *dernier = (*liste);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    (*liste) = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    listeRect *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">while</span>((*liste) != dernier) {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      free((*(*liste)-&gt;pRect)-&gt;rect);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      free((*(*liste)-&gt;pRect));</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      (*(*liste)-&gt;pRect) = NULL;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      (*liste)-&gt;pRect = NULL;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      free((*liste));</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      (*liste) = temp;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    dernier = NULL;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    temp = NULL;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    free((*(*liste)-&gt;pRect)-&gt;rect);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    free((*(*liste)-&gt;pRect));</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    (*(*liste)-&gt;pRect) = NULL;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    (*liste)-&gt;pRect = NULL;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    free((*liste));</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    (*liste) = NULL;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">  262</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a>(listeRect *liste)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  listeRect *pListe = liste;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordflow">do</span>{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    (*pListe-&gt;pRect)-&gt;rect-&gt;x = (*(*pListe-&gt;pRect)-&gt;largeur)/(*pListe-&gt;pRect)-&gt;ratioX;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    (*pListe-&gt;pRect)-&gt;rect-&gt;y = (*(*pListe-&gt;pRect)-&gt;hauteur)/(*pListe-&gt;pRect)-&gt;ratioY;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    (*pListe-&gt;pRect)-&gt;rect-&gt;w = (*(*pListe-&gt;pRect)-&gt;largeur)/(*pListe-&gt;pRect)-&gt;ratioW;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    (*pListe-&gt;pRect)-&gt;rect-&gt;h = (*(*pListe-&gt;pRect)-&gt;hauteur)/(*pListe-&gt;pRect)-&gt;ratioH;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    pListe = pListe-&gt;suivant;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  }<span class="keywordflow">while</span>(pListe != liste);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keyword">extern</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">  291</a></span>&#160;rectangle *<a class="code" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a>(<span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur, <span class="keywordtype">float</span> rX, <span class="keywordtype">float</span> rY, <span class="keywordtype">float</span> rW, <span class="keywordtype">float</span> rH)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;{</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  rectangle *pRect = malloc(<span class="keyword">sizeof</span>(rectangle));</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  pRect-&gt;largeur = largeur;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  pRect-&gt;hauteur = hauteur;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  pRect-&gt;ratioX = rX;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  pRect-&gt;ratioY = rY;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  pRect-&gt;ratioW = rW;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  pRect-&gt;ratioH = rH;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  pRect-&gt;rect = malloc(<span class="keyword">sizeof</span>(SDL_Rect));</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  pRect-&gt;rect-&gt;x = (*largeur)/rX;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  pRect-&gt;rect-&gt;y = (*hauteur)/rY;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  pRect-&gt;rect-&gt;w = (*largeur)/rW;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  pRect-&gt;rect-&gt;h = (*hauteur)/rH;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordflow">return</span> pRect;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;}</div>
+<div class="ttc" id="acreation_8c_html_a07c828a6b14af29a34d94fe46209ed1a"><div class="ttname"><a href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">creerListeRect</a></div><div class="ttdeci">listeRect * creerListeRect()</div><div class="ttdoc">Crée une nouvelle liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00180">creation.c:180</a></div></div>
+<div class="ttc" id="acreation_8c_html_a38ab40c88ba6e1759e9e2ea518ead96c"><div class="ttname"><a href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a></div><div class="ttdeci">void detruireListeT(listeT_t **liste)</div><div class="ttdoc">Détruit une liste de textures et libère la mémoire associée.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00072">creation.c:72</a></div></div>
+<div class="ttc" id="acreation_8c_html_a526afa603b8080dec0f9a234833b5661"><div class="ttname"><a href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a></div><div class="ttdeci">void ajoutListeRect(listeRect **liste, rectangle **Rect)</div><div class="ttdoc">Ajoute un rectangle à la liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00198">creation.c:198</a></div></div>
+<div class="ttc" id="acreation_8c_html_a60a5cbdefb1579937c934d4764436ee5"><div class="ttname"><a href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">creerListeT</a></div><div class="ttdeci">listeT_t * creerListeT()</div><div class="ttdoc">Crée une nouvelle liste de textures.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00027">creation.c:27</a></div></div>
+<div class="ttc" id="acreation_8c_html_a70bbe03fd3400dde85f1a0fac0426222"><div class="ttname"><a href="creation_8c.html#a70bbe03fd3400dde85f1a0fac0426222">creerTexte</a></div><div class="ttdeci">SDL_Texture * creerTexte(SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)</div><div class="ttdoc">Crée une texture de texte à partir d'une chaîne de caractères.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00146">creation.c:146</a></div></div>
+<div class="ttc" id="acreation_8c_html_a90feb595f849f52d8483be2c7df23565"><div class="ttname"><a href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a></div><div class="ttdeci">void updateRectangles(listeRect *liste)</div><div class="ttdoc">Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00262">creation.c:262</a></div></div>
+<div class="ttc" id="acreation_8c_html_a94387a957924bac438513aeea855bab3"><div class="ttname"><a href="creation_8c.html#a94387a957924bac438513aeea855bab3">creerImage</a></div><div class="ttdeci">SDL_Texture * creerImage(SDL_Renderer *renderer, char *image)</div><div class="ttdoc">Crée une texture à partir d'un fichier image.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00108">creation.c:108</a></div></div>
+<div class="ttc" id="acreation_8c_html_aabecbee2f1b59d03e91565d2b4cb3155"><div class="ttname"><a href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a></div><div class="ttdeci">void detruireListeRect(listeRect **liste)</div><div class="ttdoc">Détruit une liste de rectangles et libère la mémoire associée.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00225">creation.c:225</a></div></div>
+<div class="ttc" id="acreation_8c_html_aaf48331ff12117690ac67879e5f0a2bf"><div class="ttname"><a href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a></div><div class="ttdeci">rectangle * creerRectangle(int *largeur, int *hauteur, float rX, float rY, float rW, float rH)</div><div class="ttdoc">Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00291">creation.c:291</a></div></div>
+<div class="ttc" id="acreation_8c_html_af68e8afe26983df68acf0a834af15985"><div class="ttname"><a href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a></div><div class="ttdeci">void ajoutListeT(listeT_t **liste, SDL_Texture **Texture)</div><div class="ttdoc">Ajoute une texture à la liste de textures.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00045">creation.c:45</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

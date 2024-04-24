@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter: Référence du fichier /mnt/d/ghrib/Documents/IC2-Fighter/src/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programme principal pour IC2 Fighter.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &quot;../lib/bouton.h&quot;</code><br />
+<code>#include &quot;../lib/perso.h&quot;</code><br />
+<code>#include &quot;../lib/combat.h&quot;</code><br />
+<code>#include &quot;../lib/touches.h&quot;</code><br />
+<code>#include &quot;../lib/champ_select.h&quot;</code><br />
+<code>#include &quot;../lib/controle.h&quot;</code><br />
+<code>#include &quot;../lib/gamemode_selection.h&quot;</code><br />
+<code>#include &quot;../lib/menu_principal.h&quot;</code><br />
+<code>#include &quot;../lib/options.h&quot;</code><br />
+</div>
+<p><a href="main_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a73b3bbc51c65bf165939cc7b57e9eb4b"><td class="memItemLeft" align="right" valign="top"><a id="a73b3bbc51c65bf165939cc7b57e9eb4b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOM_JEU</b>&#160;&#160;&#160;&quot;IC2 Fighter&quot;</td></tr>
+<tr class="separator:a73b3bbc51c65bf165939cc7b57e9eb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98a27bdaed0d0fdd7ec1321a6886417"><td class="memItemLeft" align="right" valign="top"><a id="aa98a27bdaed0d0fdd7ec1321a6886417"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ICONE</b>&#160;&#160;&#160;&quot;img/menu_principal/logo.bmp&quot;</td></tr>
+<tr class="separator:aa98a27bdaed0d0fdd7ec1321a6886417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe586cf054ab7bea6c77544941fc01f"><td class="memItemLeft" align="right" valign="top"><a id="a5fe586cf054ab7bea6c77544941fc01f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TTF_FONT</b>&#160;&#160;&#160;&quot;ttf/Act_Of_Rejection.ttf&quot;</td></tr>
+<tr class="separator:a5fe586cf054ab7bea6c77544941fc01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69708f72238abe7c502d1ff2f2c9fcbb"><td class="memItemLeft" align="right" valign="top"><a id="a69708f72238abe7c502d1ff2f2c9fcbb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SOUND_BACKGROUND</b>&#160;&#160;&#160;&quot;mixer/Leateq - Tokyo.mp3&quot;</td></tr>
+<tr class="separator:a69708f72238abe7c502d1ff2f2c9fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4ed9912b6fca03a1c1bc58c4115685"><td class="memItemLeft" align="right" valign="top"><a id="a9e4ed9912b6fca03a1c1bc58c4115685"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FICHIER_TOUCHES</b>&#160;&#160;&#160;&quot;touches.txt&quot;</td></tr>
+<tr class="separator:a9e4ed9912b6fca03a1c1bc58c4115685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad23df7a703bd738943bd0b5354299338"><td class="memItemLeft" align="right" valign="top"><a id="ad23df7a703bd738943bd0b5354299338"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RESET_TOUCHES</b>&#160;&#160;&#160;&quot;default_touches.txt&quot;</td></tr>
+<tr class="separator:ad23df7a703bd738943bd0b5354299338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ad8b81ce8353c352aa75967fb77c02a52"><td class="memItemLeft" align="right" valign="top"><a id="ad8b81ce8353c352aa75967fb77c02a52"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>scenes</b> { <br />
+&#160;&#160;<b>CONTROLE</b>
+, <b>OPTIONS</b>
+, <b>MENU_PRINCIPAL</b>
+, <b>GAMEMODE</b>
+, <br />
+&#160;&#160;<b>CHAMP_SELECT</b>
+<br />
+ }</td></tr>
+<tr class="separator:ad8b81ce8353c352aa75967fb77c02a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale du jeu IC2 Fighter.  <a href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Programme principal pour IC2 Fighter. </p>
+<p>Ce fichier est le point d'entrée du jeu IC2 Fighter. Il initialise les bibliothèques SDL nécessaires, crée la fenêtre de jeu, gère le cycle de vie de l'application et les transitions entre différentes scènes telles que le menu principal, la sélection des modes de jeu, les options, etc.</p>
+<dl class="section author"><dt>Auteur</dt><dd>IC2-Fighter </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale du jeu IC2 Fighter. </p>
+<p>Initialise SDL et ses sous-systèmes, crée une fenêtre et un renderer, et entre dans une boucle de jeu qui gère les événements et met à jour les scènes du jeu en fonction des interactions de l'utilisateur. La musique de fond est gérée ici ainsi que les transitions entre les scènes de jeu différentes.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Nombre d'arguments de la ligne de commande. </td></tr>
+    <tr><td class="paramname">argv</td><td>Tableau de chaînes des arguments de la ligne de commande. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Code de sortie du programme. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="main_8c_source.html#l00058">58</a> du fichier <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
