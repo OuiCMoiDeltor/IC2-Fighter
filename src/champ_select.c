@@ -68,37 +68,37 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
 
     // Boutons
     // Local
-        bouton *boutonRYU = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/2.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_YASS, 1, 25);
-        if(boutonRYU == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU);
+        bouton *boutonYASS = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/2.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_YASS, 1, 25);
+        if(boutonYASS == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonYASS);
 
-        bouton *boutonRYU2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/6.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_DIM, 1, 10);
-        if(boutonRYU2 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU2);
+        bouton *boutonDIM = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/6.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_DIM, 1, 34);
+        if(boutonDIM == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonDIM);
 
-        bouton *boutonRYU3 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/16.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
-        if(boutonRYU3 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU3);
+        bouton *boutonDAM = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/16.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_DAM, 1, 26);
+        if(boutonDAM == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonDAM);
 
-        bouton *boutonRYU4 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/20.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
-        if(boutonRYU4 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU4);
+        bouton *boutonLocked4 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/20.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_LOCKED, 1, 1);
+        if(boutonLocked4 == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonLocked4);
 
-        bouton *boutonRYU5 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/20.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
-        if(boutonRYU5 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU5);
+        bouton *boutonLocked5 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/20.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_LOCKED, 1, 1);
+        if(boutonLocked5 == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonLocked5);
 
-        bouton *boutonRYU6 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/2.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
-        if(boutonRYU6 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU6);
+        bouton *boutonLocked6 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/2.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_LOCKED, 1, 1);
+        if(boutonLocked6 == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonLocked6);
 
-        bouton *boutonRYU7 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/16.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
-        if(boutonRYU7 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU7);
+        bouton *boutonLocked7 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/16.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_LOCKED, 1, 1);
+        if(boutonLocked7 == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonLocked7);
 
-        bouton *boutonRYU8 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/6.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
-        if(boutonRYU8 == NULL) exit(EXIT_FAILURE);
-        ajoutListeBouton(&listeBoutons, &boutonRYU8);
+        bouton *boutonLocked8 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/6.0, 100/60.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_LOCKED, 1, 1);
+        if(boutonLocked8 == NULL) exit(EXIT_FAILURE);
+        ajoutListeBouton(&listeBoutons, &boutonLocked8);
     // Bouton 
     // Retour
     bouton *boutonGmBack = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 100.0, 100.0, 11.0, 11.0, IMG_GAMEMODE_RETOUR, 0, 0);
@@ -130,11 +130,11 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
             }
             // RYU
             // Appuie et relache sur le bouton
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU->position->rect->x && e.motion.x < boutonRYU->position->rect->x + boutonRYU->position->rect->w && e.motion.y > boutonRYU->position->rect->y && e.motion.y < boutonRYU->position->rect->y + boutonRYU->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonYASS->position->rect->x && e.motion.x < boutonYASS->position->rect->x + boutonYASS->position->rect->w && e.motion.y > boutonYASS->position->rect->y && e.motion.y < boutonYASS->position->rect->y + boutonYASS->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, YASS, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonYASS->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -145,16 +145,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, YASS, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonYASS->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU2->position->rect->x && e.motion.x < boutonRYU2->position->rect->x + boutonRYU2->position->rect->w && e.motion.y > boutonRYU2->position->rect->y && e.motion.y < boutonRYU2->position->rect->y + boutonRYU2->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonDIM->position->rect->x && e.motion.x < boutonDIM->position->rect->x + boutonDIM->position->rect->w && e.motion.y > boutonDIM->position->rect->y && e.motion.y < boutonDIM->position->rect->y + boutonDIM->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, MNX, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonDIM->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -165,16 +165,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, MNX, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonDIM->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU3->position->rect->x && e.motion.x < boutonRYU3->position->rect->x + boutonRYU3->position->rect->w && e.motion.y > boutonRYU3->position->rect->y && e.motion.y < boutonRYU3->position->rect->y + boutonRYU3->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonDAM->position->rect->x && e.motion.x < boutonDAM->position->rect->x + boutonDAM->position->rect->w && e.motion.y > boutonDAM->position->rect->y && e.motion.y < boutonDAM->position->rect->y + boutonDAM->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, DAM, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonDAM->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -185,16 +185,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, DAM, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonDAM->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU4->position->rect->x && e.motion.x < boutonRYU4->position->rect->x + boutonRYU4->position->rect->w && e.motion.y > boutonRYU4->position->rect->y && e.motion.y < boutonRYU4->position->rect->y + boutonRYU4->position->rect->h) {
+            /*if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocked4->position->rect->x && e.motion.x < boutonLocked4->position->rect->x + boutonLocked4->position->rect->w && e.motion.y > boutonLocked4->position->rect->y && e.motion.y < boutonLocked4->position->rect->y + boutonLocked4->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked4->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -205,16 +205,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked4->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU5->position->rect->x && e.motion.x < boutonRYU5->position->rect->x + boutonRYU5->position->rect->w && e.motion.y > boutonRYU5->position->rect->y && e.motion.y < boutonRYU5->position->rect->y + boutonRYU5->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocked5->position->rect->x && e.motion.x < boutonLocked5->position->rect->x + boutonLocked5->position->rect->w && e.motion.y > boutonLocked5->position->rect->y && e.motion.y < boutonLocked5->position->rect->y + boutonLocked5->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked5->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -225,16 +225,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked5->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU6->position->rect->x && e.motion.x < boutonRYU6->position->rect->x + boutonRYU6->position->rect->w && e.motion.y > boutonRYU6->position->rect->y && e.motion.y < boutonRYU6->position->rect->y + boutonRYU6->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocked6->position->rect->x && e.motion.x < boutonLocked6->position->rect->x + boutonLocked6->position->rect->w && e.motion.y > boutonLocked6->position->rect->y && e.motion.y < boutonLocked6->position->rect->y + boutonLocked6->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked6->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -245,16 +245,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked6->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU7->position->rect->x && e.motion.x < boutonRYU7->position->rect->x + boutonRYU7->position->rect->w && e.motion.y > boutonRYU7->position->rect->y && e.motion.y < boutonRYU7->position->rect->y + boutonRYU7->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocked7->position->rect->x && e.motion.x < boutonLocked7->position->rect->x + boutonLocked7->position->rect->w && e.motion.y > boutonLocked7->position->rect->y && e.motion.y < boutonLocked7->position->rect->y + boutonLocked7->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked7->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -265,16 +265,16 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked7->etat = 0;
                     J2Pick = 1;
                 }
             }
 
-            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonRYU8->position->rect->x && e.motion.x < boutonRYU8->position->rect->x + boutonRYU8->position->rect->w && e.motion.y > boutonRYU8->position->rect->y && e.motion.y < boutonRYU8->position->rect->y + boutonRYU8->position->rect->h) {
+            if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonLocked8->position->rect->x && e.motion.x < boutonLocked8->position->rect->x + boutonLocked8->position->rect->w && e.motion.y > boutonLocked8->position->rect->y && e.motion.y < boutonLocked8->position->rect->y + boutonLocked8->position->rect->h) {
                 if(J2Pick) {
                     Joueur2 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10/7.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur2 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked8->etat = 0;
                     J2Pick = 0;
                     combatStart(renderer,keyboardState,Joueur1,Joueur2, largeurF, hauteurF, son, liste_touches);
                     if(son) {
@@ -285,10 +285,10 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 else {
                     Joueur1 = creerPerso(renderer, RYU, &largeurF, &hauteurF, 10.0, 10.0, 2.5, 9/7.0, &listeRectangle);
                     if(Joueur1 == NULL) exit(EXIT_FAILURE);
-                    boutonRYU->etat = 0;
+                    boutonLocked8->etat = 0;
                     J2Pick = 1;
                 }
-            }
+            }*/
             // Retour
             // Appuie sur le bouton
             if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonGmBack->position->rect->x && e.motion.x < boutonGmBack->position->rect->x + boutonGmBack->position->rect->w && e.motion.y > boutonGmBack->position->rect->y && e.motion.y < boutonGmBack->position->rect->y + boutonGmBack->position->rect->h) {
@@ -320,21 +320,21 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
                 SDL_RenderCopy(renderer, champSelectJ1, NULL, champSelectJ2Rect->rect);
 
         // Dessiner le bouton de RYU
-        SDL_RenderCopy(renderer, boutonRYU->texture, boutonRYU->frames[boutonRYU->etat], boutonRYU->position->rect);
+        SDL_RenderCopy(renderer, boutonYASS->texture, boutonYASS->frames[boutonYASS->etat], boutonYASS->position->rect);
         // Dessiner le bouton de DIM
-        SDL_RenderCopy(renderer, boutonRYU2->texture, boutonRYU2->frames[boutonRYU2->etat], boutonRYU2->position->rect);
+        SDL_RenderCopy(renderer, boutonDIM->texture, boutonDIM->frames[boutonDIM->etat], boutonDIM->position->rect);
         // Dessiner le bouton de 
-        SDL_RenderCopy(renderer, boutonRYU3->texture, boutonRYU3->frames[boutonRYU3->etat], boutonRYU3->position->rect);
+        SDL_RenderCopy(renderer, boutonDAM->texture, boutonDAM->frames[boutonDAM->etat], boutonDAM->position->rect);
         // Dessiner le bouton de 
-        SDL_RenderCopy(renderer, boutonRYU4->texture, boutonRYU4->frames[boutonRYU4->etat], boutonRYU4->position->rect);
+        SDL_RenderCopy(renderer, boutonLocked4->texture, boutonLocked4->frames[boutonLocked4->etat], boutonLocked4->position->rect);
         // Dessiner le bouton de 
-        SDL_RenderCopy(renderer, boutonRYU5->texture, boutonRYU5->frames[boutonRYU5->etat], boutonRYU5->position->rect);
+        SDL_RenderCopy(renderer, boutonLocked5->texture, boutonLocked5->frames[boutonLocked5->etat], boutonLocked5->position->rect);
         // Dessiner le bouton de 
-        SDL_RenderCopy(renderer, boutonRYU6->texture, boutonRYU6->frames[boutonRYU6->etat], boutonRYU6->position->rect);
+        SDL_RenderCopy(renderer, boutonLocked6->texture, boutonLocked6->frames[boutonLocked6->etat], boutonLocked6->position->rect);
         // Dessiner le bouton de 
-        SDL_RenderCopy(renderer, boutonRYU7->texture, boutonRYU7->frames[boutonRYU7->etat], boutonRYU7->position->rect);
+        SDL_RenderCopy(renderer, boutonLocked7->texture, boutonLocked7->frames[boutonLocked7->etat], boutonLocked7->position->rect);
         // Dessiner le bouton de 
-        SDL_RenderCopy(renderer, boutonRYU8->texture, boutonRYU8->frames[boutonRYU8->etat], boutonRYU8->position->rect);
+        SDL_RenderCopy(renderer, boutonLocked8->texture, boutonLocked8->frames[boutonLocked8->etat], boutonLocked8->position->rect);
 
         // Dessiner le bouton retour
         if(boutonGmBack->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonGmBack->texture, boutonGmBack->relache, boutonGmBack->position->rect);
@@ -344,14 +344,14 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
         // Animation
         waitForFrame++;
         if(waitForFrame > 10) {
-                boutonRYU->etat =  ++boutonRYU->etat%25;
-                boutonRYU2->etat =  ++boutonRYU2->etat%10;
-                boutonRYU3->etat =  ++boutonRYU3->etat%10;
-                boutonRYU4->etat =  ++boutonRYU4->etat%10;
-                boutonRYU5->etat =  ++boutonRYU5->etat%10;
-                boutonRYU6->etat =  ++boutonRYU6->etat%10;
-                boutonRYU7->etat =  ++boutonRYU7->etat%10;
-                boutonRYU8->etat =  ++boutonRYU8->etat%10;
+                boutonYASS->etat =  ++boutonYASS->etat%25;
+                boutonDIM->etat =  ++boutonDIM->etat%34;
+                boutonDAM->etat =  ++boutonDAM->etat%26;
+                /*boutonLocked4->etat =  ++boutonLocked4->etat%1;
+                boutonLocked5->etat =  ++boutonLocked5->etat%1;
+                boutonLocked6->etat =  ++boutonLocked6->etat%1;
+                boutonLocked7->etat =  ++boutonLocked7->etat%1;
+                boutonLocked8->etat =  ++boutonLocked8->etat%1;*/
                 waitForFrame = 0;
         }
 
