@@ -1,7 +1,7 @@
 #include "../lib/controle.h"
 
 extern
-int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int * liste_touches) {
+int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int * liste_touches, char * f_touches, char * r_touches) {
 
     listeT_t *listeTexture = creerListeT(); // Stock les pointeurs sur texture
     listeRect *listeRectangle = creerListeRect(); // Stock les pointeurs sur Rectangle
@@ -46,20 +46,17 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     SDL_Color noire = {0,0,0};
 
     // saut
-
     SDL_Texture *sauter = creerImage(renderer, IMG_SAUTER);
     if(sauter == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &sauter);
     rectangle *sautRect = creerRectangle(&largeurF, &hauteurF, 24.0/3, 11.0/3, 6.0, 6.0);
     ajoutListeRect(&listeRectangle, &sautRect);
-    
     // saut J1
     SDL_Texture *sauterJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[SauterJ1]),noire);
     if(sauterJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &sauterJ1);
     rectangle *sauterJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/3.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &sauterJ1Rect);
-
     // saut J2
     SDL_Texture *sauterJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[SauterJ2]),noire);
     if(sauterJ2 == NULL) exit(EXIT_FAILURE);
@@ -68,7 +65,6 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &sauterJ2Rect);
 
     // accroupi
-
     SDL_Texture *accroupir = creerImage(renderer, IMG_ACCROUPI);
     if(accroupir == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &accroupir);
@@ -112,7 +108,6 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &gaucheJ2Rect);
 
     // droite
-
     SDL_Texture *droite = creerImage(renderer, IMG_DROITE);
     if(droite == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &droite);
@@ -156,7 +151,6 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &poingJ2Rect);
 
     // kick
-
     SDL_Texture *kick = creerImage(renderer, IMG_KICK);
     if(kick == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &kick);
@@ -263,6 +257,10 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     bouton *boutonGardeJ2 = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/204.0, 11.0/9.18, 25.0, 25.0, IMG_EMPLACEMENT_TOUCHE, 0, 0);
     if(boutonGardeJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeBouton(&listeBoutons, &boutonGardeJ2);
+    // Réinitialisation des touches
+    bouton *boutonReset = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 290/167.5, 11.0/10.0, 12.5, 25.0, IMG_RESET, 0, 0);
+    if(boutonReset == NULL) exit(EXIT_FAILURE);
+    ajoutListeBouton(&listeBoutons, &boutonReset);
 
     int quit = 0;
     while (!quit) {
@@ -298,7 +296,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonSautJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonSautJ1->position->rect->x && e.motion.x < boutonSautJ1->position->rect->x + boutonSautJ1->position->rect->w && e.motion.y > boutonSautJ1->position->rect->y && e.motion.y < boutonSautJ1->position->rect->y + boutonSautJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, SauterJ1, &sauterJ1);
+                saisirTouche(renderer, font, e, liste_touches, SauterJ1, &sauterJ1, f_touches);
                 boutonSautJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonSautJ1->etat == BOUTON_APPUYE  || boutonSautJ1->etat == BOUTON_OVER && !(e.motion.x > boutonSautJ1->position->rect->x && e.motion.x < boutonSautJ1->position->rect->x + boutonSautJ1->position->rect->w && e.motion.y > boutonSautJ1->position->rect->y && e.motion.y < boutonSautJ1->position->rect->y + boutonSautJ1->position->rect->h)) {
@@ -313,7 +311,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonSautJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonSautJ2->position->rect->x && e.motion.x < boutonSautJ2->position->rect->x + boutonSautJ2->position->rect->w && e.motion.y > boutonSautJ2->position->rect->y && e.motion.y < boutonSautJ2->position->rect->y + boutonSautJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, SauterJ2, &sauterJ2);
+                saisirTouche(renderer, font, e, liste_touches, SauterJ2, &sauterJ2, f_touches);
                 boutonSautJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonSautJ2->etat == BOUTON_APPUYE  || boutonSautJ2->etat == BOUTON_OVER && !(e.motion.x > boutonSautJ2->position->rect->x && e.motion.x < boutonSautJ2->position->rect->x + boutonSautJ2->position->rect->w && e.motion.y > boutonSautJ2->position->rect->y && e.motion.y < boutonSautJ2->position->rect->y + boutonSautJ2->position->rect->h)) {
@@ -327,7 +325,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonAccroupirJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonAccroupirJ1->position->rect->x && e.motion.x < boutonAccroupirJ1->position->rect->x + boutonAccroupirJ1->position->rect->w && e.motion.y > boutonAccroupirJ1->position->rect->y && e.motion.y < boutonAccroupirJ1->position->rect->y + boutonAccroupirJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, AccroupirJ1, &accroupirJ1);
+                saisirTouche(renderer, font, e, liste_touches, AccroupirJ1, &accroupirJ1, f_touches);
                 boutonAccroupirJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonAccroupirJ1->etat == BOUTON_APPUYE  || boutonAccroupirJ1->etat == BOUTON_OVER && !(e.motion.x > boutonAccroupirJ1->position->rect->x && e.motion.x < boutonAccroupirJ1->position->rect->x + boutonAccroupirJ1->position->rect->w && e.motion.y > boutonAccroupirJ1->position->rect->y && e.motion.y < boutonAccroupirJ1->position->rect->y + boutonAccroupirJ1->position->rect->h)) {
@@ -342,7 +340,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonAccroupirJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonAccroupirJ2->position->rect->x && e.motion.x < boutonAccroupirJ2->position->rect->x + boutonAccroupirJ2->position->rect->w && e.motion.y > boutonAccroupirJ2->position->rect->y && e.motion.y < boutonAccroupirJ2->position->rect->y + boutonAccroupirJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, AccroupirJ2, &accroupirJ2);
+                saisirTouche(renderer, font, e, liste_touches, AccroupirJ2, &accroupirJ2, f_touches);
                 boutonAccroupirJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonAccroupirJ2->etat == BOUTON_APPUYE  || boutonAccroupirJ2->etat == BOUTON_OVER && !(e.motion.x > boutonAccroupirJ2->position->rect->x && e.motion.x < boutonAccroupirJ2->position->rect->x + boutonAccroupirJ2->position->rect->w && e.motion.y > boutonAccroupirJ2->position->rect->y && e.motion.y < boutonAccroupirJ2->position->rect->y + boutonAccroupirJ2->position->rect->h)) {
@@ -357,7 +355,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonGaucheJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGaucheJ1->position->rect->x && e.motion.x < boutonGaucheJ1->position->rect->x + boutonGaucheJ1->position->rect->w && e.motion.y > boutonGaucheJ1->position->rect->y && e.motion.y < boutonGaucheJ1->position->rect->y + boutonGaucheJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, GaucheJ1, &gaucheJ1);
+                saisirTouche(renderer, font, e, liste_touches, GaucheJ1, &gaucheJ1, f_touches);
                 boutonGaucheJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonGaucheJ1->etat == BOUTON_APPUYE  || boutonGaucheJ1->etat == BOUTON_OVER && !(e.motion.x > boutonGaucheJ1->position->rect->x && e.motion.x < boutonGaucheJ1->position->rect->x + boutonGaucheJ1->position->rect->w && e.motion.y > boutonGaucheJ1->position->rect->y && e.motion.y < boutonGaucheJ1->position->rect->y + boutonGaucheJ1->position->rect->h)) {
@@ -372,7 +370,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonGaucheJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGaucheJ2->position->rect->x && e.motion.x < boutonGaucheJ2->position->rect->x + boutonGaucheJ2->position->rect->w && e.motion.y > boutonGaucheJ2->position->rect->y && e.motion.y < boutonGaucheJ2->position->rect->y + boutonGaucheJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, GaucheJ2, &gaucheJ2);
+                saisirTouche(renderer, font, e, liste_touches, GaucheJ2, &gaucheJ2, f_touches);
                 boutonGaucheJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonGaucheJ2->etat == BOUTON_APPUYE  || boutonGaucheJ2->etat == BOUTON_OVER && !(e.motion.x > boutonGaucheJ2->position->rect->x && e.motion.x < boutonGaucheJ2->position->rect->x + boutonGaucheJ2->position->rect->w && e.motion.y > boutonGaucheJ2->position->rect->y && e.motion.y < boutonGaucheJ2->position->rect->y + boutonGaucheJ2->position->rect->h)) {
@@ -387,7 +385,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonDroiteJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonDroiteJ1->position->rect->x && e.motion.x < boutonDroiteJ1->position->rect->x + boutonDroiteJ1->position->rect->w && e.motion.y > boutonDroiteJ1->position->rect->y && e.motion.y < boutonDroiteJ1->position->rect->y + boutonDroiteJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, DroitJ1, &droiteJ1);
+                saisirTouche(renderer, font, e, liste_touches, DroitJ1, &droiteJ1, f_touches);
                 boutonDroiteJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonDroiteJ1->etat == BOUTON_APPUYE  || boutonDroiteJ1->etat == BOUTON_OVER && !(e.motion.x > boutonDroiteJ1->position->rect->x && e.motion.x < boutonDroiteJ1->position->rect->x + boutonDroiteJ1->position->rect->w && e.motion.y > boutonDroiteJ1->position->rect->y && e.motion.y < boutonDroiteJ1->position->rect->y + boutonDroiteJ1->position->rect->h)) {
@@ -402,7 +400,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonDroiteJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonDroiteJ2->position->rect->x && e.motion.x < boutonDroiteJ2->position->rect->x + boutonDroiteJ2->position->rect->w && e.motion.y > boutonDroiteJ2->position->rect->y && e.motion.y < boutonDroiteJ2->position->rect->y + boutonDroiteJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, DroitJ2, &droiteJ2);
+                saisirTouche(renderer, font, e, liste_touches, DroitJ2, &droiteJ2, f_touches);
                 boutonDroiteJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonDroiteJ2->etat == BOUTON_APPUYE  || boutonDroiteJ2->etat == BOUTON_OVER && !(e.motion.x > boutonDroiteJ2->position->rect->x && e.motion.x < boutonDroiteJ2->position->rect->x + boutonDroiteJ2->position->rect->w && e.motion.y > boutonDroiteJ2->position->rect->y && e.motion.y < boutonDroiteJ2->position->rect->y + boutonDroiteJ2->position->rect->h)) {
@@ -417,7 +415,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonPoingJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonPoingJ1->position->rect->x && e.motion.x < boutonPoingJ1->position->rect->x + boutonPoingJ1->position->rect->w && e.motion.y > boutonPoingJ1->position->rect->y && e.motion.y < boutonPoingJ1->position->rect->y + boutonPoingJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, PoingJ1, &poingJ1);
+                saisirTouche(renderer, font, e, liste_touches, PoingJ1, &poingJ1, f_touches);
                 boutonPoingJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonPoingJ1->etat == BOUTON_APPUYE  || boutonPoingJ1->etat == BOUTON_OVER && !(e.motion.x > boutonPoingJ1->position->rect->x && e.motion.x < boutonPoingJ1->position->rect->x + boutonPoingJ1->position->rect->w && e.motion.y > boutonPoingJ1->position->rect->y && e.motion.y < boutonPoingJ1->position->rect->y + boutonPoingJ1->position->rect->h)) {
@@ -432,7 +430,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonPoingJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonPoingJ2->position->rect->x && e.motion.x < boutonPoingJ2->position->rect->x + boutonPoingJ2->position->rect->w && e.motion.y > boutonPoingJ2->position->rect->y && e.motion.y < boutonPoingJ2->position->rect->y + boutonPoingJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, PoingJ2, &poingJ2);
+                saisirTouche(renderer, font, e, liste_touches, PoingJ2, &poingJ2, f_touches);
                 boutonPoingJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonPoingJ2->etat == BOUTON_APPUYE  || boutonPoingJ2->etat == BOUTON_OVER && !(e.motion.x > boutonPoingJ2->position->rect->x && e.motion.x < boutonPoingJ2->position->rect->x + boutonPoingJ2->position->rect->w && e.motion.y > boutonPoingJ2->position->rect->y && e.motion.y < boutonPoingJ2->position->rect->y + boutonPoingJ2->position->rect->h)) {
@@ -447,7 +445,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonKickJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonKickJ1->position->rect->x && e.motion.x < boutonKickJ1->position->rect->x + boutonKickJ1->position->rect->w && e.motion.y > boutonKickJ1->position->rect->y && e.motion.y < boutonKickJ1->position->rect->y + boutonKickJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, KickJ1, &kickJ1);
+                saisirTouche(renderer, font, e, liste_touches, KickJ1, &kickJ1, f_touches);
                 boutonKickJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonKickJ1->etat == BOUTON_APPUYE  || boutonKickJ1->etat == BOUTON_OVER && !(e.motion.x > boutonKickJ1->position->rect->x && e.motion.x < boutonKickJ1->position->rect->x + boutonKickJ1->position->rect->w && e.motion.y > boutonKickJ1->position->rect->y && e.motion.y < boutonKickJ1->position->rect->y + boutonKickJ1->position->rect->h)) {
@@ -462,7 +460,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonKickJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonKickJ2->position->rect->x && e.motion.x < boutonKickJ2->position->rect->x + boutonKickJ2->position->rect->w && e.motion.y > boutonKickJ2->position->rect->y && e.motion.y < boutonKickJ2->position->rect->y + boutonKickJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, KickJ2, &kickJ2);
+                saisirTouche(renderer, font, e, liste_touches, KickJ2, &kickJ2, f_touches);
                 boutonKickJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonKickJ2->etat == BOUTON_APPUYE  || boutonKickJ2->etat == BOUTON_OVER && !(e.motion.x > boutonKickJ2->position->rect->x && e.motion.x < boutonKickJ2->position->rect->x + boutonKickJ2->position->rect->w && e.motion.y > boutonKickJ2->position->rect->y && e.motion.y < boutonKickJ2->position->rect->y + boutonKickJ2->position->rect->h)) {
@@ -477,7 +475,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonGardeJ1->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGardeJ1->position->rect->x && e.motion.x < boutonGardeJ1->position->rect->x + boutonGardeJ1->position->rect->w && e.motion.y > boutonGardeJ1->position->rect->y && e.motion.y < boutonGardeJ1->position->rect->y + boutonGardeJ1->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, ParadeJ1, &gardeJ1);
+                saisirTouche(renderer, font, e, liste_touches, ParadeJ1, &gardeJ1, f_touches);
                 boutonGardeJ1->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonGardeJ1->etat == BOUTON_APPUYE  || boutonGardeJ1->etat == BOUTON_OVER && !(e.motion.x > boutonGardeJ1->position->rect->x && e.motion.x < boutonGardeJ1->position->rect->x + boutonGardeJ1->position->rect->w && e.motion.y > boutonGardeJ1->position->rect->y && e.motion.y < boutonGardeJ1->position->rect->y + boutonGardeJ1->position->rect->h)) {
@@ -492,7 +490,7 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
                 boutonGardeJ2->etat = BOUTON_APPUYE;
             // Appuie et relache sur le bouton
             }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonGardeJ2->position->rect->x && e.motion.x < boutonGardeJ2->position->rect->x + boutonGardeJ2->position->rect->w && e.motion.y > boutonGardeJ2->position->rect->y && e.motion.y < boutonGardeJ2->position->rect->y + boutonGardeJ2->position->rect->h) {
-                saisirTouche(renderer, font, e, liste_touches, ParadeJ2, &gardeJ2);
+                saisirTouche(renderer, font, e, liste_touches, ParadeJ2, &gardeJ2, f_touches);
                 boutonGardeJ2->etat = BOUTON_RELACHE;
             // Appuie sur le bouton et relache ailleurs
             }else if (e.type == SDL_MOUSEBUTTONUP && boutonGardeJ2->etat == BOUTON_APPUYE  || boutonGardeJ2->etat == BOUTON_OVER && !(e.motion.x > boutonGardeJ2->position->rect->x && e.motion.x < boutonGardeJ2->position->rect->x + boutonGardeJ2->position->rect->w && e.motion.y > boutonGardeJ2->position->rect->y && e.motion.y < boutonGardeJ2->position->rect->y + boutonGardeJ2->position->rect->h)) {
@@ -500,6 +498,23 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
             // Passe sur le bouton
             }else if (e.motion.x > boutonGardeJ2->position->rect->x && e.motion.x < boutonGardeJ2->position->rect->x + boutonGardeJ2->position->rect->w && e.motion.y > boutonGardeJ2->position->rect->y && e.motion.y < boutonGardeJ2->position->rect->y + boutonGardeJ2->position->rect->h && boutonGardeJ2->etat == BOUTON_RELACHE) {
                 boutonGardeJ2->etat = BOUTON_OVER;
+            } 
+
+            // Bouton Reset
+            if (e.type == SDL_MOUSEBUTTONDOWN && e.motion.x > boutonReset->position->rect->x && e.motion.x < boutonReset->position->rect->x + boutonReset->position->rect->w && e.motion.y > boutonReset->position->rect->y && e.motion.y < boutonReset->position->rect->y + boutonReset->position->rect->h) {
+                boutonReset->etat = BOUTON_APPUYE;
+            // Appuie et relache sur le bouton
+            }else if (e.type == SDL_MOUSEBUTTONUP && e.motion.x > boutonReset->position->rect->x && e.motion.x < boutonReset->position->rect->x + boutonReset->position->rect->w && e.motion.y > boutonReset->position->rect->y && e.motion.y < boutonReset->position->rect->y + boutonReset->position->rect->h) {
+                resetTouches(liste_touches, f_touches, r_touches);
+                (*scene)++;
+                quit = 2;
+                boutonReset->etat = BOUTON_RELACHE;
+            // Appuie sur le bouton et relache ailleurs
+            }else if (e.type == SDL_MOUSEBUTTONUP && boutonReset->etat == BOUTON_APPUYE  || boutonReset->etat == BOUTON_OVER && !(e.motion.x > boutonReset->position->rect->x && e.motion.x < boutonReset->position->rect->x + boutonReset->position->rect->w && e.motion.y > boutonReset->position->rect->y && e.motion.y < boutonReset->position->rect->y + boutonReset->position->rect->h)) {
+                boutonReset->etat = BOUTON_RELACHE;
+            // Passe sur le bouton
+            }else if (e.motion.x > boutonReset->position->rect->x && e.motion.x < boutonReset->position->rect->x + boutonReset->position->rect->w && e.motion.y > boutonReset->position->rect->y && e.motion.y < boutonReset->position->rect->y + boutonReset->position->rect->h && boutonReset->etat == BOUTON_RELACHE) {
+                boutonReset->etat = BOUTON_OVER;
             } 
         }
 
@@ -586,6 +601,10 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
         if(boutonGardeJ2->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonGardeJ2->texture, boutonGardeJ2->relache, boutonGardeJ2->position->rect);
         else if (boutonGardeJ2->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonGardeJ2->texture, boutonGardeJ2->appuye, boutonGardeJ2->position->rect);
         else if (boutonGardeJ2->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonGardeJ2->texture, boutonGardeJ2->over, boutonGardeJ2->position->rect);
+        // Reset
+        if(boutonReset->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonReset->texture, boutonReset->relache, boutonReset->position->rect);
+        else if (boutonReset->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonReset->texture, boutonReset->appuye, boutonReset->position->rect);
+        else if (boutonReset->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonReset->texture, boutonReset->over, boutonReset->position->rect);
 
 
         // Txt

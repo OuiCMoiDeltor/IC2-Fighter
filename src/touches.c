@@ -4,15 +4,41 @@
 #include "../lib/creation.h"
 #include "../lib/touches.h"
 
+extern
+void resetTouches(int * liste_touches, char * f_fichier, char * r_fichier) {
+    char line[100];
+    char *lines[14];  
+    int num_lines = 0;
+    int touche;
+    FILE * file = fopen(r_fichier, "r");
+    if (file == NULL) exit(1);
+    while (fgets(line, 100, file) != NULL && num_lines < 14) {
+        line[strcspn(line, "\n")] = '\0';
+        lines[num_lines] = malloc(strlen(line) + 1);
+        if (lines[num_lines] == NULL) exit(1);
+        strcpy(lines[num_lines], line);
+        num_lines++;
+    }
+    fclose(file);
+    file = fopen(f_fichier, "w");
+    for (int i = 0; i < num_lines; i++) {
+        if(touche = atoi(lines[i]));
+        liste_touches[i] = touche;
+        strcat(lines[i],"\n");
+        fputs(lines[i], file);
+        free(lines[i]);
+    }
+    fclose(file);
+}
 
 extern
-void LireTouches(int * liste_touches){
+void LireTouches(int * liste_touches, char * fichier){
     
     char line[100];
     char *lines[14];  
     int num_lines = 0;
     int touche;
-    FILE * file = fopen("touches.txt", "r");
+    FILE * file = fopen(fichier, "r");
     if (file == NULL) exit(1);
     while (fgets(line, 100, file) != NULL && num_lines < 14) {
         line[strcspn(line, "\n")] = '\0';
@@ -31,7 +57,7 @@ void LireTouches(int * liste_touches){
 }
 
 extern
-void ModifierTouche(int * liste_touches, int numero_ligne, int touche) {
+void ModifierTouche(int * liste_touches, int numero_ligne, int touche, char * fichier) {
 
     FILE *file;
     FILE *tempFile;
@@ -39,7 +65,7 @@ void ModifierTouche(int * liste_touches, int numero_ligne, int touche) {
     char nb[20];
     int line_number = 0;
 
-    file = fopen("touches.txt", "r");
+    file = fopen(fichier, "r");
     if (file == NULL) exit(1);
 
     tempFile = fopen("temp.txt", "w");
@@ -66,26 +92,25 @@ void ModifierTouche(int * liste_touches, int numero_ligne, int touche) {
     fclose(file);
     fclose(tempFile);
     // On supprime le fichier original
-    if (remove("touches.txt") != 0) {
+    if (remove(fichier) != 0) {
         fprintf(stderr, "Erreur lors de la suppression du fichier original.\n");
         exit(1);
     }
     // Et on renomme le fichier temporaire pour remplacer l'original
-    if (rename("temp.txt", "touches.txt") != 0) {
+    if (rename("temp.txt", fichier) != 0) {
         fprintf(stderr, "Erreur lors du renommage du fichier temporaire.\n");
         exit(1);
     }
 }
 
-
 extern
-void saisirTouche(SDL_Renderer * renderer, TTF_Font * font, SDL_Event event, int * liste_touches, touches_e touche, SDL_Texture ** txt){
+void saisirTouche(SDL_Renderer * renderer, TTF_Font * font, SDL_Event event, int * liste_touches, touches_e touche, SDL_Texture ** txt, char * fichier){
 
     while(SDL_PollEvent(&event) != 0);
     SDL_WaitEvent(&event);
     if(event.type == SDL_KEYDOWN) {
         liste_touches[touche] = (event.key.keysym.scancode);
-        ModifierTouche(liste_touches,touche,liste_touches[touche]);
+        ModifierTouche(liste_touches,touche,liste_touches[touche], fichier);
         SDL_DestroyTexture(*txt);
         SDL_Color noire = {0,0,0};
         SDL_Log("%s", (char*)SDL_GetScancodeName(liste_touches[touche]));

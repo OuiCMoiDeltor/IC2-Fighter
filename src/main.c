@@ -24,6 +24,10 @@
 // Music
 #define SOUND_BACKGROUND "mixer/Leateq - Tokyo.mp3"
 
+// Fichiers Touches
+#define FICHIER_TOUCHES "touches.txt"
+#define RESET_TOUCHES "default_touches.txt"
+
 typedef enum {CONTROLE, OPTIONS, MENU_PRINCIPAL, GAMEMODE, CHAMP_SELECT}scenes;
 
 int main(int argc, char* argv[]) {
@@ -119,15 +123,15 @@ int main(int argc, char* argv[]) {
     Mix_Music *backgroundSound = Mix_LoadMUS(SOUND_BACKGROUND); // Chargement musique de fond
     Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1); //Réglage niveau de son
     Mix_PlayMusic(backgroundSound, -1); // Son background joué indéfiniment
-    int liste_touches[14] = {SDL_SCANCODE_W, SDL_SCANCODE_UP, SDL_SCANCODE_S, SDL_SCANCODE_DOWN, SDL_SCANCODE_A, SDL_SCANCODE_LEFT, SDL_SCANCODE_D, SDL_SCANCODE_RIGHT, SDL_SCANCODE_V, SDL_SCANCODE_KP_6, SDL_SCANCODE_C, SDL_SCANCODE_KP_5, SDL_SCANCODE_F, SDL_SCANCODE_KP_4};
-    LireTouches(liste_touches);
+    int liste_touches[14]; //{SDL_SCANCODE_W, SDL_SCANCODE_UP, SDL_SCANCODE_S, SDL_SCANCODE_DOWN, SDL_SCANCODE_A, SDL_SCANCODE_LEFT, SDL_SCANCODE_D, SDL_SCANCODE_RIGHT, SDL_SCANCODE_V, SDL_SCANCODE_KP_6, SDL_SCANCODE_C, SDL_SCANCODE_KP_5, SDL_SCANCODE_F, SDL_SCANCODE_KP_4};
+    LireTouches(liste_touches, FICHIER_TOUCHES);
     Uint8 *keyboardState = (Uint8 *)SDL_GetKeyboardState(NULL);
 
     while (!quit) {
         switch (scene)
         {
         case CONTROLE:
-            quit = controle(e, renderer, largeurF, hauteurF, (int*)&scene, liste_touches);
+            quit = controle(e, renderer, largeurF, hauteurF, (int*)&scene, liste_touches, FICHIER_TOUCHES, RESET_TOUCHES);
             break;
 
         case OPTIONS:

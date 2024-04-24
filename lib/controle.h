@@ -10,6 +10,7 @@
 // Texte
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
+// Images
 #define IMG_CONTROLE_BG "img/FondControles.bmp"
 #define IMG_BACK "img/options/optionsBack.bmp"
 
@@ -27,4 +28,6 @@
 #define IMG_KICK "img/Kickpx.bmp" 
 #define IMG_GARDE "img/Paradepx.bmp"
 
-extern int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int * liste_touches);
+#define IMG_RESET "img/emplacement.bmp"
+
+extern int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int * liste_touches, char * f_touches, char * r_touches);
