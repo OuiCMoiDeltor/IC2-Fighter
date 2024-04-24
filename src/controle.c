@@ -54,14 +54,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &sautRect);
     
     // saut J1
-    SDL_Texture *sauterJ1 = creerTexte(renderer,font,"Z",noire);
+    SDL_Texture *sauterJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[SauterJ1]),noire);
     if(sauterJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &sauterJ1);
     rectangle *sauterJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/3.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &sauterJ1Rect);
 
     // saut J2
-    SDL_Texture *sauterJ2 = creerTexte(renderer,font,"Up",noire);
+    SDL_Texture *sauterJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[SauterJ2]),noire);
     if(sauterJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &sauterJ2);
     rectangle *sauterJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/3.25, 32.0, 32.0);
@@ -76,14 +76,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &accroupirRect);
     
     // accroupi J1
-    SDL_Texture *accroupirJ1 = creerTexte(renderer,font,"S",noire);
+    SDL_Texture *accroupirJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[AccroupirJ1]),noire);
     if(accroupirJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &accroupirJ1);
     rectangle *accroupirJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/4.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &accroupirJ1Rect);
 
     // accroupi J2
-    SDL_Texture *accroupirJ2 = creerTexte(renderer,font,"DOWN",noire);
+    SDL_Texture *accroupirJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[AccroupirJ2]),noire);
     if(accroupirJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &accroupirJ2);
     rectangle *accroupirJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/4.25, 32.0, 32.0);
@@ -98,14 +98,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &gaucheRect);
     
     // gauche J1
-    SDL_Texture *gaucheJ1 = creerTexte(renderer,font,"Q",noire);
+    SDL_Texture *gaucheJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[GaucheJ1]),noire);
     if(gaucheJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &gaucheJ1);
     rectangle *gaucheJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/5.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &gaucheJ1Rect);
 
     // gauche J2
-    SDL_Texture *gaucheJ2 = creerTexte(renderer,font,"LEFT",noire);
+    SDL_Texture *gaucheJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[GaucheJ2]),noire);
     if(gaucheJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &gaucheJ2);
     rectangle *gaucheJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/5.25, 32.0, 32.0);
@@ -120,14 +120,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &droiteRect);
     
     // droite J1
-    SDL_Texture *droiteJ1 = creerTexte(renderer,font,"D",noire);
+    SDL_Texture *droiteJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[DroitJ1]),noire);
     if(droiteJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &droiteJ1);
     rectangle *droiteJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/6.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &droiteJ1Rect);
 
     // droite J2
-    SDL_Texture *droiteJ2 = creerTexte(renderer,font,"RIGHT",noire);
+    SDL_Texture *droiteJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[DroitJ2]),noire);
     if(droiteJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &droiteJ2);
     rectangle *droiteJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/6.25, 32.0, 32.0);
@@ -142,14 +142,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &poingRect);
     
     // poing J1
-    SDL_Texture *poingJ1 = creerTexte(renderer,font,"C",noire);
+    SDL_Texture *poingJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[PoingJ1]),noire);
     if(poingJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &poingJ1);
     rectangle *poingJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/7.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &poingJ1Rect);
 
     // poing J2
-    SDL_Texture *poingJ2 = creerTexte(renderer,font,"Keypad 5",noire);
+    SDL_Texture *poingJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[PoingJ2]),noire);
     if(poingJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &poingJ2);
     rectangle *poingJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/7.25, 32.0, 32.0);
@@ -164,14 +164,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &kickRect);
     
     // kick J1
-    SDL_Texture *kickJ1 = creerTexte(renderer,font,"V",noire);
+    SDL_Texture *kickJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[KickJ1]),noire);
     if(kickJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &kickJ1);
     rectangle *kickJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/8.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &kickJ1Rect);
 
     // kick J2
-    SDL_Texture *kickJ2 = creerTexte(renderer,font,"Keypad 6",noire);
+    SDL_Texture *kickJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[KickJ2]),noire);
     if(kickJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &kickJ2);
     rectangle *kickJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/8.25, 32.0, 32.0);
@@ -186,14 +186,14 @@ int controle(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, i
     ajoutListeRect(&listeRectangle, &gardeRect);
     
     // garde J1
-    SDL_Texture *gardeJ1 = creerTexte(renderer,font,"F",noire);
+    SDL_Texture *gardeJ1 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[ParadeJ1]),noire);
     if(gardeJ1 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &gardeJ1);
     rectangle *gardeJ1Rect = creerRectangle(&largeurF, &hauteurF, 24.0/12, 11.0/9.25, 32.0, 32.0);
     ajoutListeRect(&listeRectangle, &gardeJ1Rect);
 
     // garde J2
-    SDL_Texture *gardeJ2 = creerTexte(renderer,font,"Keypad 4",noire);
+    SDL_Texture *gardeJ2 = creerTexte(renderer,font,(char*)SDL_GetScancodeName(liste_touches[ParadeJ2]),noire);
     if(gardeJ2 == NULL) exit(EXIT_FAILURE);
     ajoutListeT(&listeTexture, &gardeJ2);
     rectangle *gardeJ2Rect = creerRectangle(&largeurF, &hauteurF, 24.0/17, 11.0/9.25, 32.0, 32.0);
