@@ -31,7 +31,7 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
 
     // Boutons
     // Local
-        bouton *boutonRYU = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/2.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_RYU, 1, 10);
+        bouton *boutonRYU = creerBouton(renderer, &listeRectangle, &largeurF, &hauteurF, 25/2.0, 100/20.0, 25/3.0, 100/30.0, IMG_CHAMPSELECT_YASS, 1, 25);
         if(boutonRYU == NULL) exit(EXIT_FAILURE);
         ajoutListeBouton(&listeBoutons, &boutonRYU);
 
@@ -307,7 +307,7 @@ int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteur
         // Animation
         waitForFrame++;
         if(waitForFrame > 10) {
-                boutonRYU->etat =  ++boutonRYU->etat%10;
+                boutonRYU->etat =  ++boutonRYU->etat%25;
                 boutonRYU2->etat =  ++boutonRYU2->etat%10;
                 boutonRYU3->etat =  ++boutonRYU3->etat%10;
                 boutonRYU4->etat =  ++boutonRYU4->etat%10;
