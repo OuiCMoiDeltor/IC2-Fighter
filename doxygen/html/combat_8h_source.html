@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">combat.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="combat_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _COMBAT_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define _COMBAT_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="perso_8h.html">perso.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="combat_8h.html#abd867605ae9bc8f0edc515904b9de730">initPerso</a>(SDL_Renderer * renderer, <a class="code" href="structpersonnage.html">personnage</a> * J1, <a class="code" href="structpersonnage.html">personnage</a> * J2);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="combat_8h.html#aeb2e7cbc23b26c8c484a4963219e2785">roundStart</a>(SDL_Renderer * renderer, Uint8 *keyboardState, <a class="code" href="structpersonnage.html">personnage</a> * Joueur1, <a class="code" href="structpersonnage.html">personnage</a> * Joueur2, <span class="keywordtype">int</span> largeurF, <span class="keywordtype">int</span> hauteurF, <span class="keywordtype">int</span> waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, Mix_Chunk * stun, <span class="keywordtype">int</span> * liste_touches, <span class="keywordtype">int</span> round, SDL_Texture * stunTexture, <a class="code" href="structrectangle.html">rectangle</a> * stunRect, SDL_Rect ** stunTextureRect);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="combat_8h.html#a713655dcda992202a3bea06422419e6a">combatStart</a>(SDL_Renderer * renderer, Uint8 *keyboardState, <a class="code" href="structpersonnage.html">personnage</a> * Joueur1, <a class="code" href="structpersonnage.html">personnage</a> * Joueur2, <span class="keywordtype">int</span> largeurF, <span class="keywordtype">int</span> hauteurF, <span class="keywordtype">int</span> son, <span class="keywordtype">int</span> * liste_touches);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="combat_8h.html#af1837e95d769962576e597337aa9073f">afficherRound</a>(SDL_Renderer* renderer, <span class="keywordtype">int</span> largeurF, <span class="keywordtype">int</span> hauteurF, <span class="keywordtype">int</span> round, <a class="code" href="structpersonnage.html">personnage</a> * Joueur1, <a class="code" href="structpersonnage.html">personnage</a> * Joueur2, SDL_Texture * BG);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acombat_8h_html_a713655dcda992202a3bea06422419e6a"><div class="ttname"><a href="combat_8h.html#a713655dcda992202a3bea06422419e6a">combatStart</a></div><div class="ttdeci">void combatStart(SDL_Renderer *renderer, Uint8 *keyboardState, personnage *Joueur1, personnage *Joueur2, int largeurF, int hauteurF, int son, int *liste_touches)</div><div class="ttdoc">Lance le combat entre deux personnages.</div><div class="ttdef"><b>Definition:</b> <a href="combat_8c_source.html#l00281">combat.c:281</a></div></div>
+<div class="ttc" id="acombat_8h_html_abd867605ae9bc8f0edc515904b9de730"><div class="ttname"><a href="combat_8h.html#abd867605ae9bc8f0edc515904b9de730">initPerso</a></div><div class="ttdeci">void initPerso(SDL_Renderer *renderer, personnage *J1, personnage *J2)</div><div class="ttdoc">Initialise les personnages au début d'un round.</div><div class="ttdef"><b>Definition:</b> <a href="combat_8c_source.html#l00121">combat.c:121</a></div></div>
+<div class="ttc" id="acombat_8h_html_aeb2e7cbc23b26c8c484a4963219e2785"><div class="ttname"><a href="combat_8h.html#aeb2e7cbc23b26c8c484a4963219e2785">roundStart</a></div><div class="ttdeci">int roundStart(SDL_Renderer *renderer, Uint8 *keyboardState, personnage *Joueur1, personnage *Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk *hit, Mix_Chunk *dmg, Mix_Chunk *stun, int *liste_touches, int round, SDL_Texture *stunTexture, rectangle *stunRect, SDL_Rect **stunTextureRect)</div><div class="ttdoc">Démarre un round de combat.</div><div class="ttdef"><b>Definition:</b> <a href="combat_8c_source.html#l00196">combat.c:196</a></div></div>
+<div class="ttc" id="acombat_8h_html_af1837e95d769962576e597337aa9073f"><div class="ttname"><a href="combat_8h.html#af1837e95d769962576e597337aa9073f">afficherRound</a></div><div class="ttdeci">void afficherRound(SDL_Renderer *renderer, int largeurF, int hauteurF, int round, personnage *Joueur1, personnage *Joueur2, SDL_Texture *BG)</div><div class="ttdoc">Affiche les informations d'un round de combat.</div><div class="ttdef"><b>Definition:</b> <a href="combat_8c_source.html#l00052">combat.c:52</a></div></div>
+<div class="ttc" id="aperso_8h_html"><div class="ttname"><a href="perso_8h.html">perso.h</a></div><div class="ttdoc">Fichier contenant les définitions de structures et les déclarations de fonctions pour la gestion des ...</div></div>
+<div class="ttc" id="astructpersonnage_html"><div class="ttname"><a href="structpersonnage.html">personnage</a></div><div class="ttdoc">Structure représentant un personnage dans le jeu.</div><div class="ttdef"><b>Definition:</b> <a href="perso_8h_source.html#l00052">perso.h:52</a></div></div>
+<div class="ttc" id="astructrectangle_html"><div class="ttname"><a href="structrectangle.html">rectangle</a></div><div class="ttdoc">Structure représentant un rectangle avec des proportions adaptatives par rapport à la taille de la fe...</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

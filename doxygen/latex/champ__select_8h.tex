@@ -1,0 +1,131 @@
+\hypertarget{champ__select_8h}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/lib/champ\+\_\+select.h}
+\label{champ__select_8h}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/champ\_select.h@{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/champ\_select.h}}
+
+
+En-\/tête pour la sélection des personnages dans le jeu.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}bouton.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}touches.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}perso.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}combat.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a74211376a3776f5299a9fe1589a46417}\label{champ__select_8h_a74211376a3776f5299a9fe1589a46417}} 
+\#define {\bfseries IMG\+\_\+\+CHAMPSELECT\+\_\+\+BG}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/amphi.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_ac8bea04647321fadd94f9801cbbadbc3}\label{champ__select_8h_ac8bea04647321fadd94f9801cbbadbc3}} 
+\#define {\bfseries IMG\+\_\+\+CHAMPSELECT\+\_\+\+RYU}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/wankulpix.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_abc8857f32da2e56a4e1c3c5716d65a90}\label{champ__select_8h_abc8857f32da2e56a4e1c3c5716d65a90}} 
+\#define {\bfseries IMG\+\_\+\+CHAMPSELECT\+\_\+\+YASS}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/Yacine\+CS.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a71e847f543d4f594e1799681d2792910}\label{champ__select_8h_a71e847f543d4f594e1799681d2792910}} 
+\#define {\bfseries IMG\+\_\+\+CHAMPSELECT\+\_\+\+DIM}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/casquepix.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a378d9fa62f266050f5520c5bbe12a90e}\label{champ__select_8h_a378d9fa62f266050f5520c5bbe12a90e}} 
+\#define {\bfseries IMG\+\_\+\+CHAMPSELECT\+\_\+\+J1}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/select\+J1.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a26487c0f96755789f688ef4b47685211}\label{champ__select_8h_a26487c0f96755789f688ef4b47685211}} 
+\#define {\bfseries IMG\+\_\+\+CHAMPSELECT\+\_\+\+J2}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/select\+J2.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a9aecfd041e6555d2f2928cbf85d3eb52}\label{champ__select_8h_a9aecfd041e6555d2f2928cbf85d3eb52}} 
+\#define {\bfseries IMG\+\_\+\+GAMEMODE\+\_\+\+RETOUR}~\char`\"{}img/\mbox{\hyperlink{options_8c_a6169e92633544c50098e58d0bd053ca8}{options}}/options\+Back.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a16ca6bafa8b600a31ae0e86b6a5b59bd}\label{champ__select_8h_a16ca6bafa8b600a31ae0e86b6a5b59bd}} 
+\#define {\bfseries RYU}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/ryuic2.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a1ac55cb925007f4baaab4d675444264f}\label{champ__select_8h_a1ac55cb925007f4baaab4d675444264f}} 
+\#define {\bfseries MNX}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/sprite\+\_\+mnx.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a641e02d98dd4fa409279281c6217e0eb}\label{champ__select_8h_a641e02d98dd4fa409279281c6217e0eb}} 
+\#define {\bfseries YASS}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/sprite\+\_\+yacine.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a47041990adfdd6d588d41e3c5eb91c36}\label{champ__select_8h_a47041990adfdd6d588d41e3c5eb91c36}} 
+\#define {\bfseries DAM}~\char`\"{}img/\mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}}/damien\+\_\+prout.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{champ__select_8h_a64594136c2485f3f6a0a4ee51b18ca96}\label{champ__select_8h_a64594136c2485f3f6a0a4ee51b18ca96}} 
+\#define {\bfseries SOUND\+\_\+\+BACKGROUND\+\_\+\+SELECT}~\char`\"{}mixer/giga\+\_\+chad.\+mp3\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}{champ\+\_\+select}} (SDL\+\_\+\+Event e, SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int $\ast$scene, int son, int $\ast$liste\+\_\+touches, Uint8 $\ast$keyboard\+State)
+\begin{DoxyCompactList}\small\item\em Fonction de sélection des personnages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+En-\/tête pour la sélection des personnages dans le jeu. 
+
+Ce fichier d\textquotesingle{}en-\/tête définit les ressources et fonctions nécessaires à la mise en œuvre de l\textquotesingle{}écran de sélection des personnages dans le jeu. Il inclut des détails sur les textures utilisées pour les différents personnages et l\textquotesingle{}arrière-\/plan de l\textquotesingle{}écran de sélection, ainsi que la fonction principale gérant cet écran. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}\label{champ__select_8h_a8bb23937b790df8f9ccbceae1dd93794}} 
+\index{champ\_select.h@{champ\_select.h}!champ\_select@{champ\_select}}
+\index{champ\_select@{champ\_select}!champ\_select.h@{champ\_select.h}}
+\doxysubsubsection{\texorpdfstring{champ\_select()}{champ\_select()}}
+{\footnotesize\ttfamily int champ\+\_\+select (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{e,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int $\ast$}]{scene,  }\item[{int}]{son,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{Uint8 $\ast$}]{keyboard\+State }\end{DoxyParamCaption})}
+
+
+
+Fonction de sélection des personnages. 
+
+Cette fonction gère l\textquotesingle{}écran de sélection des personnages, permettant aux joueurs de choisir parmi plusieurs options. Elle traite les entrées utilisateur et met à jour l\textquotesingle{}affichage en conséquence.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Événement SDL capturé. \\
+\hline
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre. \\
+\hline
+{\em scene} & Pointeur vers la variable contrôlant la scène actuelle du jeu. \\
+\hline
+{\em son} & Indicateur d\textquotesingle{}activation du son. \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches configurées pour le jeu. \\
+\hline
+{\em keyboard\+State} & État actuel du clavier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Code pour contrôler le flux du jeu (continuer, changer de scène, quitter).
+\end{DoxyReturn}
+Fonction de sélection des personnages.
+
+Cette fonction crée l\textquotesingle{}environnement de sélection des personnages, gère les interactions avec les boutons de sélection et le bouton de retour. Elle maintient une boucle d\textquotesingle{}événements pour traiter les entrées utilisateur jusqu\textquotesingle{}à ce qu\textquotesingle{}une sélection soit faite ou que l\textquotesingle{}utilisateur quitte le menu. Elle utilise également des textures et des boutons pour afficher les personnages disponibles et gérer les états de sélection. La musique de fond peut être jouée si spécifié.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & SDL\+\_\+\+Event utilisé pour gérer les événements. \\
+\hline
+{\em renderer} & Pointeur vers le rendu SDL utilisé pour dessiner les éléments graphiques. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de l\textquotesingle{}affichage. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de l\textquotesingle{}affichage. \\
+\hline
+{\em scene} & Pointeur vers l\textquotesingle{}entier qui contrôle la scène courante dans l\textquotesingle{}application. \\
+\hline
+{\em son} & Indicateur pour jouer de la musique (1 pour jouer, 0 pour ne pas jouer). \\
+\hline
+{\em liste\+\_\+touches} & Tableau d\textquotesingle{}entiers représentant l\textquotesingle{}état des touches (utilisé pour la navigation). \\
+\hline
+{\em keyboard\+State} & État du clavier pour gérer les entrées directes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Entier indiquant si l\textquotesingle{}utilisateur quitte la sélection (1) ou retourne au menu précédent (0). 
+\end{DoxyReturn}
+
+
+Définition à la ligne 41 du fichier champ\+\_\+select.\+c.
+

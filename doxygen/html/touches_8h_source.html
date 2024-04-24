@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">touches.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="touches_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef _TOUCHES_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define _TOUCHES_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> touches{SauterJ1, SauterJ2, AccroupirJ1, AccroupirJ2, GaucheJ1, GaucheJ2, DroitJ1, DroitJ2, KickJ1, KickJ2, PoingJ1, PoingJ2, ParadeJ1, ParadeJ2}touches_e; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="touches_8h.html#ab798a4ae30fa24ce6aff14c9eaf75710">resetTouches</a>(<span class="keywordtype">int</span> * liste_touches, <span class="keywordtype">char</span> * f_fichier, <span class="keywordtype">char</span> * r_fichier);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="touches_8h.html#af214434d0110dbb579de3a744d2ceaf7">LireTouches</a>(<span class="keywordtype">int</span> * liste_touches, <span class="keywordtype">char</span> * fichier);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="touches_8h.html#aa01e651c27ebd39c86cb47f83f14f7f3">ModifierTouche</a>(<span class="keywordtype">int</span> * liste_touches, <span class="keywordtype">int</span> numero_ligne, <span class="keywordtype">int</span> touche, <span class="keywordtype">char</span> * fichier);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="touches_8h.html#a7f24404f02a06e9fae0a7d82acf9cb9c">saisirTouche</a>(SDL_Renderer * renderer, TTF_Font * font, SDL_Event event, <span class="keywordtype">int</span> * liste_touches, touches_e touche, SDL_Texture ** txt, <span class="keywordtype">char</span> * fichier);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="atouches_8h_html_a7f24404f02a06e9fae0a7d82acf9cb9c"><div class="ttname"><a href="touches_8h.html#a7f24404f02a06e9fae0a7d82acf9cb9c">saisirTouche</a></div><div class="ttdeci">void saisirTouche(SDL_Renderer *renderer, TTF_Font *font, SDL_Event event, int *liste_touches, touches_e touche, SDL_Texture **txt, char *fichier)</div><div class="ttdoc">Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique.</div><div class="ttdef"><b>Definition:</b> <a href="touches_8c_source.html#l00169">touches.c:169</a></div></div>
+<div class="ttc" id="atouches_8h_html_aa01e651c27ebd39c86cb47f83f14f7f3"><div class="ttname"><a href="touches_8h.html#aa01e651c27ebd39c86cb47f83f14f7f3">ModifierTouche</a></div><div class="ttdeci">void ModifierTouche(int *liste_touches, int numero_ligne, int touche, char *fichier)</div><div class="ttdoc">Modifie une touche spécifique du clavier dans le fichier de configuration.</div><div class="ttdef"><b>Definition:</b> <a href="touches_8c_source.html#l00106">touches.c:106</a></div></div>
+<div class="ttc" id="atouches_8h_html_ab798a4ae30fa24ce6aff14c9eaf75710"><div class="ttname"><a href="touches_8h.html#ab798a4ae30fa24ce6aff14c9eaf75710">resetTouches</a></div><div class="ttdeci">void resetTouches(int *liste_touches, char *f_fichier, char *r_fichier)</div><div class="ttdoc">Réinitialise les touches du clavier en les remettant à leur configuration par défaut.</div><div class="ttdef"><b>Definition:</b> <a href="touches_8c_source.html#l00030">touches.c:30</a></div></div>
+<div class="ttc" id="atouches_8h_html_af214434d0110dbb579de3a744d2ceaf7"><div class="ttname"><a href="touches_8h.html#af214434d0110dbb579de3a744d2ceaf7">LireTouches</a></div><div class="ttdeci">void LireTouches(int *liste_touches, char *fichier)</div><div class="ttdoc">Lit les touches du clavier à partir d'un fichier de configuration.</div><div class="ttdef"><b>Definition:</b> <a href="touches_8c_source.html#l00068">touches.c:68</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

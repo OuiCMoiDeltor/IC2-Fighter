@@ -77,9 +77,9 @@ $(function() {
 <p>Fichier contenant les fonctions de gestion des personnages dans le jeu.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &quot;../lib/creation.h&quot;</code><br />
-<code>#include &quot;../lib/perso.h&quot;</code><br />
-<code>#include &quot;../lib/touches.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="creation_8h_source.html">../lib/creation.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="perso_8h_source.html">../lib/perso.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="touches_8h_source.html">../lib/touches.h</a>&quot;</code><br />
 <code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
 </div>
@@ -96,16 +96,16 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:addafe404482f24287b3f02563fd3b4ce"><td class="memItemLeft" align="right" valign="top">personnage *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#addafe404482f24287b3f02563fd3b4ce">creerPerso</a> (SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle)</td></tr>
+<tr class="memitem:addafe404482f24287b3f02563fd3b4ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#addafe404482f24287b3f02563fd3b4ce">creerPerso</a> (SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, <a class="el" href="structlisteRect__s.html">listeRect</a> **listeRectangle)</td></tr>
 <tr class="memdesc:addafe404482f24287b3f02563fd3b4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau personnage avec des animations définies.  <a href="perso_8c.html#addafe404482f24287b3f02563fd3b4ce">Plus de détails...</a><br /></td></tr>
 <tr class="separator:addafe404482f24287b3f02563fd3b4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40c690887b8fa560285be01ac258940b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a40c690887b8fa560285be01ac258940b">detruirePerso</a> (personnage **perso)</td></tr>
+<tr class="memitem:a40c690887b8fa560285be01ac258940b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a40c690887b8fa560285be01ac258940b">detruirePerso</a> (<a class="el" href="structpersonnage.html">personnage</a> **perso)</td></tr>
 <tr class="memdesc:a40c690887b8fa560285be01ac258940b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un personnage et libère toutes les ressources associées.  <a href="perso_8c.html#a40c690887b8fa560285be01ac258940b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a40c690887b8fa560285be01ac258940b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a497927829c5dd6b4be76d3f185de3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a3a497927829c5dd6b4be76d3f185de3c">mettreAJourHp</a> (SDL_Renderer *renderer, personnage *perso, int degat, int persoID, Mix_Chunk *soundDMG)</td></tr>
+<tr class="memitem:a3a497927829c5dd6b4be76d3f185de3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a3a497927829c5dd6b4be76d3f185de3c">mettreAJourHp</a> (SDL_Renderer *renderer, <a class="el" href="structpersonnage.html">personnage</a> *perso, int degat, int persoID, Mix_Chunk *soundDMG)</td></tr>
 <tr class="memdesc:a3a497927829c5dd6b4be76d3f185de3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour les points de vie d'un personnage en fonction des dégâts reçus.  <a href="perso_8c.html#a3a497927829c5dd6b4be76d3f185de3c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3a497927829c5dd6b4be76d3f185de3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a99ed8b81faef246572b472cc7b9acc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a6a99ed8b81faef246572b472cc7b9acc">mettreAJourPersonnage</a> (SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int *framerate, Mix_Chunk *soundHIT, Mix_Chunk *soundDMG, Mix_Chunk *soundStun, int *liste_touches, SDL_Texture *stunTexture, rectangle *stunRect, SDL_Rect **stunTextureRect)</td></tr>
+<tr class="memitem:a6a99ed8b81faef246572b472cc7b9acc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="perso_8c.html#a6a99ed8b81faef246572b472cc7b9acc">mettreAJourPersonnage</a> (SDL_Renderer *renderer, <a class="el" href="structpersonnage.html">personnage</a> *perso1, <a class="el" href="structpersonnage.html">personnage</a> *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int *framerate, Mix_Chunk *soundHIT, Mix_Chunk *soundDMG, Mix_Chunk *soundStun, int *liste_touches, SDL_Texture *stunTexture, <a class="el" href="structrectangle.html">rectangle</a> *stunRect, SDL_Rect **stunTextureRect)</td></tr>
 <tr class="memdesc:a6a99ed8b81faef246572b472cc7b9acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour les animations et les états de deux personnages en fonction de l'input utilisateur et d'autres conditions de jeu.  <a href="perso_8c.html#a6a99ed8b81faef246572b472cc7b9acc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6a99ed8b81faef246572b472cc7b9acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -122,7 +122,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">personnage* creerPerso </td>
+          <td class="memname"><a class="el" href="structpersonnage.html">personnage</a>* creerPerso </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>renderer</em>, </td>
@@ -172,7 +172,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteRect__s.html">listeRect</a> **&#160;</td>
           <td class="paramname"><em>listeRectangle</em>&#160;</td>
         </tr>
         <tr>
@@ -214,7 +214,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void detruirePerso </td>
           <td>(</td>
-          <td class="paramtype">personnage **&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> **&#160;</td>
           <td class="paramname"><em>perso</em></td><td>)</td>
           <td></td>
         </tr>
@@ -249,7 +249,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>perso</em>, </td>
         </tr>
         <tr>
@@ -310,13 +310,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>perso1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>perso2</em>, </td>
         </tr>
         <tr>
@@ -376,7 +376,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">rectangle *&#160;</td>
+          <td class="paramtype"><a class="el" href="structrectangle.html">rectangle</a> *&#160;</td>
           <td class="paramname"><em>stunRect</em>, </td>
         </tr>
         <tr>

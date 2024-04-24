@@ -1,3 +1,12 @@
+/**
+ * @file bouton.h
+ * @brief En-tête pour la gestion des boutons avec SDL.
+ *
+ * Ce fichier d'en-tête définit les structures et les fonctions nécessaires pour créer et gérer des boutons interactifs
+ * dans une application utilisant la SDL. Les boutons peuvent avoir différents états visuels (relâché, appuyé, survolé)
+ * et sont utilisés pour gérer les interactions utilisateur dans l'interface graphique.
+ */
+
 #ifndef _BOUTON_H_
 #define _BOUTON_H_
 
@@ -10,10 +19,11 @@
 #define NB_ETAT 3
  
 /**
- * \struct bouton
- * \brief Objet pour créer le bouton
+ * @struct bouton
+ * @brief Structure représentant un bouton interactif.
  *
- * bouton est l'objet permettant de créer le bouton 
+ * Cette structure contient toutes les informations nécessaires pour afficher et interagir avec un bouton.
+ * Elle stocke les textures pour les différents états visuels et la position du bouton à l'écran.
  */
 
 typedef struct bouton_s
@@ -31,14 +41,13 @@ typedef struct bouton_s
 extern bouton *creerBouton(SDL_Renderer*,listeRect **,int *,int *,float,float,float,float,char*,int,int);
 extern void DestroyBouton(bouton**);
 
-
 /**
- * \struct listeBouton
- * \brief Structure pour la liste de bouton
+ * @struct listeBouton
+ * @brief Structure pour une liste de boutons.
  *
- * 
+ * Cette structure est utilisée pour gérer une liste chaînée de boutons,
+ * permettant de stocker et de manipuler plusieurs boutons dans une interface.
  */
-
 
 typedef struct listeB_s {
     bouton **pBouton;

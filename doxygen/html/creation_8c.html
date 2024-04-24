@@ -77,19 +77,19 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
-<code>#include &quot;../lib/creation.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="creation_8h_source.html">../lib/creation.h</a>&quot;</code><br />
 </div>
 <p><a href="creation_8c_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a60a5cbdefb1579937c934d4764436ee5"><td class="memItemLeft" align="right" valign="top">listeT_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">creerListeT</a> ()</td></tr>
+<tr class="memitem:a60a5cbdefb1579937c934d4764436ee5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlisteT__t.html">listeT_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">creerListeT</a> ()</td></tr>
 <tr class="memdesc:a60a5cbdefb1579937c934d4764436ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une nouvelle liste de textures.  <a href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a60a5cbdefb1579937c934d4764436ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af68e8afe26983df68acf0a834af15985"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a> (listeT_t **liste, SDL_Texture **Texture)</td></tr>
+<tr class="memitem:af68e8afe26983df68acf0a834af15985"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a> (<a class="el" href="structlisteT__t.html">listeT_t</a> **liste, SDL_Texture **Texture)</td></tr>
 <tr class="memdesc:af68e8afe26983df68acf0a834af15985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une texture à la liste de textures.  <a href="creation_8c.html#af68e8afe26983df68acf0a834af15985">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af68e8afe26983df68acf0a834af15985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38ab40c88ba6e1759e9e2ea518ead96c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a> (listeT_t **liste)</td></tr>
+<tr class="memitem:a38ab40c88ba6e1759e9e2ea518ead96c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a> (<a class="el" href="structlisteT__t.html">listeT_t</a> **liste)</td></tr>
 <tr class="memdesc:a38ab40c88ba6e1759e9e2ea518ead96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une liste de textures et libère la mémoire associée.  <a href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a38ab40c88ba6e1759e9e2ea518ead96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94387a957924bac438513aeea855bab3"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a94387a957924bac438513aeea855bab3">creerImage</a> (SDL_Renderer *renderer, char *image)</td></tr>
@@ -98,19 +98,19 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a70bbe03fd3400dde85f1a0fac0426222"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a70bbe03fd3400dde85f1a0fac0426222">creerTexte</a> (SDL_Renderer *renderer, TTF_Font *font, char *texte, SDL_Color couleur)</td></tr>
 <tr class="memdesc:a70bbe03fd3400dde85f1a0fac0426222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une texture de texte à partir d'une chaîne de caractères.  <a href="creation_8c.html#a70bbe03fd3400dde85f1a0fac0426222">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a70bbe03fd3400dde85f1a0fac0426222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c828a6b14af29a34d94fe46209ed1a"><td class="memItemLeft" align="right" valign="top">listeRect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">creerListeRect</a> ()</td></tr>
+<tr class="memitem:a07c828a6b14af29a34d94fe46209ed1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlisteRect__s.html">listeRect</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">creerListeRect</a> ()</td></tr>
 <tr class="memdesc:a07c828a6b14af29a34d94fe46209ed1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une nouvelle liste de rectangles.  <a href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a07c828a6b14af29a34d94fe46209ed1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a526afa603b8080dec0f9a234833b5661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a> (listeRect **liste, rectangle **Rect)</td></tr>
+<tr class="memitem:a526afa603b8080dec0f9a234833b5661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a> (<a class="el" href="structlisteRect__s.html">listeRect</a> **liste, <a class="el" href="structrectangle.html">rectangle</a> **Rect)</td></tr>
 <tr class="memdesc:a526afa603b8080dec0f9a234833b5661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un rectangle à la liste de rectangles.  <a href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a526afa603b8080dec0f9a234833b5661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabecbee2f1b59d03e91565d2b4cb3155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a> (listeRect **liste)</td></tr>
+<tr class="memitem:aabecbee2f1b59d03e91565d2b4cb3155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a> (<a class="el" href="structlisteRect__s.html">listeRect</a> **liste)</td></tr>
 <tr class="memdesc:aabecbee2f1b59d03e91565d2b4cb3155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une liste de rectangles et libère la mémoire associée.  <a href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aabecbee2f1b59d03e91565d2b4cb3155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90feb595f849f52d8483be2c7df23565"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a> (listeRect *liste)</td></tr>
+<tr class="memitem:a90feb595f849f52d8483be2c7df23565"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a> (<a class="el" href="structlisteRect__s.html">listeRect</a> *liste)</td></tr>
 <tr class="memdesc:a90feb595f849f52d8483be2c7df23565"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés.  <a href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a90feb595f849f52d8483be2c7df23565"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf48331ff12117690ac67879e5f0a2bf"><td class="memItemLeft" align="right" valign="top">rectangle *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a> (int *largeur, int *hauteur, float rX, float rY, float rW, float rH)</td></tr>
+<tr class="memitem:aaf48331ff12117690ac67879e5f0a2bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrectangle.html">rectangle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a> (int *largeur, int *hauteur, float rX, float rY, float rW, float rH)</td></tr>
 <tr class="memdesc:aaf48331ff12117690ac67879e5f0a2bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios.  <a href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aaf48331ff12117690ac67879e5f0a2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -132,13 +132,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void ajoutListeRect </td>
           <td>(</td>
-          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteRect__s.html">listeRect</a> **&#160;</td>
           <td class="paramname"><em>liste</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">rectangle **&#160;</td>
+          <td class="paramtype"><a class="el" href="structrectangle.html">rectangle</a> **&#160;</td>
           <td class="paramname"><em>Rect</em>&#160;</td>
         </tr>
         <tr>
@@ -172,7 +172,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void ajoutListeT </td>
           <td>(</td>
-          <td class="paramtype">listeT_t **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteT__t.html">listeT_t</a> **&#160;</td>
           <td class="paramname"><em>liste</em>, </td>
         </tr>
         <tr>
@@ -251,8 +251,9 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">listeRect* creerListeRect </td>
+          <td class="memname"><a class="el" href="structlisteRect__s.html">listeRect</a>* creerListeRect </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -274,8 +275,9 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">listeT_t* creerListeT </td>
+          <td class="memname"><a class="el" href="structlisteT__t.html">listeT_t</a>* creerListeT </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -297,7 +299,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">rectangle* creerRectangle </td>
+          <td class="memname"><a class="el" href="structrectangle.html">rectangle</a>* creerRectangle </td>
           <td>(</td>
           <td class="paramtype">int *&#160;</td>
           <td class="paramname"><em>largeur</em>, </td>
@@ -423,7 +425,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void detruireListeRect </td>
           <td>(</td>
-          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteRect__s.html">listeRect</a> **&#160;</td>
           <td class="paramname"><em>liste</em></td><td>)</td>
           <td></td>
         </tr>
@@ -452,7 +454,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void detruireListeT </td>
           <td>(</td>
-          <td class="paramtype">listeT_t **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteT__t.html">listeT_t</a> **&#160;</td>
           <td class="paramname"><em>liste</em></td><td>)</td>
           <td></td>
         </tr>
@@ -481,7 +483,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void updateRectangles </td>
           <td>(</td>
-          <td class="paramtype">listeRect *&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteRect__s.html">listeRect</a> *&#160;</td>
           <td class="paramname"><em>liste</em></td><td>)</td>
           <td></td>
         </tr>

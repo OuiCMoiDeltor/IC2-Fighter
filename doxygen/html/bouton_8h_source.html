@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">bouton.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="bouton_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _BOUTON_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define _BOUTON_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="creation_8h.html">creation.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define BOUTON_RELACHE 0</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define BOUTON_APPUYE 1</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define BOUTON_OVER 2</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define NB_ETAT 3</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structbouton__s.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structbouton__s.html">bouton_s</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    SDL_Texture *texture; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structbouton__s.html#aa494e3a8f82502bb70cc5d6cf8d06035">   32</a></span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> *<a class="code" href="structbouton__s.html#aa494e3a8f82502bb70cc5d6cf8d06035">position</a>; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structbouton__s.html#ae877efaa9a37bfa552faa3019b59d034">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structbouton__s.html#ae877efaa9a37bfa552faa3019b59d034">etat</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structbouton__s.html#a891bee38d8371a77f62276891f455d5c">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structbouton__s.html#a891bee38d8371a77f62276891f455d5c">nbEtat</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    SDL_Rect *relache; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structbouton__s.html#ab8794e82ae5dfa48fa9976f64528bc9f">   36</a></span>&#160;    SDL_Rect *<a class="code" href="structbouton__s.html#ab8794e82ae5dfa48fa9976f64528bc9f">appuye</a>; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structbouton__s.html#aae3be587fe86dd2e990485df53a68d91">   37</a></span>&#160;    SDL_Rect *<a class="code" href="structbouton__s.html#aae3be587fe86dd2e990485df53a68d91">over</a>; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structbouton__s.html#a509d75f262f1f6c463fc4dc819c45010">   38</a></span>&#160;    SDL_Rect **<a class="code" href="structbouton__s.html#a509d75f262f1f6c463fc4dc819c45010">frames</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}<a class="code" href="structbouton.html">bouton</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">extern</span> <a class="code" href="structbouton.html">bouton</a> *<a class="code" href="bouton_8h.html#a73d225267a2c6070bbfaea0f5f1d7d7f">creerBouton</a>(SDL_Renderer*,<a class="code" href="structlisteRect__s.html">listeRect</a> **,<span class="keywordtype">int</span> *,<span class="keywordtype">int</span> *,<span class="keywordtype">float</span>,<span class="keywordtype">float</span>,<span class="keywordtype">float</span>,<span class="keywordtype">float</span>,<span class="keywordtype">char</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="bouton_8h.html#acd55ac179dc4fe1e42ffa208652fc935">DestroyBouton</a>(<a class="code" href="structbouton.html">bouton</a>**);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structlisteB__s.html">   52</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structlisteB__s.html">listeB_s</a> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="structbouton.html">bouton</a> **pBouton;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlisteB__s.html">listeB_s</a> *suivant;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}<a class="code" href="structlisteBouton.html">listeBouton</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">extern</span> <a class="code" href="structlisteBouton.html">listeBouton</a> *<a class="code" href="bouton_8h.html#a3c8f3e8c40ba35beddca8356af5da5dc">creerListeBouton</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="bouton_8h.html#a02c83690adb669422845252d4767f105">ajoutListeBouton</a>(<a class="code" href="structlisteBouton.html">listeBouton</a> **liste, <a class="code" href="structbouton.html">bouton</a> **Bouton);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="bouton_8h.html#a15dcfa0a7ea076102547aa8ab0383ad8">detruireListeBouton</a>(<a class="code" href="structlisteBouton.html">listeBouton</a> **liste);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="abouton_8h_html_a02c83690adb669422845252d4767f105"><div class="ttname"><a href="bouton_8h.html#a02c83690adb669422845252d4767f105">ajoutListeBouton</a></div><div class="ttdeci">void ajoutListeBouton(listeBouton **liste, bouton **Bouton)</div><div class="ttdoc">Ajoute un bouton à une liste de boutons.</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8c_source.html#l00155">bouton.c:155</a></div></div>
+<div class="ttc" id="abouton_8h_html_a15dcfa0a7ea076102547aa8ab0383ad8"><div class="ttname"><a href="bouton_8h.html#a15dcfa0a7ea076102547aa8ab0383ad8">detruireListeBouton</a></div><div class="ttdeci">void detruireListeBouton(listeBouton **liste)</div><div class="ttdoc">Détruit une liste de boutons et libère toutes les ressources associées.</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8c_source.html#l00182">bouton.c:182</a></div></div>
+<div class="ttc" id="abouton_8h_html_a3c8f3e8c40ba35beddca8356af5da5dc"><div class="ttname"><a href="bouton_8h.html#a3c8f3e8c40ba35beddca8356af5da5dc">creerListeBouton</a></div><div class="ttdeci">listeBouton * creerListeBouton()</div><div class="ttdoc">Crée une liste pour gérer les boutons.</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8c_source.html#l00137">bouton.c:137</a></div></div>
+<div class="ttc" id="abouton_8h_html_a73d225267a2c6070bbfaea0f5f1d7d7f"><div class="ttname"><a href="bouton_8h.html#a73d225267a2c6070bbfaea0f5f1d7d7f">creerBouton</a></div><div class="ttdeci">bouton * creerBouton(SDL_Renderer *, listeRect **, int *, int *, float, float, float, float, char *, int, int)</div><div class="ttdoc">Crée un bouton avec des propriétés spécifiques.</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8c_source.html#l00042">bouton.c:42</a></div></div>
+<div class="ttc" id="abouton_8h_html_acd55ac179dc4fe1e42ffa208652fc935"><div class="ttname"><a href="bouton_8h.html#acd55ac179dc4fe1e42ffa208652fc935">DestroyBouton</a></div><div class="ttdeci">void DestroyBouton(bouton **)</div><div class="ttdoc">Détruit un bouton et libère toutes les ressources associées.</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8c_source.html#l00112">bouton.c:112</a></div></div>
+<div class="ttc" id="acreation_8h_html"><div class="ttname"><a href="creation_8h.html">creation.h</a></div><div class="ttdoc">Fichier d'en-tête pour la gestion des créations graphiques dans le jeu.</div></div>
+<div class="ttc" id="astructbouton__s_html"><div class="ttname"><a href="structbouton__s.html">bouton_s</a></div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00029">bouton.h:30</a></div></div>
+<div class="ttc" id="astructbouton__s_html_a509d75f262f1f6c463fc4dc819c45010"><div class="ttname"><a href="structbouton__s.html#a509d75f262f1f6c463fc4dc819c45010">bouton_s::frames</a></div><div class="ttdeci">SDL_Rect ** frames</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00038">bouton.h:38</a></div></div>
+<div class="ttc" id="astructbouton__s_html_a891bee38d8371a77f62276891f455d5c"><div class="ttname"><a href="structbouton__s.html#a891bee38d8371a77f62276891f455d5c">bouton_s::nbEtat</a></div><div class="ttdeci">int nbEtat</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00034">bouton.h:34</a></div></div>
+<div class="ttc" id="astructbouton__s_html_aa494e3a8f82502bb70cc5d6cf8d06035"><div class="ttname"><a href="structbouton__s.html#aa494e3a8f82502bb70cc5d6cf8d06035">bouton_s::position</a></div><div class="ttdeci">rectangle * position</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00032">bouton.h:32</a></div></div>
+<div class="ttc" id="astructbouton__s_html_aae3be587fe86dd2e990485df53a68d91"><div class="ttname"><a href="structbouton__s.html#aae3be587fe86dd2e990485df53a68d91">bouton_s::over</a></div><div class="ttdeci">SDL_Rect * over</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00037">bouton.h:37</a></div></div>
+<div class="ttc" id="astructbouton__s_html_ab8794e82ae5dfa48fa9976f64528bc9f"><div class="ttname"><a href="structbouton__s.html#ab8794e82ae5dfa48fa9976f64528bc9f">bouton_s::appuye</a></div><div class="ttdeci">SDL_Rect * appuye</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00036">bouton.h:36</a></div></div>
+<div class="ttc" id="astructbouton__s_html_ae877efaa9a37bfa552faa3019b59d034"><div class="ttname"><a href="structbouton__s.html#ae877efaa9a37bfa552faa3019b59d034">bouton_s::etat</a></div><div class="ttdeci">int etat</div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00033">bouton.h:33</a></div></div>
+<div class="ttc" id="astructbouton_html"><div class="ttname"><a href="structbouton.html">bouton</a></div><div class="ttdoc">Structure représentant un bouton interactif.</div></div>
+<div class="ttc" id="astructlisteB__s_html"><div class="ttname"><a href="structlisteB__s.html">listeB_s</a></div><div class="ttdef"><b>Definition:</b> <a href="bouton_8h_source.html#l00052">bouton.h:52</a></div></div>
+<div class="ttc" id="astructlisteBouton_html"><div class="ttname"><a href="structlisteBouton.html">listeBouton</a></div><div class="ttdoc">Structure pour une liste de boutons.</div></div>
+<div class="ttc" id="astructlisteRect__s_html"><div class="ttname"><a href="structlisteRect__s.html">listeRect_s</a></div><div class="ttdoc">Structure pour la liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8h_source.html#l00056">creation.h:56</a></div></div>
+<div class="ttc" id="astructrectangle_html"><div class="ttname"><a href="structrectangle.html">rectangle</a></div><div class="ttdoc">Structure représentant un rectangle avec des proportions adaptatives par rapport à la taille de la fe...</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

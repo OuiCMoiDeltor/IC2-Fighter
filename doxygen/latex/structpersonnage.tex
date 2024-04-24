@@ -1,0 +1,127 @@
+\hypertarget{structpersonnage}{}\doxysection{Référence de la structure personnage}
+\label{structpersonnage}\index{personnage@{personnage}}
+
+
+Structure représentant un personnage dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$perso.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structpersonnage_a4d0b2546b3c985c9eb02c1fe1c63ed94}\label{structpersonnage_a4d0b2546b3c985c9eb02c1fe1c63ed94}} 
+\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$ {\bfseries pos}
+\item 
+\mbox{\Hypertarget{structpersonnage_a955aff83fc5e1eebb1c750c51308cc1e}\label{structpersonnage_a955aff83fc5e1eebb1c750c51308cc1e}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries texture}
+\item 
+\mbox{\Hypertarget{structpersonnage_a7d8fcb9413725fdebd59ff6044444ea6}\label{structpersonnage_a7d8fcb9413725fdebd59ff6044444ea6}} 
+int {\bfseries etat\+Idle}
+\item 
+\mbox{\Hypertarget{structpersonnage_a2232a0b1fc25da7985e382c8296d5f88}\label{structpersonnage_a2232a0b1fc25da7985e382c8296d5f88}} 
+int {\bfseries reverse\+Idle}
+\item 
+\mbox{\Hypertarget{structpersonnage_ac466ff79cc76b3477f8dfae205f50c87}\label{structpersonnage_ac466ff79cc76b3477f8dfae205f50c87}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries idle}
+\item 
+\mbox{\Hypertarget{structpersonnage_ab8e023b40f8b83cf324f0a997c981e1d}\label{structpersonnage_ab8e023b40f8b83cf324f0a997c981e1d}} 
+int {\bfseries etat\+Walk}
+\item 
+\mbox{\Hypertarget{structpersonnage_afbf43178b5290da3dbbbc5b5278da0dd}\label{structpersonnage_afbf43178b5290da3dbbbc5b5278da0dd}} 
+int {\bfseries reverse\+Walk}
+\item 
+\mbox{\Hypertarget{structpersonnage_a78623faac79977d17095493f5956ff76}\label{structpersonnage_a78623faac79977d17095493f5956ff76}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries walk}
+\item 
+\mbox{\Hypertarget{structpersonnage_a40f21473e5b52380b395cb41ae61559c}\label{structpersonnage_a40f21473e5b52380b395cb41ae61559c}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries punch\+Lat}
+\item 
+\mbox{\Hypertarget{structpersonnage_a2fa2db840c3bb4af942a23058582350e}\label{structpersonnage_a2fa2db840c3bb4af942a23058582350e}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries kick}
+\item 
+\mbox{\Hypertarget{structpersonnage_aaea4b88cb4bd36a7f860d30f22f48202}\label{structpersonnage_aaea4b88cb4bd36a7f860d30f22f48202}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries punch\+Up}
+\item 
+\mbox{\Hypertarget{structpersonnage_a199217761f1f9c26599645fc4c1e46c4}\label{structpersonnage_a199217761f1f9c26599645fc4c1e46c4}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries kick\+Down}
+\item 
+\mbox{\Hypertarget{structpersonnage_a88d2d218e9fb2471d53980068bf0422d}\label{structpersonnage_a88d2d218e9fb2471d53980068bf0422d}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries block}
+\item 
+\mbox{\Hypertarget{structpersonnage_ab334307070fafcf4a37f71d89dcfb2c6}\label{structpersonnage_ab334307070fafcf4a37f71d89dcfb2c6}} 
+int {\bfseries blocking}
+\item 
+\mbox{\Hypertarget{structpersonnage_a32e750f1cf2f13f449fde68d4249dbfc}\label{structpersonnage_a32e750f1cf2f13f449fde68d4249dbfc}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries jump}
+\item 
+\mbox{\Hypertarget{structpersonnage_a2116f6c176dae65e4f3da5cad24feccc}\label{structpersonnage_a2116f6c176dae65e4f3da5cad24feccc}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries move\+Jump}
+\item 
+\mbox{\Hypertarget{structpersonnage_a4cfa6581b29cd4dea5949ca75d5774c8}\label{structpersonnage_a4cfa6581b29cd4dea5949ca75d5774c8}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries crouch}
+\item 
+\mbox{\Hypertarget{structpersonnage_a04f0384463959cb403852db5aa2e3ff7}\label{structpersonnage_a04f0384463959cb403852db5aa2e3ff7}} 
+int {\bfseries crouching}
+\item 
+\mbox{\Hypertarget{structpersonnage_a001ab5922398731aedc2d557e822c3c7}\label{structpersonnage_a001ab5922398731aedc2d557e822c3c7}} 
+int {\bfseries etat\+Crouch}
+\item 
+\mbox{\Hypertarget{structpersonnage_a5563e625488dc3edda0ce4668969f9a1}\label{structpersonnage_a5563e625488dc3edda0ce4668969f9a1}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries crouch\+Punch}
+\item 
+\mbox{\Hypertarget{structpersonnage_a1fd3067bd028b1f0512d1da594630382}\label{structpersonnage_a1fd3067bd028b1f0512d1da594630382}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries crouch\+Kick}
+\item 
+\mbox{\Hypertarget{structpersonnage_a367cfedaecc241e094da2145bf89a057}\label{structpersonnage_a367cfedaecc241e094da2145bf89a057}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries stand\+Hurt}
+\item 
+\mbox{\Hypertarget{structpersonnage_a55b18d245b00a4fb0dff90f6025c7e6a}\label{structpersonnage_a55b18d245b00a4fb0dff90f6025c7e6a}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries jump\+Hurt}
+\item 
+\mbox{\Hypertarget{structpersonnage_a674bcce19bf260bef677a1c227cb45e2}\label{structpersonnage_a674bcce19bf260bef677a1c227cb45e2}} 
+SDL\+\_\+\+Rect $\ast$$\ast$ {\bfseries crouch\+Hurt}
+\item 
+\mbox{\Hypertarget{structpersonnage_a4a65db6ac7cbcfe229c9214c94c3986a}\label{structpersonnage_a4a65db6ac7cbcfe229c9214c94c3986a}} 
+animation\+\_\+e {\bfseries animation}
+\item 
+\mbox{\Hypertarget{structpersonnage_ae4ab35bc0e60704f1715214a8f4e4367}\label{structpersonnage_ae4ab35bc0e60704f1715214a8f4e4367}} 
+int {\bfseries etat\+Animation}
+\item 
+\mbox{\Hypertarget{structpersonnage_a34d08d02f5f35167db33668f7ba7fc3e}\label{structpersonnage_a34d08d02f5f35167db33668f7ba7fc3e}} 
+int {\bfseries stunned}
+\item 
+\mbox{\Hypertarget{structpersonnage_aea76b187037188f2834009d7778c8c69}\label{structpersonnage_aea76b187037188f2834009d7778c8c69}} 
+int {\bfseries etat\+Stun}
+\item 
+\mbox{\Hypertarget{structpersonnage_aa5448ab2383bcb1925d353e51357b0e1}\label{structpersonnage_aa5448ab2383bcb1925d353e51357b0e1}} 
+float {\bfseries speed}
+\item 
+\mbox{\Hypertarget{structpersonnage_ad7b1b90964be724750d4097f34e177d7}\label{structpersonnage_ad7b1b90964be724750d4097f34e177d7}} 
+\mbox{\hyperlink{structpv__t}{pv\+\_\+t}} $\ast$ {\bfseries hp}
+\item 
+\mbox{\Hypertarget{structpersonnage_a24ef65d3a74ba9fe9253b4a4cd106538}\label{structpersonnage_a24ef65d3a74ba9fe9253b4a4cd106538}} 
+\mbox{\hyperlink{structpseudo__t}{pseudo\+\_\+t}} $\ast$ {\bfseries pseudo}
+\item 
+\mbox{\Hypertarget{structpersonnage_a12c930483c615d1d97fd8bb6a2fce64f}\label{structpersonnage_a12c930483c615d1d97fd8bb6a2fce64f}} 
+\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$ {\bfseries hit\+Box}
+\item 
+\mbox{\Hypertarget{structpersonnage_ae1b048a0fa481225324e9485aeaf15de}\label{structpersonnage_ae1b048a0fa481225324e9485aeaf15de}} 
+\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$ {\bfseries hurt\+Box}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure représentant un personnage dans le jeu. 
+
+Cette structure contient toutes les informations nécessaires pour représenter un personnage dans le jeu, y compris sa texture, ses animations, ses points de vie, etc. 
+
+Définition à la ligne 52 du fichier perso.\+h.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/lib/\mbox{\hyperlink{perso_8h}{perso.\+h}}\end{DoxyCompactItemize}

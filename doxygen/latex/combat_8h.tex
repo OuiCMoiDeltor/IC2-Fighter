@@ -1,0 +1,260 @@
+\hypertarget{combat_8h}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/lib/combat.h}
+\label{combat_8h}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/combat.h@{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/combat.h}}
+
+
+Fichier d\textquotesingle{}en-\/tête pour la gestion des combats dans le jeu.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}perso.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{combat_8h_abd867605ae9bc8f0edc515904b9de730}{init\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$J1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$J2)
+\begin{DoxyCompactList}\small\item\em Initialise les personnages au début d\textquotesingle{}un round. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{combat_8h_aeb2e7cbc23b26c8c484a4963219e2785}{round\+Start}} (SDL\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$keyboard\+State, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur2, int largeurF, int hauteurF, int wait\+For\+Frame, Mix\+\_\+\+Chunk $\ast$hit, Mix\+\_\+\+Chunk $\ast$dmg, Mix\+\_\+\+Chunk $\ast$stun, int $\ast$liste\+\_\+touches, int round, SDL\+\_\+\+Texture $\ast$stun\+Texture, \mbox{\hyperlink{structrectangle}{rectangle}} $\ast$stun\+Rect, SDL\+\_\+\+Rect $\ast$$\ast$stun\+Texture\+Rect)
+\begin{DoxyCompactList}\small\item\em Démarre un round de combat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{combat_8h_a713655dcda992202a3bea06422419e6a}{combat\+Start}} (SDL\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$keyboard\+State, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur2, int largeurF, int hauteurF, int son, int $\ast$liste\+\_\+touches)
+\begin{DoxyCompactList}\small\item\em Lance le combat entre deux personnages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{combat_8h_af1837e95d769962576e597337aa9073f}{afficher\+Round}} (SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int round, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur2, SDL\+\_\+\+Texture $\ast$BG)
+\begin{DoxyCompactList}\small\item\em Affiche les informations d\textquotesingle{}un round de combat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier d\textquotesingle{}en-\/tête pour la gestion des combats dans le jeu. 
+
+Ce fichier d\textquotesingle{}en-\/tête contient les déclarations des fonctions responsables de la gestion des combats dans le jeu, y compris l\textquotesingle{}initialisation des personnages, le démarrage des rounds de combat, et la gestion des interactions de combat. Il gère également les animations spécifiques et les effets sonores associés aux actions des personnages. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{combat_8h_af1837e95d769962576e597337aa9073f}\label{combat_8h_af1837e95d769962576e597337aa9073f}} 
+\index{combat.h@{combat.h}!afficherRound@{afficherRound}}
+\index{afficherRound@{afficherRound}!combat.h@{combat.h}}
+\doxysubsubsection{\texorpdfstring{afficherRound()}{afficherRound()}}
+{\footnotesize\ttfamily void afficher\+Round (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{round,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur2,  }\item[{SDL\+\_\+\+Texture $\ast$}]{BG }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations d\textquotesingle{}un round de combat. 
+
+Affiche le numéro du round actuel ainsi que les états de santé des personnages.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de jeu. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de jeu. \\
+\hline
+{\em round} & Numéro du round actuel. \\
+\hline
+{\em Joueur1} & Pointeur vers le premier personnage (joueur 1). \\
+\hline
+{\em Joueur2} & Pointeur vers le second personnage (joueur 2). \\
+\hline
+{\em BG} & Texture de l\textquotesingle{}arrière-\/plan du combat.\\
+\hline
+\end{DoxyParams}
+Affiche les informations d\textquotesingle{}un round de combat.
+
+Cette fonction initialise l\textquotesingle{}affichage pour un nouveau round en affichant le fond, les personnages et un texte indiquant le numéro du round suivi d\textquotesingle{}un décompte. Elle prépare l\textquotesingle{}écran pour le combat, permettant aux joueurs de se préparer visuellement.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le rendu SDL. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em round} & Numéro du round en cours. \\
+\hline
+{\em Joueur1} & Pointeur vers la structure du premier joueur. \\
+\hline
+{\em Joueur2} & Pointeur vers la structure du deuxième joueur. \\
+\hline
+{\em BG} & Texture de fond à utiliser pour l\textquotesingle{}affichage. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 52 du fichier combat.\+c.
+
+\mbox{\Hypertarget{combat_8h_a713655dcda992202a3bea06422419e6a}\label{combat_8h_a713655dcda992202a3bea06422419e6a}} 
+\index{combat.h@{combat.h}!combatStart@{combatStart}}
+\index{combatStart@{combatStart}!combat.h@{combat.h}}
+\doxysubsubsection{\texorpdfstring{combatStart()}{combatStart()}}
+{\footnotesize\ttfamily void combat\+Start (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{keyboard\+State,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur2,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{son,  }\item[{int $\ast$}]{liste\+\_\+touches }\end{DoxyParamCaption})}
+
+
+
+Lance le combat entre deux personnages. 
+
+Cette fonction est appelée pour démarrer les interactions de combat effectives entre deux personnages après l\textquotesingle{}initialisation.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em keyboard\+State} & État actuel du clavier. \\
+\hline
+{\em Joueur1} & Pointeur vers le premier personnage (joueur 1). \\
+\hline
+{\em Joueur2} & Pointeur vers le second personnage (joueur 2). \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de jeu. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de jeu. \\
+\hline
+{\em son} & Indicateur d\textquotesingle{}activation du son. \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches configurées pour le jeu.\\
+\hline
+\end{DoxyParams}
+Lance le combat entre deux personnages.
+
+Cette fonction orchestre les combats, gérant le chargement des ressources sonores, la préparation des personnages, et le déroulement des rounds jusqu\textquotesingle{}à la conclusion du match. Elle détermine le gagnant et affiche l\textquotesingle{}écran de victoire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le rendu SDL. \\
+\hline
+{\em keyboard\+State} & État du clavier pour détecter les entrées des utilisateurs. \\
+\hline
+{\em Joueur1} & Pointeur vers le premier joueur. \\
+\hline
+{\em Joueur2} & Pointeur vers le deuxième joueur. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em son} & Indicateur pour la gestion de la musique de fond (1 pour activer, 0 pour désactiver). \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches actives pour la gestion des entrées. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 281 du fichier combat.\+c.
+
+\mbox{\Hypertarget{combat_8h_abd867605ae9bc8f0edc515904b9de730}\label{combat_8h_abd867605ae9bc8f0edc515904b9de730}} 
+\index{combat.h@{combat.h}!initPerso@{initPerso}}
+\index{initPerso@{initPerso}!combat.h@{combat.h}}
+\doxysubsubsection{\texorpdfstring{initPerso()}{initPerso()}}
+{\footnotesize\ttfamily void init\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{J1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{J2 }\end{DoxyParamCaption})}
+
+
+
+Initialise les personnages au début d\textquotesingle{}un round. 
+
+Réinitialise les états et positions des personnages, définissant leur santé initiale, position sur l\textquotesingle{}écran, et prépare les pseudonymes pour l\textquotesingle{}affichage. Cette fonction est appelée à chaque début de round pour remettre à zéro les conditions des combattants.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le rendu SDL. \\
+\hline
+{\em J1} & Pointeur vers la structure du premier combattant. \\
+\hline
+{\em J2} & Pointeur vers la structure du deuxième combattant. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 121 du fichier combat.\+c.
+
+\mbox{\Hypertarget{combat_8h_aeb2e7cbc23b26c8c484a4963219e2785}\label{combat_8h_aeb2e7cbc23b26c8c484a4963219e2785}} 
+\index{combat.h@{combat.h}!roundStart@{roundStart}}
+\index{roundStart@{roundStart}!combat.h@{combat.h}}
+\doxysubsubsection{\texorpdfstring{roundStart()}{roundStart()}}
+{\footnotesize\ttfamily int round\+Start (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{keyboard\+State,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur2,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{wait\+For\+Frame,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{hit,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{dmg,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{stun,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{int}]{round,  }\item[{SDL\+\_\+\+Texture $\ast$}]{stun\+Texture,  }\item[{\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$}]{stun\+Rect,  }\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{stun\+Texture\+Rect }\end{DoxyParamCaption})}
+
+
+
+Démarre un round de combat. 
+
+Gère le début d\textquotesingle{}un round de combat, traite les entrées du clavier et met à jour les états des personnages en fonction des interactions.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL. \\
+\hline
+{\em keyboard\+State} & État actuel du clavier. \\
+\hline
+{\em Joueur1} & Pointeur vers le premier personnage (joueur 1). \\
+\hline
+{\em Joueur2} & Pointeur vers le second personnage (joueur 2). \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de jeu. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de jeu. \\
+\hline
+{\em wait\+For\+Frame} & Délai d\textquotesingle{}attente entre les frames pour la synchronisation. \\
+\hline
+{\em hit} & Effet sonore pour un coup réussi. \\
+\hline
+{\em dmg} & Effet sonore pour des dégâts subis. \\
+\hline
+{\em stun} & Effet sonore pour un étourdissement. \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches configurées pour le jeu. \\
+\hline
+{\em round} & Numéro du round actuel. \\
+\hline
+{\em stun\+Texture} & Texture utilisée pour l\textquotesingle{}affichage de l\textquotesingle{}étourdissement. \\
+\hline
+{\em stun\+Rect} & Rectangle définissant la position et les dimensions de l\textquotesingle{}effet d\textquotesingle{}étourdissement. \\
+\hline
+{\em stun\+Texture\+Rect} & Rectangles définissant les cadres de l\textquotesingle{}animation d\textquotesingle{}étourdissement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Statut indiquant la progression ou la fin du round.
+\end{DoxyReturn}
+Démarre un round de combat.
+
+Cette fonction contrôle le temps, gère les entrées des utilisateurs et met à jour l\textquotesingle{}affichage des personnages et de leurs interactions. Elle détermine également le résultat du round en fonction de la santé des personnages et du temps écoulé.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le rendu SDL. \\
+\hline
+{\em keyboard\+State} & État actuel du clavier pour détecter les entrées. \\
+\hline
+{\em Joueur1} & Pointeur vers le premier joueur. \\
+\hline
+{\em Joueur2} & Pointeur vers le deuxième joueur. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre d\textquotesingle{}affichage. \\
+\hline
+{\em wait\+For\+Frame} & Délai pour synchroniser l\textquotesingle{}affichage. \\
+\hline
+{\em hit} & Effet sonore pour les coups réussis. \\
+\hline
+{\em dmg} & Effet sonore pour les dégâts reçus. \\
+\hline
+{\em stun} & Effet sonore pour les étourdissements. \\
+\hline
+{\em liste\+\_\+touches} & Tableau pour le suivi des touches pressées. \\
+\hline
+{\em round} & Numéro du round actuel. \\
+\hline
+{\em stun\+Texture} & Texture utilisée pour l\textquotesingle{}affichage de l\textquotesingle{}étourdissement. \\
+\hline
+{\em stun\+Rect} & Rectangle pour l\textquotesingle{}affichage de l\textquotesingle{}étourdissement. \\
+\hline
+{\em stun\+Texture\+Rect} & Rectangles pour les animations d\textquotesingle{}étourdissement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+État du round (-\/1 pour la défaite du Joueur1, 1 pour la défaite du Joueur2, 0 pour autre). 
+\end{DoxyReturn}
+
+
+Définition à la ligne 196 du fichier combat.\+c.
+

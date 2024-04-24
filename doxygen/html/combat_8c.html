@@ -80,8 +80,8 @@ $(function() {
 <code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
-<code>#include &quot;../lib/combat.h&quot;</code><br />
-<code>#include &quot;../lib/perso.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="combat_8h_source.html">../lib/combat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="perso_8h_source.html">../lib/perso.h</a>&quot;</code><br />
 </div>
 <p><a href="combat_8c_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -114,16 +114,16 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:af1837e95d769962576e597337aa9073f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#af1837e95d769962576e597337aa9073f">afficherRound</a> (SDL_Renderer *renderer, int largeurF, int hauteurF, int round, personnage *Joueur1, personnage *Joueur2, SDL_Texture *BG)</td></tr>
+<tr class="memitem:af1837e95d769962576e597337aa9073f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#af1837e95d769962576e597337aa9073f">afficherRound</a> (SDL_Renderer *renderer, int largeurF, int hauteurF, int round, <a class="el" href="structpersonnage.html">personnage</a> *Joueur1, <a class="el" href="structpersonnage.html">personnage</a> *Joueur2, SDL_Texture *BG)</td></tr>
 <tr class="memdesc:af1837e95d769962576e597337aa9073f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le début d'un round avec un décompte avant le début du combat.  <a href="combat_8c.html#af1837e95d769962576e597337aa9073f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af1837e95d769962576e597337aa9073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd867605ae9bc8f0edc515904b9de730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#abd867605ae9bc8f0edc515904b9de730">initPerso</a> (SDL_Renderer *renderer, personnage *J1, personnage *J2)</td></tr>
+<tr class="memitem:abd867605ae9bc8f0edc515904b9de730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#abd867605ae9bc8f0edc515904b9de730">initPerso</a> (SDL_Renderer *renderer, <a class="el" href="structpersonnage.html">personnage</a> *J1, <a class="el" href="structpersonnage.html">personnage</a> *J2)</td></tr>
 <tr class="memdesc:abd867605ae9bc8f0edc515904b9de730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les personnages au début d'un round.  <a href="combat_8c.html#abd867605ae9bc8f0edc515904b9de730">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abd867605ae9bc8f0edc515904b9de730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb2e7cbc23b26c8c484a4963219e2785"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#aeb2e7cbc23b26c8c484a4963219e2785">roundStart</a> (SDL_Renderer *renderer, Uint8 *keyboardState, personnage *Joueur1, personnage *Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk *hit, Mix_Chunk *dmg, Mix_Chunk *stun, int *liste_touches, int round, SDL_Texture *stunTexture, rectangle *stunRect, SDL_Rect **stunTextureRect)</td></tr>
+<tr class="memitem:aeb2e7cbc23b26c8c484a4963219e2785"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#aeb2e7cbc23b26c8c484a4963219e2785">roundStart</a> (SDL_Renderer *renderer, Uint8 *keyboardState, <a class="el" href="structpersonnage.html">personnage</a> *Joueur1, <a class="el" href="structpersonnage.html">personnage</a> *Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk *hit, Mix_Chunk *dmg, Mix_Chunk *stun, int *liste_touches, int round, SDL_Texture *stunTexture, <a class="el" href="structrectangle.html">rectangle</a> *stunRect, SDL_Rect **stunTextureRect)</td></tr>
 <tr class="memdesc:aeb2e7cbc23b26c8c484a4963219e2785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le déroulement d'un round de combat.  <a href="combat_8c.html#aeb2e7cbc23b26c8c484a4963219e2785">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aeb2e7cbc23b26c8c484a4963219e2785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a713655dcda992202a3bea06422419e6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a713655dcda992202a3bea06422419e6a">combatStart</a> (SDL_Renderer *renderer, Uint8 *keyboardState, personnage *Joueur1, personnage *Joueur2, int largeurF, int hauteurF, int son, int *liste_touches)</td></tr>
+<tr class="memitem:a713655dcda992202a3bea06422419e6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8c.html#a713655dcda992202a3bea06422419e6a">combatStart</a> (SDL_Renderer *renderer, Uint8 *keyboardState, <a class="el" href="structpersonnage.html">personnage</a> *Joueur1, <a class="el" href="structpersonnage.html">personnage</a> *Joueur2, int largeurF, int hauteurF, int son, int *liste_touches)</td></tr>
 <tr class="memdesc:a713655dcda992202a3bea06422419e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lance et gère les séquences de combat jusqu'à la fin du match.  <a href="combat_8c.html#a713655dcda992202a3bea06422419e6a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a713655dcda992202a3bea06422419e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -169,13 +169,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>Joueur1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>Joueur2</em>, </td>
         </tr>
         <tr>
@@ -193,6 +193,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Affiche le début d'un round avec un décompte avant le début du combat. </p>
+<p>Affiche les informations d'un round de combat.</p>
 <p>Cette fonction initialise l'affichage pour un nouveau round en affichant le fond, les personnages et un texte indiquant le numéro du round suivi d'un décompte. Elle prépare l'écran pour le combat, permettant aux joueurs de se préparer visuellement.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
@@ -232,13 +233,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>Joueur1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>Joueur2</em>, </td>
         </tr>
         <tr>
@@ -274,6 +275,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Lance et gère les séquences de combat jusqu'à la fin du match. </p>
+<p>Lance le combat entre deux personnages.</p>
 <p>Cette fonction orchestre les combats, gérant le chargement des ressources sonores, la préparation des personnages, et le déroulement des rounds jusqu'à la conclusion du match. Elle détermine le gagnant et affiche l'écran de victoire.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
@@ -308,13 +310,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>J1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>J2</em>&#160;</td>
         </tr>
         <tr>
@@ -361,13 +363,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>Joueur1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">personnage *&#160;</td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
           <td class="paramname"><em>Joueur2</em>, </td>
         </tr>
         <tr>
@@ -427,7 +429,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">rectangle *&#160;</td>
+          <td class="paramtype"><a class="el" href="structrectangle.html">rectangle</a> *&#160;</td>
           <td class="paramname"><em>stunRect</em>, </td>
         </tr>
         <tr>
@@ -445,6 +447,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gère le déroulement d'un round de combat. </p>
+<p>Démarre un round de combat.</p>
 <p>Cette fonction contrôle le temps, gère les entrées des utilisateurs et met à jour l'affichage des personnages et de leurs interactions. Elle détermine également le résultat du round en fonction de la santé des personnages et du temps écoulé.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">

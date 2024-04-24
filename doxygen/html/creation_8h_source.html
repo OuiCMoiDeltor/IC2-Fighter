@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter:  Fichier source de /mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">creation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="creation_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef _CREATION_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define _CREATION_H_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structlisteT__s.html">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structlisteT__s.html">listeT_s</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDL_Texture **pTexture;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlisteT__s.html">listeT_s</a> *suivant;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<a class="code" href="structlisteT__t.html">listeT_t</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structrectangle__s.html">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structrectangle__s.html">rectangle_s</a> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> *largeur; <span class="comment">// Largeur de la fenêtre</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> *hauteur; <span class="comment">// Hauteur de la fenêtre</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">float</span> ratioX;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">float</span> ratioY;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">float</span> ratioW;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">float</span> ratioH;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    SDL_Rect *rect;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}<a class="code" href="structrectangle.html">rectangle</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structlisteRect__s.html">   56</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structlisteRect__s.html">listeRect_s</a> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="structrectangle.html">rectangle</a> **pRect;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlisteRect__s.html">listeRect_s</a> *suivant;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}<a class="code" href="structlisteRect__s.html">listeRect</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <a class="code" href="structlisteT__t.html">listeT_t</a> *<a class="code" href="creation_8h.html#a6b963f2e3adbe53597de011cf3ce1d44">creerListeT</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="creation_8h.html#a4409c307b5e6bf72bda910a5d5fed264">ajoutListeT</a>(<a class="code" href="structlisteT__t.html">listeT_t</a> **,SDL_Texture **);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="creation_8h.html#a8bec31558266de898ace4230b4b91587">detruireListeT</a>(<a class="code" href="structlisteT__t.html">listeT_t</a> **);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">extern</span> SDL_Texture *<a class="code" href="creation_8h.html#ac9b104c31b87babfbfff6d8c52ace636">creerImage</a>(SDL_Renderer *,<span class="keywordtype">char</span> *);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">extern</span> SDL_Texture *<a class="code" href="creation_8h.html#abb1505045db5862c6128b98e6a7e22fc">creerTexte</a>(SDL_Renderer *,TTF_Font *,<span class="keywordtype">char</span> *,SDL_Color);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">extern</span> <a class="code" href="structlisteRect__s.html">listeRect</a> *<a class="code" href="creation_8h.html#a4ad09ec21164a0468efbc5c116e138a2">creerListeRect</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="creation_8h.html#adb87523114911c34d380bc7c84441b38">ajoutListeRect</a>(<a class="code" href="structlisteRect__s.html">listeRect</a> **,<a class="code" href="structrectangle.html">rectangle</a> **);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="creation_8h.html#ab8a3c8151e3b1cd876fd9b057b06fa4e">detruireListeRect</a>(<a class="code" href="structlisteRect__s.html">listeRect</a> **);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="creation_8h.html#afbaa36d0d106c639e9aba8cfc91017e4">updateRectangles</a>(<a class="code" href="structlisteRect__s.html">listeRect</a> *);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">extern</span> <a class="code" href="structrectangle.html">rectangle</a> *<a class="code" href="creation_8h.html#a5dcfc688191b366eb2557b35e0c8033d">creerRectangle</a>(<span class="keywordtype">int</span> *,<span class="keywordtype">int</span> *,<span class="keywordtype">float</span>,<span class="keywordtype">float</span>,<span class="keywordtype">float</span>,<span class="keywordtype">float</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acreation_8h_html_a4409c307b5e6bf72bda910a5d5fed264"><div class="ttname"><a href="creation_8h.html#a4409c307b5e6bf72bda910a5d5fed264">ajoutListeT</a></div><div class="ttdeci">void ajoutListeT(listeT_t **, SDL_Texture **)</div><div class="ttdoc">Ajoute une texture à la liste de textures.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00045">creation.c:45</a></div></div>
+<div class="ttc" id="acreation_8h_html_a4ad09ec21164a0468efbc5c116e138a2"><div class="ttname"><a href="creation_8h.html#a4ad09ec21164a0468efbc5c116e138a2">creerListeRect</a></div><div class="ttdeci">listeRect * creerListeRect(void)</div><div class="ttdoc">Crée une nouvelle liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00180">creation.c:180</a></div></div>
+<div class="ttc" id="acreation_8h_html_a5dcfc688191b366eb2557b35e0c8033d"><div class="ttname"><a href="creation_8h.html#a5dcfc688191b366eb2557b35e0c8033d">creerRectangle</a></div><div class="ttdeci">rectangle * creerRectangle(int *, int *, float, float, float, float)</div><div class="ttdoc">Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00291">creation.c:291</a></div></div>
+<div class="ttc" id="acreation_8h_html_a6b963f2e3adbe53597de011cf3ce1d44"><div class="ttname"><a href="creation_8h.html#a6b963f2e3adbe53597de011cf3ce1d44">creerListeT</a></div><div class="ttdeci">listeT_t * creerListeT(void)</div><div class="ttdoc">Crée une nouvelle liste de textures.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00027">creation.c:27</a></div></div>
+<div class="ttc" id="acreation_8h_html_a8bec31558266de898ace4230b4b91587"><div class="ttname"><a href="creation_8h.html#a8bec31558266de898ace4230b4b91587">detruireListeT</a></div><div class="ttdeci">void detruireListeT(listeT_t **)</div><div class="ttdoc">Détruit une liste de textures et libère la mémoire associée.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00072">creation.c:72</a></div></div>
+<div class="ttc" id="acreation_8h_html_ab8a3c8151e3b1cd876fd9b057b06fa4e"><div class="ttname"><a href="creation_8h.html#ab8a3c8151e3b1cd876fd9b057b06fa4e">detruireListeRect</a></div><div class="ttdeci">void detruireListeRect(listeRect **)</div><div class="ttdoc">Détruit une liste de rectangles et libère la mémoire associée.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00225">creation.c:225</a></div></div>
+<div class="ttc" id="acreation_8h_html_abb1505045db5862c6128b98e6a7e22fc"><div class="ttname"><a href="creation_8h.html#abb1505045db5862c6128b98e6a7e22fc">creerTexte</a></div><div class="ttdeci">SDL_Texture * creerTexte(SDL_Renderer *, TTF_Font *, char *, SDL_Color)</div><div class="ttdoc">Crée une texture de texte à partir d'une chaîne de caractères.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00146">creation.c:146</a></div></div>
+<div class="ttc" id="acreation_8h_html_ac9b104c31b87babfbfff6d8c52ace636"><div class="ttname"><a href="creation_8h.html#ac9b104c31b87babfbfff6d8c52ace636">creerImage</a></div><div class="ttdeci">SDL_Texture * creerImage(SDL_Renderer *, char *)</div><div class="ttdoc">Crée une texture à partir d'un fichier image.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00108">creation.c:108</a></div></div>
+<div class="ttc" id="acreation_8h_html_adb87523114911c34d380bc7c84441b38"><div class="ttname"><a href="creation_8h.html#adb87523114911c34d380bc7c84441b38">ajoutListeRect</a></div><div class="ttdeci">void ajoutListeRect(listeRect **, rectangle **)</div><div class="ttdoc">Ajoute un rectangle à la liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00198">creation.c:198</a></div></div>
+<div class="ttc" id="acreation_8h_html_afbaa36d0d106c639e9aba8cfc91017e4"><div class="ttname"><a href="creation_8h.html#afbaa36d0d106c639e9aba8cfc91017e4">updateRectangles</a></div><div class="ttdeci">void updateRectangles(listeRect *)</div><div class="ttdoc">Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00262">creation.c:262</a></div></div>
+<div class="ttc" id="astructlisteRect__s_html"><div class="ttname"><a href="structlisteRect__s.html">listeRect_s</a></div><div class="ttdoc">Structure pour la liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8h_source.html#l00056">creation.h:56</a></div></div>
+<div class="ttc" id="astructlisteT__s_html"><div class="ttname"><a href="structlisteT__s.html">listeT_s</a></div><div class="ttdef"><b>Definition:</b> <a href="creation_8h_source.html#l00025">creation.h:25</a></div></div>
+<div class="ttc" id="astructlisteT__t_html"><div class="ttname"><a href="structlisteT__t.html">listeT_t</a></div><div class="ttdoc">Structure pour la liste de textures.</div></div>
+<div class="ttc" id="astructrectangle__s_html"><div class="ttname"><a href="structrectangle__s.html">rectangle_s</a></div><div class="ttdef"><b>Definition:</b> <a href="creation_8h_source.html#l00038">creation.h:38</a></div></div>
+<div class="ttc" id="astructrectangle_html"><div class="ttname"><a href="structrectangle.html">rectangle</a></div><div class="ttdoc">Structure représentant un rectangle avec des proportions adaptatives par rapport à la taille de la fe...</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initperso_27',['initPerso',['../combat_8c.html#abd867605ae9bc8f0edc515904b9de730',1,'combat.c']]]
+  ['frames_33',['frames',['../structbouton__s.html#a509d75f262f1f6c463fc4dc819c45010',1,'bouton_s']]]
 ];

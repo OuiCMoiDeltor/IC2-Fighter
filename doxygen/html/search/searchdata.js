@@ -1,21 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "abcdgimopru",
-  1: "bcgmop",
-  2: "acdgimoru"
+  0: "abcdefgilmnoprstu",
+  1: "blpr",
+  2: "bcgmopt",
+  3: "acdgilmorsu",
+  4: "aefnop"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "variables"
 };
 
 var indexSectionLabels =
 {
   0: "Tout",
-  1: "Fichiers",
-  2: "Fonctions"
+  1: "Classes",
+  2: "Fichiers",
+  3: "Fonctions",
+  4: "Variables"
 };
 

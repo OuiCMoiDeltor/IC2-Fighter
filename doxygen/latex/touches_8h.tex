@@ -1,0 +1,219 @@
+\hypertarget{touches_8h}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/lib/touches.h}
+\label{touches_8h}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/touches.h@{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/touches.h}}
+
+
+Fichier d\textquotesingle{}en-\/tête contenant les déclarations des fonctions de gestion des touches.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{touches_8h_a681ebaabd86c63db262071bcc52a031a}\label{touches_8h_a681ebaabd86c63db262071bcc52a031a}} 
+typedef enum touches {\bfseries touches\+\_\+e}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{touches_8h_ad8bd3aee0ddb7f603949a6421985406e}\label{touches_8h_ad8bd3aee0ddb7f603949a6421985406e}} 
+enum {\bfseries touches} \{ \newline
+{\bfseries Sauter\+J1}
+, {\bfseries Sauter\+J2}
+, {\bfseries Accroupir\+J1}
+, {\bfseries Accroupir\+J2}
+, \newline
+{\bfseries Gauche\+J1}
+, {\bfseries Gauche\+J2}
+, {\bfseries Droit\+J1}
+, {\bfseries Droit\+J2}
+, \newline
+{\bfseries Kick\+J1}
+, {\bfseries Kick\+J2}
+, {\bfseries Poing\+J1}
+, {\bfseries Poing\+J2}
+, \newline
+{\bfseries Parade\+J1}
+, {\bfseries Parade\+J2}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{touches_8h_ab798a4ae30fa24ce6aff14c9eaf75710}{reset\+Touches}} (int $\ast$liste\+\_\+touches, char $\ast$f\+\_\+fichier, char $\ast$r\+\_\+fichier)
+\begin{DoxyCompactList}\small\item\em Réinitialise les touches du clavier en les remettant à leur configuration par défaut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{touches_8h_af214434d0110dbb579de3a744d2ceaf7}{Lire\+Touches}} (int $\ast$liste\+\_\+touches, char $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Lit les touches du clavier à partir d\textquotesingle{}un fichier de configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{touches_8h_aa01e651c27ebd39c86cb47f83f14f7f3}{Modifier\+Touche}} (int $\ast$liste\+\_\+touches, int numero\+\_\+ligne, int touche, char $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Modifie une touche spécifique du clavier dans le fichier de configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{touches_8h_a7f24404f02a06e9fae0a7d82acf9cb9c}{saisir\+Touche}} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$font, SDL\+\_\+\+Event event, int $\ast$liste\+\_\+touches, touches\+\_\+e touche, SDL\+\_\+\+Texture $\ast$$\ast$txt, char $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier d\textquotesingle{}en-\/tête contenant les déclarations des fonctions de gestion des touches. 
+
+Ce fichier contient les déclarations des fonctions permettant de gérer les touches du clavier dans le jeu, y compris la réinitialisation des touches, la lecture des touches à partir d\textquotesingle{}un fichier, la modification d\textquotesingle{}une touche spécifique, et la saisie d\textquotesingle{}une nouvelle touche. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{touches_8h_af214434d0110dbb579de3a744d2ceaf7}\label{touches_8h_af214434d0110dbb579de3a744d2ceaf7}} 
+\index{touches.h@{touches.h}!LireTouches@{LireTouches}}
+\index{LireTouches@{LireTouches}!touches.h@{touches.h}}
+\doxysubsubsection{\texorpdfstring{LireTouches()}{LireTouches()}}
+{\footnotesize\ttfamily void Lire\+Touches (\begin{DoxyParamCaption}\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{char $\ast$}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Lit les touches du clavier à partir d\textquotesingle{}un fichier de configuration. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+touches} & Tableau des touches du clavier \\
+\hline
+{\em fichier} & Nom du fichier de configuration\\
+\hline
+\end{DoxyParams}
+Lit les touches du clavier à partir d\textquotesingle{}un fichier de configuration.
+
+Cette fonction ouvre un fichier contenant les touches configurées, les lit ligne par ligne, convertit chaque ligne en une valeur entière correspondant au code de la touche, et stocke ces valeurs dans un tableau passé en paramètre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+touches} & Tableau pour stocker les touches lues. \\
+\hline
+{\em fichier} & Chemin du fichier à lire. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 68 du fichier touches.\+c.
+
+\mbox{\Hypertarget{touches_8h_aa01e651c27ebd39c86cb47f83f14f7f3}\label{touches_8h_aa01e651c27ebd39c86cb47f83f14f7f3}} 
+\index{touches.h@{touches.h}!ModifierTouche@{ModifierTouche}}
+\index{ModifierTouche@{ModifierTouche}!touches.h@{touches.h}}
+\doxysubsubsection{\texorpdfstring{ModifierTouche()}{ModifierTouche()}}
+{\footnotesize\ttfamily void Modifier\+Touche (\begin{DoxyParamCaption}\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{int}]{numero\+\_\+ligne,  }\item[{int}]{touche,  }\item[{char $\ast$}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Modifie une touche spécifique du clavier dans le fichier de configuration. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+touches} & Tableau des touches du clavier \\
+\hline
+{\em numero\+\_\+ligne} & Numéro de la ligne correspondant à la touche à modifier \\
+\hline
+{\em touche} & Nouvelle valeur de la touche \\
+\hline
+{\em fichier} & Nom du fichier de configuration\\
+\hline
+\end{DoxyParams}
+Modifie une touche spécifique du clavier dans le fichier de configuration.
+
+Cette fonction remplace la valeur d\textquotesingle{}une touche spécifiée par l\textquotesingle{}utilisateur dans le fichier de configuration. Elle lit le fichier ligne par ligne et remplace la ligne correspondant à la touche à modifier par la nouvelle valeur, puis sauvegarde les changements dans un fichier temporaire qui est ensuite renommé.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+touches} & Tableau contenant les codes des touches. \\
+\hline
+{\em numero\+\_\+ligne} & Index de la touche à modifier dans le tableau. \\
+\hline
+{\em touche} & Nouveau code de la touche. \\
+\hline
+{\em fichier} & Chemin du fichier de configuration. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 106 du fichier touches.\+c.
+
+\mbox{\Hypertarget{touches_8h_ab798a4ae30fa24ce6aff14c9eaf75710}\label{touches_8h_ab798a4ae30fa24ce6aff14c9eaf75710}} 
+\index{touches.h@{touches.h}!resetTouches@{resetTouches}}
+\index{resetTouches@{resetTouches}!touches.h@{touches.h}}
+\doxysubsubsection{\texorpdfstring{resetTouches()}{resetTouches()}}
+{\footnotesize\ttfamily void reset\+Touches (\begin{DoxyParamCaption}\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{char $\ast$}]{f\+\_\+fichier,  }\item[{char $\ast$}]{r\+\_\+fichier }\end{DoxyParamCaption})}
+
+
+
+Réinitialise les touches du clavier en les remettant à leur configuration par défaut. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+touches} & Tableau des touches du clavier \\
+\hline
+{\em f\+\_\+fichier} & Nom du fichier de configuration actuel \\
+\hline
+{\em r\+\_\+fichier} & Nom du fichier de configuration par défaut\\
+\hline
+\end{DoxyParams}
+Réinitialise les touches du clavier en les remettant à leur configuration par défaut.
+
+Cette fonction lit les valeurs des touches depuis un fichier de configuration, les convertit en entiers, et met à jour la liste des touches utilisées dans le jeu. Elle écrit également ces valeurs dans un autre fichier pour les sauvegarder.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+touches} & Tableau d\textquotesingle{}entiers représentant les codes des touches configurées. \\
+\hline
+{\em f\+\_\+fichier} & Chemin vers le fichier dans lequel écrire les touches. \\
+\hline
+{\em r\+\_\+fichier} & Chemin vers le fichier à lire pour les touches. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 30 du fichier touches.\+c.
+
+\mbox{\Hypertarget{touches_8h_a7f24404f02a06e9fae0a7d82acf9cb9c}\label{touches_8h_a7f24404f02a06e9fae0a7d82acf9cb9c}} 
+\index{touches.h@{touches.h}!saisirTouche@{saisirTouche}}
+\index{saisirTouche@{saisirTouche}!touches.h@{touches.h}}
+\doxysubsubsection{\texorpdfstring{saisirTouche()}{saisirTouche()}}
+{\footnotesize\ttfamily void saisir\+Touche (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{SDL\+\_\+\+Event}]{event,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{touches\+\_\+e}]{touche,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{txt,  }\item[{char $\ast$}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer SDL \\
+\hline
+{\em font} & La police de caractères utilisée pour afficher le texte \\
+\hline
+{\em event} & L\textquotesingle{}événement SDL \\
+\hline
+{\em liste\+\_\+touches} & Tableau des touches du clavier \\
+\hline
+{\em touche} & Enumération représentant la fonctionnalité pour laquelle la touche est saisie \\
+\hline
+{\em txt} & Pointeur vers la texture du texte \\
+\hline
+{\em fichier} & Nom du fichier de configuration\\
+\hline
+\end{DoxyParams}
+Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique.
+
+Cette fonction attend un événement clavier, puis met à jour la touche correspondante dans la liste des touches et dans le fichier de configuration. Elle met également à jour l\textquotesingle{}affichage de la touche à l\textquotesingle{}écran en utilisant une texture SDL pour le texte.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le renderer SDL utilisé pour le dessin. \\
+\hline
+{\em font} & Police utilisée pour l\textquotesingle{}affichage du texte. \\
+\hline
+{\em event} & Événement SDL à traiter. \\
+\hline
+{\em liste\+\_\+touches} & Tableau contenant les codes des touches. \\
+\hline
+{\em touche} & Enumération spécifiant quelle touche doit être saisie. \\
+\hline
+{\em txt} & Pointeur vers une texture SDL contenant le texte à mettre à jour. \\
+\hline
+{\em fichier} & Chemin du fichier de configuration des touches. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 169 du fichier touches.\+c.
+

@@ -76,22 +76,22 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../lib/creation.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">   27</a></span>&#160;listeT_t *<a class="code" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">creerListeT</a>() {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  listeT_t *liste = malloc(<span class="keyword">sizeof</span>(listeT_t));</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">   27</a></span>&#160;<a class="code" href="structlisteT__t.html">listeT_t</a> *<a class="code" href="creation_8c.html#a60a5cbdefb1579937c934d4764436ee5">creerListeT</a>() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="structlisteT__t.html">listeT_t</a> *liste = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structlisteT__t.html">listeT_t</a>));</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  liste-&gt;pTexture = NULL;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  liste-&gt;suivant = NULL;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">return</span> liste;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a>(listeT_t **liste, SDL_Texture **Texture) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a>(<a class="code" href="structlisteT__t.html">listeT_t</a> **liste, SDL_Texture **Texture) {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">if</span>((*liste)-&gt;suivant == NULL) {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    (*liste)-&gt;pTexture = Texture;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    (*liste)-&gt;suivant = (*liste);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    listeT_t *<span class="keyword">new</span> = malloc(<span class="keyword">sizeof</span>(listeT_t));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    listeT_t *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="structlisteT__t.html">listeT_t</a> *<span class="keyword">new</span> = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structlisteT__t.html">listeT_t</a>));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structlisteT__t.html">listeT_t</a> *temp = (*liste)-&gt;suivant;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    (*liste)-&gt;suivant = <span class="keyword">new</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    (*liste)-&gt;suivant-&gt;suivant = temp;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    temp = NULL;</div>
@@ -102,11 +102,11 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a>(listeT_t **liste) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a38ab40c88ba6e1759e9e2ea518ead96c">detruireListeT</a>(<a class="code" href="structlisteT__t.html">listeT_t</a> **liste) {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">if</span>(*liste!=NULL) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    listeT_t *dernier = (*liste);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="structlisteT__t.html">listeT_t</a> *dernier = (*liste);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    (*liste) = (*liste)-&gt;suivant;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    listeT_t *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="structlisteT__t.html">listeT_t</a> *temp = (*liste)-&gt;suivant;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">while</span>((*liste) != dernier) {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      SDL_DestroyTexture((*(*liste)-&gt;pTexture));</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      (*(*liste)-&gt;pTexture) = NULL;</div>
@@ -180,23 +180,23 @@ $(function() {
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">  180</a></span>&#160;listeRect *<a class="code" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">creerListeRect</a>() {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  listeRect *liste = malloc(<span class="keyword">sizeof</span>(listeRect));</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">  180</a></span>&#160;<a class="code" href="structlisteRect__s.html">listeRect</a> *<a class="code" href="creation_8c.html#a07c828a6b14af29a34d94fe46209ed1a">creerListeRect</a>() {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <a class="code" href="structlisteRect__s.html">listeRect</a> *liste = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structlisteRect__s.html">listeRect</a>));</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  liste-&gt;pRect = NULL;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  liste-&gt;suivant = NULL;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordflow">return</span> liste;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">  198</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a>(listeRect **liste, rectangle **Rect)</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">  198</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a526afa603b8080dec0f9a234833b5661">ajoutListeRect</a>(<a class="code" href="structlisteRect__s.html">listeRect</a> **liste, <a class="code" href="structrectangle.html">rectangle</a> **Rect)</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keywordflow">if</span>((*liste)-&gt;suivant == NULL) {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    (*liste)-&gt;pRect = Rect;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    (*liste)-&gt;suivant = (*liste);</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    listeRect *<span class="keyword">new</span> = malloc(<span class="keyword">sizeof</span>(listeRect));</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    listeRect *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="structlisteRect__s.html">listeRect</a> *<span class="keyword">new</span> = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structlisteRect__s.html">listeRect</a>));</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="structlisteRect__s.html">listeRect</a> *temp = (*liste)-&gt;suivant;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    (*liste)-&gt;suivant = <span class="keyword">new</span>;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    (*liste)-&gt;suivant-&gt;suivant = temp;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    temp = NULL;</div>
@@ -207,12 +207,12 @@ $(function() {
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a>(listeRect **liste)</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a>(<a class="code" href="structlisteRect__s.html">listeRect</a> **liste)</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordflow">if</span>(*liste!=NULL) {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    listeRect *dernier = (*liste);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="structlisteRect__s.html">listeRect</a> *dernier = (*liste);</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    (*liste) = (*liste)-&gt;suivant;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    listeRect *temp = (*liste)-&gt;suivant;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <a class="code" href="structlisteRect__s.html">listeRect</a> *temp = (*liste)-&gt;suivant;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">while</span>((*liste) != dernier) {</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      free((*(*liste)-&gt;pRect)-&gt;rect);</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      free((*(*liste)-&gt;pRect));</div>
@@ -234,9 +234,9 @@ $(function() {
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">  262</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a>(listeRect *liste)</div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">  262</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="creation_8c.html#a90feb595f849f52d8483be2c7df23565">updateRectangles</a>(<a class="code" href="structlisteRect__s.html">listeRect</a> *liste)</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  listeRect *pListe = liste;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <a class="code" href="structlisteRect__s.html">listeRect</a> *pListe = liste;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordflow">do</span>{</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    (*pListe-&gt;pRect)-&gt;rect-&gt;x = (*(*pListe-&gt;pRect)-&gt;largeur)/(*pListe-&gt;pRect)-&gt;ratioX;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    (*pListe-&gt;pRect)-&gt;rect-&gt;y = (*(*pListe-&gt;pRect)-&gt;hauteur)/(*pListe-&gt;pRect)-&gt;ratioY;</div>
@@ -247,9 +247,9 @@ $(function() {
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keyword">extern</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">  291</a></span>&#160;rectangle *<a class="code" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a>(<span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur, <span class="keywordtype">float</span> rX, <span class="keywordtype">float</span> rY, <span class="keywordtype">float</span> rW, <span class="keywordtype">float</span> rH)</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">  291</a></span>&#160;<a class="code" href="structrectangle.html">rectangle</a> *<a class="code" href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a>(<span class="keywordtype">int</span> *largeur, <span class="keywordtype">int</span> *hauteur, <span class="keywordtype">float</span> rX, <span class="keywordtype">float</span> rY, <span class="keywordtype">float</span> rW, <span class="keywordtype">float</span> rH)</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;{</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  rectangle *pRect = malloc(<span class="keyword">sizeof</span>(rectangle));</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <a class="code" href="structrectangle.html">rectangle</a> *pRect = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structrectangle.html">rectangle</a>));</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  pRect-&gt;largeur = largeur;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  pRect-&gt;hauteur = hauteur;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  pRect-&gt;ratioX = rX;</div>
@@ -274,6 +274,9 @@ $(function() {
 <div class="ttc" id="acreation_8c_html_aabecbee2f1b59d03e91565d2b4cb3155"><div class="ttname"><a href="creation_8c.html#aabecbee2f1b59d03e91565d2b4cb3155">detruireListeRect</a></div><div class="ttdeci">void detruireListeRect(listeRect **liste)</div><div class="ttdoc">Détruit une liste de rectangles et libère la mémoire associée.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00225">creation.c:225</a></div></div>
 <div class="ttc" id="acreation_8c_html_aaf48331ff12117690ac67879e5f0a2bf"><div class="ttname"><a href="creation_8c.html#aaf48331ff12117690ac67879e5f0a2bf">creerRectangle</a></div><div class="ttdeci">rectangle * creerRectangle(int *largeur, int *hauteur, float rX, float rY, float rW, float rH)</div><div class="ttdoc">Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00291">creation.c:291</a></div></div>
 <div class="ttc" id="acreation_8c_html_af68e8afe26983df68acf0a834af15985"><div class="ttname"><a href="creation_8c.html#af68e8afe26983df68acf0a834af15985">ajoutListeT</a></div><div class="ttdeci">void ajoutListeT(listeT_t **liste, SDL_Texture **Texture)</div><div class="ttdoc">Ajoute une texture à la liste de textures.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00045">creation.c:45</a></div></div>
+<div class="ttc" id="astructlisteRect__s_html"><div class="ttname"><a href="structlisteRect__s.html">listeRect_s</a></div><div class="ttdoc">Structure pour la liste de rectangles.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8h_source.html#l00056">creation.h:56</a></div></div>
+<div class="ttc" id="astructlisteT__t_html"><div class="ttname"><a href="structlisteT__t.html">listeT_t</a></div><div class="ttdoc">Structure pour la liste de textures.</div></div>
+<div class="ttc" id="astructrectangle_html"><div class="ttname"><a href="structrectangle.html">rectangle</a></div><div class="ttdoc">Structure représentant un rectangle avec des proportions adaptatives par rapport à la taille de la fe...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
