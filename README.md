@@ -23,7 +23,12 @@ Plongez dans l'univers d'**IC2-Fighter**, un jeu de combat innovant conçu pour 
 IC2-Fighter n'est pas seulement un jeu de combat. C'est une arène où stratégie, réflexes et bravoure se rencontrent dans un spectacle visuel captivant. Chaque personnage et arène a été méticuleusement dessiné pour offrir une expérience immersive qui vous tiendra en haleine. Préparez-vous à combattre !
 
 ### 📖 Manuel de l'utilisateur
-Configuration
+**Configuration requie :*
+OS = Linux
+Processeur = intel core i3 ou Ryzen 3
+Carte graphique = Graphique intégré
+Ram = 4GB
+Capacité de stockage = 500 MB
 
 
 
