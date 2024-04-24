@@ -43,7 +43,7 @@ personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *h
     perso->pos = creerRectangle(largeur, hauteur, rX, rY, rW, rH);
     perso->texture = creerImage(renderer, image);
     if(perso->texture == NULL) return NULL;
-    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->crouching = perso->etatCrouch = perso->reverseIdle = perso->reverseWalk = 0;
+    perso->etatIdle = perso->etatWalk = perso->animation = perso->etatAnimation = perso->crouching = perso->etatCrouch = perso->reverseIdle = perso->reverseWalk = perso->stunned = perso->etatStun = 0;
 
     int i;
 
@@ -347,7 +347,7 @@ void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int pe
 
 
 extern
-void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * soundHIT, Mix_Chunk * soundDMG, int * liste_touches) {
+void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * soundHIT, Mix_Chunk * soundDMG, Mix_Chunk * soundStun, int * liste_touches, SDL_Texture * stunTexture, rectangle * stunRect, SDL_Rect ** stunTextureRect) {
     /*Test avant que Quentin commence à crier, fonctionne mais comme ttf charge en boucle lors d'appel -> jeu tres ralenti*/
     int hitJ1 = 0, hitJ2 = 0;
 
@@ -390,6 +390,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     // Animations des actions
     if(*framerate > 10) {
         // Joueur 1
+        if(perso1->stunned)
+            perso1->etatStun = (perso1->etatStun+1)%4;
         if(!perso1->reverseIdle) {
                 perso1->etatIdle = ++perso1->etatIdle;
                 if(perso1->etatIdle == 5) {
@@ -450,6 +452,17 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                         case KICKBAS:
+                                        if(perso1->etatAnimation == 1) {
+                                            perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.40);
+                                            perso1->hurtBox->rect->y = (perso1->pos->rect->h / 126) * 120.0;
+                                        }
+                                        if(perso1->etatAnimation < 2) {
+                                                perso1->etatAnimation++;
+                                        }else {
+                                                perso1->etatAnimation = 0;
+                                                perso1->animation = AUCUNE;
+                                        }
+                                        break;
                         case KICKACCROUPI:
                                         if(perso1->etatAnimation == 1) {
                                             perso1->hurtBox->rect->x = perso1->hitBox->rect->x + (perso1->hitBox->rect->w * 1.25);
@@ -514,6 +527,8 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
 
 
         // Joueur 2
+        if(perso2->stunned)
+            perso2->etatStun = (perso2->etatStun+1)%4;
         if(!perso2->reverseIdle) {
                 perso2->etatIdle = ++perso2->etatIdle;
                 if(perso2->etatIdle == 5) {
@@ -574,6 +589,17 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
                                         }
                                         break;
                         case KICKBAS:
+                                        if(perso2->etatAnimation == 1) {
+                                                perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.40) - perso2->hurtBox->rect->w;
+                                                perso2->hurtBox->rect->y = (perso2->pos->rect->h / 126) * 120.0;
+                                        }
+                                        if(perso2->etatAnimation < 2) {
+                                                perso2->etatAnimation++;
+                                        }else {
+                                                perso2->etatAnimation = 0;
+                                                perso2->animation = AUCUNE;
+                                        }
+                                        break;
                         case KICKACCROUPI:
                                         if(perso2->etatAnimation == 1) {
                                                 perso2->hurtBox->rect->x = perso2->hitBox->rect->x - (perso2->hitBox->rect->w * 0.25) - perso2->hurtBox->rect->w;
@@ -680,15 +706,23 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             if(perso2->blocking) {
                 perso2->etatAnimation = 1;
                 perso2->animation = PARADE;
-                mettreAJourHp(renderer, perso2, DMG / 2, 2, soundDMG) ;
+                if(!(perso1->animation == KICKBAS || perso1->animation == KICKACCROUPI || perso1->animation == POINGACCROUPI)) {
+                    perso1->stunned = 1;
+                    Mix_PlayChannel(-1, soundStun, 0);
+                    mettreAJourHp(renderer, perso2, DMG / 2, 2, soundDMG) ;
+                }else
+                    mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
             }else if(perso2->animation == SAUT) {
                 perso2->animation = DEGATSAUT;
+                perso2->stunned = 0;
                 mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
             }else if(perso2->crouching) {
                 perso2->animation = DEGATACCROUPI;
+                perso2->stunned = 0;
                 mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
             }else {
                 perso2->animation = DEGAT;
+                perso2->stunned = 0;
                 mettreAJourHp(renderer, perso2, DMG, 2, soundDMG) ;
             }
         }else if(hitJ2) {
@@ -697,17 +731,31 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
             if(perso1->blocking) {
                 perso1->etatAnimation = 1;
                 perso1->animation = PARADE;
-                mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
+                if(!(perso2->animation == KICKBAS || perso2->animation == KICKACCROUPI || perso2->animation == POINGACCROUPI)) {
+                    perso2->stunned = 1;
+                    Mix_PlayChannel(-1, soundStun, 0);
+                    mettreAJourHp(renderer, perso1, DMG / 2, 1, soundDMG) ;
+                }else
+                    mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
             }else if(perso1->animation == SAUT) {
                 perso1->animation = DEGATSAUT;
+                perso1->stunned = 0;
                 mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
             }else if(perso1->crouching) {
                 perso1->animation = DEGATACCROUPI;
+                perso1->stunned = 0;
                 mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ; 
             }else {
                 perso1->animation = DEGAT;
+                perso1->stunned = 0;
                 mettreAJourHp(renderer, perso1, DMG, 1, soundDMG) ;
             }
+        }else if(!hitJ1 && perso1->animation == KICKBAS && perso1->etatAnimation == 2) {
+            perso1->stunned = 1;
+            Mix_PlayChannel(-1, soundStun, 0);
+        }else if(!hitJ2 && perso2->animation == KICKBAS && perso2->etatAnimation == 2) {
+            perso2->stunned = 1;
+            Mix_PlayChannel(-1, soundStun, 0);
         }
 
 
@@ -717,14 +765,23 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
         perso2->hurtBox->rect->x = largeur;
         perso2->hurtBox->rect->y = hauteur;
 
+        // Reset double stun
+        if(perso1->stunned && perso2->stunned)
+            perso1->stunned = perso2->stunned = 0;
+
         *framerate = 0;
     }
 
     // perso1
     if(!perso1->animation){
         perso1->blocking = 0;
+        // Etourdi
+        if(perso1->stunned) {
+            stunRect->rect->x = perso1->hitBox->rect->x + perso1->hitBox->rect->w * 0.5;
+            SDL_RenderCopy(renderer, stunTexture, stunTextureRect[perso1->etatStun], stunRect->rect);
+            SDL_RenderCopy(renderer, perso1->texture, perso1->idle[perso1->etatIdle], perso1->pos->rect);
         // Parade
-        if(keyboardState[liste_touches[ParadeJ1]] && !perso1->crouching) {
+        }else if(keyboardState[liste_touches[ParadeJ1]] && !perso1->crouching) {
             perso1->blocking = 1;
             SDL_RenderCopy(renderer, perso1->texture, perso1->block[0], perso1->pos->rect);
         // Coup de peid en bas
@@ -835,8 +892,13 @@ void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnag
     // perso2
     if(!perso2->animation){
         perso2->blocking = 0;
+        // Etourdi
+        if(perso2->stunned) {
+            stunRect->rect->x = perso2->hitBox->rect->x + perso2->hitBox->rect->w * 0.5;
+            SDL_RenderCopy(renderer, stunTexture, stunTextureRect[perso2->etatStun], stunRect->rect);
+            SDL_RenderCopyEx(renderer, perso2->texture, perso2->idle[perso2->etatIdle], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
         // Parade
-        if(keyboardState[liste_touches[ParadeJ2]] && !perso2->crouching) {
+        }else if(keyboardState[liste_touches[ParadeJ2]] && !perso2->crouching) {
             perso2->blocking = 1;
             SDL_RenderCopyEx(renderer, perso2->texture, perso2->block[0], perso2->pos->rect, 180, NULL, SDL_FLIP_VERTICAL);
         // Coup de peid en bas

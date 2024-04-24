@@ -7,9 +7,9 @@
 #include "bouton.h"
 
 // Images
-#define IMG_GAMEMODE_BG "img/menu-multi.bmp"
-#define IMG_GAMEMODE_LOCAL "img/local.bmp"
-#define IMG_GAMEMODE_LIGNE "img/ligne.bmp"
+#define IMG_GAMEMODE_BG "img/gamemode_select/menu-multi.bmp"
+#define IMG_GAMEMODE_LOCAL "img/gamemode_select/local.bmp"
+#define IMG_GAMEMODE_LIGNE "img/gamemode_select/ligne.bmp"
 #define IMG_GAMEMODE_RETOUR "img/options/optionsBack.bmp"
 
 

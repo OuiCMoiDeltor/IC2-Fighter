@@ -79,6 +79,8 @@ typedef struct {
     SDL_Rect **crouchHurt;
     animation_e animation;
     int etatAnimation;
+    int stunned;
+    int etatStun;
     float speed ;
     pv_t * hp;
     pseudo_t * pseudo;
@@ -89,6 +91,6 @@ typedef struct {
 extern personnage *creerPerso(SDL_Renderer *renderer, char *image, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, listeRect **listeRectangle);
 extern void detruirePerso(personnage ** perso);
 extern void mettreAJourHp(SDL_Renderer *renderer, personnage * perso, int degat, int persoID, Mix_Chunk * soundDMG);
-extern void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * hit, Mix_Chunk * dmg, int * liste_touches);
+extern void mettreAJourPersonnage(SDL_Renderer *renderer, personnage *perso1, personnage *perso2, const Uint8 *keyboardState, int largeur, int hauteur, int * framerate, Mix_Chunk * hit, Mix_Chunk * dmg, Mix_Chunk * stun, int * liste_touches, SDL_Texture * stunTexture, rectangle * stunRect, SDL_Rect ** stunTextureRect);
 
 #endif

@@ -7,7 +7,10 @@
 #include "../lib/perso.h"
 
 // Images
-#define IMG_GAME_BG "img/amphi_combat.bmp"
+#define IMG_GAME_BG "img/combat/amphi_combat.bmp"
+#define IMG_STUN "img/combat/etourdi.bmp"
+#define IMG_VICTOIRE1 "img/combat/victoireJ1.bmp"
+#define IMG_VICTOIRE2 "img/combat/victoireJ2.bmp"
 #define SOUND_BACKGROUND_COMBAT "mixer/son_combat.mp3"
 #define TTF_FONT "ttf/Act_Of_Rejection.ttf"
 
@@ -126,7 +129,7 @@ void initPerso(SDL_Renderer * renderer, personnage * J1, personnage * J2) {
     TTF_CloseFont(font);
 }
 
-extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, int * liste_touches, int round) {
+extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage * Joueur1, personnage * Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk * hit, Mix_Chunk * dmg, Mix_Chunk * stun, int * liste_touches, int round, SDL_Texture * stunTexture, rectangle * stunRect, SDL_Rect ** stunTextureRect) {
     Uint32 roundStart = SDL_GetTicks();  // Temps de démarrage du round
     Uint32 currentTime;
     int timer = DUREE_ROUND;  // Démarre le timer à partir de roundDuration
@@ -176,7 +179,7 @@ extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage 
         SDL_RenderCopy(renderer, Joueur2->pseudo->txt, NULL, Joueur2->pseudo->rect->rect);
         
         waitForFrame++;
-        mettreAJourPersonnage(renderer, Joueur1, Joueur2, keyboardState, largeurF, hauteurF, &waitForFrame, hit, dmg, liste_touches);
+        mettreAJourPersonnage(renderer, Joueur1, Joueur2, keyboardState, largeurF, hauteurF, &waitForFrame, hit, dmg, stun, liste_touches, stunTexture, stunRect, stunTextureRect);
 
         SDL_RenderPresent(renderer);
         SDL_Delay(1000/60);
@@ -185,7 +188,13 @@ extern int roundStart(SDL_Renderer * renderer, Uint8 *keyboardState, personnage 
     SDL_DestroyTexture(gameBGTexture);
     TTF_CloseFont(font);
     if(quit) exit(EXIT_FAILURE) ;
-    return Joueur1->hp->pv > 0 ? 1 : 0;
+    if(Joueur1->hp->pv <= 0 && Joueur2->hp->pv <= 0)
+        return 0;
+    if(Joueur1->hp->pv <= 0)
+        return -1;
+    if(Joueur2->hp->pv <= 0)
+        return 1;
+    return 0;
 }
 
 
@@ -198,6 +207,8 @@ void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joue
     Mix_VolumeChunk(soundHIT, MIX_MAX_VOLUME / 8);
     Mix_Chunk *soundDMG = Mix_LoadWAV("mixer/ouh.wav");
     Mix_VolumeChunk(soundDMG, MIX_MAX_VOLUME / 3);
+    Mix_Chunk *soundStun = Mix_LoadWAV("mixer/Pika.wav");
+    Mix_VolumeChunk(soundStun, MIX_MAX_VOLUME);
 
     // Configuration initiale du volume
     Mix_VolumeMusic(MIX_MAX_VOLUME * 0.1);
@@ -206,32 +217,66 @@ void combatStart(SDL_Renderer* renderer, Uint8 *keyboardState, personnage * Joue
         Mix_PlayMusic(backgroundCombatSound, -1);
     }
 
-    int v1 = 0, v2 = 0;
+    SDL_Texture * stunTexture = creerImage(renderer, IMG_STUN);
+    rectangle * stunRect = creerRectangle(&largeurF, &hauteurF, 1.0, 4.0, 20.0, 20.0);
+    SDL_Rect ** stunTextureRect = malloc(sizeof(SDL_Rect*)*4);
+    int i;
+    for(i = 0 ; i < 4 ; i++) {
+        stunTextureRect[i] = malloc(sizeof(SDL_Rect));
+        stunTextureRect[i]->x = 380*i;
+        stunTextureRect[i]->y = 0;
+        stunTextureRect[i]->w = 380;
+        stunTextureRect[i]->h = 270;
+    }
+
+    int v1 = 0, v2 = 0, v;
 
     // Déroulement des rounds
     while(v1 != ROUND_GAGNANT && v2 != ROUND_GAGNANT) {
         initPerso(renderer, Joueur1, Joueur2);
-        if(roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, liste_touches, v1+v2+1)) v1++;
-        else v2++;
+        if((v = roundStart(renderer, keyboardState, Joueur1, Joueur2, largeurF, hauteurF, 0, soundHIT, soundDMG, soundStun, liste_touches, v1+v2+1, stunTexture, stunRect, stunTextureRect)) == 1) v1++;
+        else if(v == -1) v2++;
     }
 
     // Après les trois rounds, afficher un fond spécifique
-    SDL_Texture *finalBGTexture = IMG_LoadTexture(renderer, "img/apagnan.bmp");
-    if (finalBGTexture == NULL) {
-        fprintf(stderr, "Erreur chargement de l'image de fond finale : %s\n", SDL_GetError());
-    } else {
-        SDL_RenderClear(renderer);
-        SDL_RenderCopy(renderer, finalBGTexture, NULL, NULL);
-        SDL_RenderPresent(renderer);
-        SDL_Delay(5000);
-        SDL_DestroyTexture(finalBGTexture);
+    SDL_Texture *finalBGTexture;
+    if(v1 == ROUND_GAGNANT) {
+        finalBGTexture = IMG_LoadTexture(renderer, IMG_VICTOIRE1);
+        if (finalBGTexture == NULL) {
+            fprintf(stderr, "Erreur chargement de l'image de fond finale : %s\n", SDL_GetError());
+        } else {
+            SDL_RenderClear(renderer);
+            SDL_RenderCopy(renderer, finalBGTexture, NULL, NULL);
+            SDL_RenderPresent(renderer);
+            SDL_Delay(5000);
+            SDL_DestroyTexture(finalBGTexture);
+        }
+    }else {
+        finalBGTexture = IMG_LoadTexture(renderer, IMG_VICTOIRE2);
+        if (finalBGTexture == NULL) {
+            fprintf(stderr, "Erreur chargement de l'image de fond finale : %s\n", SDL_GetError());
+        } else {
+            SDL_RenderClear(renderer);
+            SDL_RenderCopy(renderer, finalBGTexture, NULL, NULL);
+            SDL_RenderPresent(renderer);
+            SDL_Delay(5000);
+            SDL_DestroyTexture(finalBGTexture);
+        }
     }
 
     detruirePerso(&Joueur1);
     detruirePerso(&Joueur2);
 
+    SDL_DestroyTexture(stunTexture);
+    free(stunRect->rect);
+    free(stunRect);
+    for( i = 0 ; i < 4 ; i++)
+        free(stunTextureRect[i]);
+    free(stunTextureRect);
+
     // Nettoyage des ressources audio
     Mix_FreeMusic(backgroundCombatSound);
     Mix_FreeChunk(soundHIT);
     Mix_FreeChunk(soundDMG);
+    Mix_FreeChunk(soundStun);
 }
