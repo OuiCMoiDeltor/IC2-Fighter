@@ -30,6 +30,7 @@ Carte graphique = Graphique intégré \
 Ram = 4GB \
 Capacité de stockage = 500 MB
 
+Avant de lancer le jeu, il faut télécharger la bibliothèque SDL2 et une fois fais, il faut ouvrir la console à l'emplacement du makefile est taper "make exe"
 
 
 Au lancement du jeu, vous arrivez dans le menu principal. Celui-ci ofrre la possibilité d'appuyer sur 3 boutons. Le premier, à droite de l'image, représente Titouan sur son vélo, celui sert à quitter le jeu. Ensuite à gauche, le panneau devant le bâtiment informatique IC2, est le bouton pour accéder aux options, en appuyant dessus on arrive sur une autre fenêtre avec la possibilité de changer la résolution. En bas à droite, un bouton pour changer les touches représenter par un clavier. Pour lancer le jeu, revenons au menu principal grâce aux flèches se situant en haut à gauche. Dans le menu, le dernier bouton, représenté par le porte du bâtiment, permet d'entrer dans le menu de sélection des personnages.
