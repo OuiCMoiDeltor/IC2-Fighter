@@ -28,7 +28,7 @@ OS = Linux \
 Processeur = intel core i3 ou Ryzen 3 \
 Carte graphique = Graphique intégré \
 Ram = 4GB \
-Capacité de stockage = 500 MB \
+Capacité de stockage = 500 MB
 
 
 
