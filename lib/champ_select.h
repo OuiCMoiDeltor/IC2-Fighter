@@ -19,6 +19,7 @@
 #define RYU "img/champ_select/ryuic2.bmp"
 #define MNX "img/champ_select/sprite_mnx.bmp"
 #define YASS "img/champ_select/sprite_yacine.bmp"
+#define DAM "img/champ_select/damien_prout.bmp"
 #define SOUND_BACKGROUND_SELECT "mixer/giga_chad.mp3"
 
 extern int champ_select(SDL_Event e, SDL_Renderer * renderer, int largeurF, int hauteurF, int * scene, int son, int * liste_touches, Uint8 * keyboardState);
