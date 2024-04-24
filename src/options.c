@@ -351,7 +351,7 @@ int options(SDL_Event e, SDL_Renderer * renderer, SDL_Window * window, int * lar
         }
 
         // Dessiner le bouton du son
-        if(son) {
+        if(*son) {
                 if(boutonOptionsSoundOn->etat == BOUTON_RELACHE) SDL_RenderCopy(renderer, boutonOptionsSoundOn->texture, boutonOptionsSoundOn->relache, boutonOptionsSoundOn->position->rect);
                 else if (boutonOptionsSoundOn->etat == BOUTON_APPUYE) SDL_RenderCopy(renderer, boutonOptionsSoundOn->texture, boutonOptionsSoundOn->appuye, boutonOptionsSoundOn->position->rect);
                 else if (boutonOptionsSoundOn->etat == BOUTON_OVER) SDL_RenderCopy(renderer, boutonOptionsSoundOn->texture, boutonOptionsSoundOn->over, boutonOptionsSoundOn->position->rect);
