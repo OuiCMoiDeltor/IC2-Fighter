@@ -18,6 +18,8 @@ Plongez dans l'univers d'**IC2-Fighter**, un jeu de combat innovant conçu pour 
 ### 🔗 Ressources Clés
 - **Document de Présentation :** [Voir le document](https://docs.google.com/document/d/13eXrba75RyvGE3lhnJh4O7yFeaft9hzDJVS7V4voUTc/edit)
 - **Planification :** [Diagramme de Gantt](https://docs.google.com/spreadsheets/d/1qz4dYe7TAFIVLvtQTb-0hKGw3CVnRch2NBe7M6f-33c/edit#gid=2099071742)
+- **Lien vers l'index Doxygen:** [Documentation Doxygen](doc/html/index.html)
+
 
 ### 💡 Pourquoi choisir IC2-Fighter?
 IC2-Fighter n'est pas seulement un jeu de combat. C'est une arène où stratégie, réflexes et bravoure se rencontrent dans un spectacle visuel captivant. Chaque personnage et arène a été méticuleusement dessiné pour offrir une expérience immersive qui vous tiendra en haleine. Préparez-vous à combattre !
