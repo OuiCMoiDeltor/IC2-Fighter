@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter: Référence du fichier /mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier touches.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier d'en-tête contenant les déclarations des fonctions de gestion des touches.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div>
+<p><a href="touches_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a681ebaabd86c63db262071bcc52a031a"><td class="memItemLeft" align="right" valign="top"><a id="a681ebaabd86c63db262071bcc52a031a"></a>
+typedef enum touches&#160;</td><td class="memItemRight" valign="bottom"><b>touches_e</b></td></tr>
+<tr class="separator:a681ebaabd86c63db262071bcc52a031a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ad8bd3aee0ddb7f603949a6421985406e"><td class="memItemLeft" align="right" valign="top"><a id="ad8bd3aee0ddb7f603949a6421985406e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>touches</b> { <br />
+&#160;&#160;<b>SauterJ1</b>
+, <b>SauterJ2</b>
+, <b>AccroupirJ1</b>
+, <b>AccroupirJ2</b>
+, <br />
+&#160;&#160;<b>GaucheJ1</b>
+, <b>GaucheJ2</b>
+, <b>DroitJ1</b>
+, <b>DroitJ2</b>
+, <br />
+&#160;&#160;<b>KickJ1</b>
+, <b>KickJ2</b>
+, <b>PoingJ1</b>
+, <b>PoingJ2</b>
+, <br />
+&#160;&#160;<b>ParadeJ1</b>
+, <b>ParadeJ2</b>
+<br />
+ }</td></tr>
+<tr class="separator:ad8bd3aee0ddb7f603949a6421985406e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab798a4ae30fa24ce6aff14c9eaf75710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="touches_8h.html#ab798a4ae30fa24ce6aff14c9eaf75710">resetTouches</a> (int *liste_touches, char *f_fichier, char *r_fichier)</td></tr>
+<tr class="memdesc:ab798a4ae30fa24ce6aff14c9eaf75710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise les touches du clavier en les remettant à leur configuration par défaut.  <a href="touches_8h.html#ab798a4ae30fa24ce6aff14c9eaf75710">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab798a4ae30fa24ce6aff14c9eaf75710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af214434d0110dbb579de3a744d2ceaf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="touches_8h.html#af214434d0110dbb579de3a744d2ceaf7">LireTouches</a> (int *liste_touches, char *fichier)</td></tr>
+<tr class="memdesc:af214434d0110dbb579de3a744d2ceaf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit les touches du clavier à partir d'un fichier de configuration.  <a href="touches_8h.html#af214434d0110dbb579de3a744d2ceaf7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af214434d0110dbb579de3a744d2ceaf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01e651c27ebd39c86cb47f83f14f7f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="touches_8h.html#aa01e651c27ebd39c86cb47f83f14f7f3">ModifierTouche</a> (int *liste_touches, int numero_ligne, int touche, char *fichier)</td></tr>
+<tr class="memdesc:aa01e651c27ebd39c86cb47f83f14f7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie une touche spécifique du clavier dans le fichier de configuration.  <a href="touches_8h.html#aa01e651c27ebd39c86cb47f83f14f7f3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa01e651c27ebd39c86cb47f83f14f7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f24404f02a06e9fae0a7d82acf9cb9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="touches_8h.html#a7f24404f02a06e9fae0a7d82acf9cb9c">saisirTouche</a> (SDL_Renderer *renderer, TTF_Font *font, SDL_Event event, int *liste_touches, touches_e touche, SDL_Texture **txt, char *fichier)</td></tr>
+<tr class="memdesc:a7f24404f02a06e9fae0a7d82acf9cb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique.  <a href="touches_8h.html#a7f24404f02a06e9fae0a7d82acf9cb9c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7f24404f02a06e9fae0a7d82acf9cb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier d'en-tête contenant les déclarations des fonctions de gestion des touches. </p>
+<p>Ce fichier contient les déclarations des fonctions permettant de gérer les touches du clavier dans le jeu, y compris la réinitialisation des touches, la lecture des touches à partir d'un fichier, la modification d'une touche spécifique, et la saisie d'une nouvelle touche. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="touches_8h_source.html">touches.h</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="af214434d0110dbb579de3a744d2ceaf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af214434d0110dbb579de3a744d2ceaf7">&#9670;&nbsp;</a></span>LireTouches()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LireTouches </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit les touches du clavier à partir d'un fichier de configuration. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches du clavier </td></tr>
+    <tr><td class="paramname">fichier</td><td>Nom du fichier de configuration</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Lit les touches du clavier à partir d'un fichier de configuration.</p>
+<p>Cette fonction ouvre un fichier contenant les touches configurées, les lit ligne par ligne, convertit chaque ligne en une valeur entière correspondant au code de la touche, et stocke ces valeurs dans un tableau passé en paramètre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_touches</td><td>Tableau pour stocker les touches lues. </td></tr>
+    <tr><td class="paramname">fichier</td><td>Chemin du fichier à lire. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="touches_8c_source.html#l00068">68</a> du fichier <a class="el" href="touches_8c_source.html">touches.c</a>.</p>
+
+</div>
+</div>
+<a id="aa01e651c27ebd39c86cb47f83f14f7f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01e651c27ebd39c86cb47f83f14f7f3">&#9670;&nbsp;</a></span>ModifierTouche()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModifierTouche </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numero_ligne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>touche</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modifie une touche spécifique du clavier dans le fichier de configuration. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches du clavier </td></tr>
+    <tr><td class="paramname">numero_ligne</td><td>Numéro de la ligne correspondant à la touche à modifier </td></tr>
+    <tr><td class="paramname">touche</td><td>Nouvelle valeur de la touche </td></tr>
+    <tr><td class="paramname">fichier</td><td>Nom du fichier de configuration</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Modifie une touche spécifique du clavier dans le fichier de configuration.</p>
+<p>Cette fonction remplace la valeur d'une touche spécifiée par l'utilisateur dans le fichier de configuration. Elle lit le fichier ligne par ligne et remplace la ligne correspondant à la touche à modifier par la nouvelle valeur, puis sauvegarde les changements dans un fichier temporaire qui est ensuite renommé.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_touches</td><td>Tableau contenant les codes des touches. </td></tr>
+    <tr><td class="paramname">numero_ligne</td><td>Index de la touche à modifier dans le tableau. </td></tr>
+    <tr><td class="paramname">touche</td><td>Nouveau code de la touche. </td></tr>
+    <tr><td class="paramname">fichier</td><td>Chemin du fichier de configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="touches_8c_source.html#l00106">106</a> du fichier <a class="el" href="touches_8c_source.html">touches.c</a>.</p>
+
+</div>
+</div>
+<a id="ab798a4ae30fa24ce6aff14c9eaf75710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab798a4ae30fa24ce6aff14c9eaf75710">&#9670;&nbsp;</a></span>resetTouches()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetTouches </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>f_fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>r_fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise les touches du clavier en les remettant à leur configuration par défaut. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches du clavier </td></tr>
+    <tr><td class="paramname">f_fichier</td><td>Nom du fichier de configuration actuel </td></tr>
+    <tr><td class="paramname">r_fichier</td><td>Nom du fichier de configuration par défaut</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Réinitialise les touches du clavier en les remettant à leur configuration par défaut.</p>
+<p>Cette fonction lit les valeurs des touches depuis un fichier de configuration, les convertit en entiers, et met à jour la liste des touches utilisées dans le jeu. Elle écrit également ces valeurs dans un autre fichier pour les sauvegarder.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_touches</td><td>Tableau d'entiers représentant les codes des touches configurées. </td></tr>
+    <tr><td class="paramname">f_fichier</td><td>Chemin vers le fichier dans lequel écrire les touches. </td></tr>
+    <tr><td class="paramname">r_fichier</td><td>Chemin vers le fichier à lire pour les touches. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="touches_8c_source.html#l00030">30</a> du fichier <a class="el" href="touches_8c_source.html">touches.c</a>.</p>
+
+</div>
+</div>
+<a id="a7f24404f02a06e9fae0a7d82acf9cb9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f24404f02a06e9fae0a7d82acf9cb9c">&#9670;&nbsp;</a></span>saisirTouche()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saisirTouche </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">touches_e&#160;</td>
+          <td class="paramname"><em>touche</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fichier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL </td></tr>
+    <tr><td class="paramname">font</td><td>La police de caractères utilisée pour afficher le texte </td></tr>
+    <tr><td class="paramname">event</td><td>L'événement SDL </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches du clavier </td></tr>
+    <tr><td class="paramname">touche</td><td>Enumération représentant la fonctionnalité pour laquelle la touche est saisie </td></tr>
+    <tr><td class="paramname">txt</td><td>Pointeur vers la texture du texte </td></tr>
+    <tr><td class="paramname">fichier</td><td>Nom du fichier de configuration</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Saisit une nouvelle touche du clavier pour une fonctionnalité spécifique.</p>
+<p>Cette fonction attend un événement clavier, puis met à jour la touche correspondante dans la liste des touches et dans le fichier de configuration. Elle met également à jour l'affichage de la touche à l'écran en utilisant une texture SDL pour le texte.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le renderer SDL utilisé pour le dessin. </td></tr>
+    <tr><td class="paramname">font</td><td>Police utilisée pour l'affichage du texte. </td></tr>
+    <tr><td class="paramname">event</td><td>Événement SDL à traiter. </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau contenant les codes des touches. </td></tr>
+    <tr><td class="paramname">touche</td><td>Enumération spécifiant quelle touche doit être saisie. </td></tr>
+    <tr><td class="paramname">txt</td><td>Pointeur vers une texture SDL contenant le texte à mettre à jour. </td></tr>
+    <tr><td class="paramname">fichier</td><td>Chemin du fichier de configuration des touches. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="touches_8c_source.html#l00169">169</a> du fichier <a class="el" href="touches_8c_source.html">touches.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

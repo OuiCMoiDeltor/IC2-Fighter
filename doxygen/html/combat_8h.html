@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IC2-Fighter: Référence du fichier /mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IC2-Fighter
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier combat.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier d'en-tête pour la gestion des combats dans le jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="perso_8h_source.html">perso.h</a>&quot;</code><br />
+</div>
+<p><a href="combat_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:abd867605ae9bc8f0edc515904b9de730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#abd867605ae9bc8f0edc515904b9de730">initPerso</a> (SDL_Renderer *renderer, <a class="el" href="structpersonnage.html">personnage</a> *J1, <a class="el" href="structpersonnage.html">personnage</a> *J2)</td></tr>
+<tr class="memdesc:abd867605ae9bc8f0edc515904b9de730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les personnages au début d'un round.  <a href="combat_8h.html#abd867605ae9bc8f0edc515904b9de730">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abd867605ae9bc8f0edc515904b9de730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb2e7cbc23b26c8c484a4963219e2785"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#aeb2e7cbc23b26c8c484a4963219e2785">roundStart</a> (SDL_Renderer *renderer, Uint8 *keyboardState, <a class="el" href="structpersonnage.html">personnage</a> *Joueur1, <a class="el" href="structpersonnage.html">personnage</a> *Joueur2, int largeurF, int hauteurF, int waitForFrame, Mix_Chunk *hit, Mix_Chunk *dmg, Mix_Chunk *stun, int *liste_touches, int round, SDL_Texture *stunTexture, <a class="el" href="structrectangle.html">rectangle</a> *stunRect, SDL_Rect **stunTextureRect)</td></tr>
+<tr class="memdesc:aeb2e7cbc23b26c8c484a4963219e2785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Démarre un round de combat.  <a href="combat_8h.html#aeb2e7cbc23b26c8c484a4963219e2785">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aeb2e7cbc23b26c8c484a4963219e2785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713655dcda992202a3bea06422419e6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#a713655dcda992202a3bea06422419e6a">combatStart</a> (SDL_Renderer *renderer, Uint8 *keyboardState, <a class="el" href="structpersonnage.html">personnage</a> *Joueur1, <a class="el" href="structpersonnage.html">personnage</a> *Joueur2, int largeurF, int hauteurF, int son, int *liste_touches)</td></tr>
+<tr class="memdesc:a713655dcda992202a3bea06422419e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lance le combat entre deux personnages.  <a href="combat_8h.html#a713655dcda992202a3bea06422419e6a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a713655dcda992202a3bea06422419e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1837e95d769962576e597337aa9073f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="combat_8h.html#af1837e95d769962576e597337aa9073f">afficherRound</a> (SDL_Renderer *renderer, int largeurF, int hauteurF, int round, <a class="el" href="structpersonnage.html">personnage</a> *Joueur1, <a class="el" href="structpersonnage.html">personnage</a> *Joueur2, SDL_Texture *BG)</td></tr>
+<tr class="memdesc:af1837e95d769962576e597337aa9073f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les informations d'un round de combat.  <a href="combat_8h.html#af1837e95d769962576e597337aa9073f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af1837e95d769962576e597337aa9073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier d'en-tête pour la gestion des combats dans le jeu. </p>
+<p>Ce fichier d'en-tête contient les déclarations des fonctions responsables de la gestion des combats dans le jeu, y compris l'initialisation des personnages, le démarrage des rounds de combat, et la gestion des interactions de combat. Il gère également les animations spécifiques et les effets sonores associés aux actions des personnages. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="combat_8h_source.html">combat.h</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="af1837e95d769962576e597337aa9073f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1837e95d769962576e597337aa9073f">&#9670;&nbsp;</a></span>afficherRound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherRound </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>round</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>Joueur1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>Joueur2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>BG</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche les informations d'un round de combat. </p>
+<p>Affiche le numéro du round actuel ainsi que les états de santé des personnages.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre de jeu. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre de jeu. </td></tr>
+    <tr><td class="paramname">round</td><td>Numéro du round actuel. </td></tr>
+    <tr><td class="paramname">Joueur1</td><td>Pointeur vers le premier personnage (joueur 1). </td></tr>
+    <tr><td class="paramname">Joueur2</td><td>Pointeur vers le second personnage (joueur 2). </td></tr>
+    <tr><td class="paramname">BG</td><td>Texture de l'arrière-plan du combat.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Affiche les informations d'un round de combat.</p>
+<p>Cette fonction initialise l'affichage pour un nouveau round en affichant le fond, les personnages et un texte indiquant le numéro du round suivi d'un décompte. Elle prépare l'écran pour le combat, permettant aux joueurs de se préparer visuellement.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le rendu SDL. </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">round</td><td>Numéro du round en cours. </td></tr>
+    <tr><td class="paramname">Joueur1</td><td>Pointeur vers la structure du premier joueur. </td></tr>
+    <tr><td class="paramname">Joueur2</td><td>Pointeur vers la structure du deuxième joueur. </td></tr>
+    <tr><td class="paramname">BG</td><td>Texture de fond à utiliser pour l'affichage. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="combat_8c_source.html#l00052">52</a> du fichier <a class="el" href="combat_8c_source.html">combat.c</a>.</p>
+
+</div>
+</div>
+<a id="a713655dcda992202a3bea06422419e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713655dcda992202a3bea06422419e6a">&#9670;&nbsp;</a></span>combatStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void combatStart </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8 *&#160;</td>
+          <td class="paramname"><em>keyboardState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>Joueur1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>Joueur2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>son</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lance le combat entre deux personnages. </p>
+<p>Cette fonction est appelée pour démarrer les interactions de combat effectives entre deux personnages après l'initialisation.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">keyboardState</td><td>État actuel du clavier. </td></tr>
+    <tr><td class="paramname">Joueur1</td><td>Pointeur vers le premier personnage (joueur 1). </td></tr>
+    <tr><td class="paramname">Joueur2</td><td>Pointeur vers le second personnage (joueur 2). </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre de jeu. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre de jeu. </td></tr>
+    <tr><td class="paramname">son</td><td>Indicateur d'activation du son. </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches configurées pour le jeu.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Lance le combat entre deux personnages.</p>
+<p>Cette fonction orchestre les combats, gérant le chargement des ressources sonores, la préparation des personnages, et le déroulement des rounds jusqu'à la conclusion du match. Elle détermine le gagnant et affiche l'écran de victoire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le rendu SDL. </td></tr>
+    <tr><td class="paramname">keyboardState</td><td>État du clavier pour détecter les entrées des utilisateurs. </td></tr>
+    <tr><td class="paramname">Joueur1</td><td>Pointeur vers le premier joueur. </td></tr>
+    <tr><td class="paramname">Joueur2</td><td>Pointeur vers le deuxième joueur. </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">son</td><td>Indicateur pour la gestion de la musique de fond (1 pour activer, 0 pour désactiver). </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches actives pour la gestion des entrées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="combat_8c_source.html#l00281">281</a> du fichier <a class="el" href="combat_8c_source.html">combat.c</a>.</p>
+
+</div>
+</div>
+<a id="abd867605ae9bc8f0edc515904b9de730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd867605ae9bc8f0edc515904b9de730">&#9670;&nbsp;</a></span>initPerso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initPerso </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>J1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>J2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les personnages au début d'un round. </p>
+<p>Réinitialise les états et positions des personnages, définissant leur santé initiale, position sur l'écran, et prépare les pseudonymes pour l'affichage. Cette fonction est appelée à chaque début de round pour remettre à zéro les conditions des combattants.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le rendu SDL. </td></tr>
+    <tr><td class="paramname">J1</td><td>Pointeur vers la structure du premier combattant. </td></tr>
+    <tr><td class="paramname">J2</td><td>Pointeur vers la structure du deuxième combattant. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="combat_8c_source.html#l00121">121</a> du fichier <a class="el" href="combat_8c_source.html">combat.c</a>.</p>
+
+</div>
+</div>
+<a id="aeb2e7cbc23b26c8c484a4963219e2785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2e7cbc23b26c8c484a4963219e2785">&#9670;&nbsp;</a></span>roundStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int roundStart </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8 *&#160;</td>
+          <td class="paramname"><em>keyboardState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>Joueur1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpersonnage.html">personnage</a> *&#160;</td>
+          <td class="paramname"><em>Joueur2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteurF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>waitForFrame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>hit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>dmg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>stun</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>liste_touches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>round</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>stunTexture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structrectangle.html">rectangle</a> *&#160;</td>
+          <td class="paramname"><em>stunRect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect **&#160;</td>
+          <td class="paramname"><em>stunTextureRect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Démarre un round de combat. </p>
+<p>Gère le début d'un round de combat, traite les entrées du clavier et met à jour les états des personnages en fonction des interactions.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">keyboardState</td><td>État actuel du clavier. </td></tr>
+    <tr><td class="paramname">Joueur1</td><td>Pointeur vers le premier personnage (joueur 1). </td></tr>
+    <tr><td class="paramname">Joueur2</td><td>Pointeur vers le second personnage (joueur 2). </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre de jeu. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre de jeu. </td></tr>
+    <tr><td class="paramname">waitForFrame</td><td>Délai d'attente entre les frames pour la synchronisation. </td></tr>
+    <tr><td class="paramname">hit</td><td>Effet sonore pour un coup réussi. </td></tr>
+    <tr><td class="paramname">dmg</td><td>Effet sonore pour des dégâts subis. </td></tr>
+    <tr><td class="paramname">stun</td><td>Effet sonore pour un étourdissement. </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau des touches configurées pour le jeu. </td></tr>
+    <tr><td class="paramname">round</td><td>Numéro du round actuel. </td></tr>
+    <tr><td class="paramname">stunTexture</td><td>Texture utilisée pour l'affichage de l'étourdissement. </td></tr>
+    <tr><td class="paramname">stunRect</td><td>Rectangle définissant la position et les dimensions de l'effet d'étourdissement. </td></tr>
+    <tr><td class="paramname">stunTextureRect</td><td>Rectangles définissant les cadres de l'animation d'étourdissement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int Statut indiquant la progression ou la fin du round.</dd></dl>
+<p>Démarre un round de combat.</p>
+<p>Cette fonction contrôle le temps, gère les entrées des utilisateurs et met à jour l'affichage des personnages et de leurs interactions. Elle détermine également le résultat du round en fonction de la santé des personnages et du temps écoulé.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le rendu SDL. </td></tr>
+    <tr><td class="paramname">keyboardState</td><td>État actuel du clavier pour détecter les entrées. </td></tr>
+    <tr><td class="paramname">Joueur1</td><td>Pointeur vers le premier joueur. </td></tr>
+    <tr><td class="paramname">Joueur2</td><td>Pointeur vers le deuxième joueur. </td></tr>
+    <tr><td class="paramname">largeurF</td><td>Largeur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">hauteurF</td><td>Hauteur de la fenêtre d'affichage. </td></tr>
+    <tr><td class="paramname">waitForFrame</td><td>Délai pour synchroniser l'affichage. </td></tr>
+    <tr><td class="paramname">hit</td><td>Effet sonore pour les coups réussis. </td></tr>
+    <tr><td class="paramname">dmg</td><td>Effet sonore pour les dégâts reçus. </td></tr>
+    <tr><td class="paramname">stun</td><td>Effet sonore pour les étourdissements. </td></tr>
+    <tr><td class="paramname">liste_touches</td><td>Tableau pour le suivi des touches pressées. </td></tr>
+    <tr><td class="paramname">round</td><td>Numéro du round actuel. </td></tr>
+    <tr><td class="paramname">stunTexture</td><td>Texture utilisée pour l'affichage de l'étourdissement. </td></tr>
+    <tr><td class="paramname">stunRect</td><td>Rectangle pour l'affichage de l'étourdissement. </td></tr>
+    <tr><td class="paramname">stunTextureRect</td><td>Rectangles pour les animations d'étourdissement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>État du round (-1 pour la défaite du Joueur1, 1 pour la défaite du Joueur2, 0 pour autre). </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="combat_8c_source.html#l00196">196</a> du fichier <a class="el" href="combat_8c_source.html">combat.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

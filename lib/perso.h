@@ -1,3 +1,10 @@
+/**
+ * @file perso.h
+ * @brief Fichier contenant les définitions de structures et les déclarations de fonctions pour la gestion des personnages dans le jeu.
+ *
+ * Ce fichier définit les structures nécessaires pour créer et gérer les personnages dans le jeu. Il contient également les déclarations des fonctions pour créer, mettre à jour et détruire les personnages, ainsi que pour gérer leurs interactions avec d'autres personnages et avec l'environnement.
+ */
+
 #ifndef _PERSO_H_
 #define _PERSO_H_
 
@@ -8,22 +15,14 @@
 
 #define VIE_MAX 100
 
-/**
- * \struct animation_e
- * \brief structure de type enum pour les animations de combats
- *
- * 
- */
-
 
 typedef enum anime{AUCUNE,POINGLATERAL,KICK,POINGHAUT,KICKBAS,PARADE,SAUT,POINGACCROUPI,KICKACCROUPI,SAUTGAUCHE,SAUTDROIT,DEGAT,DEGATSAUT,DEGATACCROUPI}animation_e;
 
-
 /**
- * \struct pseudo_t
- * \brief structure pour mettre en place les prenoms
+ * @struct pseudo_t
+ * @brief Structure représentant le pseudo d'un joueur.
  *
- * 
+ * Cette structure contient la texture du pseudo ainsi que sa position et ses dimensions dans le rendu.
  */
 
 typedef struct {
@@ -31,12 +30,11 @@ typedef struct {
     rectangle * rect;
 }pseudo_t;
 
-
 /**
- * \struct pv_t
- * \brief structure pour la barre de vie
+ * @struct pv_t
+ * @brief Structure représentant la barre de points de vie d'un personnage.
  *
- * 
+ * Cette structure contient le nombre de points de vie actuels du personnage et un rectangle représentant la barre de points de vie dans le rendu.
  */
 
 typedef struct {
@@ -44,12 +42,11 @@ typedef struct {
     SDL_Rect * barrePv;
 } pv_t;
 
-
 /**
- * \struct personnage
- * \brief structure concernant le personnage, celle ci permet de mettre toute les animations textures
+ * @struct personnage
+ * @brief Structure représentant un personnage dans le jeu.
  *
- * 
+ * Cette structure contient toutes les informations nécessaires pour représenter un personnage dans le jeu, y compris sa texture, ses animations, ses points de vie, etc.
  */
 
 typedef struct {

@@ -23,13 +23,13 @@ Fichier contenant les fonctions de gestion des personnages dans le jeu.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-personnage $\ast$ \mbox{\hyperlink{perso_8c_addafe404482f24287b3f02563fd3b4ce}{creer\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$image, int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH, liste\+Rect $\ast$$\ast$liste\+Rectangle)
+\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$ \mbox{\hyperlink{perso_8c_addafe404482f24287b3f02563fd3b4ce}{creer\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$image, int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH, \mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$liste\+Rectangle)
 \begin{DoxyCompactList}\small\item\em Crée un nouveau personnage avec des animations définies. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{perso_8c_a40c690887b8fa560285be01ac258940b}{detruire\+Perso}} (personnage $\ast$$\ast$perso)
+void \mbox{\hyperlink{perso_8c_a40c690887b8fa560285be01ac258940b}{detruire\+Perso}} (\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$$\ast$perso)
 \begin{DoxyCompactList}\small\item\em Détruit un personnage et libère toutes les ressources associées. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}{mettre\+AJour\+Hp}} (SDL\+\_\+\+Renderer $\ast$renderer, personnage $\ast$perso, int degat, int perso\+ID, Mix\+\_\+\+Chunk $\ast$sound\+DMG)
+void \mbox{\hyperlink{perso_8c_a3a497927829c5dd6b4be76d3f185de3c}{mettre\+AJour\+Hp}} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$perso, int degat, int perso\+ID, Mix\+\_\+\+Chunk $\ast$sound\+DMG)
 \begin{DoxyCompactList}\small\item\em Met à jour les points de vie d\textquotesingle{}un personnage en fonction des dégâts reçus. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{perso_8c_a6a99ed8b81faef246572b472cc7b9acc}{mettre\+AJour\+Personnage}} (SDL\+\_\+\+Renderer $\ast$renderer, personnage $\ast$perso1, personnage $\ast$perso2, const Uint8 $\ast$keyboard\+State, int largeur, int hauteur, int $\ast$framerate, Mix\+\_\+\+Chunk $\ast$sound\+HIT, Mix\+\_\+\+Chunk $\ast$sound\+DMG, Mix\+\_\+\+Chunk $\ast$sound\+Stun, int $\ast$liste\+\_\+touches, SDL\+\_\+\+Texture $\ast$stun\+Texture, rectangle $\ast$stun\+Rect, SDL\+\_\+\+Rect $\ast$$\ast$stun\+Texture\+Rect)
+void \mbox{\hyperlink{perso_8c_a6a99ed8b81faef246572b472cc7b9acc}{mettre\+AJour\+Personnage}} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$perso1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$perso2, const Uint8 $\ast$keyboard\+State, int largeur, int hauteur, int $\ast$framerate, Mix\+\_\+\+Chunk $\ast$sound\+HIT, Mix\+\_\+\+Chunk $\ast$sound\+DMG, Mix\+\_\+\+Chunk $\ast$sound\+Stun, int $\ast$liste\+\_\+touches, SDL\+\_\+\+Texture $\ast$stun\+Texture, \mbox{\hyperlink{structrectangle}{rectangle}} $\ast$stun\+Rect, SDL\+\_\+\+Rect $\ast$$\ast$stun\+Texture\+Rect)
 \begin{DoxyCompactList}\small\item\em Met à jour les animations et les états de deux personnages en fonction de l\textquotesingle{}input utilisateur et d\textquotesingle{}autres conditions de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -43,7 +43,7 @@ Ce fichier implémente les fonctions nécessaires pour créer, mettre à jour et
 \index{perso.c@{perso.c}!creerPerso@{creerPerso}}
 \index{creerPerso@{creerPerso}!perso.c@{perso.c}}
 \doxysubsubsection{\texorpdfstring{creerPerso()}{creerPerso()}}
-{\footnotesize\ttfamily personnage$\ast$ creer\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{image,  }\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{liste\+Rect $\ast$$\ast$}]{liste\+Rectangle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpersonnage}{personnage}}$\ast$ creer\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{image,  }\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$}]{liste\+Rectangle }\end{DoxyParamCaption})}
 
 
 
@@ -83,7 +83,7 @@ Définition à la ligne 38 du fichier perso.\+c.
 \index{perso.c@{perso.c}!detruirePerso@{detruirePerso}}
 \index{detruirePerso@{detruirePerso}!perso.c@{perso.c}}
 \doxysubsubsection{\texorpdfstring{detruirePerso()}{detruirePerso()}}
-{\footnotesize\ttfamily void detruire\+Perso (\begin{DoxyParamCaption}\item[{personnage $\ast$$\ast$}]{perso }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+Perso (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$$\ast$}]{perso }\end{DoxyParamCaption})}
 
 
 
@@ -104,7 +104,7 @@ Définition à la ligne 221 du fichier perso.\+c.
 \index{perso.c@{perso.c}!mettreAJourHp@{mettreAJourHp}}
 \index{mettreAJourHp@{mettreAJourHp}!perso.c@{perso.c}}
 \doxysubsubsection{\texorpdfstring{mettreAJourHp()}{mettreAJourHp()}}
-{\footnotesize\ttfamily void mettre\+AJour\+Hp (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{personnage $\ast$}]{perso,  }\item[{int}]{degat,  }\item[{int}]{perso\+ID,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+DMG }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mettre\+AJour\+Hp (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{perso,  }\item[{int}]{degat,  }\item[{int}]{perso\+ID,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+DMG }\end{DoxyParamCaption})}
 
 
 
@@ -133,7 +133,7 @@ Définition à la ligne 332 du fichier perso.\+c.
 \index{perso.c@{perso.c}!mettreAJourPersonnage@{mettreAJourPersonnage}}
 \index{mettreAJourPersonnage@{mettreAJourPersonnage}!perso.c@{perso.c}}
 \doxysubsubsection{\texorpdfstring{mettreAJourPersonnage()}{mettreAJourPersonnage()}}
-{\footnotesize\ttfamily void mettre\+AJour\+Personnage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{personnage $\ast$}]{perso1,  }\item[{personnage $\ast$}]{perso2,  }\item[{const Uint8 $\ast$}]{keyboard\+State,  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int $\ast$}]{framerate,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+HIT,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+DMG,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+Stun,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{SDL\+\_\+\+Texture $\ast$}]{stun\+Texture,  }\item[{rectangle $\ast$}]{stun\+Rect,  }\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{stun\+Texture\+Rect }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mettre\+AJour\+Personnage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{perso1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{perso2,  }\item[{const Uint8 $\ast$}]{keyboard\+State,  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int $\ast$}]{framerate,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+HIT,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+DMG,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{sound\+Stun,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{SDL\+\_\+\+Texture $\ast$}]{stun\+Texture,  }\item[{\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$}]{stun\+Rect,  }\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{stun\+Texture\+Rect }\end{DoxyParamCaption})}
 
 
 

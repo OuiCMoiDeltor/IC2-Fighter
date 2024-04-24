@@ -76,25 +76,25 @@ $(function() {
 <p>Gestion des boutons dans l'interface utilisateur.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &quot;../lib/bouton.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="bouton_8h_source.html">../lib/bouton.h</a>&quot;</code><br />
 </div>
 <p><a href="bouton_8c_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="memItemLeft" align="right" valign="top">bouton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a2c607c7d1e0a8461f1ee74036b92dbce">creerBouton</a> (SDL_Renderer *renderer, listeRect **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)</td></tr>
+<tr class="memitem:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbouton.html">bouton</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a2c607c7d1e0a8461f1ee74036b92dbce">creerBouton</a> (SDL_Renderer *renderer, <a class="el" href="structlisteRect__s.html">listeRect</a> **listeRectangle, int *largeur, int *hauteur, float rX, float rY, float rW, float rH, char *img, int anime, int nbEtat)</td></tr>
 <tr class="memdesc:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un bouton avec des propriétés spécifiques.  <a href="bouton_8c.html#a2c607c7d1e0a8461f1ee74036b92dbce">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2c607c7d1e0a8461f1ee74036b92dbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a> (bouton **b)</td></tr>
+<tr class="memitem:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">DestroyBouton</a> (<a class="el" href="structbouton.html">bouton</a> **b)</td></tr>
 <tr class="memdesc:a821c8aea0555ab11ceb6d004c31dfe96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un bouton et libère toutes les ressources associées.  <a href="bouton_8c.html#a821c8aea0555ab11ceb6d004c31dfe96">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a821c8aea0555ab11ceb6d004c31dfe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="memItemLeft" align="right" valign="top">listeBouton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a3c8f3e8c40ba35beddca8356af5da5dc">creerListeBouton</a> ()</td></tr>
+<tr class="memitem:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlisteBouton.html">listeBouton</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a3c8f3e8c40ba35beddca8356af5da5dc">creerListeBouton</a> ()</td></tr>
 <tr class="memdesc:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une liste pour gérer les boutons.  <a href="bouton_8c.html#a3c8f3e8c40ba35beddca8356af5da5dc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3c8f3e8c40ba35beddca8356af5da5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02c83690adb669422845252d4767f105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a02c83690adb669422845252d4767f105">ajoutListeBouton</a> (listeBouton **liste, bouton **Bouton)</td></tr>
+<tr class="memitem:a02c83690adb669422845252d4767f105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a02c83690adb669422845252d4767f105">ajoutListeBouton</a> (<a class="el" href="structlisteBouton.html">listeBouton</a> **liste, <a class="el" href="structbouton.html">bouton</a> **Bouton)</td></tr>
 <tr class="memdesc:a02c83690adb669422845252d4767f105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un bouton à une liste de boutons.  <a href="bouton_8c.html#a02c83690adb669422845252d4767f105">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a02c83690adb669422845252d4767f105"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a15dcfa0a7ea076102547aa8ab0383ad8">detruireListeBouton</a> (listeBouton **liste)</td></tr>
+<tr class="memitem:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bouton_8c.html#a15dcfa0a7ea076102547aa8ab0383ad8">detruireListeBouton</a> (<a class="el" href="structlisteBouton.html">listeBouton</a> **liste)</td></tr>
 <tr class="memdesc:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une liste de boutons et libère toutes les ressources associées.  <a href="bouton_8c.html#a15dcfa0a7ea076102547aa8ab0383ad8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a15dcfa0a7ea076102547aa8ab0383ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -116,13 +116,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void ajoutListeBouton </td>
           <td>(</td>
-          <td class="paramtype">listeBouton **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteBouton.html">listeBouton</a> **&#160;</td>
           <td class="paramname"><em>liste</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bouton **&#160;</td>
+          <td class="paramtype"><a class="el" href="structbouton.html">bouton</a> **&#160;</td>
           <td class="paramname"><em>Bouton</em>&#160;</td>
         </tr>
         <tr>
@@ -154,7 +154,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bouton* creerBouton </td>
+          <td class="memname"><a class="el" href="structbouton.html">bouton</a>* creerBouton </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>renderer</em>, </td>
@@ -162,7 +162,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">listeRect **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteRect__s.html">listeRect</a> **&#160;</td>
           <td class="paramname"><em>listeRectangle</em>, </td>
         </tr>
         <tr>
@@ -258,7 +258,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">listeBouton* creerListeBouton </td>
+          <td class="memname"><a class="el" href="structlisteBouton.html">listeBouton</a>* creerListeBouton </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -283,7 +283,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void DestroyBouton </td>
           <td>(</td>
-          <td class="paramtype">bouton **&#160;</td>
+          <td class="paramtype"><a class="el" href="structbouton.html">bouton</a> **&#160;</td>
           <td class="paramname"><em>b</em></td><td>)</td>
           <td></td>
         </tr>
@@ -312,7 +312,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void detruireListeBouton </td>
           <td>(</td>
-          <td class="paramtype">listeBouton **&#160;</td>
+          <td class="paramtype"><a class="el" href="structlisteBouton.html">listeBouton</a> **&#160;</td>
           <td class="paramname"><em>liste</em></td><td>)</td>
           <td></td>
         </tr>

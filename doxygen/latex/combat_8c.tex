@@ -41,13 +41,13 @@ Gestion des combats dans le jeu.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{combat_8c_af1837e95d769962576e597337aa9073f}{afficher\+Round}} (SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int round, personnage $\ast$Joueur1, personnage $\ast$Joueur2, SDL\+\_\+\+Texture $\ast$BG)
+void \mbox{\hyperlink{combat_8c_af1837e95d769962576e597337aa9073f}{afficher\+Round}} (SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int round, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur2, SDL\+\_\+\+Texture $\ast$BG)
 \begin{DoxyCompactList}\small\item\em Affiche le début d\textquotesingle{}un round avec un décompte avant le début du combat. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{combat_8c_abd867605ae9bc8f0edc515904b9de730}{init\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, personnage $\ast$J1, personnage $\ast$J2)
+void \mbox{\hyperlink{combat_8c_abd867605ae9bc8f0edc515904b9de730}{init\+Perso}} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$J1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$J2)
 \begin{DoxyCompactList}\small\item\em Initialise les personnages au début d\textquotesingle{}un round. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{combat_8c_aeb2e7cbc23b26c8c484a4963219e2785}{round\+Start}} (SDL\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$keyboard\+State, personnage $\ast$Joueur1, personnage $\ast$Joueur2, int largeurF, int hauteurF, int wait\+For\+Frame, Mix\+\_\+\+Chunk $\ast$hit, Mix\+\_\+\+Chunk $\ast$dmg, Mix\+\_\+\+Chunk $\ast$stun, int $\ast$liste\+\_\+touches, int round, SDL\+\_\+\+Texture $\ast$stun\+Texture, rectangle $\ast$stun\+Rect, SDL\+\_\+\+Rect $\ast$$\ast$stun\+Texture\+Rect)
+int \mbox{\hyperlink{combat_8c_aeb2e7cbc23b26c8c484a4963219e2785}{round\+Start}} (SDL\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$keyboard\+State, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur2, int largeurF, int hauteurF, int wait\+For\+Frame, Mix\+\_\+\+Chunk $\ast$hit, Mix\+\_\+\+Chunk $\ast$dmg, Mix\+\_\+\+Chunk $\ast$stun, int $\ast$liste\+\_\+touches, int round, SDL\+\_\+\+Texture $\ast$stun\+Texture, \mbox{\hyperlink{structrectangle}{rectangle}} $\ast$stun\+Rect, SDL\+\_\+\+Rect $\ast$$\ast$stun\+Texture\+Rect)
 \begin{DoxyCompactList}\small\item\em Gère le déroulement d\textquotesingle{}un round de combat. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{combat_8c_a713655dcda992202a3bea06422419e6a}{combat\+Start}} (SDL\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$keyboard\+State, personnage $\ast$Joueur1, personnage $\ast$Joueur2, int largeurF, int hauteurF, int son, int $\ast$liste\+\_\+touches)
+void \mbox{\hyperlink{combat_8c_a713655dcda992202a3bea06422419e6a}{combat\+Start}} (SDL\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$keyboard\+State, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur1, \mbox{\hyperlink{structpersonnage}{personnage}} $\ast$Joueur2, int largeurF, int hauteurF, int son, int $\ast$liste\+\_\+touches)
 \begin{DoxyCompactList}\small\item\em Lance et gère les séquences de combat jusqu\textquotesingle{}à la fin du match. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -72,11 +72,13 @@ IC2-\/\+Fighter
 \index{combat.c@{combat.c}!afficherRound@{afficherRound}}
 \index{afficherRound@{afficherRound}!combat.c@{combat.c}}
 \doxysubsubsection{\texorpdfstring{afficherRound()}{afficherRound()}}
-{\footnotesize\ttfamily void afficher\+Round (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{round,  }\item[{personnage $\ast$}]{Joueur1,  }\item[{personnage $\ast$}]{Joueur2,  }\item[{SDL\+\_\+\+Texture $\ast$}]{BG }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void afficher\+Round (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{round,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur2,  }\item[{SDL\+\_\+\+Texture $\ast$}]{BG }\end{DoxyParamCaption})}
 
 
 
 Affiche le début d\textquotesingle{}un round avec un décompte avant le début du combat. 
+
+Affiche les informations d\textquotesingle{}un round de combat.
 
 Cette fonction initialise l\textquotesingle{}affichage pour un nouveau round en affichant le fond, les personnages et un texte indiquant le numéro du round suivi d\textquotesingle{}un décompte. Elle prépare l\textquotesingle{}écran pour le combat, permettant aux joueurs de se préparer visuellement.
 
@@ -105,11 +107,13 @@ Définition à la ligne 52 du fichier combat.\+c.
 \index{combat.c@{combat.c}!combatStart@{combatStart}}
 \index{combatStart@{combatStart}!combat.c@{combat.c}}
 \doxysubsubsection{\texorpdfstring{combatStart()}{combatStart()}}
-{\footnotesize\ttfamily void combat\+Start (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{keyboard\+State,  }\item[{personnage $\ast$}]{Joueur1,  }\item[{personnage $\ast$}]{Joueur2,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{son,  }\item[{int $\ast$}]{liste\+\_\+touches }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void combat\+Start (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{keyboard\+State,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur2,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{son,  }\item[{int $\ast$}]{liste\+\_\+touches }\end{DoxyParamCaption})}
 
 
 
 Lance et gère les séquences de combat jusqu\textquotesingle{}à la fin du match. 
+
+Lance le combat entre deux personnages.
 
 Cette fonction orchestre les combats, gérant le chargement des ressources sonores, la préparation des personnages, et le déroulement des rounds jusqu\textquotesingle{}à la conclusion du match. Elle détermine le gagnant et affiche l\textquotesingle{}écran de victoire.
 
@@ -140,7 +144,7 @@ Définition à la ligne 281 du fichier combat.\+c.
 \index{combat.c@{combat.c}!initPerso@{initPerso}}
 \index{initPerso@{initPerso}!combat.c@{combat.c}}
 \doxysubsubsection{\texorpdfstring{initPerso()}{initPerso()}}
-{\footnotesize\ttfamily void init\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{personnage $\ast$}]{J1,  }\item[{personnage $\ast$}]{J2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+Perso (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{J1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{J2 }\end{DoxyParamCaption})}
 
 
 
@@ -165,11 +169,13 @@ Définition à la ligne 121 du fichier combat.\+c.
 \index{combat.c@{combat.c}!roundStart@{roundStart}}
 \index{roundStart@{roundStart}!combat.c@{combat.c}}
 \doxysubsubsection{\texorpdfstring{roundStart()}{roundStart()}}
-{\footnotesize\ttfamily int round\+Start (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{keyboard\+State,  }\item[{personnage $\ast$}]{Joueur1,  }\item[{personnage $\ast$}]{Joueur2,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{wait\+For\+Frame,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{hit,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{dmg,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{stun,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{int}]{round,  }\item[{SDL\+\_\+\+Texture $\ast$}]{stun\+Texture,  }\item[{rectangle $\ast$}]{stun\+Rect,  }\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{stun\+Texture\+Rect }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int round\+Start (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{keyboard\+State,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur1,  }\item[{\mbox{\hyperlink{structpersonnage}{personnage}} $\ast$}]{Joueur2,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int}]{wait\+For\+Frame,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{hit,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{dmg,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{stun,  }\item[{int $\ast$}]{liste\+\_\+touches,  }\item[{int}]{round,  }\item[{SDL\+\_\+\+Texture $\ast$}]{stun\+Texture,  }\item[{\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$}]{stun\+Rect,  }\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{stun\+Texture\+Rect }\end{DoxyParamCaption})}
 
 
 
 Gère le déroulement d\textquotesingle{}un round de combat. 
+
+Démarre un round de combat.
 
 Cette fonction contrôle le temps, gère les entrées des utilisateurs et met à jour l\textquotesingle{}affichage des personnages et de leurs interactions. Elle détermine également le résultat du round en fonction de la santé des personnages et du temps écoulé.
 

@@ -11,25 +11,25 @@ Fonctions pour créer et gérer des textures et des rectangles.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-liste\+T\+\_\+t $\ast$ \mbox{\hyperlink{creation_8c_a60a5cbdefb1579937c934d4764436ee5}{creer\+ListeT}} ()
+\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} $\ast$ \mbox{\hyperlink{creation_8c_a60a5cbdefb1579937c934d4764436ee5}{creer\+ListeT}} ()
 \begin{DoxyCompactList}\small\item\em Crée une nouvelle liste de textures. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{creation_8c_af68e8afe26983df68acf0a834af15985}{ajout\+ListeT}} (liste\+T\+\_\+t $\ast$$\ast$liste, SDL\+\_\+\+Texture $\ast$$\ast$Texture)
+void \mbox{\hyperlink{creation_8c_af68e8afe26983df68acf0a834af15985}{ajout\+ListeT}} (\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} $\ast$$\ast$liste, SDL\+\_\+\+Texture $\ast$$\ast$Texture)
 \begin{DoxyCompactList}\small\item\em Ajoute une texture à la liste de textures. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}{detruire\+ListeT}} (liste\+T\+\_\+t $\ast$$\ast$liste)
+void \mbox{\hyperlink{creation_8c_a38ab40c88ba6e1759e9e2ea518ead96c}{detruire\+ListeT}} (\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} $\ast$$\ast$liste)
 \begin{DoxyCompactList}\small\item\em Détruit une liste de textures et libère la mémoire associée. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{creation_8c_a94387a957924bac438513aeea855bab3}{creer\+Image}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$image)
 \begin{DoxyCompactList}\small\item\em Crée une texture à partir d\textquotesingle{}un fichier image. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{creation_8c_a70bbe03fd3400dde85f1a0fac0426222}{creer\+Texte}} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$font, char $\ast$texte, SDL\+\_\+\+Color couleur)
 \begin{DoxyCompactList}\small\item\em Crée une texture de texte à partir d\textquotesingle{}une chaîne de caractères. \end{DoxyCompactList}\item 
-liste\+Rect $\ast$ \mbox{\hyperlink{creation_8c_a07c828a6b14af29a34d94fe46209ed1a}{creer\+Liste\+Rect}} ()
+\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$ \mbox{\hyperlink{creation_8c_a07c828a6b14af29a34d94fe46209ed1a}{creer\+Liste\+Rect}} ()
 \begin{DoxyCompactList}\small\item\em Crée une nouvelle liste de rectangles. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{creation_8c_a526afa603b8080dec0f9a234833b5661}{ajout\+Liste\+Rect}} (liste\+Rect $\ast$$\ast$liste, rectangle $\ast$$\ast$Rect)
+void \mbox{\hyperlink{creation_8c_a526afa603b8080dec0f9a234833b5661}{ajout\+Liste\+Rect}} (\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$liste, \mbox{\hyperlink{structrectangle}{rectangle}} $\ast$$\ast$Rect)
 \begin{DoxyCompactList}\small\item\em Ajoute un rectangle à la liste de rectangles. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}{detruire\+Liste\+Rect}} (liste\+Rect $\ast$$\ast$liste)
+void \mbox{\hyperlink{creation_8c_aabecbee2f1b59d03e91565d2b4cb3155}{detruire\+Liste\+Rect}} (\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$liste)
 \begin{DoxyCompactList}\small\item\em Détruit une liste de rectangles et libère la mémoire associée. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{creation_8c_a90feb595f849f52d8483be2c7df23565}{update\+Rectangles}} (liste\+Rect $\ast$liste)
+void \mbox{\hyperlink{creation_8c_a90feb595f849f52d8483be2c7df23565}{update\+Rectangles}} (\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$liste)
 \begin{DoxyCompactList}\small\item\em Met à jour les dimensions et positions des rectangles dans la liste en fonction des ratios spécifiés. \end{DoxyCompactList}\item 
-rectangle $\ast$ \mbox{\hyperlink{creation_8c_aaf48331ff12117690ac67879e5f0a2bf}{creer\+Rectangle}} (int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH)
+\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$ \mbox{\hyperlink{creation_8c_aaf48331ff12117690ac67879e5f0a2bf}{creer\+Rectangle}} (int $\ast$largeur, int $\ast$hauteur, float rX, float rY, float rW, float rH)
 \begin{DoxyCompactList}\small\item\em Crée un nouveau rectangle avec des dimensions et des positions calculées à partir de ratios. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -54,7 +54,7 @@ IC2-\/\+Fighter
 \index{creation.c@{creation.c}!ajoutListeRect@{ajoutListeRect}}
 \index{ajoutListeRect@{ajoutListeRect}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{ajoutListeRect()}{ajoutListeRect()}}
-{\footnotesize\ttfamily void ajout\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect $\ast$$\ast$}]{liste,  }\item[{rectangle $\ast$$\ast$}]{Rect }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajout\+Liste\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$}]{liste,  }\item[{\mbox{\hyperlink{structrectangle}{rectangle}} $\ast$$\ast$}]{Rect }\end{DoxyParamCaption})}
 
 
 
@@ -77,7 +77,7 @@ Définition à la ligne 198 du fichier creation.\+c.
 \index{creation.c@{creation.c}!ajoutListeT@{ajoutListeT}}
 \index{ajoutListeT@{ajoutListeT}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{ajoutListeT()}{ajoutListeT()}}
-{\footnotesize\ttfamily void ajout\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t $\ast$$\ast$}]{liste,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{Texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajout\+ListeT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} $\ast$$\ast$}]{liste,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{Texture }\end{DoxyParamCaption})}
 
 
 
@@ -126,7 +126,7 @@ Définition à la ligne 108 du fichier creation.\+c.
 \index{creation.c@{creation.c}!creerListeRect@{creerListeRect}}
 \index{creerListeRect@{creerListeRect}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{creerListeRect()}{creerListeRect()}}
-{\footnotesize\ttfamily liste\+Rect$\ast$ creer\+Liste\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlisteRect__s}{liste\+Rect}}$\ast$ creer\+Liste\+Rect (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -145,7 +145,7 @@ Définition à la ligne 180 du fichier creation.\+c.
 \index{creation.c@{creation.c}!creerListeT@{creerListeT}}
 \index{creerListeT@{creerListeT}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{creerListeT()}{creerListeT()}}
-{\footnotesize\ttfamily liste\+T\+\_\+t$\ast$ creer\+ListeT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}}$\ast$ creer\+ListeT (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -164,7 +164,7 @@ Définition à la ligne 27 du fichier creation.\+c.
 \index{creation.c@{creation.c}!creerRectangle@{creerRectangle}}
 \index{creerRectangle@{creerRectangle}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{creerRectangle()}{creerRectangle()}}
-{\footnotesize\ttfamily rectangle$\ast$ creer\+Rectangle (\begin{DoxyParamCaption}\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrectangle}{rectangle}}$\ast$ creer\+Rectangle (\begin{DoxyParamCaption}\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH }\end{DoxyParamCaption})}
 
 
 
@@ -228,7 +228,7 @@ Définition à la ligne 146 du fichier creation.\+c.
 \index{creation.c@{creation.c}!detruireListeRect@{detruireListeRect}}
 \index{detruireListeRect@{detruireListeRect}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{detruireListeRect()}{detruireListeRect()}}
-{\footnotesize\ttfamily void detruire\+Liste\+Rect (\begin{DoxyParamCaption}\item[{liste\+Rect $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+Liste\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
 
 
 
@@ -249,7 +249,7 @@ Définition à la ligne 225 du fichier creation.\+c.
 \index{creation.c@{creation.c}!detruireListeT@{detruireListeT}}
 \index{detruireListeT@{detruireListeT}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{detruireListeT()}{detruireListeT()}}
-{\footnotesize\ttfamily void detruire\+ListeT (\begin{DoxyParamCaption}\item[{liste\+T\+\_\+t $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+ListeT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteT__t}{liste\+T\+\_\+t}} $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
 
 
 
@@ -270,7 +270,7 @@ Définition à la ligne 72 du fichier creation.\+c.
 \index{creation.c@{creation.c}!updateRectangles@{updateRectangles}}
 \index{updateRectangles@{updateRectangles}!creation.c@{creation.c}}
 \doxysubsubsection{\texorpdfstring{updateRectangles()}{updateRectangles()}}
-{\footnotesize\ttfamily void update\+Rectangles (\begin{DoxyParamCaption}\item[{liste\+Rect $\ast$}]{liste }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+Rectangles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$}]{liste }\end{DoxyParamCaption})}
 
 
 

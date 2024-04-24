@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['options_32',['options',['../options_8c.html#a6169e92633544c50098e58d0bd053ca8',1,'options.c']]],
-  ['options_2ec_33',['options.c',['../options_8c.html',1,'']]]
+  ['initperso_36',['initPerso',['../combat_8c.html#abd867605ae9bc8f0edc515904b9de730',1,'initPerso(SDL_Renderer *renderer, personnage *J1, personnage *J2):&#160;combat.c'],['../combat_8h.html#abd867605ae9bc8f0edc515904b9de730',1,'initPerso(SDL_Renderer *renderer, personnage *J1, personnage *J2):&#160;combat.c']]]
 ];

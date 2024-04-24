@@ -1,0 +1,118 @@
+\hypertarget{menu__principal_8h}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/lib/menu\+\_\+principal.h}
+\label{menu__principal_8h}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/menu\_principal.h@{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/menu\_principal.h}}
+
+
+Gestion du menu principal du jeu IC2 Fighter.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}bouton.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_a73b3bbc51c65bf165939cc7b57e9eb4b}\label{menu__principal_8h_a73b3bbc51c65bf165939cc7b57e9eb4b}} 
+\#define {\bfseries NOM\+\_\+\+JEU}~\char`\"{}IC2 Fighter\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_aa98a27bdaed0d0fdd7ec1321a6886417}\label{menu__principal_8h_aa98a27bdaed0d0fdd7ec1321a6886417}} 
+\#define {\bfseries ICONE}~\char`\"{}img/\mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}}/logo.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_a5fe586cf054ab7bea6c77544941fc01f}\label{menu__principal_8h_a5fe586cf054ab7bea6c77544941fc01f}} 
+\#define {\bfseries TTF\+\_\+\+FONT}~\char`\"{}ttf/Act\+\_\+\+Of\+\_\+\+Rejection.\+ttf\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_a0804eb1931540366feb0a0ddb572d989}\label{menu__principal_8h_a0804eb1931540366feb0a0ddb572d989}} 
+\#define {\bfseries IMG\+\_\+\+MAIN\+\_\+\+MENU\+\_\+\+BG}~\char`\"{}img/\mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}}/ic2.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_ac8225d86ecf42c869112d172f7424d84}\label{menu__principal_8h_ac8225d86ecf42c869112d172f7424d84}} 
+\#define {\bfseries IMG\+\_\+\+LOGO}~\char`\"{}img/\mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}}/logo.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_abbf84d8bff9011bdc6e4d2c301771347}\label{menu__principal_8h_abbf84d8bff9011bdc6e4d2c301771347}} 
+\#define {\bfseries IMG\+\_\+\+BOUTON\+\_\+\+OPT}~\char`\"{}img/\mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}}/options.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_a9c5d8230ede0e448357dbc3b6dfc0597}\label{menu__principal_8h_a9c5d8230ede0e448357dbc3b6dfc0597}} 
+\#define {\bfseries IMG\+\_\+\+BOUTON\+\_\+\+QUIT}~\char`\"{}img/\mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}}/quit.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_a6248e9cab282c1c7d0febdbe23faa88d}\label{menu__principal_8h_a6248e9cab282c1c7d0febdbe23faa88d}} 
+\#define {\bfseries IMG\+\_\+\+BOUTON\+\_\+\+PLAY}~\char`\"{}img/\mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}}/play.\+bmp\char`\"{}
+\item 
+\mbox{\Hypertarget{menu__principal_8h_a69708f72238abe7c502d1ff2f2c9fcbb}\label{menu__principal_8h_a69708f72238abe7c502d1ff2f2c9fcbb}} 
+\#define {\bfseries SOUND\+\_\+\+BACKGROUND}~\char`\"{}mixer/Leateq -\/ Tokyo.\+mp3\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{menu__principal_8h_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}} (SDL\+\_\+\+Event e, SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Fonction pour initialiser et gérer le menu principal du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion du menu principal du jeu IC2 Fighter. 
+
+Ce fichier contient les fonctions nécessaires pour afficher le menu principal du jeu, gérer les interactions de l\textquotesingle{}utilisateur avec les boutons du menu et naviguer entre différentes scènes du jeu.
+
+\begin{DoxyAuthor}{Auteur}
+IC2-\/\+Fighter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__principal_8h_a820e45b5262e47d53486140add53934e}\label{menu__principal_8h_a820e45b5262e47d53486140add53934e}} 
+\index{menu\_principal.h@{menu\_principal.h}!menu\_principal@{menu\_principal}}
+\index{menu\_principal@{menu\_principal}!menu\_principal.h@{menu\_principal.h}}
+\doxysubsubsection{\texorpdfstring{menu\_principal()}{menu\_principal()}}
+{\footnotesize\ttfamily int menu\+\_\+principal (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{e,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int $\ast$}]{scene }\end{DoxyParamCaption})}
+
+
+
+Fonction pour initialiser et gérer le menu principal du jeu. 
+
+Cette fonction configure l\textquotesingle{}affichage du menu principal et gère les interactions de l\textquotesingle{}utilisateur avec les boutons du menu. Elle met à jour la scène du jeu en fonction des interactions de l\textquotesingle{}utilisateur pour naviguer entre jouer, options ou quitter le jeu.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Un SDL\+\_\+\+Event pour gérer les entrées utilisateur. \\
+\hline
+{\em renderer} & Le renderer SDL utilisé pour dessiner à l\textquotesingle{}écran. \\
+\hline
+{\em largeurF} & La largeur de la fenêtre du jeu. \\
+\hline
+{\em hauteurF} & La hauteur de la fenêtre du jeu. \\
+\hline
+{\em scene} & Un pointeur vers l\textquotesingle{}entier qui contrôle la scène actuelle de l\textquotesingle{}application. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un entier indiquant le succès ou l\textquotesingle{}échec de la fonction.
+\end{DoxyReturn}
+Fonction pour initialiser et gérer le menu principal du jeu.
+
+Cette fonction affiche le menu principal, gère les interactions de l\textquotesingle{}utilisateur avec les différents boutons (Options, Quitter, Jouer), et gère les transitions vers d\textquotesingle{}autres scènes en fonction des actions de l\textquotesingle{}utilisateur. La fonction gère également l\textquotesingle{}affichage d\textquotesingle{}animations de boutons pour une meilleure expérience utilisateur.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Événement SDL pour gérer les interactions utilisateur. \\
+\hline
+{\em renderer} & Le renderer SDL utilisé pour dessiner à l\textquotesingle{}écran. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de l\textquotesingle{}application. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de l\textquotesingle{}application. \\
+\hline
+{\em scene} & Pointeur vers l\textquotesingle{}entier qui gère l\textquotesingle{}indice de la scène actuelle à afficher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le menu doit continuer à s\textquotesingle{}exécuter, 1 pour quitter l\textquotesingle{}application. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 31 du fichier menu\+\_\+principal.\+c.
+

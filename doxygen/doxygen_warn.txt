@@ -2,8 +2,105 @@ warning: The selected output language "french" has not been updated
 since release 1.8.15.  As a result some sentences may appear in English.
 
 warning: source '$(../lib)' is not a readable file or directory... skipping.
-/mnt/d/ghrib/Documents/IC2-Fighter/src/menu_principal.c:2: warning: the name 'menu_principal.h' supplied as the argument in the \file statement is not an input file
 /mnt/d/ghrib/Documents/IC2-Fighter/src/touches.c:2: warning: the name 'gestion_touches.c' supplied as the argument in the \file statement is not an input file
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:29: warning: Compound bouton_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:52: warning: Compound listeB_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:25: warning: Compound listeT_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:38: warning: Compound rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:16: warning: Member BOUTON_RELACHE (macro definition) of file bouton.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:17: warning: Member BOUTON_APPUYE (macro definition) of file bouton.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:18: warning: Member BOUTON_OVER (macro definition) of file bouton.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:19: warning: Member NB_ETAT (macro definition) of file bouton.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:39: warning: Member bouton (typedef) of file bouton.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:55: warning: Member listeBouton (typedef) of file bouton.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:22: warning: Member IMG_CHAMPSELECT_BG (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:23: warning: Member IMG_CHAMPSELECT_RYU (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:24: warning: Member IMG_CHAMPSELECT_YASS (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:25: warning: Member IMG_CHAMPSELECT_DIM (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:26: warning: Member IMG_CHAMPSELECT_J1 (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:27: warning: Member IMG_CHAMPSELECT_J2 (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:28: warning: Member IMG_GAMEMODE_RETOUR (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:29: warning: Member RYU (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:30: warning: Member MNX (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:31: warning: Member YASS (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:32: warning: Member DAM (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:33: warning: Member SOUND_BACKGROUND_SELECT (macro definition) of file champ_select.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'e' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'renderer' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'largeurF' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'hauteurF' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'scene' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'son' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'liste_touches' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/champ_select.h:52: warning: argument 'keyboardState' from the argument list of champ_select has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'renderer' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'largeurF' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'hauteurF' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'round' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'Joueur1' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'Joueur2' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:87: warning: argument 'BG' from the argument list of afficherRound has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'renderer' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'keyboardState' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'Joueur1' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'Joueur2' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'largeurF' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'hauteurF' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'son' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:71: warning: argument 'liste_touches' from the argument list of combatStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'renderer' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'keyboardState' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'Joueur1' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'Joueur2' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'largeurF' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'hauteurF' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'waitForFrame' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'hit' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'dmg' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'stun' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'liste_touches' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'round' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'stunTexture' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'stunRect' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/combat.h:54: warning: argument 'stunTextureRect' from the argument list of roundStart has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:28: warning: Member listeT_t (typedef) of file creation.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:46: warning: Member rectangle (typedef) of file creation.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:59: warning: Member listeRect (typedef) of file creation.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:19: warning: Member NOM_JEU (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:20: warning: Member ICONE (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:23: warning: Member TTF_FONT (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:26: warning: Member IMG_MAIN_MENU_BG (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:27: warning: Member IMG_LOGO (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:28: warning: Member IMG_BOUTON_OPT (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:29: warning: Member IMG_BOUTON_QUIT (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:30: warning: Member IMG_BOUTON_PLAY (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:31: warning: Member SOUND_BACKGROUND (macro definition) of file menu_principal.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:47: warning: argument 'e' from the argument list of menu_principal has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:47: warning: argument 'renderer' from the argument list of menu_principal has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:47: warning: argument 'largeurF' from the argument list of menu_principal has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:47: warning: argument 'hauteurF' from the argument list of menu_principal has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/menu_principal.h:47: warning: argument 'scene' from the argument list of menu_principal has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:16: warning: Member VIE_MAX (macro definition) of file perso.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:19: warning: Member animation_e (typedef) of file perso.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:19: warning: Member anime (enumeration) of file perso.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:15: warning: Member touches_e (typedef) of file touches.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:15: warning: Member touches (enumeration) of file touches.h is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:34: warning: argument 'liste_touches' from the argument list of LireTouches has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:34: warning: argument 'fichier' from the argument list of LireTouches has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:45: warning: argument 'liste_touches' from the argument list of ModifierTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:45: warning: argument 'numero_ligne' from the argument list of ModifierTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:45: warning: argument 'touche' from the argument list of ModifierTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:45: warning: argument 'fichier' from the argument list of ModifierTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:25: warning: argument 'liste_touches' from the argument list of resetTouches has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:25: warning: argument 'f_fichier' from the argument list of resetTouches has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:25: warning: argument 'r_fichier' from the argument list of resetTouches has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'renderer' from the argument list of saisirTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'font' from the argument list of saisirTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'event' from the argument list of saisirTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'liste_touches' from the argument list of saisirTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'touche' from the argument list of saisirTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'txt' from the argument list of saisirTouche has multiple @param documentation sections
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/touches.h:59: warning: argument 'fichier' from the argument list of saisirTouche has multiple @param documentation sections
 /mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:25: warning: Member IMG_GAME_BG (macro definition) of file combat.c is not documented.
 /mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:26: warning: Member IMG_STUN (macro definition) of file combat.c is not documented.
 /mnt/d/ghrib/Documents/IC2-Fighter/src/combat.c:27: warning: Member IMG_VICTOIRE1 (macro definition) of file combat.c is not documented.
@@ -21,3 +118,55 @@ warning: source '$(../lib)' is not a readable file or directory... skipping.
 /mnt/d/ghrib/Documents/IC2-Fighter/src/main.c:44: warning: Member scenes (enumeration) of file main.c is not documented.
 /mnt/d/ghrib/Documents/IC2-Fighter/src/perso.c:16: warning: Member TTF_FONT (macro definition) of file perso.c is not documented.
 /mnt/d/ghrib/Documents/IC2-Fighter/src/perso.c:17: warning: Member DMG (macro definition) of file perso.c is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:31: warning: Member texture (variable) of struct bouton_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:35: warning: Member relache (variable) of struct bouton_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:53: warning: Member pBouton (variable) of struct listeB_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/bouton.h:54: warning: Member suivant (variable) of struct listeB_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:57: warning: Member pRect (variable) of struct listeRect_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:58: warning: Member suivant (variable) of struct listeRect_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:26: warning: Member pTexture (variable) of struct listeT_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:27: warning: Member suivant (variable) of struct listeT_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:53: warning: Member pos (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:54: warning: Member texture (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:55: warning: Member etatIdle (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:56: warning: Member reverseIdle (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:57: warning: Member idle (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:58: warning: Member etatWalk (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:59: warning: Member reverseWalk (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:60: warning: Member walk (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:61: warning: Member punchLat (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:62: warning: Member kick (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:63: warning: Member punchUp (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:64: warning: Member kickDown (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:65: warning: Member block (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:66: warning: Member blocking (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:67: warning: Member jump (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:68: warning: Member moveJump (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:69: warning: Member crouch (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:70: warning: Member crouching (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:71: warning: Member etatCrouch (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:72: warning: Member crouchPunch (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:73: warning: Member crouchKick (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:74: warning: Member standHurt (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:75: warning: Member jumpHurt (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:76: warning: Member crouchHurt (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:77: warning: Member animation (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:78: warning: Member etatAnimation (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:79: warning: Member stunned (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:80: warning: Member etatStun (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:81: warning: Member speed (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:82: warning: Member hp (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:83: warning: Member pseudo (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:84: warning: Member hitBox (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:85: warning: Member hurtBox (variable) of struct personnage is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:29: warning: Member txt (variable) of struct pseudo_t is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:30: warning: Member rect (variable) of struct pseudo_t is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:41: warning: Member pv (variable) of struct pv_t is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/perso.h:42: warning: Member barrePv (variable) of struct pv_t is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:39: warning: Member largeur (variable) of struct rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:40: warning: Member hauteur (variable) of struct rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:41: warning: Member ratioX (variable) of struct rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:42: warning: Member ratioY (variable) of struct rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:43: warning: Member ratioW (variable) of struct rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:44: warning: Member ratioH (variable) of struct rectangle_s is not documented.
+/mnt/d/ghrib/Documents/IC2-Fighter/lib/creation.h:45: warning: Member rect (variable) of struct rectangle_s is not documented.

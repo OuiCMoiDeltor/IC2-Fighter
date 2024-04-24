@@ -1,0 +1,55 @@
+\hypertarget{menu__principal_8c}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/src/menu\+\_\+principal.c}
+\label{menu__principal_8c}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/menu\_principal.c@{/mnt/d/ghrib/Documents/IC2-\/Fighter/src/menu\_principal.c}}
+
+
+Fichier gérant le menu principal du jeu \char`\"{}\+IC2 Fighter\char`\"{}.  
+
+
+{\ttfamily \#include \char`\"{}../lib/menu\+\_\+principal.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{menu__principal_8c_a820e45b5262e47d53486140add53934e}{menu\+\_\+principal}} (SDL\+\_\+\+Event e, SDL\+\_\+\+Renderer $\ast$renderer, int largeurF, int hauteurF, int $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Affiche et gère le menu principal du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier gérant le menu principal du jeu \char`\"{}\+IC2 Fighter\char`\"{}. 
+
+Ce fichier contient les déclarations nécessaires pour afficher et gérer le menu principal du jeu. Il inclut les interactions avec les boutons du menu pour naviguer dans les différentes options du jeu comme jouer, accéder aux options, ou quitter le jeu. Les ressources graphiques et sonores utilisées pour le menu sont également définies ici. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__principal_8c_a820e45b5262e47d53486140add53934e}\label{menu__principal_8c_a820e45b5262e47d53486140add53934e}} 
+\index{menu\_principal.c@{menu\_principal.c}!menu\_principal@{menu\_principal}}
+\index{menu\_principal@{menu\_principal}!menu\_principal.c@{menu\_principal.c}}
+\doxysubsubsection{\texorpdfstring{menu\_principal()}{menu\_principal()}}
+{\footnotesize\ttfamily int menu\+\_\+principal (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{e,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{largeurF,  }\item[{int}]{hauteurF,  }\item[{int $\ast$}]{scene }\end{DoxyParamCaption})}
+
+
+
+Affiche et gère le menu principal du jeu. 
+
+Fonction pour initialiser et gérer le menu principal du jeu.
+
+Cette fonction affiche le menu principal, gère les interactions de l\textquotesingle{}utilisateur avec les différents boutons (Options, Quitter, Jouer), et gère les transitions vers d\textquotesingle{}autres scènes en fonction des actions de l\textquotesingle{}utilisateur. La fonction gère également l\textquotesingle{}affichage d\textquotesingle{}animations de boutons pour une meilleure expérience utilisateur.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & Événement SDL pour gérer les interactions utilisateur. \\
+\hline
+{\em renderer} & Le renderer SDL utilisé pour dessiner à l\textquotesingle{}écran. \\
+\hline
+{\em largeurF} & Largeur de la fenêtre de l\textquotesingle{}application. \\
+\hline
+{\em hauteurF} & Hauteur de la fenêtre de l\textquotesingle{}application. \\
+\hline
+{\em scene} & Pointeur vers l\textquotesingle{}entier qui gère l\textquotesingle{}indice de la scène actuelle à afficher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le menu doit continuer à s\textquotesingle{}exécuter, 1 pour quitter l\textquotesingle{}application. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 31 du fichier menu\+\_\+principal.\+c.
+

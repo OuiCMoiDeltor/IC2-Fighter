@@ -1,0 +1,189 @@
+\hypertarget{bouton_8h}{}\doxysection{Référence du fichier /mnt/d/ghrib/\+Documents/\+IC2-\/\+Fighter/lib/bouton.h}
+\label{bouton_8h}\index{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/bouton.h@{/mnt/d/ghrib/Documents/IC2-\/Fighter/lib/bouton.h}}
+
+
+En-\/tête pour la gestion des boutons avec SDL.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}creation.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbouton__s}{bouton\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structlisteB__s}{liste\+B\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bouton_8h_a8c61030747316861464badac8e6a5748}\label{bouton_8h_a8c61030747316861464badac8e6a5748}} 
+\#define {\bfseries BOUTON\+\_\+\+RELACHE}~0
+\item 
+\mbox{\Hypertarget{bouton_8h_a4b85c197cf44b984105a214d0adbc66b}\label{bouton_8h_a4b85c197cf44b984105a214d0adbc66b}} 
+\#define {\bfseries BOUTON\+\_\+\+APPUYE}~1
+\item 
+\mbox{\Hypertarget{bouton_8h_ad0caf628def02d0051ca0e9ee5fbb4be}\label{bouton_8h_ad0caf628def02d0051ca0e9ee5fbb4be}} 
+\#define {\bfseries BOUTON\+\_\+\+OVER}~2
+\item 
+\mbox{\Hypertarget{bouton_8h_a459fdc94d1460e49be8eb83d83e99e0b}\label{bouton_8h_a459fdc94d1460e49be8eb83d83e99e0b}} 
+\#define {\bfseries NB\+\_\+\+ETAT}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bouton_8h_ad5e0e8259816cebea4cfe931765f707d}\label{bouton_8h_ad5e0e8259816cebea4cfe931765f707d}} 
+typedef struct \mbox{\hyperlink{structbouton__s}{bouton\+\_\+s}} {\bfseries bouton}
+\item 
+\mbox{\Hypertarget{bouton_8h_a3f891e108d08dc1f613666ac92c9e2f9}\label{bouton_8h_a3f891e108d08dc1f613666ac92c9e2f9}} 
+typedef struct \mbox{\hyperlink{structlisteB__s}{liste\+B\+\_\+s}} {\bfseries liste\+Bouton}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structbouton}{bouton}} $\ast$ \mbox{\hyperlink{bouton_8h_a73d225267a2c6070bbfaea0f5f1d7d7f}{creer\+Bouton}} (SDL\+\_\+\+Renderer $\ast$, \mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$, int $\ast$, int $\ast$, float, float, float, float, char $\ast$, int, int)
+\begin{DoxyCompactList}\small\item\em Crée un bouton avec des propriétés spécifiques. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bouton_8h_acd55ac179dc4fe1e42ffa208652fc935}{Destroy\+Bouton}} (\mbox{\hyperlink{structbouton}{bouton}} $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Détruit un bouton et libère toutes les ressources associées. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlisteBouton}{liste\+Bouton}} $\ast$ \mbox{\hyperlink{bouton_8h_a3c8f3e8c40ba35beddca8356af5da5dc}{creer\+Liste\+Bouton}} ()
+\begin{DoxyCompactList}\small\item\em Crée une liste pour gérer les boutons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bouton_8h_a02c83690adb669422845252d4767f105}{ajout\+Liste\+Bouton}} (\mbox{\hyperlink{structlisteBouton}{liste\+Bouton}} $\ast$$\ast$liste, \mbox{\hyperlink{structbouton}{bouton}} $\ast$$\ast$Bouton)
+\begin{DoxyCompactList}\small\item\em Ajoute un bouton à une liste de boutons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bouton_8h_a15dcfa0a7ea076102547aa8ab0383ad8}{detruire\+Liste\+Bouton}} (\mbox{\hyperlink{structlisteBouton}{liste\+Bouton}} $\ast$$\ast$liste)
+\begin{DoxyCompactList}\small\item\em Détruit une liste de boutons et libère toutes les ressources associées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+En-\/tête pour la gestion des boutons avec SDL. 
+
+Ce fichier d\textquotesingle{}en-\/tête définit les structures et les fonctions nécessaires pour créer et gérer des boutons interactifs dans une application utilisant la SDL. Les boutons peuvent avoir différents états visuels (relâché, appuyé, survolé) et sont utilisés pour gérer les interactions utilisateur dans l\textquotesingle{}interface graphique. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{bouton_8h_a02c83690adb669422845252d4767f105}\label{bouton_8h_a02c83690adb669422845252d4767f105}} 
+\index{bouton.h@{bouton.h}!ajoutListeBouton@{ajoutListeBouton}}
+\index{ajoutListeBouton@{ajoutListeBouton}!bouton.h@{bouton.h}}
+\doxysubsubsection{\texorpdfstring{ajoutListeBouton()}{ajoutListeBouton()}}
+{\footnotesize\ttfamily void ajout\+Liste\+Bouton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteBouton}{liste\+Bouton}} $\ast$$\ast$}]{liste,  }\item[{\mbox{\hyperlink{structbouton}{bouton}} $\ast$$\ast$}]{Bouton }\end{DoxyParamCaption})}
+
+
+
+Ajoute un bouton à une liste de boutons. 
+
+Cette fonction ajoute un bouton à la fin d\textquotesingle{}une liste circulaire de boutons. Elle ajuste les pointeurs pour maintenir la structure de la liste.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Double pointeur vers la liste de boutons où ajouter le nouveau bouton. \\
+\hline
+{\em Bouton} & Double pointeur vers le bouton à ajouter à la liste. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 155 du fichier bouton.\+c.
+
+\mbox{\Hypertarget{bouton_8h_a73d225267a2c6070bbfaea0f5f1d7d7f}\label{bouton_8h_a73d225267a2c6070bbfaea0f5f1d7d7f}} 
+\index{bouton.h@{bouton.h}!creerBouton@{creerBouton}}
+\index{creerBouton@{creerBouton}!bouton.h@{bouton.h}}
+\doxysubsubsection{\texorpdfstring{creerBouton()}{creerBouton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbouton}{bouton}}$\ast$ creer\+Bouton (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structlisteRect__s}{liste\+Rect}} $\ast$$\ast$}]{liste\+Rectangle,  }\item[{int $\ast$}]{largeur,  }\item[{int $\ast$}]{hauteur,  }\item[{float}]{rX,  }\item[{float}]{rY,  }\item[{float}]{rW,  }\item[{float}]{rH,  }\item[{char $\ast$}]{img,  }\item[{int}]{anime,  }\item[{int}]{nb\+Etat }\end{DoxyParamCaption})}
+
+
+
+Crée un bouton avec des propriétés spécifiques. 
+
+Cette fonction alloue la mémoire pour un nouveau bouton, initialise sa texture à partir d\textquotesingle{}une image, et définit ses dimensions et états selon qu\textquotesingle{}il soit animé ou non. La position et la taille du bouton sont spécifiées par les paramètres de rectangle, et les états du bouton sont gérés en fonction du paramètre \textquotesingle{}anime\textquotesingle{}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur vers le rendu SDL. \\
+\hline
+{\em liste\+Rectangle} & Pointeur vers la liste des rectangles à mettre à jour avec la position du bouton. \\
+\hline
+{\em largeur} & Largeur du bouton (modifiable). \\
+\hline
+{\em hauteur} & Hauteur du bouton (modifiable). \\
+\hline
+{\em rX} & Position X du rectangle du bouton. \\
+\hline
+{\em rY} & Position Y du rectangle du bouton. \\
+\hline
+{\em rW} & Largeur du rectangle du bouton. \\
+\hline
+{\em rH} & Hauteur du rectangle du bouton. \\
+\hline
+{\em img} & Chemin vers l\textquotesingle{}image à utiliser pour la texture du bouton. \\
+\hline
+{\em anime} & Indique si le bouton doit être animé. \\
+\hline
+{\em nb\+Etat} & Nombre d\textquotesingle{}états graphiques du bouton (utilisé pour l\textquotesingle{}animation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pointeur vers le bouton nouvellement créé ou NULL en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 42 du fichier bouton.\+c.
+
+\mbox{\Hypertarget{bouton_8h_a3c8f3e8c40ba35beddca8356af5da5dc}\label{bouton_8h_a3c8f3e8c40ba35beddca8356af5da5dc}} 
+\index{bouton.h@{bouton.h}!creerListeBouton@{creerListeBouton}}
+\index{creerListeBouton@{creerListeBouton}!bouton.h@{bouton.h}}
+\doxysubsubsection{\texorpdfstring{creerListeBouton()}{creerListeBouton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlisteBouton}{liste\+Bouton}}$\ast$ creer\+Liste\+Bouton (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crée une liste pour gérer les boutons. 
+
+Cette fonction alloue et initialise une nouvelle liste de boutons vide.
+
+\begin{DoxyReturn}{Renvoie}
+Pointeur vers la nouvelle liste de boutons. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 137 du fichier bouton.\+c.
+
+\mbox{\Hypertarget{bouton_8h_acd55ac179dc4fe1e42ffa208652fc935}\label{bouton_8h_acd55ac179dc4fe1e42ffa208652fc935}} 
+\index{bouton.h@{bouton.h}!DestroyBouton@{DestroyBouton}}
+\index{DestroyBouton@{DestroyBouton}!bouton.h@{bouton.h}}
+\doxysubsubsection{\texorpdfstring{DestroyBouton()}{DestroyBouton()}}
+{\footnotesize\ttfamily void Destroy\+Bouton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbouton}{bouton}} $\ast$$\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Détruit un bouton et libère toutes les ressources associées. 
+
+Cette fonction détruit la texture du bouton, libère les rectangles des états si nécessaire, et libère la structure du bouton elle-\/même.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em b} & Pointeur double vers le bouton à détruire. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 112 du fichier bouton.\+c.
+
+\mbox{\Hypertarget{bouton_8h_a15dcfa0a7ea076102547aa8ab0383ad8}\label{bouton_8h_a15dcfa0a7ea076102547aa8ab0383ad8}} 
+\index{bouton.h@{bouton.h}!detruireListeBouton@{detruireListeBouton}}
+\index{detruireListeBouton@{detruireListeBouton}!bouton.h@{bouton.h}}
+\doxysubsubsection{\texorpdfstring{detruireListeBouton()}{detruireListeBouton()}}
+{\footnotesize\ttfamily void detruire\+Liste\+Bouton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlisteBouton}{liste\+Bouton}} $\ast$$\ast$}]{liste }\end{DoxyParamCaption})}
+
+
+
+Détruit une liste de boutons et libère toutes les ressources associées. 
+
+Cette fonction parcourt une liste de boutons, détruit chaque bouton et libère la mémoire de la liste.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & Double pointeur vers la liste de boutons à détruire. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 182 du fichier bouton.\+c.
+
